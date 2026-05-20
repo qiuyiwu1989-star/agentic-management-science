@@ -1,0 +1,1376 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Skill 库 · 智能体管理学 36 个能力包</title>
+<meta name="description" content="36 个可直接被 Claude / Agent 使用的 Skill 文件，对应 F01–F36 全部框架。每个 Skill 含标准化输入输出、执行步骤、治理神经联动。" />
+<link rel="alternate" type="text/plain" href="llms.txt" title="LLM-friendly index" />
+<link rel="alternate" type="application/json" href="manifest.json" title="Machine-readable manifest" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Collection",
+  "name": "智能体管理学 · Skill 库",
+  "description": "36 个可被 Claude / Agent 直接调用的执行 Skill，对应 F01–F36 全部框架",
+  "url": "https://qiuyiwu.com/ams/skills/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "智能体管理学 · Agentic Management Science",
+    "url": "https://qiuyiwu.com/ams/"
+  },
+  "hasPart": [
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F01",
+      "name": "智能体五力重构法",
+      "alternateName": "Agentic Five Forces Reconstruction",
+      "description": "智能体竞争结构分析——对波特五力框架的智能体时代重写。当用户需要分析一个行业在AI/智能体时代的竞争格局变化、评估进入壁垒、判断护城河有效性、或制定3-5年竞争战略时使用。触发词：竞争格局分析、行业分析、五力分析、进入壁垒、市场结构、竞争对手分析、行业变局、AI如何改变竞争、供应商议价力、替代品威胁、行业战略。",
+      "url": "https://qiuyiwu.com/ams/skills/F01.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [
+        "竞争格局分析",
+        "行业分析",
+        "五力分析"
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "竞争重写",
+        "alternateName": "Competition"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F02",
+      "name": "智能体护城河重估法",
+      "alternateName": "Seven-Dimensional Moat Assessment",
+      "description": "系统性护城河评估——智能体时代的七维护城河量化分析工具。当用户需要评估企业竞争优势的真实深度、判断护城河是否在加厚或侵蚀、与竞争对手做护城河结构对比、或制定护城河强化路径时使用。触发词：护城河分析、竞争优势评估、壁垒分析、护城河有多深、我们的优势在哪里、数据飞轮、工作流嵌入、合规壁垒、竞争壁垒、差异化优势、AI时代的竞争优势、我们为什么能赢、投资尽调竞争评估",
+      "url": "https://qiuyiwu.com/ams/skills/F02.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [
+        "护城河分析",
+        "竞争优势评估",
+        "壁垒分析"
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "竞争重写",
+        "alternateName": "Competition"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F03",
+      "name": "智能体组合矩阵",
+      "alternateName": "Agentic Portfolio Matrix",
+      "description": "智能体组合管理——以「自主化成熟度 × 战略价值」双轴矩阵，对企业内所有Agent项目进行战略分类和资源配置决策。当用户需要判断哪些Agent项目应该扩张/投入/控制/退出、向管理层汇报AI投资优先级、管理多个Agent项目的资源协调，或在AI能力突破后快速重估组合时使用。触发词：Agent投资优先级、哪些AI项目值得做、AI项目太多不知道怎么选、Agent",
+      "url": "https://qiuyiwu.com/ams/skills/F03.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [
+        "Agent投资优先级",
+        "哪些AI项目值得做",
+        "AI项目太多不知道怎么选"
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "竞争重写",
+        "alternateName": "Competition"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F04",
+      "name": "智能体能力三元获取法",
+      "alternateName": "Triadic Intelligence Capability Acquisition",
+      "description": "当用户需要判断「某项智能体能力应该自建、采购还是编排」时激活。",
+      "url": "https://qiuyiwu.com/ams/skills/F04.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "竞争重写",
+        "alternateName": "Competition"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F05",
+      "name": "数字劳动力资产观",
+      "alternateName": "Digital Labor Assetization Method",
+      "description": "当用户需要评估智能体投入的资产价值、建立数字劳动力资产认知、或向管理层/投资方汇报AI资产规模时激活。",
+      "url": "https://qiuyiwu.com/ams/skills/F05.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "竞争重写",
+        "alternateName": "Competition"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F06",
+      "name": "智能体即服务商业模型",
+      "alternateName": "Agent as a Service",
+      "description": "当用户需要评估或设计智能体能力的商业化变现方案时激活。",
+      "url": "https://qiuyiwu.com/ams/skills/F06.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "竞争重写",
+        "alternateName": "Competition"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F07",
+      "name": "人机混合网络组织",
+      "alternateName": "Human-Agent Capability Network Organization",
+      "description": "当用户需要设计或分析人机混合组织形态时激活。",
+      "url": "https://qiuyiwu.com/ams/skills/F07.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "组织重写",
+        "alternateName": "Organization"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F08",
+      "name": "双前台智能体中台架构",
+      "alternateName": "Dual-Front Agent Middle Platform",
+      "description": "当用户需要设计或诊断智能体中台架构时激活。",
+      "url": "https://qiuyiwu.com/ams/skills/F08.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "组织重写",
+        "alternateName": "Organization"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F09",
+      "name": "人机责任决策矩阵",
+      "alternateName": "Human-Agent Responsibility Decision Matrix",
+      "description": "当用户需要设计或审查人机协同治理结构时激活。",
+      "url": "https://qiuyiwu.com/ams/skills/F09.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "组织重写",
+        "alternateName": "Organization"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F10",
+      "name": "智能体时代企业岗位体系",
+      "alternateName": "Agentic Role Redesign Method",
+      "description": "当用户需要重新设计岗位体系或识别AI战略落地的人才瓶颈时激活。",
+      "url": "https://qiuyiwu.com/ams/skills/F10.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "组织重写",
+        "alternateName": "Organization"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F11",
+      "name": "智能体安全三系统架构",
+      "alternateName": "Agent Boundary-Escalation-Recovery System",
+      "description": "当用户需要设计或审查Agent运行时的安全控制机制时激活。",
+      "url": "https://qiuyiwu.com/ams/skills/F11.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "组织重写",
+        "alternateName": "Organization"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F12",
+      "name": "组织变革与文化范式",
+      "alternateName": "Kotter-AI Transformation Framework",
+      "description": "基于 Kotter-AI 八步变革法与 Agent-First 文化六特征，诊断组织在 AI 转型中的",
+      "url": "https://qiuyiwu.com/ams/skills/F12.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "组织重写",
+        "alternateName": "Organization"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F13",
+      "name": "智能体角色定位光谱",
+      "alternateName": "Agent Role Positioning Spectrum",
+      "description": "当用户需要定义或讨论Agent产品的定位时激活。",
+      "url": "https://qiuyiwu.com/ams/skills/F13.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "产品重写",
+        "alternateName": "Product"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F14",
+      "name": "结果导向任务框架",
+      "alternateName": "Job-to-Be-Outcome-Owned",
+      "description": "当用户需要定义Agent任务的「成功结果」而非「要做什么功能」时激活。",
+      "url": "https://qiuyiwu.com/ams/skills/F14.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "产品重写",
+        "alternateName": "Product"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F15",
+      "name": "上下文优先设计",
+      "alternateName": "Context-Aware Design Method",
+      "description": "上下文优先设计（Context-First Design）。当需要为Agent产品设计信息架构、",
+      "url": "https://qiuyiwu.com/ams/skills/F15.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "产品重写",
+        "alternateName": "Product"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F16",
+      "name": "托付型产品市场匹配法",
+      "alternateName": "Delegation Product-Market Fit",
+      "description": "可靠性产品市场匹配诊断（Reliability-PMF）。当需要评估Agent产品是否达到",
+      "url": "https://qiuyiwu.com/ams/skills/F16.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "产品重写",
+        "alternateName": "Product"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F17",
+      "name": "可信智能体七维评估法",
+      "alternateName": "VERITAS — Seven-Dimensional Trustworthy Agent Evaluation",
+      "description": "七维智能体评估模型（VERITAS）。当需要全面评估Agent能力、判断是否可上线、",
+      "url": "https://qiuyiwu.com/ams/skills/F17.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "产品重写",
+        "alternateName": "Product"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F18",
+      "name": "可治理信任模型",
+      "alternateName": "CATER — Governable Trust Five-Dimension Model",
+      "description": "可治理信任模型评估（CATER）。当需要评估Agent的治理信任水平、判断是否",
+      "url": "https://qiuyiwu.com/ams/skills/F18.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "产品重写",
+        "alternateName": "Product"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F19",
+      "name": "多智能体架构成熟度阶梯",
+      "alternateName": "Multi-Agent Architecture Maturity Ladder",
+      "description": "多智能体架构阶梯选型（MAS Architecture Ladder）。当需要选择Agent架构层级、",
+      "url": "https://qiuyiwu.com/ams/skills/F19.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "产品重写",
+        "alternateName": "Product"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F20",
+      "name": "评测驱动工程法",
+      "alternateName": "Triple-E Evaluation-Driven Engineering",
+      "description": "当用户提到Agent开发方法论、评测驱动开发、Eval优先、实验管理、",
+      "url": "https://qiuyiwu.com/ams/skills/F20.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "系统重写",
+        "alternateName": "System"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F21",
+      "name": "智能体 Skill 资产治理",
+      "alternateName": "Skill Asset Governance Method",
+      "description": "当用户提到Skill治理、能力资产化、Skill Hub、技能管理、能力注册、",
+      "url": "https://qiuyiwu.com/ams/skills/F21.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "系统重写",
+        "alternateName": "System"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F22",
+      "name": "执行链路四环诊断法",
+      "alternateName": "Prompt-Retrieval-Tool-Decision Diagnostic Method",
+      "description": "当用户提到Agent调试、执行链路、输出质量差、意图理解偏差、",
+      "url": "https://qiuyiwu.com/ams/skills/F22.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "系统重写",
+        "alternateName": "System"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F23",
+      "name": "企业智能体六层架构",
+      "alternateName": "Six-Layer Enterprise Agent Architecture",
+      "description": "当用户提到企业架构、Agent架构分层、MCP协议、A2A协议、",
+      "url": "https://qiuyiwu.com/ams/skills/F23.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "系统重写",
+        "alternateName": "System"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F24",
+      "name": "智能体全生命周期开发法",
+      "alternateName": "Agent Development Lifecycle Method",
+      "description": "当用户提到Agent开发流程、开发生命周期、ADLC、SDLC对比、",
+      "url": "https://qiuyiwu.com/ams/skills/F24.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "系统重写",
+        "alternateName": "System"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F25",
+      "name": "正常—边缘—对抗三层评测矩阵",
+      "alternateName": "Three-Layer Scenario Evaluation Matrix",
+      "description": "当用户提到评测矩阵、测试设计、评测指标、质量评估、",
+      "url": "https://qiuyiwu.com/ams/skills/F25.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "系统重写",
+        "alternateName": "System"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F26",
+      "name": "概率回归测试法",
+      "alternateName": "Probabilistic Regression Testing",
+      "description": "当用户提到概率回归测试、PRT、质量门禁、回归检测、CI/CD集成、",
+      "url": "https://qiuyiwu.com/ams/skills/F26.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "系统重写",
+        "alternateName": "System"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F27",
+      "name": "智能体运营五级成熟度模型",
+      "alternateName": "AgentOps Five-Level Maturity Model",
+      "description": "智能体运营成熟度评估——判断组织AgentOps处于哪个阶段（M1-M5），",
+      "url": "https://qiuyiwu.com/ams/skills/F27.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "价值重写",
+        "alternateName": "Value"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F28",
+      "name": "智能体运营指标金字塔",
+      "alternateName": "Three-Dimensional SLI/SLO Pyramid",
+      "description": "三层SLI/SLO金字塔——为智能体建立成本层、性能层、质量层三层指标体系，",
+      "url": "https://qiuyiwu.com/ams/skills/F28.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "价值重写",
+        "alternateName": "Value"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F29",
+      "name": "数字员工绩效评分卡",
+      "alternateName": "Digital Worker Performance Scorecard",
+      "description": "智能体绩效评分卡——四维评估Agent表现（结果40%+质量25%+效率20%+经济15%），",
+      "url": "https://qiuyiwu.com/ams/skills/F29.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "价值重写",
+        "alternateName": "Value"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F30",
+      "name": "单次成功任务成本法",
+      "alternateName": "Cost per Successful Task",
+      "description": "单位任务成本模型——计算CPTA/CPS五项成本构成，用业务语义成功率作为分母，",
+      "url": "https://qiuyiwu.com/ams/skills/F30.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "价值重写",
+        "alternateName": "Value"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F31",
+      "name": "智能体价值回报核算法",
+      "alternateName": "Agent ROI Accounting Method",
+      "description": "Token投资回报模型——四类价值评估（人力节省/效率提升/收入增长/风险降低），",
+      "url": "https://qiuyiwu.com/ams/skills/F31.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "价值重写",
+        "alternateName": "Value"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F32",
+      "name": "智能体全域风险治理法",
+      "alternateName": "Seven-Risk Agent Governance Method",
+      "description": "智能体风险登记系统——识别七类新型风险（提示注入/幻觉/数据泄露/多Agent级联/",
+      "url": "https://qiuyiwu.com/ams/skills/F32.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "价值重写",
+        "alternateName": "Value"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F33",
+      "name": "智能体能力成熟度模型",
+      "alternateName": "Individual Agentic Capability Maturity Model",
+      "description": "基于智能体能力成熟度模型（ACMM），评估个人或组织的 AI 能力等级——",
+      "url": "https://qiuyiwu.com/ams/skills/F33.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "人类重写",
+        "alternateName": "Human"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F34",
+      "name": "角色转型地图",
+      "alternateName": "Task Structure Migration Map",
+      "description": "基于任务四象限分析框架，诊断 AI 对岗位的影响不是\"岗位存亡\"而是\"任务结构变化\"，",
+      "url": "https://qiuyiwu.com/ams/skills/F34.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "人类重写",
+        "alternateName": "Human"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F35",
+      "name": "智能体能力结构评估法",
+      "alternateName": "Four-Dimensional Agentic Literacy Assessment",
+      "description": "基于智能体素养评估模型（Agent Literacy Assessment），通过四维×五级矩阵",
+      "url": "https://qiuyiwu.com/ams/skills/F35.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "人类重写",
+        "alternateName": "Human"
+      }
+    },
+    {
+      "@type": "DigitalDocument",
+      "identifier": "F36",
+      "name": "人类核心能力六维模型",
+      "alternateName": "AC6 — Agentic Core 6 Capability Model",
+      "description": "基于六维核心能力模型（AC6），评估个人在智能体时代的核心能力结构——",
+      "url": "https://qiuyiwu.com/ams/skills/F36.md",
+      "encodingFormat": "text/markdown",
+      "keywords": [],
+      "about": {
+        "@type": "Thing",
+        "name": "人类重写",
+        "alternateName": "Human"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body class="bg-bg text-fg">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#blueprint" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系蓝图</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="../framework/F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="index.html" class="px-4 py-2 mono text-[13px] text-accent transition">Skill 库</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="https://qiuyiwu.com/" target="_blank" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="relative pt-36 pb-12 noise">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="orb orb-accent orb-drift" style="width:360px;height:360px;top:-60px;right:-80px;opacity:.16;"></div>
+  <div class="relative container">
+    <div class="kicker mb-6"><span class="accent">▌</span> Skill 库 · 36 个可执行能力包</div>
+    <h1 class="display text-[clamp(36px,6vw,84px)] max-w-4xl">把方法论<span class="text-accent">变成 Agent</span> 立即可用的能力</h1>
+    <p class="mt-6 max-w-3xl text-fg-dim text-lg leading-relaxed">
+      每一个 Skill 对应 F01–F36 中的一个框架。<strong class="text-fg">点击预览</strong>可在线读完整内容，<strong class="text-fg">下载</strong>得到 <code class="inline-code">.md</code> 文件可放进 Claude Code 的 <code class="inline-code">.claude/skills/</code> 或直接粘贴给 LLM。Agent 通过 <a href="manifest.json" class="text-accent hover:underline">manifest.json</a> 或 <a href="llms.txt" class="text-accent hover:underline">llms.txt</a> 可一次性抓取全部 36 个元数据。
+    </p>
+    <div class="mt-8 grid sm:grid-cols-3 gap-4 max-w-3xl">
+      <div class="usage-card">
+        <div class="usage-num">①</div>
+        <div class="usage-title">在线预览</div>
+        <div class="usage-text">点 <code class="inline-code">👁 预览</code> 直接读完整 Skill</div>
+      </div>
+      <div class="usage-card">
+        <div class="usage-num">②</div>
+        <div class="usage-title">本地下载</div>
+        <div class="usage-text">放进 Claude Code <code class="inline-code">.claude/skills/</code> 或粘贴给任何 LLM</div>
+      </div>
+      <div class="usage-card">
+        <div class="usage-num">③</div>
+        <div class="usage-title">Agent 直采</div>
+        <div class="usage-text">机器 fetch <code class="inline-code">manifest.json</code> / <code class="inline-code">llms.txt</code> 即得全索引</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pt-2 pb-24">
+  <div class="container">
+    <div class="sk-filter-bar">
+      <button class="filter-pill is-active" data-filter="all">全部 <span class="cnt">36</span></button>
+      <button class="filter-pill" data-filter="M1"><span class="dot" style="background:#8B5CFF"></span>竞争重写 <span class="cnt">6</span></button><button class="filter-pill" data-filter="M2"><span class="dot" style="background:#FF7A45"></span>组织重写 <span class="cnt">6</span></button><button class="filter-pill" data-filter="M3"><span class="dot" style="background:#36C9C6"></span>产品重写 <span class="cnt">7</span></button><button class="filter-pill" data-filter="M4"><span class="dot" style="background:#52C41A"></span>系统重写 <span class="cnt">7</span></button><button class="filter-pill" data-filter="M5"><span class="dot" style="background:#FFC53D"></span>价值重写 <span class="cnt">6</span></button><button class="filter-pill" data-filter="M6"><span class="dot" style="background:#F759AB"></span>人类重写 <span class="cnt">4</span></button>
+    </div>
+    <div class="sk-grid" id="sk-grid">
+
+        <article class="sk-card" data-module="M1" data-type="分析型" data-skill-id="F01" data-skill-title="智能体五力重构法">
+          <div class="sk-card-head">
+            <span class="sk-id">F01</span>
+            <span class="sk-type">分析型</span>
+          </div>
+          <h3 class="sk-title">智能体五力重构法</h3>
+          <div class="sk-subtitle">Agentic Five Forces Reconstruction <span class="sk-abbr">· AFFR</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#8B5CFF"></span>竞争重写</div>
+          <p class="sk-desc">智能体竞争结构分析——对波特五力框架的智能体时代重写。当用户需要分析一个行业在AI/智能体时代的竞争格局变化、评估进入壁垒、判断护城河有效性、或制定3-5年竞争战略时使用。触发词：竞争格局分析、行业分析、五力分析、进入壁垒、市场结构、竞争对手分析、行业变局、AI如何改变竞争、供应商议价力、替代品威胁、行业战略。</p>
+          <div class="sk-triggers"><span class="trig-chip">竞争格局分析</span><span class="trig-chip">行业分析</span><span class="trig-chip">五力分析</span></div>
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F01" data-title="智能体五力重构法" type="button">👁 预览</button>
+            <a href="F01.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F01.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M1" data-type="分析型（含评分）" data-skill-id="F02" data-skill-title="智能体护城河重估法">
+          <div class="sk-card-head">
+            <span class="sk-id">F02</span>
+            <span class="sk-type">分析型（含评分）</span>
+          </div>
+          <h3 class="sk-title">智能体护城河重估法</h3>
+          <div class="sk-subtitle">Seven-Dimensional Moat Assessment <span class="sk-abbr">· SDMA</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#8B5CFF"></span>竞争重写</div>
+          <p class="sk-desc">系统性护城河评估——智能体时代的七维护城河量化分析工具。当用户需要评估企业竞争优势的真实深度、判断护城河是否在加厚或侵蚀、与竞争对手做护城河结构对比、或制定护城河强化路径时使用。触发词：护城河分析、竞争优势评估、壁垒分析、护城河有多深、我们的优势在哪里、数据飞轮、工作流嵌入、合规壁垒、竞争壁垒、差异化优势、AI时代的竞争优势、我们为什么能赢、投资尽调竞争评估</p>
+          <div class="sk-triggers"><span class="trig-chip">护城河分析</span><span class="trig-chip">竞争优势评估</span><span class="trig-chip">壁垒分析</span></div>
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F02" data-title="智能体护城河重估法" type="button">👁 预览</button>
+            <a href="F02.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F02.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M1" data-type="决策型" data-skill-id="F03" data-skill-title="智能体组合矩阵">
+          <div class="sk-card-head">
+            <span class="sk-id">F03</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">智能体组合矩阵</h3>
+          <div class="sk-subtitle">Agentic Portfolio Matrix <span class="sk-abbr">· APM</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#8B5CFF"></span>竞争重写</div>
+          <p class="sk-desc">智能体组合管理——以「自主化成熟度 × 战略价值」双轴矩阵，对企业内所有Agent项目进行战略分类和资源配置决策。当用户需要判断哪些Agent项目应该扩张/投入/控制/退出、向管理层汇报AI投资优先级、管理多个Agent项目的资源协调，或在AI能力突破后快速重估组合时使用。触发词：Agent投资优先级、哪些AI项目值得做、AI项目太多不知道怎么选、Agent</p>
+          <div class="sk-triggers"><span class="trig-chip">Agent投资优先级</span><span class="trig-chip">哪些AI项目值得做</span><span class="trig-chip">AI项目太多不知道怎么选</span></div>
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F03" data-title="智能体组合矩阵" type="button">👁 预览</button>
+            <a href="F03.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F03.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M1" data-type="决策型" data-skill-id="F04" data-skill-title="智能体能力三元获取法">
+          <div class="sk-card-head">
+            <span class="sk-id">F04</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">智能体能力三元获取法</h3>
+          <div class="sk-subtitle">Triadic Intelligence Capability Acquisition <span class="sk-abbr">· TICA</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#8B5CFF"></span>竞争重写</div>
+          <p class="sk-desc">当用户需要判断「某项智能体能力应该自建、采购还是编排」时激活。</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F04" data-title="智能体能力三元获取法" type="button">👁 预览</button>
+            <a href="F04.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F04.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M1" data-type="混合型" data-skill-id="F05" data-skill-title="数字劳动力资产观">
+          <div class="sk-card-head">
+            <span class="sk-id">F05</span>
+            <span class="sk-type">混合型</span>
+          </div>
+          <h3 class="sk-title">数字劳动力资产观</h3>
+          <div class="sk-subtitle">Digital Labor Assetization Method <span class="sk-abbr">· DLAM</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#8B5CFF"></span>竞争重写</div>
+          <p class="sk-desc">当用户需要评估智能体投入的资产价值、建立数字劳动力资产认知、或向管理层/投资方汇报AI资产规模时激活。</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F05" data-title="数字劳动力资产观" type="button">👁 预览</button>
+            <a href="F05.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F05.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M1" data-type="混合型" data-skill-id="F06" data-skill-title="智能体即服务商业模型">
+          <div class="sk-card-head">
+            <span class="sk-id">F06</span>
+            <span class="sk-type">混合型</span>
+          </div>
+          <h3 class="sk-title">智能体即服务商业模型</h3>
+          <div class="sk-subtitle">Agent as a Service <span class="sk-abbr">· AaaS</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#8B5CFF"></span>竞争重写</div>
+          <p class="sk-desc">当用户需要评估或设计智能体能力的商业化变现方案时激活。</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F06" data-title="智能体即服务商业模型" type="button">👁 预览</button>
+            <a href="F06.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F06.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M2" data-type="分析型" data-skill-id="F07" data-skill-title="人机混合网络组织">
+          <div class="sk-card-head">
+            <span class="sk-id">F07</span>
+            <span class="sk-type">分析型</span>
+          </div>
+          <h3 class="sk-title">人机混合网络组织</h3>
+          <div class="sk-subtitle">Human-Agent Capability Network Organization <span class="sk-abbr">· HACNO</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FF7A45"></span>组织重写</div>
+          <p class="sk-desc">当用户需要设计或分析人机混合组织形态时激活。</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F07" data-title="人机混合网络组织" type="button">👁 预览</button>
+            <a href="F07.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F07.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M2" data-type="分析型" data-skill-id="F08" data-skill-title="双前台智能体中台架构">
+          <div class="sk-card-head">
+            <span class="sk-id">F08</span>
+            <span class="sk-type">分析型</span>
+          </div>
+          <h3 class="sk-title">双前台智能体中台架构</h3>
+          <div class="sk-subtitle">Dual-Front Agent Middle Platform <span class="sk-abbr">· DFAMP</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FF7A45"></span>组织重写</div>
+          <p class="sk-desc">当用户需要设计或诊断智能体中台架构时激活。</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F08" data-title="双前台智能体中台架构" type="button">👁 预览</button>
+            <a href="F08.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F08.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M2" data-type="决策型" data-skill-id="F09" data-skill-title="人机责任决策矩阵">
+          <div class="sk-card-head">
+            <span class="sk-id">F09</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">人机责任决策矩阵</h3>
+          <div class="sk-subtitle">Human-Agent Responsibility Decision Matrix <span class="sk-abbr">· RACI-A × DAL</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FF7A45"></span>组织重写</div>
+          <p class="sk-desc">当用户需要设计或审查人机协同治理结构时激活。</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F09" data-title="人机责任决策矩阵" type="button">👁 预览</button>
+            <a href="F09.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F09.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M2" data-type="决策型" data-skill-id="F10" data-skill-title="智能体时代企业岗位体系">
+          <div class="sk-card-head">
+            <span class="sk-id">F10</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">智能体时代企业岗位体系</h3>
+          <div class="sk-subtitle">Agentic Role Redesign Method <span class="sk-abbr">· ARRM</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FF7A45"></span>组织重写</div>
+          <p class="sk-desc">当用户需要重新设计岗位体系或识别AI战略落地的人才瓶颈时激活。</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F10" data-title="智能体时代企业岗位体系" type="button">👁 预览</button>
+            <a href="F10.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F10.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M2" data-type="混合型" data-skill-id="F11" data-skill-title="智能体安全三系统架构">
+          <div class="sk-card-head">
+            <span class="sk-id">F11</span>
+            <span class="sk-type">混合型</span>
+          </div>
+          <h3 class="sk-title">智能体安全三系统架构</h3>
+          <div class="sk-subtitle">Agent Boundary-Escalation-Recovery System <span class="sk-abbr">· ABERS</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FF7A45"></span>组织重写</div>
+          <p class="sk-desc">当用户需要设计或审查Agent运行时的安全控制机制时激活。</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F11" data-title="智能体安全三系统架构" type="button">👁 预览</button>
+            <a href="F11.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F11.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M2" data-type="诊断型" data-skill-id="F12" data-skill-title="组织变革与文化范式">
+          <div class="sk-card-head">
+            <span class="sk-id">F12</span>
+            <span class="sk-type">诊断型</span>
+          </div>
+          <h3 class="sk-title">组织变革与文化范式</h3>
+          <div class="sk-subtitle">Kotter-AI Transformation Framework <span class="sk-abbr">· Kotter-AI</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FF7A45"></span>组织重写</div>
+          <p class="sk-desc">基于 Kotter-AI 八步变革法与 Agent-First 文化六特征，诊断组织在 AI 转型中的</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F12" data-title="组织变革与文化范式" type="button">👁 预览</button>
+            <a href="F12.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F12.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M3" data-type="分析型" data-skill-id="F13" data-skill-title="智能体角色定位光谱">
+          <div class="sk-card-head">
+            <span class="sk-id">F13</span>
+            <span class="sk-type">分析型</span>
+          </div>
+          <h3 class="sk-title">智能体角色定位光谱</h3>
+          <div class="sk-subtitle">Agent Role Positioning Spectrum <span class="sk-abbr">· ARPS</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#36C9C6"></span>产品重写</div>
+          <p class="sk-desc">当用户需要定义或讨论Agent产品的定位时激活。</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F13" data-title="智能体角色定位光谱" type="button">👁 预览</button>
+            <a href="F13.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F13.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M3" data-type="决策型" data-skill-id="F14" data-skill-title="结果导向任务框架">
+          <div class="sk-card-head">
+            <span class="sk-id">F14</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">结果导向任务框架</h3>
+          <div class="sk-subtitle">Job-to-Be-Outcome-Owned <span class="sk-abbr">· JTBO</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#36C9C6"></span>产品重写</div>
+          <p class="sk-desc">当用户需要定义Agent任务的「成功结果」而非「要做什么功能」时激活。</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F14" data-title="结果导向任务框架" type="button">👁 预览</button>
+            <a href="F14.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F14.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M3" data-type="设计型" data-skill-id="F15" data-skill-title="上下文优先设计">
+          <div class="sk-card-head">
+            <span class="sk-id">F15</span>
+            <span class="sk-type">设计型</span>
+          </div>
+          <h3 class="sk-title">上下文优先设计</h3>
+          <div class="sk-subtitle">Context-Aware Design Method <span class="sk-abbr">· CADM</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#36C9C6"></span>产品重写</div>
+          <p class="sk-desc">上下文优先设计（Context-First Design）。当需要为Agent产品设计信息架构、</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F15" data-title="上下文优先设计" type="button">👁 预览</button>
+            <a href="F15.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F15.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M3" data-type="诊断型" data-skill-id="F16" data-skill-title="托付型产品市场匹配法">
+          <div class="sk-card-head">
+            <span class="sk-id">F16</span>
+            <span class="sk-type">诊断型</span>
+          </div>
+          <h3 class="sk-title">托付型产品市场匹配法</h3>
+          <div class="sk-subtitle">Delegation Product-Market Fit <span class="sk-abbr">· D-PMF</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#36C9C6"></span>产品重写</div>
+          <p class="sk-desc">可靠性产品市场匹配诊断（Reliability-PMF）。当需要评估Agent产品是否达到</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F16" data-title="托付型产品市场匹配法" type="button">👁 预览</button>
+            <a href="F16.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F16.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M3" data-type="评估型" data-skill-id="F17" data-skill-title="可信智能体七维评估法">
+          <div class="sk-card-head">
+            <span class="sk-id">F17</span>
+            <span class="sk-type">评估型</span>
+          </div>
+          <h3 class="sk-title">可信智能体七维评估法</h3>
+          <div class="sk-subtitle">VERITAS — Seven-Dimensional Trustworthy Agent Evaluation <span class="sk-abbr">· VERITAS</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#36C9C6"></span>产品重写</div>
+          <p class="sk-desc">七维智能体评估模型（VERITAS）。当需要全面评估Agent能力、判断是否可上线、</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F17" data-title="可信智能体七维评估法" type="button">👁 预览</button>
+            <a href="F17.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F17.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M3" data-type="评估型" data-skill-id="F18" data-skill-title="可治理信任模型">
+          <div class="sk-card-head">
+            <span class="sk-id">F18</span>
+            <span class="sk-type">评估型</span>
+          </div>
+          <h3 class="sk-title">可治理信任模型</h3>
+          <div class="sk-subtitle">CATER — Governable Trust Five-Dimension Model <span class="sk-abbr">· CATER</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#36C9C6"></span>产品重写</div>
+          <p class="sk-desc">可治理信任模型评估（CATER）。当需要评估Agent的治理信任水平、判断是否</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F18" data-title="可治理信任模型" type="button">👁 预览</button>
+            <a href="F18.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F18.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M3" data-type="决策型" data-skill-id="F19" data-skill-title="多智能体架构成熟度阶梯">
+          <div class="sk-card-head">
+            <span class="sk-id">F19</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">多智能体架构成熟度阶梯</h3>
+          <div class="sk-subtitle">Multi-Agent Architecture Maturity Ladder <span class="sk-abbr">· MAAML</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#36C9C6"></span>产品重写</div>
+          <p class="sk-desc">多智能体架构阶梯选型（MAS Architecture Ladder）。当需要选择Agent架构层级、</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F19" data-title="多智能体架构成熟度阶梯" type="button">👁 预览</button>
+            <a href="F19.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F19.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M4" data-type="决策型" data-skill-id="F20" data-skill-title="评测驱动工程法">
+          <div class="sk-card-head">
+            <span class="sk-id">F20</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">评测驱动工程法</h3>
+          <div class="sk-subtitle">Triple-E Evaluation-Driven Engineering <span class="sk-abbr">· E³</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#52C41A"></span>系统重写</div>
+          <p class="sk-desc">当用户提到Agent开发方法论、评测驱动开发、Eval优先、实验管理、</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F20" data-title="评测驱动工程法" type="button">👁 预览</button>
+            <a href="F20.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F20.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M4" data-type="决策型" data-skill-id="F21" data-skill-title="智能体 Skill 资产治理">
+          <div class="sk-card-head">
+            <span class="sk-id">F21</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">智能体 Skill 资产治理</h3>
+          <div class="sk-subtitle">Skill Asset Governance Method <span class="sk-abbr">· SAG</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#52C41A"></span>系统重写</div>
+          <p class="sk-desc">当用户提到Skill治理、能力资产化、Skill Hub、技能管理、能力注册、</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F21" data-title="智能体 Skill 资产治理" type="button">👁 预览</button>
+            <a href="F21.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F21.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M4" data-type="分析型" data-skill-id="F22" data-skill-title="执行链路四环诊断法">
+          <div class="sk-card-head">
+            <span class="sk-id">F22</span>
+            <span class="sk-type">分析型</span>
+          </div>
+          <h3 class="sk-title">执行链路四环诊断法</h3>
+          <div class="sk-subtitle">Prompt-Retrieval-Tool-Decision Diagnostic Method <span class="sk-abbr">· PRTD</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#52C41A"></span>系统重写</div>
+          <p class="sk-desc">当用户提到Agent调试、执行链路、输出质量差、意图理解偏差、</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F22" data-title="执行链路四环诊断法" type="button">👁 预览</button>
+            <a href="F22.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F22.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M4" data-type="分析型" data-skill-id="F23" data-skill-title="企业智能体六层架构">
+          <div class="sk-card-head">
+            <span class="sk-id">F23</span>
+            <span class="sk-type">分析型</span>
+          </div>
+          <h3 class="sk-title">企业智能体六层架构</h3>
+          <div class="sk-subtitle">Six-Layer Enterprise Agent Architecture <span class="sk-abbr">· SEAA</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#52C41A"></span>系统重写</div>
+          <p class="sk-desc">当用户提到企业架构、Agent架构分层、MCP协议、A2A协议、</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F23" data-title="企业智能体六层架构" type="button">👁 预览</button>
+            <a href="F23.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F23.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M4" data-type="决策型" data-skill-id="F24" data-skill-title="智能体全生命周期开发法">
+          <div class="sk-card-head">
+            <span class="sk-id">F24</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">智能体全生命周期开发法</h3>
+          <div class="sk-subtitle">Agent Development Lifecycle Method <span class="sk-abbr">· ADLC</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#52C41A"></span>系统重写</div>
+          <p class="sk-desc">当用户提到Agent开发流程、开发生命周期、ADLC、SDLC对比、</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F24" data-title="智能体全生命周期开发法" type="button">👁 预览</button>
+            <a href="F24.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F24.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M4" data-type="决策型" data-skill-id="F25" data-skill-title="正常—边缘—对抗三层评测矩阵">
+          <div class="sk-card-head">
+            <span class="sk-id">F25</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">正常—边缘—对抗三层评测矩阵</h3>
+          <div class="sk-subtitle">Three-Layer Scenario Evaluation Matrix <span class="sk-abbr">· TSEM</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#52C41A"></span>系统重写</div>
+          <p class="sk-desc">当用户提到评测矩阵、测试设计、评测指标、质量评估、</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F25" data-title="正常—边缘—对抗三层评测矩阵" type="button">👁 预览</button>
+            <a href="F25.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F25.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M4" data-type="决策型" data-skill-id="F26" data-skill-title="概率回归测试法">
+          <div class="sk-card-head">
+            <span class="sk-id">F26</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">概率回归测试法</h3>
+          <div class="sk-subtitle">Probabilistic Regression Testing <span class="sk-abbr">· PRT</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#52C41A"></span>系统重写</div>
+          <p class="sk-desc">当用户提到概率回归测试、PRT、质量门禁、回归检测、CI/CD集成、</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F26" data-title="概率回归测试法" type="button">👁 预览</button>
+            <a href="F26.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F26.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M5" data-type="评估型" data-skill-id="F27" data-skill-title="智能体运营五级成熟度模型">
+          <div class="sk-card-head">
+            <span class="sk-id">F27</span>
+            <span class="sk-type">评估型</span>
+          </div>
+          <h3 class="sk-title">智能体运营五级成熟度模型</h3>
+          <div class="sk-subtitle">AgentOps Five-Level Maturity Model <span class="sk-abbr">· AOMM</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FFC53D"></span>价值重写</div>
+          <p class="sk-desc">智能体运营成熟度评估——判断组织AgentOps处于哪个阶段（M1-M5），</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F27" data-title="智能体运营五级成熟度模型" type="button">👁 预览</button>
+            <a href="F27.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F27.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M5" data-type="决策型" data-skill-id="F28" data-skill-title="智能体运营指标金字塔">
+          <div class="sk-card-head">
+            <span class="sk-id">F28</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">智能体运营指标金字塔</h3>
+          <div class="sk-subtitle">Three-Dimensional SLI/SLO Pyramid <span class="sk-abbr">· 3DSP</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FFC53D"></span>价值重写</div>
+          <p class="sk-desc">三层SLI/SLO金字塔——为智能体建立成本层、性能层、质量层三层指标体系，</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F28" data-title="智能体运营指标金字塔" type="button">👁 预览</button>
+            <a href="F28.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F28.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M5" data-type="评估型" data-skill-id="F29" data-skill-title="数字员工绩效评分卡">
+          <div class="sk-card-head">
+            <span class="sk-id">F29</span>
+            <span class="sk-type">评估型</span>
+          </div>
+          <h3 class="sk-title">数字员工绩效评分卡</h3>
+          <div class="sk-subtitle">Digital Worker Performance Scorecard <span class="sk-abbr">· DWPS</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FFC53D"></span>价值重写</div>
+          <p class="sk-desc">智能体绩效评分卡——四维评估Agent表现（结果40%+质量25%+效率20%+经济15%），</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F29" data-title="数字员工绩效评分卡" type="button">👁 预览</button>
+            <a href="F29.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F29.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M5" data-type="分析型" data-skill-id="F30" data-skill-title="单次成功任务成本法">
+          <div class="sk-card-head">
+            <span class="sk-id">F30</span>
+            <span class="sk-type">分析型</span>
+          </div>
+          <h3 class="sk-title">单次成功任务成本法</h3>
+          <div class="sk-subtitle">Cost per Successful Task <span class="sk-abbr">· CPST</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FFC53D"></span>价值重写</div>
+          <p class="sk-desc">单位任务成本模型——计算CPTA/CPS五项成本构成，用业务语义成功率作为分母，</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F30" data-title="单次成功任务成本法" type="button">👁 预览</button>
+            <a href="F30.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F30.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M5" data-type="决策型" data-skill-id="F31" data-skill-title="智能体价值回报核算法">
+          <div class="sk-card-head">
+            <span class="sk-id">F31</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">智能体价值回报核算法</h3>
+          <div class="sk-subtitle">Agent ROI Accounting Method <span class="sk-abbr">· Agent ROI</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FFC53D"></span>价值重写</div>
+          <p class="sk-desc">Token投资回报模型——四类价值评估（人力节省/效率提升/收入增长/风险降低），</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F31" data-title="智能体价值回报核算法" type="button">👁 预览</button>
+            <a href="F31.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F31.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M5" data-type="决策型" data-skill-id="F32" data-skill-title="智能体全域风险治理法">
+          <div class="sk-card-head">
+            <span class="sk-id">F32</span>
+            <span class="sk-type">决策型</span>
+          </div>
+          <h3 class="sk-title">智能体全域风险治理法</h3>
+          <div class="sk-subtitle">Seven-Risk Agent Governance Method <span class="sk-abbr">· SRAG</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#FFC53D"></span>价值重写</div>
+          <p class="sk-desc">智能体风险登记系统——识别七类新型风险（提示注入/幻觉/数据泄露/多Agent级联/</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F32" data-title="智能体全域风险治理法" type="button">👁 预览</button>
+            <a href="F32.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F32.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M6" data-type="评估型" data-skill-id="F33" data-skill-title="智能体能力成熟度模型">
+          <div class="sk-card-head">
+            <span class="sk-id">F33</span>
+            <span class="sk-type">评估型</span>
+          </div>
+          <h3 class="sk-title">智能体能力成熟度模型</h3>
+          <div class="sk-subtitle">Individual Agentic Capability Maturity Model <span class="sk-abbr">· IACMM</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#F759AB"></span>人类重写</div>
+          <p class="sk-desc">基于智能体能力成熟度模型（ACMM），评估个人或组织的 AI 能力等级——</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F33" data-title="智能体能力成熟度模型" type="button">👁 预览</button>
+            <a href="F33.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F33.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M6" data-type="分析型" data-skill-id="F34" data-skill-title="角色转型地图">
+          <div class="sk-card-head">
+            <span class="sk-id">F34</span>
+            <span class="sk-type">分析型</span>
+          </div>
+          <h3 class="sk-title">角色转型地图</h3>
+          <div class="sk-subtitle">Task Structure Migration Map <span class="sk-abbr">· TSMM</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#F759AB"></span>人类重写</div>
+          <p class="sk-desc">基于任务四象限分析框架，诊断 AI 对岗位的影响不是"岗位存亡"而是"任务结构变化"，</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F34" data-title="角色转型地图" type="button">👁 预览</button>
+            <a href="F34.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F34.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M6" data-type="评估型" data-skill-id="F35" data-skill-title="智能体能力结构评估法">
+          <div class="sk-card-head">
+            <span class="sk-id">F35</span>
+            <span class="sk-type">评估型</span>
+          </div>
+          <h3 class="sk-title">智能体能力结构评估法</h3>
+          <div class="sk-subtitle">Four-Dimensional Agentic Literacy Assessment <span class="sk-abbr">· FALA</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#F759AB"></span>人类重写</div>
+          <p class="sk-desc">基于智能体素养评估模型（Agent Literacy Assessment），通过四维×五级矩阵</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F35" data-title="智能体能力结构评估法" type="button">👁 预览</button>
+            <a href="F35.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F35.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+
+        <article class="sk-card" data-module="M6" data-type="评估型" data-skill-id="F36" data-skill-title="人类核心能力六维模型">
+          <div class="sk-card-head">
+            <span class="sk-id">F36</span>
+            <span class="sk-type">评估型</span>
+          </div>
+          <h3 class="sk-title">人类核心能力六维模型</h3>
+          <div class="sk-subtitle">AC6 — Agentic Core 6 Capability Model <span class="sk-abbr">· AC6</span></div>
+          <div class="sk-mod"><span class="sk-mod-dot" style="background:#F759AB"></span>人类重写</div>
+          <p class="sk-desc">基于六维核心能力模型（AC6），评估个人在智能体时代的核心能力结构——</p>
+          
+          <div class="sk-actions">
+            <button class="sk-preview" data-skill="F36" data-title="人类核心能力六维模型" type="button">👁 预览</button>
+            <a href="F36.md" class="sk-download" download>下载 ↓</a>
+            <a href="../framework/F36.html" class="sk-link">→ 框架页</a>
+          </div>
+        </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MD PREVIEW MODAL ============ -->
+<div id="md-modal" class="md-modal" hidden>
+  <div class="md-modal-overlay" data-close></div>
+  <div class="md-modal-card" role="dialog" aria-modal="true" aria-labelledby="md-modal-title">
+    <header class="md-modal-head">
+      <div class="md-modal-meta">
+        <span id="md-modal-id" class="md-modal-id"></span>
+        <span id="md-modal-title" class="md-modal-title"></span>
+      </div>
+      <button class="md-modal-close" data-close aria-label="关闭" type="button">×</button>
+    </header>
+    <main class="md-modal-body markdown-body" id="md-modal-body">
+      <div class="md-modal-loading">加载中…</div>
+    </main>
+    <footer class="md-modal-foot">
+      <span class="md-modal-info"><span class="accent">●</span> 在线预览 · 完整 Skill 内容</span>
+      <a id="md-modal-download" class="sk-download" download>下载 .md ↓</a>
+    </footer>
+  </div>
+</div>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="https://qiuyiwu.com/" target="_blank" class="hover:text-accent transition">邱懿武 ↗</a>
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="manifest.json" class="hover:text-accent transition">manifest.json ↓</a>
+        <a href="llms.txt" class="hover:text-accent transition">llms.txt ↓</a>
+        <a href="_STANDARD.md" class="hover:text-accent transition">IO 标准 ↓</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- marked.js for Markdown rendering -->
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+<script src="../assets/ams.js"></script>
+<script>
+(function() {
+  // Module filter pills
+  const pills = document.querySelectorAll('.filter-pill');
+  const cards = document.querySelectorAll('.sk-card');
+  pills.forEach(p => p.addEventListener('click', () => {
+    pills.forEach(x => x.classList.remove('is-active'));
+    p.classList.add('is-active');
+    const f = p.dataset.filter;
+    cards.forEach(c => {
+      c.style.display = (f === 'all' || c.dataset.module === f) ? '' : 'none';
+    });
+  }));
+
+  // MD Preview modal
+  const modal = document.getElementById('md-modal');
+  const modalIdEl = document.getElementById('md-modal-id');
+  const modalTitleEl = document.getElementById('md-modal-title');
+  const modalBodyEl = document.getElementById('md-modal-body');
+  const modalDownloadEl = document.getElementById('md-modal-download');
+  const previewCache = new Map();
+
+  async function openPreview(skillId, title) {
+    modalIdEl.textContent = skillId;
+    modalTitleEl.textContent = title;
+    modalDownloadEl.href = skillId + '.md';
+    modalDownloadEl.setAttribute('download', skillId + '.md');
+    modalBodyEl.innerHTML = '<div class="md-modal-loading">加载 ' + skillId + '.md …</div>';
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    modalBodyEl.scrollTop = 0;
+
+    let mdText;
+    if (previewCache.has(skillId)) {
+      mdText = previewCache.get(skillId);
+    } else {
+      try {
+        const res = await fetch(skillId + '.md');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        mdText = await res.text();
+        previewCache.set(skillId, mdText);
+      } catch (err) {
+        modalBodyEl.innerHTML = '<div class="md-modal-loading" style="color:#ff6b6b">加载失败: ' + err.message + '</div>';
+        return;
+      }
+    }
+
+    // Strip YAML frontmatter for cleaner display (keep raw available via download)
+    const stripped = mdText.replace(/^---[\s\S]*?\n---\n*/, '');
+    if (window.marked) {
+      modalBodyEl.innerHTML = window.marked.parse(stripped);
+    } else {
+      modalBodyEl.innerHTML = '<pre>' + stripped.replace(/</g, '&lt;') + '</pre>';
+    }
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.sk-preview').forEach(btn => {
+    btn.addEventListener('click', () => {
+      openPreview(btn.dataset.skill, btn.dataset.title);
+    });
+  });
+
+  modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeModal));
+  document.addEventListener('keydown', e => {
+    if (!modal.hidden && e.key === 'Escape') closeModal();
+  });
+})();
+</script>
+</body>
+</html>
