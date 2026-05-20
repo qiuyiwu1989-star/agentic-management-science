@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>40 框架知识图谱 — 智能体管理学</title>
+<meta name="description" content="40 个框架的完整关系网络——按模块分布，按层次定位，按引用关联。一张图看清整套体系的逻辑链路。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+<style>
+  /* 知识图谱专属样式 */
+  .km-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  @media (max-width: 1100px) { .km-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 720px) { .km-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .km-grid { grid-template-columns: 1fr; } }
+  .km-col {
+    background: var(--bg-1);
+    padding: 1rem .85rem 1.25rem;
+    display: flex; flex-direction: column;
+    gap: .6rem;
+    border-top: 3px solid var(--mod-c);
+  }
+  /* 治理神经横切层 — 横跨整个 6 列宽度，单独的视觉处理 */
+  .km-governance-wrap {
+    margin-top: 1.25rem;
+    border: 1px dashed var(--accent);
+    background: rgba(var(--surface-rgb), 0.025);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .km-governance-wrap::before {
+    content:""; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    opacity: .7;
+  }
+  .km-cross-label {
+    text-align: center;
+    padding: .85rem 1rem .55rem;
+    border-bottom: 1px dashed var(--line);
+    background: rgba(var(--surface-rgb), 0.02);
+  }
+  .km-cross-label .tag {
+    font-family:'JetBrains Mono', monospace;
+    font-size: .65rem;
+    color: var(--accent);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .km-cross-label .name {
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--fg);
+    margin-top: .25rem;
+    letter-spacing: -.01em;
+  }
+  .km-cross-label .desc {
+    font-size: .8rem;
+    color: var(--fg-dim);
+    margin-top: .35rem;
+    max-width: 700px;
+    margin-left: auto; margin-right: auto;
+    line-height: 1.55;
+  }
+  .km-cross-nodes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+  }
+  @media (max-width: 720px) { .km-cross-nodes { grid-template-columns: 1fr; } }
+  .km-cross-nodes .km-node {
+    border-radius: 0;
+    border: none;
+    border-left: 3px solid #B5B5B5;
+    background: var(--bg-1);
+    padding: 1rem 1.1rem;
+  }
+  .km-cross-nodes .km-node:hover {
+    background: color-mix(in srgb, #B5B5B5 6%, var(--bg-1));
+    border-left-color: var(--accent);
+    transform: none;
+  }
+  .km-col-head { margin-bottom: .35rem; }
+  .km-col-num {
+    font-family:'JetBrains Mono', monospace;
+    font-size: .65rem; color: var(--mod-c);
+    letter-spacing: .12em; text-transform: uppercase;
+  }
+  .km-col-name {
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 500; font-size: .98rem;
+    color: var(--fg); margin-top: .25rem;
+    letter-spacing: -.01em;
+  }
+  .km-col-count {
+    font-family:'JetBrains Mono', monospace;
+    font-size: .62rem; color: var(--fg-dim2);
+    margin-top: .15rem;
+  }
+  .km-node {
+    display: block;
+    padding: .55rem .65rem;
+    background: rgba(var(--surface-rgb), 0.03);
+    border: 1px solid var(--line);
+    border-left: 2px solid var(--mod-c);
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all .18s ease;
+  }
+  .km-node:hover {
+    background: color-mix(in srgb, var(--mod-c) 6%, var(--bg-1));
+    border-color: var(--mod-c);
+    transform: translateX(2px);
+  }
+  .km-node-num {
+    font-family:'JetBrains Mono', monospace;
+    font-size: .68rem; color: var(--mod-c);
+    letter-spacing: .03em;
+  }
+  .km-node-name {
+    font-size: .78rem; color: var(--fg);
+    margin-top: .15rem; line-height: 1.3;
+    font-weight: 500;
+  }
+  .km-node-abbr {
+    font-family:'JetBrains Mono', monospace;
+    font-size: .58rem; color: var(--fg-dim2);
+    margin-top: .15rem;
+  }
+
+  /* 体系流逻辑图 */
+  .km-flow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+    .km-flow { grid-template-columns: 1.2fr 4fr 1fr; align-items: center; }
+  }
+  .km-anchor {
+    text-align: center;
+    padding: 1.2rem 1rem;
+    border: 2px dashed var(--accent);
+    border-radius: 6px;
+    background: rgba(var(--surface-rgb), 0.03);
+  }
+  .km-stream {
+    display: flex; flex-direction: column;
+    gap: .6rem;
+  }
+  .km-stream-row {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: .8rem;
+    align-items: center;
+  }
+  .km-stream-tag {
+    font-family:'JetBrains Mono', monospace;
+    font-size: .68rem; color: var(--mod-c);
+    letter-spacing: .08em;
+  }
+  .km-stream-text {
+    font-size: .85rem; color: var(--fg);
+    line-height: 1.5;
+  }
+  .km-stream-text strong { color: var(--mod-c); }
+</style>
+</head>
+<body class="bg-bg text-fg">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="framework/F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="knowledge-map.html" class="px-4 py-2 mono text-[13px] text-accent transition">知识图谱</a>
+      <a href="resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="relative pt-32 pb-12 overflow-hidden noise">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="kicker mb-5" data-reveal><span class="accent">▌</span> knowledge map · v1.0</div>
+    <h1 class="display text-[clamp(40px,6vw,80px)] max-w-[1080px]" data-reveal>
+      40 框架<span class="text-accent">知识图谱</span>
+    </h1>
+    <p class="mt-6 max-w-3xl text-fg-dim text-lg leading-relaxed" data-reveal>
+      整套体系从 F00 出发，沿六个重写模块展开，由治理神经横切贯通。
+      一张图看清<span class="text-fg">框架之间的逻辑链路 + 哪些框架彼此强依赖</span>。
+    </p>
+  </div>
+</section>
+
+<!-- 体系流逻辑图：F00 → 6 模块 → 治理 -->
+<section class="container py-12 border-t border-line">
+  <div class="mb-8" data-reveal>
+    <div class="kicker"><span class="accent">01_</span>// system flow</div>
+    <h2 class="mt-3 display text-[clamp(24px,3vw,38px)]">体系流逻辑：从 F00 出发，归 G03 收束</h2>
+  </div>
+
+  <div class="km-flow" data-reveal>
+    <a href="framework/F00.html" class="km-anchor" style="text-decoration:none;">
+      <div class="kicker mb-2">F00 · 起点</div>
+      <div class="display text-xl">企业能力<br/>编排论</div>
+      <div class="text-fg-dim2 text-xs mt-2 mono">ECOT</div>
+    </a>
+
+    <div class="km-stream">
+      <div class="km-stream-row" style="--mod-c: #8B5CFF;" data-module="1">
+        <span class="km-stream-tag">模块一</span>
+        <span class="km-stream-text"><strong>竞争重写</strong> · 看世界 → 看优势 → 做选择 → 定路径 → 重估值 → 变收入</span>
+      </div>
+      <div class="km-stream-row" style="--mod-c: #5BE5A0;" data-module="2">
+        <span class="km-stream-tag">模块二</span>
+        <span class="km-stream-text"><strong>组织重写</strong> · 形态 → 架构 → 权责 → 岗位 → 安全 → 文化</span>
+      </div>
+      <div class="km-stream-row" style="--mod-c: #FFB85B;" data-module="3">
+        <span class="km-stream-tag">模块三</span>
+        <span class="km-stream-text"><strong>产品重写</strong> · 定位 → 需求 → 设计 → 验证 → 评估 → 信任 → 架构</span>
+      </div>
+      <div class="km-stream-row" style="--mod-c: #5BB5FF;" data-module="4">
+        <span class="km-stream-tag">模块四</span>
+        <span class="km-stream-text"><strong>系统重写</strong> · 评测 → Skill → 调试 → 架构 → 生命周期 → 评测层 → 回归</span>
+      </div>
+      <div class="km-stream-row" style="--mod-c: #FF6B8A;" data-module="5">
+        <span class="km-stream-tag">模块五</span>
+        <span class="km-stream-text"><strong>价值重写</strong> · 运营成熟度 → 指标 → 绩效 → 成本 → ROI → 风险</span>
+      </div>
+      <div class="km-stream-row" style="--mod-c: #FFD45B;" data-module="6">
+        <span class="km-stream-tag">模块六</span>
+        <span class="km-stream-text"><strong>人类重写</strong> · 能力等级 → 角色迁移 → 能力结构 → 核心能力 AC6</span>
+      </div>
+    </div>
+
+    <div class="km-anchor" style="border-color:var(--accent);background:rgba(var(--surface-rgb),0.03);">
+      <div class="kicker mb-2"><span class="accent">治理神经</span></div>
+      <div class="display text-base">横切<br/>全体系</div>
+      <div class="text-fg-dim2 text-xs mt-2 mono">G01 / G02 / G03</div>
+    </div>
+  </div>
+</section>
+
+<!-- 全 40 框架网格 -->
+<section class="container py-12 border-t border-line">
+  <div class="mb-8" data-reveal>
+    <div class="kicker"><span class="accent">02_</span>// all 40 frameworks</div>
+    <h2 class="mt-3 display text-[clamp(24px,3vw,38px)]">完整框架阵列</h2>
+    <p class="mt-3 text-fg-dim text-base max-w-2xl leading-relaxed">
+      上方<strong>六列</strong>对应六个重写模块（按编号顺序），下方<strong>横切层</strong>是治理神经 G01–G03——它们不属于任何单一模块，<em>是贯穿所有框架的神经线</em>。
+    </p>
+  </div>
+
+  <div class="km-grid" data-reveal>
+    <div class="km-col" data-module="1" style="--mod-c: #8B5CFF;">
+      <div class="km-col-head">
+        <div class="km-col-num">MODULE 一</div>
+        <div class="km-col-name">竞争重写</div>
+        <div class="km-col-count">F01–F06 · 6 篇</div>
+      </div>
+      <a class="km-node" href="framework/F01.html"><div class="km-node-num">F01</div><div class="km-node-name">智能体五力重构法</div><div class="km-node-abbr">AFFR</div></a>
+      <a class="km-node" href="framework/F02.html"><div class="km-node-num">F02</div><div class="km-node-name">智能体护城河重估法</div><div class="km-node-abbr">SDMA</div></a>
+      <a class="km-node" href="framework/F03.html"><div class="km-node-num">F03</div><div class="km-node-name">智能体组合矩阵</div><div class="km-node-abbr">APM</div></a>
+      <a class="km-node" href="framework/F04.html"><div class="km-node-num">F04</div><div class="km-node-name">智能体能力三元获取法</div><div class="km-node-abbr">TICA</div></a>
+      <a class="km-node" href="framework/F05.html"><div class="km-node-num">F05</div><div class="km-node-name">数字劳动力资产观</div><div class="km-node-abbr">DLAM</div></a>
+      <a class="km-node" href="framework/F06.html"><div class="km-node-num">F06</div><div class="km-node-name">智能体即服务商业模型</div><div class="km-node-abbr">AaaS</div></a>
+    </div>
+
+    <div class="km-col" data-module="2" style="--mod-c: #5BE5A0;">
+      <div class="km-col-head">
+        <div class="km-col-num">MODULE 二</div>
+        <div class="km-col-name">组织重写</div>
+        <div class="km-col-count">F07–F12 · 6 篇</div>
+      </div>
+      <a class="km-node" href="framework/F07.html"><div class="km-node-num">F07</div><div class="km-node-name">人机混合网络组织</div><div class="km-node-abbr">HACNO</div></a>
+      <a class="km-node" href="framework/F08.html"><div class="km-node-num">F08</div><div class="km-node-name">双前台智能体中台架构</div><div class="km-node-abbr">DFAMP</div></a>
+      <a class="km-node" href="framework/F09.html"><div class="km-node-num">F09</div><div class="km-node-name">人机责任决策矩阵</div><div class="km-node-abbr">RACI-A × DAL</div></a>
+      <a class="km-node" href="framework/F10.html"><div class="km-node-num">F10</div><div class="km-node-name">智能体时代企业岗位体系</div><div class="km-node-abbr">ARRM</div></a>
+      <a class="km-node" href="framework/F11.html"><div class="km-node-num">F11</div><div class="km-node-name">智能体安全三系统架构</div><div class="km-node-abbr">ABERS</div></a>
+      <a class="km-node" href="framework/F12.html"><div class="km-node-num">F12</div><div class="km-node-name">组织变革与文化范式</div><div class="km-node-abbr">Kotter-AI</div></a>
+    </div>
+
+    <div class="km-col" data-module="3" style="--mod-c: #FFB85B;">
+      <div class="km-col-head">
+        <div class="km-col-num">MODULE 三</div>
+        <div class="km-col-name">产品重写</div>
+        <div class="km-col-count">F13–F19 · 7 篇</div>
+      </div>
+      <a class="km-node" href="framework/F13.html"><div class="km-node-num">F13</div><div class="km-node-name">智能体角色定位光谱</div><div class="km-node-abbr">ARPS</div></a>
+      <a class="km-node" href="framework/F14.html"><div class="km-node-num">F14</div><div class="km-node-name">结果导向任务框架</div><div class="km-node-abbr">JTBO</div></a>
+      <a class="km-node" href="framework/F15.html"><div class="km-node-num">F15</div><div class="km-node-name">上下文优先设计</div><div class="km-node-abbr">CADM</div></a>
+      <a class="km-node" href="framework/F16.html"><div class="km-node-num">F16</div><div class="km-node-name">托付型产品市场匹配法</div><div class="km-node-abbr">D-PMF</div></a>
+      <a class="km-node" href="framework/F17.html"><div class="km-node-num">F17</div><div class="km-node-name">可信智能体七维评估法</div><div class="km-node-abbr">VERITAS ★</div></a>
+      <a class="km-node" href="framework/F18.html"><div class="km-node-num">F18</div><div class="km-node-name">可治理信任模型</div><div class="km-node-abbr">CATER ★</div></a>
+      <a class="km-node" href="framework/F19.html"><div class="km-node-num">F19</div><div class="km-node-name">多智能体架构成熟度阶梯</div><div class="km-node-abbr">MAAML</div></a>
+    </div>
+
+    <div class="km-col" data-module="4" style="--mod-c: #5BB5FF;">
+      <div class="km-col-head">
+        <div class="km-col-num">MODULE 四</div>
+        <div class="km-col-name">系统重写</div>
+        <div class="km-col-count">F20–F26 · 7 篇</div>
+      </div>
+      <a class="km-node" href="framework/F20.html"><div class="km-node-num">F20</div><div class="km-node-name">评测驱动工程法</div><div class="km-node-abbr">E³</div></a>
+      <a class="km-node" href="framework/F21.html"><div class="km-node-num">F21</div><div class="km-node-name">智能体 Skill 资产治理</div><div class="km-node-abbr">SAG</div></a>
+      <a class="km-node" href="framework/F22.html"><div class="km-node-num">F22</div><div class="km-node-name">执行链路四环诊断法</div><div class="km-node-abbr">PRTD</div></a>
+      <a class="km-node" href="framework/F23.html"><div class="km-node-num">F23</div><div class="km-node-name">企业智能体六层架构</div><div class="km-node-abbr">SEAA</div></a>
+      <a class="km-node" href="framework/F24.html"><div class="km-node-num">F24</div><div class="km-node-name">智能体全生命周期开发法</div><div class="km-node-abbr">ADLC</div></a>
+      <a class="km-node" href="framework/F25.html"><div class="km-node-num">F25</div><div class="km-node-name">三层评测矩阵</div><div class="km-node-abbr">TSEM</div></a>
+      <a class="km-node" href="framework/F26.html"><div class="km-node-num">F26</div><div class="km-node-name">概率回归测试法</div><div class="km-node-abbr">PRT</div></a>
+    </div>
+
+    <div class="km-col" data-module="5" style="--mod-c: #FF6B8A;">
+      <div class="km-col-head">
+        <div class="km-col-num">MODULE 五</div>
+        <div class="km-col-name">价值重写</div>
+        <div class="km-col-count">F27–F32 · 6 篇</div>
+      </div>
+      <a class="km-node" href="framework/F27.html"><div class="km-node-num">F27</div><div class="km-node-name">智能体运营五级成熟度模型</div><div class="km-node-abbr">AOMM</div></a>
+      <a class="km-node" href="framework/F28.html"><div class="km-node-num">F28</div><div class="km-node-name">智能体运营指标金字塔</div><div class="km-node-abbr">3DSP</div></a>
+      <a class="km-node" href="framework/F29.html"><div class="km-node-num">F29</div><div class="km-node-name">数字员工绩效评分卡</div><div class="km-node-abbr">DWPS</div></a>
+      <a class="km-node" href="framework/F30.html"><div class="km-node-num">F30</div><div class="km-node-name">单次成功任务成本法</div><div class="km-node-abbr">CPST</div></a>
+      <a class="km-node" href="framework/F31.html"><div class="km-node-num">F31</div><div class="km-node-name">智能体价值回报核算法</div><div class="km-node-abbr">Agent ROI</div></a>
+      <a class="km-node" href="framework/F32.html"><div class="km-node-num">F32</div><div class="km-node-name">智能体全域风险治理法</div><div class="km-node-abbr">SRAG</div></a>
+    </div>
+
+    <div class="km-col" data-module="6" style="--mod-c: #FFD45B;">
+      <div class="km-col-head">
+        <div class="km-col-num">MODULE 六</div>
+        <div class="km-col-name">人类重写</div>
+        <div class="km-col-count">F33–F36 · 4 篇</div>
+      </div>
+      <a class="km-node" href="framework/F33.html"><div class="km-node-num">F33</div><div class="km-node-name">智能体能力成熟度模型</div><div class="km-node-abbr">IACMM</div></a>
+      <a class="km-node" href="framework/F34.html"><div class="km-node-num">F34</div><div class="km-node-name">角色转型地图</div><div class="km-node-abbr">TSMM</div></a>
+      <a class="km-node" href="framework/F35.html"><div class="km-node-num">F35</div><div class="km-node-name">智能体能力结构评估法</div><div class="km-node-abbr">FALA</div></a>
+      <a class="km-node" href="framework/F36.html"><div class="km-node-num">F36</div><div class="km-node-name">人类核心能力六维模型</div><div class="km-node-abbr">AC6 ★</div></a>
+    </div>
+
+  </div>
+
+  <!-- 治理神经：横切层（不属于 km-grid，单独横跨呈现） -->
+  <div class="km-governance-wrap" data-reveal>
+    <div class="km-cross-label">
+      <div class="tag">↕ Governance · 横切全体系 ↕</div>
+      <div class="name">治理神经</div>
+      <div class="desc">三条横切六个模块的"神经线"——不属于任何单一模块，但贯穿所有框架。意图管理是<strong>认知锚点</strong>，边界升级是<strong>安全锚点</strong>，主权模型是<strong>哲学锚点</strong>。</div>
+    </div>
+    <div class="km-cross-nodes">
+      <a class="km-node" href="framework/G01.html"><div class="km-node-num">G01</div><div class="km-node-name">意图管理模型</div><div class="km-node-abbr">IAN · 横切 F10/F14/F15</div></a>
+      <a class="km-node" href="framework/G02.html"><div class="km-node-num">G02</div><div class="km-node-name">边界与升级机制</div><div class="km-node-abbr">BSN · 横切 F09/F11/F29</div></a>
+      <a class="km-node" href="framework/G03.html"><div class="km-node-num">G03</div><div class="km-node-name">智能体主权模型</div><div class="km-node-abbr">HSCN ★ · 横切 F02/F04/F06/F09/F18/F36</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 关键引用链路 -->
+<section class="container py-12 border-t border-line">
+  <div class="mb-8" data-reveal>
+    <div class="kicker"><span class="accent">03_</span>// key cross-references</div>
+    <h2 class="mt-3 display text-[clamp(24px,3vw,38px)]">关键引用链路</h2>
+    <p class="mt-3 text-fg-dim text-base max-w-2xl leading-relaxed">
+      40 个框架不是平行展开的——它们之间有大量交叉引用。这里列出体系里最关键的<strong>7 条贯穿性链路</strong>。
+    </p>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-4" data-reveal>
+    <div class="p-5 border border-line rounded" style="border-left:3px solid #8B5CFF">
+      <div class="kicker mb-2" style="color:#8B5CFF">链路一 · 战略闭环</div>
+      <div class="text-sm text-fg leading-relaxed">
+        <a href="framework/F00.html" class="text-accent hover:underline">F00</a> ECOT 提出"能力编排" →
+        <a href="framework/F01.html" class="text-accent hover:underline">F01</a> 五力重构定位外部世界 →
+        <a href="framework/F02.html" class="text-accent hover:underline">F02</a> 护城河评估自身优势 →
+        <a href="framework/F03.html" class="text-accent hover:underline">F03</a> APM 资源配置 →
+        <a href="framework/F04.html" class="text-accent hover:underline">F04</a> TICA 获取路径
+      </div>
+    </div>
+
+    <div class="p-5 border border-line rounded" style="border-left:3px solid #5BE5A0">
+      <div class="kicker mb-2" style="color:#5BE5A0">链路二 · 组织闭环</div>
+      <div class="text-sm text-fg leading-relaxed">
+        <a href="framework/F07.html" class="text-accent hover:underline">F07</a> 网络组织（形态）→
+        <a href="framework/F08.html" class="text-accent hover:underline">F08</a> 双前台中台（架构）→
+        <a href="framework/F10.html" class="text-accent hover:underline">F10</a> 岗位体系（人才）→
+        <a href="framework/F12.html" class="text-accent hover:underline">F12</a> Kotter-AI（文化）
+      </div>
+    </div>
+
+    <div class="p-5 border border-line rounded" style="border-left:3px solid #FFB85B">
+      <div class="kicker mb-2" style="color:#FFB85B">链路三 · 产品闭环</div>
+      <div class="text-sm text-fg leading-relaxed">
+        <a href="framework/F13.html" class="text-accent hover:underline">F13</a> 定位 →
+        <a href="framework/F14.html" class="text-accent hover:underline">F14</a> JTBO 结果 →
+        <a href="framework/F15.html" class="text-accent hover:underline">F15</a> CADM 上下文 →
+        <a href="framework/F16.html" class="text-accent hover:underline">F16</a> D-PMF 验证 →
+        <a href="framework/F17.html" class="text-accent hover:underline">F17</a> VERITAS / <a href="framework/F18.html" class="text-accent hover:underline">F18</a> CATER（评估）
+      </div>
+    </div>
+
+    <div class="p-5 border border-line rounded" style="border-left:3px solid #5BB5FF">
+      <div class="kicker mb-2" style="color:#5BB5FF">链路四 · 系统工程闭环</div>
+      <div class="text-sm text-fg leading-relaxed">
+        <a href="framework/F24.html" class="text-accent hover:underline">F24</a> ADLC 生命周期 →
+        <a href="framework/F20.html" class="text-accent hover:underline">F20</a> E³ 评测驱动 →
+        <a href="framework/F25.html" class="text-accent hover:underline">F25</a> TSEM 三层评测 →
+        <a href="framework/F22.html" class="text-accent hover:underline">F22</a> PRTD 调试 →
+        <a href="framework/F26.html" class="text-accent hover:underline">F26</a> PRT 回归
+      </div>
+    </div>
+
+    <div class="p-5 border border-line rounded" style="border-left:3px solid #FF6B8A">
+      <div class="kicker mb-2" style="color:#FF6B8A">链路五 · 价值/运营闭环</div>
+      <div class="text-sm text-fg leading-relaxed">
+        <a href="framework/F27.html" class="text-accent hover:underline">F27</a> AOMM 成熟度 →
+        <a href="framework/F28.html" class="text-accent hover:underline">F28</a> 3DSP 指标 →
+        <a href="framework/F29.html" class="text-accent hover:underline">F29</a> DWPS 绩效 →
+        <a href="framework/F30.html" class="text-accent hover:underline">F30</a> CPST 成本 →
+        <a href="framework/F31.html" class="text-accent hover:underline">F31</a> Agent ROI →
+        <a href="framework/F32.html" class="text-accent hover:underline">F32</a> SRAG 风险
+      </div>
+    </div>
+
+    <div class="p-5 border border-line rounded" style="border-left:3px solid #FFD45B">
+      <div class="kicker mb-2" style="color:#FFD45B">链路六 · 人才闭环</div>
+      <div class="text-sm text-fg leading-relaxed">
+        <a href="framework/F33.html" class="text-accent hover:underline">F33</a> IACMM 等级 →
+        <a href="framework/F34.html" class="text-accent hover:underline">F34</a> TSMM 任务迁移 →
+        <a href="framework/F35.html" class="text-accent hover:underline">F35</a> FALA 能力结构 →
+        <a href="framework/F36.html" class="text-accent hover:underline">F36</a> AC6 人类核心
+      </div>
+    </div>
+
+    <div class="p-5 border border-line rounded lg:col-span-2" style="border-left:3px solid var(--accent);background:rgba(var(--surface-rgb),0.025)">
+      <div class="kicker mb-2"><span class="accent">★ 链路七 · 治理神经横切</span></div>
+      <div class="text-sm text-fg leading-relaxed">
+        <strong>G01 意图管理</strong> 横切 F10（编排者）/ F14（JTBO）/ F15（上下文）·
+        <strong>G02 边界升级</strong> 横切 F09（RACI×DAL）/ F11（安全三系统）/ F29（DWPS 安全维）·
+        <strong>G03 主权模型</strong> 横切 F02（护城河主权维）/ F04（TICA 自建判断）/ F06（AaaS）/ F09（RACI A 具名）/ F18（CATER 可控）/ F36（价值锚定）
+      </div>
+      <div class="mt-3 text-fg-dim text-xs">三条治理神经各自横切多个模块，形成整套体系的<strong style="color:var(--accent)">"哲学骨架"</strong>。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 模式分布对应 -->
+<section class="container py-12 border-t border-line">
+  <div class="mb-8" data-reveal>
+    <div class="kicker"><span class="accent">04_</span>// visual pattern distribution</div>
+    <h2 class="mt-3 display text-[clamp(24px,3vw,38px)]">可视化模式分布</h2>
+    <p class="mt-3 text-fg-dim text-base max-w-2xl leading-relaxed">
+      40 个框架按 8 个可视化模式（P1-P8）+ 轻定制组合呈现。<a href="patterns.html" class="text-accent hover:underline">→ 模式库详情</a>
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-3" data-reveal>
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P1</span> 五力放射</div>
+      <div class="text-sm text-fg">F01 (1 个)</div>
+    </div>
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P2</span> 雷达/多维</div>
+      <div class="text-sm text-fg">F02 · F17 · F18 · F29 · F35 · F36 · G03 (7 个)</div>
+    </div>
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P3</span> 双轴矩阵</div>
+      <div class="text-sm text-fg">F03 · F09 · F10 · F13 · F34 (5 个)</div>
+    </div>
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P4</span> 层级栈</div>
+      <div class="text-sm text-fg">F08 · F14 · F15 · F23 · F28 · G01 (6 个)</div>
+    </div>
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P5</span> 成熟度阶梯</div>
+      <div class="text-sm text-fg">F19 · F21 · F27 · F33 (4 个)</div>
+    </div>
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P6</span> 闭环</div>
+      <div class="text-sm text-fg">F20 · F24 · G02 (3 个)</div>
+    </div>
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P7</span> 链路流</div>
+      <div class="text-sm text-fg">F12 · F22 · F25 (3 个)</div>
+    </div>
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P8</span> 同心圆</div>
+      <div class="text-sm text-fg">F11 · F32 (2 个)</div>
+    </div>
+    <div class="p-4 border border-line rounded lg:col-span-4" style="border-style:dashed">
+      <div class="kicker mb-2"><span class="accent">Custom</span> 轻定制</div>
+      <div class="text-sm text-fg">F00 破立合一图 · F04 三元决策 · F05 DKEP 四维 · F06 三阶演进 · F16 D-PMF 对比 · F26 三支柱替换 · F30 六类成本 · F31 盈亏曲线 (8 个)</div>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t border-line py-10">
+  <div class="container flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+    <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0 · knowledge map</div>
+    <div class="flex gap-4 text-xs text-fg-dim2 mono">
+      <a href="index.html" class="hover:text-accent transition">返回首页</a>
+      <a href="framework/F00.html" class="hover:text-accent transition">F00 总序</a>
+      <a href="patterns.html" class="hover:text-accent transition">模式库</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

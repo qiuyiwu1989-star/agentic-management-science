@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F14 · 结果导向任务框架 (JTBO) — 智能体管理学</title>
+<meta name="description" content="在 JTBD 的"任务"和"工作"两层基础上，增加第三层「结果所有权」——明确 Agent 产品中端到端的结果定义与责任归属。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="3">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块三 · 产品重写 / F14</span>
+      <span class="type-tag">方法级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-3" class="hover:text-fg transition">所有产品重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      结果导向任务框架
+      <span class="en">Job-to-Be-Outcome-Owned</span>
+      <span class="abbr">JTBO</span>
+    </h1>
+    <p class="claim" data-reveal>
+      任务完成率 100%，结果达成率 0%——这不是悖论，是产品设计的深层漏洞。
+      <br/><span class="text-fg-dim2">我们设计的是智能体完成任务的能力，但用户购买的是某个结果真实发生的承诺。这两件事，不是一回事。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">在 JTBD 的"任务"和"工作"两层基础上，<strong>增加第三层「结果所有权」</strong>——明确 Agent 产品中端到端的结果定义与责任归属。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F14 · JTBO 三层结构</span></div>
+      <span class="viz-pattern">P4</span>
+    </div>
+    <div class="viz-stack">
+      <div class="layer">
+        <div class="layer-num">L1 任务层</div>
+        <div class="layer-name">任务层 · Task Layer<span class="en">JTBD 已有</span></div>
+        <div class="layer-desc">智能体实际执行的具体操作——发送邮件、分析数据、筛选简历、生成报告。传统指标：任务完成率。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L2 结果层</div>
+        <div class="layer-name">结果层 · Outcome Layer<span class="en">JTBD 部分覆盖</span></div>
+        <div class="layer-desc">用户真正想要发生的业务变化——不是"简历被筛选"，而是"招到合适的人"。指标：结果达成率。</div>
+      </div>
+      <div class="layer is-key">
+        <div class="layer-num">L3 所有权层 ★</div>
+        <div class="layer-name">所有权层 · Ownership Layer<span class="en">JTBO 新增</span></div>
+        <div class="layer-desc">结果没有达成时，谁负责？三角色：结果定义者 / 结果监控者 / 结果响应者。<em>传统框架完全缺失。</em></div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>三层递进——从执行到结果到所有权</span><span><i class="dot"></i>无所有者的结果会被隐性放弃</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">用户真正想要的，是完成一个任务，还是获得一个结果？谁对结果端到端负责？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第二层 · 负责回答<span class="text-fg">「用户真正需要的是什么」</span>，是从产品定位进入需求定义的关键转换。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">克里斯坦森 Jobs to Be Done 理论（1997）<span class="text-fg-dim2">→</span> 创新：在 JTBD 二层基础上增加"结果所有权"第三层，构建三层 JTBO 框架。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"这个 AI 有时候很有用，但关键时刻总是差那么一点"</h2>
+      <p>智能体产品在上线后，有一类反馈会以相当高的频率出现：用户说"<em>这个 AI 有时候很有用，但关键时刻总是差那么一点</em>"。</p>
+      <p>追问"差那么一点"是什么意思，往往会得到这样的描述：<em>它把我说的事情都做了，但最终我想要的那个结果没有发生。</em>招聘智能体筛了几百份简历，但推给我的候选人在第一轮面试就全军覆没；内容智能体按照我的要求写了十篇文章，但没有一篇能直接发出去；客服智能体把用户投诉按流程处理了，但用户还是觉得没有被解决，继续升级投诉。</p>
+      <p>这类问题有一个共同特征：<strong>智能体在"执行任务"这个层面表现完好，但在"产生价值"这个层面失效了。</strong>产品团队通常的反应是优化具体功能，或者调整提示词，但这种局部修补不能解决根本问题，<em>因为问题出在产品的设计起点上</em>。</p>
+      <h2><span class="num">02</span>JTBD 理论为什么需要被升级</h2>
+      <div class="theory-note"><strong>理论来源</strong>：克里斯坦森 Jobs to Be Done 理论（《创新者的窘境》，<em>The Innovator's Dilemma</em>，1997，及后续发展）。<br/><strong>本框架创新</strong>：在 JTBD 的"功能→工作"二层结构基础上，增加第三层"结果所有权（Outcome Ownership）"，构建"任务-结果-所有权"三层 JTBO 框架。</div>
+      <p>克莱顿·克里斯坦森的"Jobs to Be Done"理论，是过去二十年产品设计领域影响最深远的框架之一。它的核心洞察是：<em>用户购买的不是产品本身，而是产品能帮助他们"完成某个工作"的能力。</em></p>
+      <p>JTBD 把产品设计从"功能导向"推向了"需求导向"，这是一个重要的进步。但在智能体产品的语境下，JTBD 还不够——因为它<strong>解决了"用户真正需要什么"的问题，但没有解决"智能体如何确保那个结果真实发生"的问题</strong>。</p>
+      <p>在传统软件产品里，这两个问题之间的连接是相对直接的：<em>一个设计良好的功能，大概率会产生预期的用户价值。</em>但在智能体产品里，这个连接断掉了——一个执行了所有正确步骤的智能体，<strong>完全可能没有产生任何实际的业务价值</strong>。</p>
+      <p>这个断裂，需要一个专门的框架来处理。</p>
+      <h2><span class="num">03</span>从"工作"到"结果"的第三层</h2>
+      <p>JTBO 在 JTBD 的"任务层"和"工作层"基础上，增加了第三层：<strong>结果所有权层</strong>。</p>
+      <h3>任务层（Task Layer）</h3>
+      <p>智能体实际执行的具体操作——发送邮件、分析数据、筛选候选人、生成报告。<em>这是传统产品设计最熟悉的层面</em>。任务层的完成质量，对应的是传统的"任务完成率"指标。</p>
+      <h3>结果层（Outcome Layer）</h3>
+      <p>用户真正想要发生的业务变化。不是"简历被筛选了"，而是"招到了合适的人"；不是"报告被生成了"，而是"管理层做出了更好的决策"；不是"客诉被处理了"，而是"客户真正满意并继续使用"。<strong>结果层要求产品设计者反复追问：任务完成之后，用户的业务状态会发生什么变化？</strong></p>
+      <h3>所有权层（Ownership Layer）</h3>
+      <p>这是整个框架最独特的贡献，也是最容易被遗漏的一层。<em>所有权层问的是：当结果没有达成时，谁负责？谁有义务去追问为什么没有达成，并且采取行动？</em></p>
+      <p>在传统软件产品里，这个问题不需要被显式回答，因为<strong>用户自己是结果的所有者</strong>——他们用了一个工具，工具表现如何是他们的事。但在智能体产品里，情况变了：当一个智能体被赋予了足够高的自主权来完成一个完整的工作流，<em>用户可能已经退出了这个工作流的日常参与</em>。如果结果没有达成，用户往往不知道问题出在哪一步，也不知道应该由谁来负责。</p>
+      <h2><span class="num">04</span>所有权层为什么是最关键的</h2>
+      <p>所有权层的缺失，是智能体产品最普遍的治理漏洞。它的表现形式很典型：<em>结果没有达成，产品团队说"智能体按规格执行了任务"，用户团队说"但结果没发生"，两方面都说的是事实，但没有人的职责范围涵盖"端到端为结果负责"这件事</em>。</p>
+      <p><strong>这不只是流程问题，这是产品设计问题。</strong>一个没有明确所有权的结果，在智能体系统里会被所有人隐性放弃——因为追究一个没有所有者的结果，需要额外的协调成本，而在日常工作的压力下，没有人愿意主动承担这个成本。</p>
+      <p>JTBO 要求在产品设计阶段，就必须明确<strong>三件事</strong>：</p>
+      <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);"><li><strong>谁是结果的定义者</strong>（谁说"这个结果算达成"）</li><li><strong>谁是结果的监控者</strong>（谁在持续追踪结果是否正在发生）</li><li><strong>谁是结果不达成时的响应者</strong>（当结果偏离预期，谁有权力和义务介入调整）</li></ul>
+      <p>这三个角色可以是同一个人，也可以是不同的人，但它们<em>必须在产品设计时就被明确分配，而不是在出问题之后再去讨论</em>。</p>
+      <h2><span class="num">05</span>价值交付逻辑的根本性差异</h2>
+      <p>JTBO 揭示的，是智能体产品和传统软件产品在<strong>"价值交付逻辑"</strong>上的根本性差异。</p>
+      <p><strong>传统软件产品的价值交付是"工具就位，用户使用，价值产生"</strong>——价值产生是用户行为的结果，产品的责任边界在"工具可用"这一层结束。</p>
+      <p><strong>智能体产品的价值交付是"系统运行，结果发生，用户感知价值"</strong>——当智能体的自主性足够高，它不再只是用户使用的工具，<em>它是参与价值创造过程的主体</em>。一个主体，必须对它参与创造的结果承担某种形式的责任。</p>
+      <blockquote>这是一个范式级别的转变。它意味着智能体产品团队不能只用"功能完整性"和"技术性能"来衡量产品质量，他们必须把"结果达成率"和"所有权清晰度"纳入核心产品指标体系。</blockquote>
+      <p>没有这个视角，所有的产品迭代都在优化任务执行层面的细节，而<em>那个真正决定用户价值的结果层，没有人在认真设计</em>。</p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>绘制任务-结果-所有权矩阵。</strong>对每个用户场景明确三层：任务是什么？真正的结果是什么（连追三次"然后呢"）？谁负责？</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>定义可验证的结果达成标准。</strong>结果是否达成必须可量化验证——SLA 和按结果定价的基础。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>评估结果可定义性。</strong>区分可精确定义结果（适合结果定价）和方向性结果（创意/探索类需混合标准）。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>设计多 Agent 结果归因机制。</strong>多 Agent 长链路时明确每个结果的归因逻辑，防止责任真空。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">评估锚点从<span class="not-italic" style="color:var(--fg)">"能否操作"转向"结果是否达标"</span>——工具帮你做事，Agent 替你负责。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">不只是产品理念的进步，而是 Agent 与工具在商业本质上的根本区别。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 产品需求文档（PRD）写法</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>产品验收标准制定</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>按结果定价的合同设计</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 服务的 SLA 设计</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>只看任务完成率而无结果定义</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>所有权层职责无人填写</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把创意/探索类强行套结果定价</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>多 Agent 长链路无归因逻辑</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F13.html" class="rel-item"><span class="rel-num">F13</span><span class="rel-name">ARPS — 定位决定 JTBO 适用度</span></a>
+          <a href="F16.html" class="rel-item"><span class="rel-num">F16</span><span class="rel-name">D-PMF — 结果验证托付关系</span></a>
+          <a href="F29.html" class="rel-item"><span class="rel-num">F29</span><span class="rel-name">DWPS — 结果维度评估</span></a>
+          <a href="G01.html" class="rel-item"><span class="rel-num">G01</span><span class="rel-name">意图管理模型 — 结果定义的上游</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F14"><span>▸ JTBO 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ JTBO Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F13.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F13</span><span class="nav-title">智能体角色定位光谱</span></div></a>
+    <a href="F15.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F15</span><span class="nav-title">上下文优先设计</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

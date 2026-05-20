@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F13 · 智能体角色定位光谱 (ARPS) — 智能体管理学</title>
+<meta name="description" content="用"自主性 × 人格化程度"两个独立变量，判断 Agent 应定位为工具、助手、专家、伙伴还是代理人；定位直接决定交互范式、信任机制、合规义务、定价逻辑四个下游设计维度。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="3">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块三 · 产品重写 / F13</span>
+      <span class="type-tag">模型级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-3" class="hover:text-fg transition">所有产品重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体角色定位光谱
+      <span class="en">Agent Role Positioning Spectrum</span>
+      <span class="abbr">ARPS</span>
+    </h1>
+    <p class="claim" data-reveal>
+      你的智能体是什么角色——这个问题，大多数产品团队从来没有认真回答过。
+      <br/><span class="text-fg-dim2">传统产品定位影响的是你的营销话术。智能体产品定位影响的是你的每一个产品设计决策。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">用<strong>"自主性 × 人格化程度"</strong>两个独立变量，判断 Agent 应定位为工具、助手、专家、伙伴还是代理人；定位直接决定<strong>交互范式、信任机制、合规义务、定价逻辑</strong>四个下游设计维度。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F13 · ARPS 双轴光谱</span></div>
+      <span class="viz-pattern">P3</span>
+    </div>
+    <div class="viz-matrix">
+      <div class="axis-y">自主性 / Autonomy · L0 → L5</div>
+      <div class="quad">
+        <span class="quad-tag">高自主 × 低人格化</span>
+        <h4 class="quad-title">🤖 自动化工作流</h4>
+        <p class="quad-desc">设置任务+审查结果。信任靠透明性。按结果付费。</p>
+        <div class="quad-action">→ 后台 Agent / Devin 类</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">高自主 × 高人格化 ⚠</span>
+        <h4 class="quad-title">👤 数字雇员</h4>
+        <p class="quad-desc">最复杂——情感+授权双重需求 / 代理人义务+自主决策双重监管。</p>
+        <div class="quad-action">→ Agentforce / Lindy 类</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">低自主 × 低人格化</span>
+        <h4 class="quad-title">🔧 工具型</h4>
+        <p class="quad-desc">工具式交互，每步明确操作。按使用量付费。</p>
+        <div class="quad-action">→ Claude Skills / API 调用</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">低自主 × 高人格化</span>
+        <h4 class="quad-title">💬 对话助手</h4>
+        <p class="quad-desc">对话驱动，步步确认。通过角色一致性建立信任。</p>
+        <div class="quad-action">→ Character.ai / Replika</div>
+      </div>
+      <div class="corner"></div>
+      <div class="axis-x"><span>低</span>人格化程度 · Tool → Character<span>高</span></div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>四象限对应四种产品形态</span><span><i class="dot"></i>定位决定交互/信任/合规/定价四个下游</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">这个 Agent 产品，到底是工具、助手、同事，还是数字员工？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第一层 · 负责回答<span class="text-fg">「这个 Agent 产品是什么」</span>，是所有后续产品设计决策的起点。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">诺曼《设计心理学》（1988）+ 里斯特劳特定位理论（1981）<span class="text-fg-dim2">→</span> 创新：从传统单轴市场定位升级为"自主性×人格化"双轴独立定位 + 四维下游影响框架。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"先做基础功能，然后看用户反馈再调整定位"</h2>
+      <p>几乎所有智能体产品团队，在开始设计之前，都会有一次关于产品定位的讨论。讨论的内容通常是：<em>我们是做一个聊天机器人，还是一个自动化助手？是偏工具感的，还是偏人格化的？</em></p>
+      <p>这类讨论往往在几轮之后走向一个模糊的结论："<em>我们先做基础功能，然后看用户反馈再调整定位。</em>"</p>
+      <p>这听起来像是务实的敏捷开发，<strong>实际上是把一个必须在最前面做的决定，推迟到了最难改变的时候</strong>。智能体产品的定位，不只是决定你的品牌感和用户体验，它决定的是<em>产品架构的所有基础假设</em>——信任机制怎么设计、合规义务如何满足、定价逻辑选哪种、工程实现选什么路径。这些决定一旦做出，改变的代价极高。</p>
+      <h2><span class="num">02</span>传统产品定位方法在这里不够用</h2>
+      <div class="theory-note"><strong>理论来源</strong>：用户体验设计理论（诺曼，<em>The Design of Everyday Things</em>，1988）；产品定位理论（Al Ries & Jack Trout，<em>Positioning</em>，1981）。<br/><strong>本框架创新</strong>：将智能体产品定位从传统的单轴市场定位，升级为"自主性 × 人格化程度"双轴独立定位，明确两个维度独立变化对产品设计四个下游决策维度的不同影响。</div>
+      <p>在传统软件产品里，定位通常是一个市场层面的决策——你要服务哪个用户群，解决什么问题，和竞品有什么差异化。<em>定位影响的是品牌、营销和功能优先级，但不会从根本上影响产品的技术架构。</em></p>
+      <p>智能体产品的定位有一个传统产品没有的特殊性：<strong>它同时涉及两个独立的设计维度，而这两个维度在传统产品设计语言里是混在一起的</strong>。</p>
+      <p><strong>第一个维度是自主性（Autonomy）</strong>——这个智能体在多大程度上可以自主完成任务，不需要人类的实时介入和确认。<strong>第二个维度是人格化程度（Persona Depth）</strong>——这个智能体在多大程度上被设计为有个性、有名字、有情感表达的"角色存在"，而不是一个无色彩的工具。</p>
+      <p><em>这两个维度是完全独立的。</em>一个高自主性的智能体可以是极低人格化的（默默运行的自动化任务处理系统），也可以是高人格化的（有名字有性格的 AI 助手，但背后在自主完成大量工作）。<strong>当这两个维度被混淆，产品设计就会产生系统性的错误预设。</strong></p>
+      <h2><span class="num">03</span>四象限及其下游影响</h2>
+      <p>ARPS 用两个独立的轴来定位一个智能体产品：纵轴是<em>自主性</em>（从"每一步需要人类确认"到"完全自主执行"），横轴是<em>人格化程度</em>（从"纯工具，无情感设计"到"深度角色，有完整的情感和个性设计"）。</p>
+      <h3>交互范式：用户和这个智能体怎么互动</h3>
+      <p>高自主性+低人格化：用户主要交互是"设置任务然后审查结果"，不需要持续的对话流。高自主性+高人格化：用户可能同时需要"对话式的情感连接"和"对自主行为的信任授权"——<em>这是两种需要被同时满足的完全不同的用户需求</em>。</p>
+      <h3>信任机制：在不同象限里有完全不同的建立方式</h3>
+      <p>低自主性的产品，信任来自"用户可以看到每一步并随时干预"。高自主性的产品，信任来自"系统的透明性和可解释性"——<strong>用户无法实时干预，但他们必须能够事后理解发生了什么</strong>。人格化设计可以加速表层信任的建立，<em>但如果产品的实际自主性和用户的信任授权不匹配，这种加速反而有害</em>。</p>
+      <h3>合规义务：最容易被忽视但最有法律后果的维度</h3>
+      <p>高人格化的智能体，在很多法律环境下会被视为"代理人"，其表达和决策会被认为具有一定的主体性。高自主性的智能体，在金融、医疗、法律等受监管行业里，其自主决策的范围受到明确的监管约束。<em>这些约束必须在产品设计最早期就被纳入。</em></p>
+      <h3>定价逻辑：最直接受自主性影响</h3>
+      <p>低自主性的产品，通常适合"按使用量"收费。高自主性的产品，可以向"按结果"收费演进。<strong>这两种定价逻辑背后是完全不同的商业模式和风险分配结构。</strong></p>
+      <h2><span class="num">04</span>定位错了，下游所有决策都系统性偏差</h2>
+      <p>这里有一个需要被说清楚的逻辑链：<strong>定位决策不只影响产品体验，它是所有后续产品设计决策的前提。</strong></p>
+      <p>如果一个高自主性产品错误地用了低自主性的交互范式设计（给每个微小动作都加上确认弹窗），<em>用户会体验到恼人的摩擦，但更深层的问题是：产品的核心价值——让用户从大量确认负担中解放出来——根本没有被实现。</em></p>
+      <p>如果一个低人格化的工具产品错误地加入了大量人格化设计，<em>不只是资源浪费，还会产生用户期待管理的失败</em>——用户被引导期待一种"有感情的助手"体验，然后不断遭遇"这只是个工具"的落差。</p>
+      <blockquote>最危险的错配，是高人格化+高自主性产品，却没有配套足够强的信任建立机制。高人格化设计加速了用户的情感信任，但情感信任和决策授权信任是两件不同的事——当一个用户因为喜欢某个 AI 角色而给予它超出实际能力范围的自主权，后果往往很严重。</blockquote>
+      <h2><span class="num">05</span>产品设计的入口：从功能到角色</h2>
+      <p>ARPS 揭示的，是一个关于"产品设计入口"的根本性重构。</p>
+      <p>传统产品设计的入口通常是<em>功能</em>——用户需要做什么，我们提供什么功能来支持。<strong>智能体产品设计的真正入口是角色</strong>——这个智能体在用户的工作生活中扮演什么角色，这个角色的本质是什么。</p>
+      <blockquote>角色决定了关系，关系决定了交互，交互决定了信任，信任决定了价值。这是一个从根往叶的逻辑链，而不是从叶往根的逆向补丁。</blockquote>
+      <p>一个在设计最早期就认真回答"我们是什么角色"的团队，和一个推迟回答这个问题的团队，<em>在产品上线一年后的状态会有显著差距</em>——不只是产品体验的差距，更是产品架构债务和用户信任状态的差距。</p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>双轴定位当前产品。</strong>在自主性（L0-L5）和人格化（工具/助理/同事/化身）评估位置，绘制四象限图。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>识别 12-24 个月战略目标位置。</strong>明确演进路径和关键条件。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>推导下游设计决策。</strong>交互/定价/SLA/合规——四个维度与定位保持一致。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>季度复审定位漂移。</strong>能力提升会让自主性自然上移，需相应调整。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">定位决定<span class="not-italic" style="color:var(--fg)">关系</span>，关系决定交互，交互决定信任，信任决定价值——从根到叶的逻辑链。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">一个推迟回答"我们是什么角色"的团队，在一年之后会面对巨大的产品架构债务和用户信任错配。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>新 Agent 产品的策略定位讨论</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>评估竞品产品策略与差异化</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 从工具向数字员工演进规划</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>向投资人解释产品定位策略</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>当精确测量工具而非战略讨论工具</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视产品在不同场景下位置的动态性</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>定位与定价/SLA/合规设计脱节</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>只追求自主性提升忽视人格化战略价值</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F06.html" class="rel-item"><span class="rel-num">F06</span><span class="rel-name">AaaS — 定位决定定价模型</span></a>
+          <a href="F14.html" class="rel-item"><span class="rel-num">F14</span><span class="rel-name">JTBO — 结果导向</span></a>
+          <a href="F16.html" class="rel-item"><span class="rel-num">F16</span><span class="rel-name">D-PMF — 托付关系深度</span></a>
+          <a href="F18.html" class="rel-item"><span class="rel-num">F18</span><span class="rel-name">CATER — 治理信任设计</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F13"><span>▸ ARPS 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ ARPS Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F12.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F12</span><span class="nav-title">组织变革与文化范式</span></div></a>
+    <a href="F14.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F14</span><span class="nav-title">结果导向任务框架</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

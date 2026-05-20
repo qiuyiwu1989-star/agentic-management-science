@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F24 · 智能体全生命周期开发法 (ADLC) — 智能体管理学</title>
+<meta name="description" content="面向 Agent 非确定性特征，建立发现定义 → 上下文设计 → 能力构建 → 评测验证 → 部署监控 → 持续优化六阶段闭环——以"结果定义先行"替代传统 SDLC 的"功能驱动"。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="4">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块四 · 系统重写 / F24</span>
+      <span class="type-tag">工程级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-4" class="hover:text-fg transition">所有系统重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体全生命周期开发法
+      <span class="en">Agent Development Lifecycle Method</span>
+      <span class="abbr">ADLC</span>
+    </h1>
+    <p class="claim" data-reveal>
+      先定义"什么叫成功"，再写代码——这个顺序的改变，比任何技术选型都重要。
+      <br/><span class="text-fg-dim2">传统软件开发是先定义功能，再实现，再测试，再发布。智能体开发必须是先定义成功，再设计上下文，再实现，再评测，再迭代。顺序的差异，是质量差异的根本来源。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">面向 Agent 非确定性特征，建立<strong>发现定义 → 上下文设计 → 能力构建 → 评测验证 → 部署监控 → 持续优化</strong>六阶段闭环——以"<strong>结果定义先行</strong>"替代传统 SDLC 的"功能驱动"。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F24 · ADLC 六阶段迭代闭环</span></div>
+      <span class="viz-pattern">P6</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 540 480" class="viz-svg" style="max-width:540px" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="ar-cyc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="v-arrow-head"/></marker></defs>
+        <circle cx="270" cy="240" r="60" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <text class="v-node-mono" x="270" y="235" text-anchor="middle">F24 · ADLC</text>
+        <text class="v-axis-name" x="270" y="252" text-anchor="middle" style="font-size:14px">6 阶段闭环</text>
+        <g class="v-loop-node">
+          <circle class="bg" cx="270.0" cy="75.0" r="40"/>
+          <text class="v-node-mono" x="270.0" y="70.0" text-anchor="middle">①</text>
+          <text class="v-axis-name" x="270.0" y="87.0" text-anchor="middle">发现定义</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="412.9" cy="157.5" r="40"/>
+          <text class="v-node-mono" x="412.9" y="152.5" text-anchor="middle">②</text>
+          <text class="v-axis-name" x="412.9" y="169.5" text-anchor="middle">上下文设计</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="412.9" cy="322.5" r="40"/>
+          <text class="v-node-mono" x="412.9" y="317.5" text-anchor="middle">③</text>
+          <text class="v-axis-name" x="412.9" y="334.5" text-anchor="middle">能力构建</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="270.0" cy="405.0" r="40"/>
+          <text class="v-node-mono" x="270.0" y="400.0" text-anchor="middle">④</text>
+          <text class="v-axis-name" x="270.0" y="417.0" text-anchor="middle">评测验证</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="127.1" cy="322.5" r="40"/>
+          <text class="v-node-mono" x="127.1" y="317.5" text-anchor="middle">⑤</text>
+          <text class="v-axis-name" x="127.1" y="334.5" text-anchor="middle">部署监控</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="127.1" cy="157.5" r="40"/>
+          <text class="v-node-mono" x="127.1" y="152.5" text-anchor="middle">⑥</text>
+          <text class="v-axis-name" x="127.1" y="169.5" text-anchor="middle">持续优化</text>
+        </g>
+      </svg>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>六阶段顺时针循环，不是线性流程</span><span><i class="dot ring"></i>评测集随每轮迭代持续更新</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">Agent 项目应该按什么生命周期推进？传统 SDLC 哪里需要改写？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第五层 · 负责回答<span class="text-fg">「项目应该怎么走完一个迭代周期」</span>，是工程方法的总入口。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">传统 SDLC（1960s 起）+ 敏捷开发（2001）<span class="text-fg-dim2">→</span> 创新：以"结果定义先行"重构 SDLC + 上下文设计先于能力实现 + 评测集作为发布门禁。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"功能完整，但价值漂移"</h2>
+      <p>大多数智能体项目的开发流程，看起来是这样的：<em>产品经理写功能需求，技术团队讨论实现方案，开始写代码和调整提示词，内部测试，然后发布，等待用户反馈，再迭代。</em></p>
+      <p>这个流程继承自传统软件开发的生命周期模型——需求→设计→实现→测试→发布→维护，已经运行了几十年，是整个行业的默认实践。</p>
+      <p>但智能体系统在这个流程里经常出现一个特定的失败模式：<em>发布了，用户在用，指标看起来还可以，但一段时间之后发现，这个系统完成的任务很多，但带来的实际业务价值却很少。</em>追问下去，发现根本问题：<strong>开发团队从来没有清楚地定义过"这个系统完成任务之后，业务上应该发生什么变化"。功能完整，但价值漂移。</strong></p>
+      <h2><span class="num">02</span>为什么传统 SDLC 不能直接迁移到智能体开发</h2>
+      <div class="theory-note"><strong>理论来源</strong>：传统软件开发生命周期（SDLC，1960 年代起系统化）；敏捷开发方法（敏捷宣言，2001）。<br/><strong>本框架创新</strong>：针对智能体系统的概率性输出特征，将 SDLC 的线性功能驱动流程，重构为以"结果定义先行"为核心的迭代闭环——ADLC；在每个阶段引入对应的智能体专属实践，特别是"上下文设计优先于功能实现"和"评测集作为发布门禁"两个关键设计原则。</div>
+      <p>传统软件开发生命周期（SDLC）建立在一个对智能体系统不成立的假设上：<strong>需求可以被完整地转化为功能规格，功能规格可以被精确地实现，实现结果可以被确定地验证。</strong></p>
+      <p>这个假设让线性的"瀑布式"流程成为可能，也让迭代式的敏捷开发成为可能——<em>因为每一个迭代周期里，需求、实现和验证的边界是相对清晰的。</em></p>
+      <p>智能体系统打破了这个假设的每一个环节。</p>
+      <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);"><li><strong>需求无法被完整转化为功能规格。</strong>一个自然语言处理任务的"功能规格"，无法精确描述系统在所有可能的输入下应该产生什么输出——输入空间是无限的。</li><li><strong>实现无法被精确地执行。</strong>提示词工程的结果是概率性的，模型的行为在不同上下文下有细微差异，系统表现是一个分布，不是一个点。</li><li><strong>实现结果无法被确定地验证。</strong>没有"测试通过"这个二元结论，只有"在这组评测集上，各维度的表现分布是否达标"这个统计判断。</li></ul>
+      <h2><span class="num">03</span>ADLC 的六阶段迭代闭环</h2>
+      <p>智能体全生命周期开发法把智能体开发分为六个阶段，每个阶段都有明确的输入、输出和必须回答的核心问题。</p>
+      <h3>阶段一·发现定义</h3>
+      <p>传统 SDLC 从这里开始，但收集的是<em>功能需求</em>。ADLC 从这里开始，收集的是<strong>结果定义</strong>。<em>核心问题：这个系统部署之后，用户的业务状态应该发生什么变化？如何判断这个变化真的发生了？</em>这个阶段的输出是：结果定义文档 + 结果评估指标。<strong>没有这个输出，不应该进入下一阶段。</strong></p>
+      <h3>阶段二·上下文设计</h3>
+      <p><em>这是 ADLC 区别于传统 SDLC 最明显的阶段</em>——在写任何代码之前，先设计智能体的信息环境。这个阶段的产出是上下文架构文档，<strong>它是后续所有工程实现的基础规格，不是一个可以随时补充的配置项</strong>。</p>
+      <h3>阶段三·能力构建</h3>
+      <p>在上下文架构指引下进行系统实现，包括提示词设计、工具集成、Skill 文件开发、多智能体协作逻辑。<em>所有实现决策都服务于上下文架构，而不是服务于功能列表。</em></p>
+      <h3>阶段四·评测验证</h3>
+      <p>用第一阶段定义的结果评估标准，对第三阶段的实现进行系统性评测。<strong>评测不是测试</strong>——测试回答"功能是否实现了"，评测回答"在目标结果维度上，系统的表现分布是否达到了基准线"。</p>
+      <h3>阶段五·部署监控</h3>
+      <p>系统上线之后，建立持续的监控机制。<em>关键的监控对象不只是技术指标（延迟、错误率），更是业务结果指标——第一阶段定义的那些结果，是否真的在发生。</em></p>
+      <h3>阶段六·持续优化</h3>
+      <p>基于监控数据，识别系统的改进机会，带着明确的改进假设进入下一个迭代循环。<strong>每次迭代结束后，更新评测集，确保新发现的失败场景被纳入下一轮的验证范围。</strong></p>
+      <h2><span class="num">04</span>"先定义成功再写代码"为什么这么难</h2>
+      <p>在实践中，严格按照 ADLC 第一阶段的要求做结果定义，往往会遇到阻力。项目团队会说：<em>现在还不知道系统的具体表现，怎么定义成功标准？等系统跑起来了再看看怎么样。</em></p>
+      <p>这种阻力是可以理解的。定义智能体系统的成功标准，确实比传统软件难得多——<em>因为它需要把模糊的业务期待，转化为可以被量化评估的具体指标，而这个转化过程本身就需要大量的业务分析和指标设计工作</em>。</p>
+      <p><strong>但这个困难，正是为什么这个工作必须在最前面做。不是因为简单，而是因为如果不在最前面做，后面的所有工作都缺少一个明确的终点。</strong></p>
+      <blockquote>没有终点的开发，不是在迭代，而是在漂移。</blockquote>
+      <h2><span class="num">05</span>从"功能实现"到"结果发生"的价值交付</h2>
+      <p>ADLC 揭示的，是智能体开发和传统软件开发在<strong>"价值交付逻辑"</strong>上的根本差异。</p>
+      <p><em>传统软件的价值交付是"功能实现"</em>——产品经理定义了功能，工程师实现了功能，交付了。</p>
+      <p><strong>智能体系统的价值交付是"结果发生"</strong>——不是功能实现了，而是用 JTBO 框架定义的那个业务结果，<em>在真实使用中真实发生了</em>。功能实现只是达到结果的手段，不是目的本身。</p>
+      <p>这个认知的移位，意味着智能体项目的成功定义需要<strong>从产品层面延伸到业务层面</strong>。技术团队不能只对"系统正常运行"负责，他们需要对"系统帮助业务实现了预期的结果"负责。<em>这是一个更高的要求，也是智能体系统真正成为业务价值创造者而不只是技术工具的必要条件。</em></p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>立项准入：结果定义文档必须完成。</strong>没有结果定义不允许进入下一阶段。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>上下文设计先于代码。</strong>四层上下文架构文档完成才进入能力构建。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>评测验证作为发布门禁。</strong>不只是测试通过，而是评测分布达标。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>持续优化回流评测集。</strong>每次迭代失败案例加入评测集，闭环驱动改进。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">智能体项目的成功定义需要从产品层面<span class="not-italic" style="color:var(--fg)">延伸到业务层面</span>——技术团队不能只对"系统正常运行"负责，他们需要对"系统帮助业务实现了预期的结果"负责。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">没有终点的开发，不是在迭代，而是在漂移。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 项目立项标准</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>研发流程梳理</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>研发与业务对齐机制</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>PMO/项目管理流程升级</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>先实现再定义成功标准</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>上下文设计放到能力构建之后</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>评测验证只是发布前临时测试</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>没有持续优化回流闭环</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F14.html" class="rel-item"><span class="rel-num">F14</span><span class="rel-name">JTBO — 结果定义来源</span></a>
+          <a href="F15.html" class="rel-item"><span class="rel-num">F15</span><span class="rel-name">CADM — 上下文设计阶段</span></a>
+          <a href="F20.html" class="rel-item"><span class="rel-num">F20</span><span class="rel-name">Triple-E — 评测驱动</span></a>
+          <a href="F26.html" class="rel-item"><span class="rel-num">F26</span><span class="rel-name">PRT — 监控阶段的回归测试</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F24"><span>▸ ADLC 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ ADLC Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F23.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F23</span><span class="nav-title">企业智能体六层架构</span></div></a>
+    <a href="F25.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F25</span><span class="nav-title">正常—边缘—对抗三层评测矩阵</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

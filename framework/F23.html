@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F23 · 企业智能体六层架构 (SEAA) — 智能体管理学</title>
+<meta name="description" content="把企业的智能体系统分解为基础设施 → 模型 → 数据 → 协议 → 编排 → 应用六层——每一层有自己的技术属性，也有对应的业务含义和管理决策意义；协议层（L4）是最被低估的战略层次。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="4">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块四 · 系统重写 / F23</span>
+      <span class="type-tag">架构级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-4" class="hover:text-fg transition">所有系统重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      企业智能体六层架构
+      <span class="en">Six-Layer Enterprise Agent Architecture</span>
+      <span class="abbr">SEAA</span>
+    </h1>
+    <p class="claim" data-reveal>
+      技术团队和管理层谈 AI 建设，说的往往不是同一件事——六层架构提供共同语言。
+      <br/><span class="text-fg-dim2">一张好的架构图，不是给工程师看的技术文档，而是让所有相关人可以用同一张地图做决策的战略工具。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">把企业的智能体系统分解为<strong>基础设施 → 模型 → 数据 → 协议 → 编排 → 应用</strong>六层——每一层有自己的技术属性，也有对应的业务含义和管理决策意义；<strong>协议层（L4）是最被低估的战略层次</strong>。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F23 · SEAA 六层架构</span></div>
+      <span class="viz-pattern">P4</span>
+    </div>
+    <div class="viz-stack">
+      <div class="layer">
+        <div class="layer-num">L6 TOP</div>
+        <div class="layer-name">应用层<span class="en">Application</span></div>
+        <div class="layer-desc">面向最终用户的应用 · 业务价值直接兑现 · ROI 最可见。可逆性最高。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L5</div>
+        <div class="layer-name">编排层<span class="en">Orchestration</span></div>
+        <div class="layer-desc">多 Agent 协作管理 · 工作流设计 · 任务调度。单点能力升级为系统优势的关键。</div>
+      </div>
+      <div class="layer is-key">
+        <div class="layer-num">L4 ★ 战略</div>
+        <div class="layer-name">协议层<span class="en">Protocol · MCP / A2A</span></div>
+        <div class="layer-desc">最被低估的战略层次。MCP / A2A · 标准化接口 · "AI 版 HTTP+TCP"。早期建设获先发优势。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L3</div>
+        <div class="layer-name">数据层<span class="en">Data</span></div>
+        <div class="layer-desc">知识库 · 向量数据库 · 实时数据接入 · 数据治理。AI 质量决定性因素。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L2</div>
+        <div class="layer-name">模型层<span class="en">Model · LLM</span></div>
+        <div class="layer-desc">大语言模型选型 / 部署 / 微调。主权 vs 能力获取的核心权衡。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L1 底</div>
+        <div class="layer-name">基础设施层<span class="en">Infrastructure</span></div>
+        <div class="layer-desc">计算 / 存储 / 网络。自建 vs 云端的成本与可控性权衡。基础条件。</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>越上层可逆性越高，越底层时间窗口越紧迫</span><span><i class="dot" style="outline:2px solid var(--mod-c);outline-offset:-1px"></i>L4 协议层 = 最被低估的战略层次</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">企业 AI 建设到底涉及哪些层？哪些层是战略关键，哪些是可见 ROI？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第四层 · 负责回答<span class="text-fg">「整套企业 AI 系统的全景架构」</span>，是技术与管理层的共同语言。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">TOGAF 企业架构理论（1995）+ Zachman 框架（1987）<span class="text-fg-dim2">→</span> 创新：智能体专属六层架构 + 协议层战略地位识别 + 可逆性递减判断。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>两个不同频道上的会议</h2>
+      <p>在大量企业的 AI 建设推进过程中，有一类会议的效率极低，但又不得不反复开：<strong>技术团队向管理层汇报 AI 建设进展的会议。</strong></p>
+      <p><em>技术团队准备了详细的架构图、模型选型对比、API 调用量统计。</em>管理层带着的问题是：这些建设和我们的战略目标之间是什么关系，风险在哪里，下一步该往哪里投资。</p>
+      <p>双方都在认真准备，但<em>讨论往往在两个不同的频道上进行</em>。技术团队感到挫败——"他们不理解技术"。管理层感到焦虑——"我不知道这些技术决策对业务意味着什么"。会议结束，没有清晰的决策，下次还是同样的场景。</p>
+      <p><strong>这不是沟通技巧问题，而是缺少一个共同的框架，让技术视角和业务视角能在同一个坐标系里对话。</strong></p>
+      <h2><span class="num">02</span>为什么 AI 架构对话特别难</h2>
+      <div class="theory-note"><strong>理论来源</strong>：企业架构理论（TOGAF 框架，The Open Group，1995）；Zachman 框架（约翰·扎克曼，1987）。<br/><strong>本框架创新</strong>：在传统企业架构框架基础上，构建专门针对智能体系统的六层架构模型，使每一层能同时服务于技术实现和管理决策两个视角；提出协议层（MCP+A2A）的战略重要性，将其类比为"AI 版 HTTP+TCP"。</div>
+      <p>在传统 IT 项目里，技术与业务的对话也存在鸿沟，但通常有一些成熟的桥梁工具——商业论证、ROI 分析、项目里程碑——让双方有共同的讨论基础。</p>
+      <p>智能体 AI 建设的对话更难，原因有三。</p>
+      <p><strong>第一，AI 系统的价值不是线性的。</strong>传统 IT 项目，投入和产出的关系相对清晰。<em>AI 系统的价值经常出现非线性的跃升</em>——某个模块的改进可能在某个临界点之后产生指数级的效果——而这种非线性很难用传统商业论证的逻辑来描述。</p>
+      <p><strong>第二，AI 系统的风险类型是新的。</strong>传统 IT 风险（系统宕机、数据泄露、合规问题）管理层已经有成熟的理解框架。<em>智能体特有的风险（模型漂移、提示注入、自主决策越界）对大多数管理层来说是全新的概念</em>。</p>
+      <p><strong>第三，AI 建设决策的时间窗口压力。</strong>基础设施建设的早晚，<em>尤其是协议层的标准化建设，可能对企业未来数年的竞争位置产生深远影响</em>。这类"早期建设带来长期先发优势"的逻辑，需要一个框架来帮助管理层理解其战略意义。</p>
+      <h2><span class="num">03</span>六层架构的设计逻辑</h2>
+      <p>SEAA 把企业的智能体系统分解为六个层次，从底层基础设施到顶层业务应用依次展开。</p>
+      <h3>基础设施层（Infrastructure）</h3>
+      <p>计算资源、存储系统、网络环境。<em>管理决策意义</em>：自建还是云端，成本控制和可控性的权衡。</p>
+      <h3>模型层（Model）</h3>
+      <p>大语言模型和其他 AI 模型的选型、部署和管理。<em>管理决策意义</em>：自研、微调还是 API 调用，主权控制和能力获取的权衡。这一层直接影响"我们的 AI 能力上限和主权程度"。</p>
+      <h3>数据层（Data）</h3>
+      <p>知识库、向量数据库、实时数据接入、数据治理机制。<em>管理决策意义</em>：数据资产的积累和质量是 AI 系统质量的决定性因素，<strong>不是可以后来再补的基础设施</strong>。</p>
+      <h3>协议层（Protocol）★</h3>
+      <p>模型上下文协议（MCP）、智能体通信协议（A2A）、标准化接口规范。<strong>这是当前最被低估的战略层次。</strong>协议层是企业 AI 系统能否和外部生态互联互通的基础，也是避免被特定平台锁定的关键。<em>协议层正在成为 AI 领域的"HTTP+TCP"</em>——标准一旦形成，早期建立协议层能力的企业，将获得比模型选择更持久的先发优势。</p>
+      <h3>编排层（Orchestration）</h3>
+      <p>多智能体协作管理、工作流设计、任务调度系统。<em>管理决策意义</em>：编排能力是企业 AI 系统从"单点能力"升级为"系统性竞争优势"的关键层次。</p>
+      <h3>应用层（Application）</h3>
+      <p>面向最终用户或业务场景的智能体应用。<em>管理决策意义</em>：这是业务价值直接兑现的层次，<strong>但如果下面五层的建设存在缺陷，应用层的价值会被严重制约</strong>。</p>
+      <h2><span class="num">04</span>每一层的战略优先级不同</h2>
+      <p>六层架构的价值不只是提供了一个分类，更在于它帮助管理层理解：<strong>不同层次的建设决策，有完全不同的时间窗口和可逆性。</strong></p>
+      <p><em>应用层的建设是最可逆的</em>——一个不成功的应用可以关掉，重新做一个。<em>但协议层的标准化建设是相对不可逆的</em>——如果早期没有遵循标准协议，随着系统规模增大，迁移成本会急剧上升。<em>模型层的主权建设是长周期的</em>——自建模型能力需要时间积累。</p>
+      <blockquote>在资源有限的情况下，管理层需要理解一个反直觉的优先级逻辑：那些回报不那么立竿见影但时间窗口敏感的层次（协议层、数据层），往往比那些回报直接可见的层次（应用层）更应该优先获得战略投入。</blockquote>
+      <h2><span class="num">05</span>可见价值与战略价值的系统性错位</h2>
+      <p>六层架构揭示的，是 AI 建设中<strong>"可见价值"和"战略价值"之间的系统性错位</strong>。</p>
+      <p><em>大多数企业的 AI 投入，集中在最上层——应用层</em>——因为那里的价值最直接可见，最容易向管理层展示，最容易在短期内产生可以汇报的成果。</p>
+      <p>但 <strong>AI 能力的持久竞争优势，往往来自下层的建设</strong>——数据资产的积累、协议层的标准化、编排能力的成熟。这些层次的投入，回报周期更长，价值形态更抽象，<em>但它们是决定五年后企业 AI 竞争位置的关键因素</em>。</p>
+      <blockquote>一个只在应用层有建设、下面五层薄弱的企业，可能短期内看起来 AI 化程度很高，但它建立的是一座没有地基的楼。每次模型供应商更新策略，每次竞争对手更换平台，它都需要从接近零开始重建。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>六层架构现状盘点。</strong>评估当前在六层各自的成熟度。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>识别战略缺口。</strong>哪些层有缺口？这些缺口在未来 3-5 年意味着什么？</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>投入分配反思。</strong>当前预算流向是否过度集中在应用层？协议层/数据层是否被错误削减？</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>建立战略层 vs 战术层投入平衡机制。</strong>把"协议层"和"数据层"列为长期战略投入项。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">最容易被忽视的投入往往是<span class="not-italic" style="color:var(--fg)">最有战略价值的层次</span>——可见价值和战略价值之间存在系统性错位。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">没有协议层和数据层的应用层，是一座没有地基的楼。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>年度 AI 建设预算分配</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>技术战略路线图规划</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>技术与管理层沟通</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>评估 AI 系统的成熟度</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>只在应用层投入而忽视下层</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把协议层当技术问题</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把"AI 战略"等同于"AI 应用"</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>没有跨层的统一治理</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F04.html" class="rel-item"><span class="rel-num">F04</span><span class="rel-name">TICA — 各层的获取方式</span></a>
+          <a href="F08.html" class="rel-item"><span class="rel-num">F08</span><span class="rel-name">DFAMP — 中台对应编排层</span></a>
+          <a href="F19.html" class="rel-item"><span class="rel-num">F19</span><span class="rel-name">MAAML — 多 Agent 架构成熟度</span></a>
+          <a href="G03.html" class="rel-item"><span class="rel-num">G03</span><span class="rel-name">主权模型 — 各层主权诉求</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F23"><span>▸ SEAA 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ SEAA Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F22.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F22</span><span class="nav-title">执行链路四环诊断法</span></div></a>
+    <a href="F24.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F24</span><span class="nav-title">智能体全生命周期开发法</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

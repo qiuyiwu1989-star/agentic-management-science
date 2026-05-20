@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F33 · 智能体能力成熟度模型 (IACMM) — 智能体管理学</title>
+<meta name="description" content="从L1 工具使用者 → L2 协作设计者 → L3 系统驾驭者 → L4 能力创造者四级——L2 → L3 是从"调用思维"到"编排思维"的质变，是当前最关键的人才断层。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="6">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块六 · 人类重写 / F33</span>
+      <span class="type-tag">评估级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-6" class="hover:text-fg transition">所有人类重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体能力成熟度模型
+      <span class="en">Individual Agentic Capability Maturity Model</span>
+      <span class="abbr">IACMM</span>
+    </h1>
+    <p class="claim" data-reveal>
+      使用工具和驾驭系统，是两种本质不同的能力——L2 到 L3 的跃迁，是当前最关键的人才断层。
+      <br/><span class="text-fg-dim2">会用 AI 工具的人很多，能驾驭 AI 系统的人很少。这不是熟练程度的差异，而是能力结构的根本性不同。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">从<strong>L1 工具使用者 → L2 协作设计者 → L3 系统驾驭者 → L4 能力创造者</strong>四级——<strong>L2 → L3 是从"调用思维"到"编排思维"的质变</strong>，是当前最关键的人才断层。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F33 · IACMM 四级能力跃迁</span></div>
+      <span class="viz-pattern">P5</span>
+    </div>
+    <div class="viz-ladder">
+      <div class="step">
+        <div class="step-num">L1</div>
+        <div class="step-name">工具使用者</div>
+        <div class="step-desc">使用单个 AI 工具完成明确任务。任务导向。大多数培训覆盖到此。</div>
+        <div class="step-flag">Tool User</div>
+      </div>
+      <div class="step">
+        <div class="step-num">L2</div>
+        <div class="step-name">协作设计者</div>
+        <div class="step-desc">设计 AI 辅助的工作流程。流程导向。L1→L2 可通过实践推动。</div>
+        <div class="step-flag">Collaboration Designer</div>
+      </div>
+      <div class="step is-critical">
+        <div class="step-num">L3 ★</div>
+        <div class="step-name">系统驾驭者</div>
+        <div class="step-desc">构建管理多 Agent 系统。系统导向。需要：边界感知 + 组合设计 + 评估三种能力。<strong>当前市场极度稀缺</strong>。</div>
+        <div class="step-flag">System Orchestrator ★</div>
+      </div>
+      <div class="step">
+        <div class="step-num">L4</div>
+        <div class="step-name">能力创造者</div>
+        <div class="step-desc">开发新 AI 能力并系统化为组织 Skill。生态导向。个人 → 组织资产转化。</div>
+        <div class="step-flag">Capability Creator</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>L1→L2 通过培训和实践可达</span><span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 50%, transparent)"></i>L2→L3 是认知结构的根本转变，最难跨越</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">个人的 AI 协作能力如何被分级？为什么 L2→L3 是关键人才断层？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第一层 · 负责回答<span class="text-fg">「个人能力等级体系」</span>，是人才战略的标尺。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">德雷福斯技能习得模型（1980）+ 布鲁姆教育目标分类学（1956）<span class="text-fg-dim2">→</span> 创新：四级 AI 协作能力 + 以"调用→编排"质变替代单维度熟练度。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"AI 工具用户"和"AI 系统构建者"之间的鸿沟</h2>
+      <p>企业在推进 AI 能力建设时，通常会发现两类人之间存在一道奇怪的鸿沟：<em>一类是 AI 工具的积极用户，他们掌握了大量工具的使用技巧，能够熟练地用 AI 完成各种日常任务；另一类是 AI 系统的构建者，他们能够设计和实现复杂的智能体工作流。</em></p>
+      <p>让人惊讶的是，<strong>这两类人之间几乎没有重叠，从第一类成长到第二类的路径也不清晰</strong>。企业发现，培训了大量的"AI 工具用户"之后，"AI 系统构建者"仍然极度稀缺。</p>
+      <p>这个现象背后的原因，被大多数团队误解了。他们认为是<em>熟练程度的问题</em>——用工具够熟练了自然就会构建系统。但实际上，<strong>这是两种需要完全不同能力结构的工作，熟练程度的积累不能自动完成这个跨越。</strong></p>
+      <h2><span class="num">02</span>"调用思维"和"编排思维"的认知差异</h2>
+      <div class="theory-note"><strong>理论来源</strong>：德雷福斯技能习得模型（Dreyfus Model of Skill Acquisition，1980）；布鲁姆教育目标分类学（Bloom's Taxonomy，1956）。<br/><strong>本框架创新</strong>：将德雷福斯模型应用于 AI 协作能力领域，重新定义四级成熟度，以"调用思维→编排思维"的认知转变替代"初学者→专家"的单维度进阶。</div>
+      <p>德雷福斯兄弟在 1980 年提出的技能习得模型，把技能学习从初学者到专家分为五个阶段。这个模型的核心洞察是：<em>技能的高级阶段不只是"做得更多更快"，而是认知方式本身发生了质变。</em></p>
+      <p>智能体协作能力的成熟度，也有类似的质变节点，<strong>但它的质变不发生在"初学者→专家"的传统技能轴上，而是发生在"工具使用→系统驾驭"的维度转换上。</strong></p>
+      <h3>工具使用的认知模式</h3>
+      <p>了解一个工具能做什么，学习使用这个工具的方法，在适当的场景下调用这个工具。<em>这是一种"调用"思维。</em></p>
+      <h3>系统驾驭的认知模式</h3>
+      <p>理解一个系统的能力边界在哪里，在业务需求和系统能力之间进行翻译，设计多个组件如何协作来实现一个更大的目标。<strong>这是一种"编排"思维。</strong></p>
+      <p>从调用思维到编排思维，<em>不是通过练习使用更多工具来实现的</em>，而是通过一种认知模式的根本性转变——从"我要做什么，可以用什么工具"变成"<strong>我要达成什么目标，需要设计什么样的人机协作结构</strong>"。</p>
+      <h2><span class="num">03</span>四级能力成熟度</h2>
+      <p>IACMM 把个人的 AI 协作能力，分为四个成熟度级别。</p>
+      <h3>L1 · 工具使用者（Tool User）</h3>
+      <p>能够使用单个 AI 工具完成明确的具体任务。理解工具的主要功能，能够按照工具的设计方式使用它。<em>核心特征：任务导向</em>——给一个具体的任务，知道用什么工具，知道怎么用。<strong>绝大多数参加过 AI 培训的从业者，处于 L1 到 L2 之间。</strong></p>
+      <h3>L2 · 协作设计者（Collaboration Designer）</h3>
+      <p>能够设计 AI 辅助的工作流程，理解在哪些环节引入 AI 可以提升效率，知道如何把工作分解成"AI 适合做的部分"和"人类更适合做的部分"。<em>核心特征：流程导向</em>。</p>
+      <h3>L3 · 系统驾驭者（System Orchestrator）★</h3>
+      <p>能够构建和管理多智能体协作系统，把复杂的业务需求转化为可执行的智能体系统规格，评估和优化系统的整体表现。<em>核心特征：系统导向</em>——从单个工具或工作流，跃升到了"系统"视角。<strong>这是当前市场最稀缺的人才级别，也是绝大多数 AI 战略落地的瓶颈所在。</strong></p>
+      <h3>L4 · 能力创造者（Capability Creator）</h3>
+      <p>能够开发新的 AI 能力，将其系统化为可以被组织复用的 Skill 文件，推动组织整体 AI 能力水平的提升。<em>核心特征：生态导向</em>——把个人的探索成果转化为组织的资产。</p>
+      <h2><span class="num">04</span>L2 到 L3：那道最难跨越的门槛</h2>
+      <p>在四个级别里，<strong>L2→L3 的跨越是最难的，也是最关键的</strong>。</p>
+      <p><em>L1→L2 的跨越，主要是思维方式的扩展</em>：从"这个任务用什么工具"扩展到"这个流程怎么设计"。这个扩展是自然的，可以通过项目实践和方法论培训来推动。</p>
+      <p><strong>L2→L3 的跨越，是一种更深层的认知结构转变</strong>：从"设计流程"到"构建系统"。系统和流程的根本区别在于：<em>流程是静态的步骤序列，系统是动态的、有状态的、可以自适应的</em>。理解"系统"需要一种新的认知工具——能够在脑子里维持一个复杂的、多组件相互作用的动态模型。</p>
+      <p>具体来说，L3 的人需要具备<strong>三种 L2 的人通常不具备的能力</strong>：</p>
+      <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);"><li><strong>边界感知能力</strong>：知道智能体在什么情况下会失效，能够预见系统的失效模式</li><li><strong>组合设计能力</strong>：知道如何把多个智能体组合成一个整体能力大于部件之和的系统</li><li><strong>评估能力</strong>：能够量化地评估系统的表现，区分随机波动和系统性问题</li></ul>
+      <p>这三种能力，<em>在传统工作中都没有对应的培养路径，需要通过刻意的实践积累来形成</em>。</p>
+      <h2><span class="num">05</span>AI 时代人才供需最关键的结构性错配</h2>
+      <p>IACMM 揭示的，是 AI 时代人才供需最关键的结构性错配：<strong>企业需要的是 L3，市场培训出来的是 L1/L2</strong>。</p>
+      <p>大量 AI 培训项目的设计目标是"让更多人会用 AI 工具"——这对应 L1 的能力。一些更进阶的培训覆盖了工作流设计——这对应 L2 的能力。<em>但 L3 所需要的"系统驾驭"能力，几乎没有对应的系统性培养路径</em>，因为它需要的不是知识传授，而是<strong>在构建和运维真实系统的过程中积累的直觉和经验</strong>。</p>
+      <p>这个错配的后果是：<em>企业的 AI 能力瓶颈不在"会不会用工具"上，而在"有没有能设计和管理 AI 系统的人"上。</em></p>
+      <blockquote>把大量培训资源投入 L1/L2 的能力建设，而 L3 的人才缺口持续扩大，是一种系统性的资源错配。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>核心团队 IACMM 盘点。</strong>识别每个核心成员当前等级。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>识别 L3 潜力人才。</strong>有边界感知和系统思维倾向的人。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>设计 L2→L3 培养路径。</strong>不只是培训，而是真实系统构建项目。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>L&D 资源重新分配。</strong>不再大规模培训 L1，转向定向培养 L3。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">大规模培训出 L1/L2，但企业 AI 落地需要 L3——<span class="not-italic" style="color:var(--fg)">这是当前最关键的人才结构错配</span>。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">L5 是研究，不是实践。大多数企业 AI 战略的瓶颈在 L3 极度稀缺。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>人才盘点 / 招聘评估</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>L&D 学习发展策略</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>团队能力规划</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>识别 AI 项目领导者人选</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>用单一"AI 能力等级"评估</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把"用得多"等同于"能力强"</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 L3 培养路径等同于工具培训</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视边界感知能力</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F10.html" class="rel-item"><span class="rel-num">F10</span><span class="rel-name">ARRM — 编排者岗位 = L3 能力</span></a>
+          <a href="F34.html" class="rel-item"><span class="rel-num">F34</span><span class="rel-name">TSMM — 任务级迁移视角</span></a>
+          <a href="F35.html" class="rel-item"><span class="rel-num">F35</span><span class="rel-name">FALA — 能力结构评估</span></a>
+          <a href="F36.html" class="rel-item"><span class="rel-num">F36</span><span class="rel-name">AC6 — 核心能力底座</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F33"><span>▸ IACMM 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ IACMM Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F32.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F32</span><span class="nav-title">智能体全域风险治理法</span></div></a>
+    <a href="F34.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F34</span><span class="nav-title">角色转型地图</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

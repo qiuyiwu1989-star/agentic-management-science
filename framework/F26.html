@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F26 · 概率回归测试法 (PRT) — 智能体管理学</title>
+<meta name="description" content="用统计分布、质量漂移和 Eval 集群退化，替代传统精确断言、二元判断、固定基线——并引入 Error Budget（错误预算）机制管理质量退化。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="4">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块四 · 系统重写 / F26</span>
+      <span class="type-tag">工程级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-4" class="hover:text-fg transition">所有系统重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      概率回归测试法
+      <span class="en">Probabilistic Regression Testing</span>
+      <span class="abbr">PRT</span>
+    </h1>
+    <p class="claim" data-reveal>
+      传统回归测试的三根支柱，在智能体场景全部倒塌——质量保障需要一套全新的哲学。
+      <br/><span class="text-fg-dim2">"上次通过了，这次应该还能通过。"这个假设，在传统软件里大体成立。在智能体系统里，它可以造成灾难。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">用<strong>统计分布、质量漂移和 Eval 集群退化</strong>，替代传统<strong>精确断言、二元判断、固定基线</strong>——并引入 <strong>Error Budget（错误预算）</strong>机制管理质量退化。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F26 · 传统三支柱 vs 新三原则</span></div>
+      <span class="viz-pattern">custom</span>
+    </div>
+    <div class="viz-matrix" style="grid-template-columns: 1fr 1fr; grid-template-rows: auto; min-height:auto;">
+      <div class="quad">
+        <span class="quad-tag">支柱 → 原则</span>
+        <h4 class="quad-title">精确匹配 → 分布描述</h4>
+        <p class="quad-desc">不再问"输出是否=期望"，而是问"分布是否落在历史正常范围"。多维度各自有分布。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">支柱 → 原则</span>
+        <h4 class="quad-title">二元判断 → 统计显著性</h4>
+        <p class="quad-desc">不再"通过/失败"，而是"统计上是否发生显著退化"。阈值按风险级别设定。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">支柱 → 原则</span>
+        <h4 class="quad-title">固定基线 → 动态基线</h4>
+        <p class="quad-desc">基线随系统演化主动更新。模型更新后再校准——区分进步与退化。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">新增机制</span>
+        <h4 class="quad-title">Error Budget · 错误预算</h4>
+        <p class="quad-desc">为每维度设质量预算 → 耗尽则强制暂停其他迭代 → 专注质量修复。</p>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>三个新原则替换三根失效支柱</span><span><i class="dot"></i>Error Budget 把质量保障从被动变主动</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">智能体系统的回归测试应该怎么做？传统的"通过/失败"判断为什么失效？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第七层 · 负责回答<span class="text-fg">「质量退化如何被持续追踪与阻止」</span>，与 ADLC 的部署监控阶段配套。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">传统软件回归测试理论 + 统计过程控制（休哈特，1920s）<span class="text-fg-dim2">→</span> 创新：分布描述/统计显著性/动态基线三原则 + Error Budget 引入。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>没有修改相关代码，但表现悄悄变差了</h2>
+      <p>在许多团队维护智能体系统的过程中，会遇到一种特定的令人沮丧的体验：<em>你没有修改任何和这个功能相关的代码，但它的表现在某次部署之后悄悄变差了。</em></p>
+      <p>更令人困惑的是：<em>当你回滚到上一个版本，问题有时候还在，有时候消失了，有时候变成了另一个形态的问题。</em>你用同一套测试用例跑，结果在"通过"和"失败"之间游移，没有规律可循。</p>
+      <p>调查下去，往往会发现：<strong>底层的模型进行了一次悄无声息的更新，或者检索库里的数据发生了变化，或者某个外部 API 返回了一个细微不同的格式。</strong>任何一个变化，都可能让你的智能体系统的表现分布发生漂移——这种漂移不是显而易见的崩溃，而是一种渐进的、难以察觉的质量退化。</p>
+      <p><em>传统的回归测试没有设计来发现这种漂移，因为它的整个逻辑是建立在"系统行为确定性"这个假设上的。</em></p>
+      <h2><span class="num">02</span>传统回归测试的三根支柱失效</h2>
+      <div class="theory-note"><strong>理论来源</strong>：软件回归测试理论（Roger Pressman，《软件工程》）；统计过程控制理论（Statistical Process Control，沃尔特·休哈特，1920 年代）。<br/><strong>本框架创新</strong>：将统计过程控制的"分布追踪"逻辑引入智能体质量保障，用概率分布的统计特性替代二元通过/失败判断；提出"Error Budget"概念在智能体质量管理中的应用；建立"基线漂移"的主动检测和人工校准机制。</div>
+      <p>传统软件回归测试有三个核心特征，这三个特征在确定性系统里是合理的工程选择，但在智能体场景里都失去了有效性。</p>
+      <h3>第一根：精确匹配断言（Exact Match Assertion）</h3>
+      <p>传统测试验证的是：给定输入 A，输出是否精确等于期望输出 B。<em>这个验证方式在确定性系统里完全合理</em>——相同输入总是产生相同输出。<strong>但智能体的输出是自然语言，一个"正确"的输出可以有无数种合理的表达方式。</strong>用精确匹配来验证自然语言输出，会产生大量假阴性（正确的输出被判定为不通过）和假阳性（格式上匹配了但内容错误的输出被判定为通过）。</p>
+      <h3>第二根：二元通过/失败判断（Binary Pass/Fail）</h3>
+      <p>传统测试的结果是二元的——这个用例通过了还是失败了。<strong>智能体的质量是连续分布的，不是二元的。</strong>同一个输出，可能在某些评估维度上是优秀的，在另一些维度上是需要改进的。<em>用二元判断来处理这种多维度的连续质量，是用错误粒度的工具做精细工作。</em></p>
+      <h3>第三根：固定基线（Fixed Baseline）</h3>
+      <p>传统回归测试维护一套固定的"正确输出"基线。<strong>智能体系统的"基线"不是固定的。</strong>底层模型更新可能改变系统的整体能力水平，提示词优化可能改变输出风格，数据更新可能改变知识覆盖范围。<em>当基线本身在变化时，"当前输出与基线不一致"可能意味着系统变好了，也可能意味着变差了。</em></p>
+      <h2><span class="num">03</span>概率回归测试的新范式</h2>
+      <p>概率回归测试法放弃了传统回归测试的三根支柱，用三个新的原则来替代。</p>
+      <h3>以分布描述替代精确匹配</h3>
+      <p>不再问"这次输出是否和期望输出精确一致"，而是问"<strong>这次输出的评分，是否落在了历史评分分布的正常范围内</strong>"。<em>评分可以是多维度的，每个维度有自己的分布。</em>当某个维度的评分持续落在分布的低端，或者分布的形态发生了显著变化，就触发关注和分析。</p>
+      <h3>以统计显著性替代二元判断</h3>
+      <p>不再是"通过/失败"，而是"<strong>在统计上，这批新的测试结果相比历史基线，是否发生了显著的退化</strong>"。这需要对每次测试运行的结果，做统计显著性检验，判断差异是随机波动还是系统性退化。<em>统计显著性的阈值，可以根据场景的风险级别灵活设定。</em></p>
+      <h3>以动态基线替代固定基线</h3>
+      <p>基线不是一个固定的"正确答案"，而是<strong>一个随时间演化的"质量参考分布"</strong>。当系统进行了明确的能力提升，基线需要被主动更新；当系统底层模型更新之后，需要做一次"基线再校准"——重新运行完整的评测集，确定新的基线分布。</p>
+      <h2><span class="num">04</span>Error Budget——把质量保障从被动变主动</h2>
+      <p>概率回归测试的一个重要配套机制，是从站点可靠性工程（SRE）借来的<strong>"错误预算（Error Budget）"</strong>概念。</p>
+      <p>在 SRE 实践里，错误预算是这样定义的：<em>如果我们承诺 99.9% 的可用性，那么我们有 0.1% 的"错误容量"——在这个容量内的失败是可以接受的，超过这个容量，我们需要停止新功能发布，专注于稳定性改进。</em></p>
+      <p>在智能体质量管理里，类似的逻辑可以被应用：<strong>为每个关键的质量维度设定一个"质量预算"——允许的退化幅度。</strong>当某个维度的评分退化超过了预算范围，触发强制的质量改进流程，暂停其他迭代工作，直到质量恢复到预算范围内。</p>
+      <blockquote>这个机制让质量保障从一个被动的"测试→发现问题→修复"循环，变成了一个主动的"追踪趋势→预警退化→预防性介入"系统。质量退化在积累到不可接受的程度之前，就已经被发现和处理。</blockquote>
+      <h2><span class="num">05</span>从"证明质量达标"到"持续追踪质量状态"</h2>
+      <p>概率回归测试法揭示的，是智能体系统质量保障的一个根本性认知转换：<strong>从"证明质量达标"到"持续追踪质量状态"。</strong></p>
+      <p><em>传统软件测试的逻辑是：系统通过了测试，质量达标，可以发布。</em>这是一种"门禁"逻辑，质量保障是一个有终点的活动。</p>
+      <p><strong>智能体系统的质量保障是一个没有终点的持续活动。</strong>系统今天的质量状态，不能保证明天的状态——底层模型可能更新，使用场景可能扩展，对抗性攻击可能演化。"质量达标"不是一个可以被达到并维持的状态，而是<em>一个需要持续监控和维护的动态过程</em>。</p>
+      <p>这个认知转换，要求团队在质量保障上的<strong>持续投入</strong>，而不是一次性的发布前测试。在资源规划上，需要专门为持续评测体系分配人力和计算资源，<em>把它视为和功能开发同等重要的工作</em>。</p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>建立分布基线。</strong>对每个关键质量维度建立历史分布。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>统计显著性检验。</strong>每次变更后判断是否发生显著退化。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>设定 Error Budget。</strong>每维度允许的退化幅度，写入团队迭代规则。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>模型更新后基线再校准。</strong>区分进步与退化，更新参考分布。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">质量不是发布前被<span class="not-italic" style="color:var(--fg)">"检验"</span>出来的状态——而是整个生命周期被<span class="not-italic" style="color:var(--fg)">"追踪"</span>的动态过程。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">没有 Error Budget 的团队，质量保障停留在事后救火；有了它，质量退化在影响用户之前被发现。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>模型更新后的发布决策</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>提示词迭代的安全验证</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 系统持续运行的质量监控</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>事故复盘的退化路径追溯</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>用精确匹配测自然语言输出</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把"测试通过"等同于"质量稳定"</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>模型更新不做基线再校准</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>不设 Error Budget 任由质量漂移</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F20.html" class="rel-item"><span class="rel-num">F20</span><span class="rel-name">Triple-E — 评测集是回归测试基础</span></a>
+          <a href="F22.html" class="rel-item"><span class="rel-num">F22</span><span class="rel-name">PRTD — 回归测试定位环</span></a>
+          <a href="F25.html" class="rel-item"><span class="rel-num">F25</span><span class="rel-name">TSEM — 三层场景覆盖</span></a>
+          <a href="F27.html" class="rel-item"><span class="rel-num">F27</span><span class="rel-name">AOMM — M4 自动门禁配套</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F26"><span>▸ PRT 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ PRT Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F25.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F25</span><span class="nav-title">正常—边缘—对抗三层评测矩阵</span></div></a>
+    <a href="F27.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F27</span><span class="nav-title">智能体运营五级成熟度模型</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

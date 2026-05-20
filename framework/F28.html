@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F28 · 智能体运营指标金字塔 (3DSP) — 智能体管理学</title>
+<meta name="description" content="从可用性（底层）→ 效能（中层）→ 质量稳定性（顶层）三层金字塔建立 Agent 服务指标与 SLO——揭示三层之间存在"成本×质量×性能"的本质性制约。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="5">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块五 · 价值重写 / F28</span>
+      <span class="type-tag">工具级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-5" class="hover:text-fg transition">所有价值重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体运营指标金字塔
+      <span class="en">Three-Dimensional SLI/SLO Pyramid</span>
+      <span class="abbr">3DSP</span>
+    </h1>
+    <p class="claim" data-reveal>
+      传统运维指标正常，但智能体的核心价值正在悄悄流失——你没有察觉。
+      <br/><span class="text-fg-dim2">一个系统的可用性是 99.9%，但它完成的任务里有 40% 没有产生实际价值。这是成功还是失败？传统指标体系告诉你是成功，用户体验告诉你是失败。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">从<strong>可用性（底层）→ 效能（中层）→ 质量稳定性（顶层）</strong>三层金字塔建立 Agent 服务指标与 SLO——揭示三层之间存在<strong>"成本×质量×性能"的本质性制约</strong>。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F28 · 三层指标金字塔</span></div>
+      <span class="viz-pattern">P4</span>
+    </div>
+    <div class="viz-stack">
+      <div class="layer">
+        <div class="layer-num">顶层</div>
+        <div class="layer-name">质量稳定性指标<span class="en">Quality Stability</span></div>
+        <div class="layer-desc">P50/P90/P99 输出质量分位数 · 退化预警 · 跨场景一致性。</div>
+      </div>
+      <div class="layer is-key">
+        <div class="layer-num">中层</div>
+        <div class="layer-name">效能指标 ★<span class="en">Efficiency · 新增</span></div>
+        <div class="layer-desc">任务真实完成率（结果层）· CPTA · Override 率。传统 SRE 无法覆盖的三个新维度。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">底层</div>
+        <div class="layer-name">可用性指标<span class="en">Availability · 继承自 SRE</span></div>
+        <div class="layer-desc">延迟 · 错误率 · 吞吐量——必要条件但不充分。只看这层会产生"指标全绿但价值流失"管理盲点。</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>三层递进，效能层是 Agent 时代新增</span><span><i class="dot"></i>三层间制约：成本×质量×性能不可同优</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">系统在正常运行，但价值真的在产生吗？三层指标如何同时被追踪？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第二层 · 负责回答<span class="text-fg">「Agent 服务的指标体系如何分层」</span>。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">Google SRE 黄金指标理论（2016）+ SLI/SLO 体系<span class="text-fg-dim2">→</span> 创新：增加效能层（任务真实完成率/CPTA/Override 率）+ 揭示三层制约关系。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"指标全绿但价值流失"——技术与业务的盲点</h2>
+      <p>企业在部署智能体系统之后，通常会建立一套监控仪表盘。仪表盘上最常见的指标：<em>系统可用性（99.9%，优秀）、平均响应时间（1.2 秒，达标）、错误率（0.3%，良好）。</em>每次运营周报，这三个指标都是绿色的。</p>
+      <p>但在同一段时间里，业务侧发现了一个令人困惑的问题：<strong>引入智能体之后，预期的业务效率提升没有出现。</strong>用户确实在使用智能体，响应也够快，也没什么明显的错误，但最终的业务产出没有改变——有时候甚至更差了。</p>
+      <p><em>技术团队和业务团队各执一词，谁也说服不了谁，因为他们用的是完全不同的衡量体系</em>，而这两个体系之间没有连接。<strong>技术指标显示系统在正常工作，业务指标显示系统没有产生价值。两件事都是真的，但没有一个框架能把它们放在一张图里同时看清楚。</strong></p>
+      <h2><span class="num">02</span>SRE 指标体系为什么对智能体不够用</h2>
+      <div class="theory-note"><strong>理论来源</strong>：谷歌 SRE 黄金指标理论（《Site Reliability Engineering》，Google 工程团队，2016）；服务级别指标/服务级别目标体系（SLI/SLO）。<br/><strong>本框架创新</strong>：在 SRE 指标体系基础上，增加智能体系统三个新指标维度——任务真实完成质量、单位成本效能、输出质量稳定性，构建三层指标金字塔；揭示三层之间的本质性制约关系。</div>
+      <p>站点可靠性工程（SRE）是 Google 在 2003 年前后系统化的工程实践体系。SRE 提出的黄金指标——延迟、流量、错误率、饱和度——已经成为现代互联网基础设施运维的标准语言。</p>
+      <p>这套指标体系的价值是真实的，但它有一个隐含的设计前提：<strong>服务的价值可以用"正确完成了多少请求"来衡量。</strong>一个 API 请求，要么成功（HTTP 200），要么失败。</p>
+      <p>智能体系统打破了这个前提。<em>一个智能体"成功完成"了一个任务（没有报错，在正常延迟内返回了结果），和这个任务"产生了真实的业务价值"，是两件完全不同的事。</em>传统 SRE 指标只能衡量前者，而后者才是企业真正关心的。</p>
+      <p>更深的问题是：<strong>智能体系统还引入了一个传统 IT 系统几乎不需要考虑的成本维度——每次任务执行都有直接的算力成本（以 Token 为单位）</strong>，而这个成本和任务的业务价值之间的关系，是非线性的、需要主动管理的。</p>
+      <h2><span class="num">03</span>三层指标金字塔</h2>
+      <p>智能体运营指标金字塔把智能体系统的运营健康状态，分解为三个层次递进、相互制约的指标维度。</p>
+      <h3>底层·可用性指标（Availability Layer）</h3>
+      <p>延迟、错误率、吞吐量——<em>继承自传统 SRE 体系的技术性指标</em>。这是整个金字塔的基础，是运营质量的必要条件。<strong>没有稳定的可用性，上面两层都无从建立。但这层指标只是入场券</strong>，在智能体系统里单独看这层指标，会产生严重的管理盲点。</p>
+      <h3>中层·效能指标（Efficiency Layer）</h3>
+      <p><em>任务真实完成率</em>（结合 JTBO 的结果层定义，不只是"任务被执行了"，而是"业务目标被实现了"）、<em>单次成功任务成本</em>（CPTA，把所有相关成本分摊到每个真正完成的任务上）、<em>人工 Override 率</em>（用户推翻 AI 决策的频率，这是可靠性信任的晴雨表）。</p>
+      <h3>顶层·质量稳定性指标（Quality Stability Layer）</h3>
+      <p><em>P50/P90/P99 的输出质量分位数</em>（追踪大多数用户的体验，而不只是平均值）、<em>质量退化预警信号</em>（在退化明显之前，分布变化的早期信号）、<em>跨场景一致性</em>（相同类型的任务，在不同上下文下的表现差异）。</p>
+      <h2><span class="num">04</span>三层之间的本质性制约关系</h2>
+      <p>这个框架最重要的洞察，不是三个独立的指标维度，<strong>而是它们之间存在一种无法被消除、只能被管理的本质性制约关系。</strong></p>
+      <p><strong>降低成本往往损害质量。</strong>最直接的成本优化手段——减少 Token 消耗、使用更轻量的模型、压缩上下文长度——<em>几乎都会在某种程度上影响输出质量</em>。把成本优化到极限，质量通常也到了它的下限。</p>
+      <p><strong>提升质量往往增加成本。</strong>为了提高输出质量，通常需要更丰富的上下文、更多的工具调用、更复杂的推理链——<em>这些都会增加 Token 消耗和调用成本</em>。</p>
+      <p><strong>提升性能可能降低质量。</strong>为了加快响应速度，可能需要简化推理过程、减少检索步骤、使用更快但不那么精准的模型——<em>这些都可能影响输出质量的深度和准确性</em>。</p>
+      <blockquote>这三组制约关系，意味着智能体运营不存在"把所有指标都优化到最好"的解。每一次运营决策，本质上都是在这三个维度之间做出明确的权衡取舍。没有意识到这个权衡关系的团队，会发现自己在优化一个维度时，另一个维度在悄悄退化，而他们不知道为什么。</blockquote>
+      <h2><span class="num">05</span>系统在运行 ≠ 系统在产生价值</h2>
+      <p>智能体运营指标金字塔揭示的，是企业在 AI 系统运营上最普遍的认知错误：<strong>把"系统在正常运行"等同于"系统在正常产生价值"。</strong></p>
+      <p><em>传统软件运维里，这两件事的差距很小</em>——系统正常运行意味着用户可以正常使用功能，功能被使用通常意味着产生了某种价值。这个逻辑链条在传统软件里基本成立。</p>
+      <p><strong>在智能体系统里，这个逻辑链条断了。系统正常运行，只是价值产生的必要条件，不是充分条件。</strong>智能体可以在技术上"正常运行"，同时在业务上"没有产生有效价值"——<em>它在高效率地做了大量无效的工作</em>。</p>
+      <p>认识到这个断裂，意味着运营团队需要把工作重心<strong>从"保证系统可用"向"保证系统有效"扩展</strong>。这不是技术工作量的增加，而是运营思维方式的根本转变。</p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>建立三层 SLI。</strong>底层（延迟/错误/吞吐）+ 中层（CPTA/Override/任务完成）+ 顶层（P50/P90/P99 质量分位）。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>设定三层 SLO。</strong>每层目标值 + 退化告警阈值。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>识别三维制约。</strong>明确成本/质量/性能三组制约的当前权衡点。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>三维平衡管理。</strong>每次运营决策显式标注影响哪些维度，避免单维度盲目优化。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">从<span class="not-italic" style="color:var(--fg)">单一维度优化</span>升级为<span class="not-italic" style="color:var(--fg)">三维平衡管理</span>——每次运营决策都是显式的权衡取舍。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">只看底层指标会产生严重管理盲点："指标全绿但价值流失"。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 系统运营仪表盘设计</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>月度运营回顾结构</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>面向管理层的 AI 价值汇报</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>产品/工程/业务对齐机制</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>只看底层 SRE 指标</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把可用性达标当价值达标</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>不追踪 Override 率</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把"任务完成"等同于"价值产生"</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F14.html" class="rel-item"><span class="rel-num">F14</span><span class="rel-name">JTBO — 任务完成的结果层定义</span></a>
+          <a href="F27.html" class="rel-item"><span class="rel-num">F27</span><span class="rel-name">AOMM — 指标体系是 M3 标志</span></a>
+          <a href="F29.html" class="rel-item"><span class="rel-num">F29</span><span class="rel-name">DWPS — 综合评分卡</span></a>
+          <a href="F30.html" class="rel-item"><span class="rel-num">F30</span><span class="rel-name">CPST — 单位成本指标</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F28"><span>▸ 3DSP 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ 3DSP Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F27.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F27</span><span class="nav-title">智能体运营五级成熟度模型</span></div></a>
+    <a href="F29.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F29</span><span class="nav-title">数字员工绩效评分卡</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

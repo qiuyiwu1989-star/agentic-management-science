@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F05 · 数字劳动力资产观 (DLAM) — 智能体管理学</title>
+<meta name="description" content="将 Agent 从软件费用重新定义为可沉淀、可复用、可评估、可增值的数字劳动力资产——用 DKEP 四维评估（数据飞轮 / 知识沉淀 / 执行效能 / 平台协同）量化其资产价值。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="1">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块一 · 竞争重写 / F05</span>
+      <span class="type-tag">方法级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-1" class="hover:text-fg transition">所有竞争重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      数字劳动力资产观
+      <span class="en">Digital Labor Assetization Method</span>
+      <span class="abbr">DLAM</span>
+    </h1>
+    <p class="claim" data-reveal>
+      你把智能体当费用记账——这个误判，正在扭曲你所有的 AI 投资决策。
+      <br/><span class="text-fg-dim2">你无法有效管理一个在你的财务系统里不存在的资产。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">将 Agent 从软件费用重新定义为<strong>可沉淀、可复用、可评估、可增值的数字劳动力资产</strong>——用 <strong>DKEP 四维评估</strong>（数据飞轮 / 知识沉淀 / 执行效能 / 平台协同）量化其资产价值。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F05 · DKEP 四维资产评估</span></div>
+      <span class="viz-pattern">custom</span>
+    </div>
+    <div class="viz-matrix" style="grid-template-columns: 1fr 1fr; grid-template-rows: auto; min-height:auto;">
+      <div class="quad">
+        <span class="quad-tag">D · Data Flywheel</span>
+        <h4 class="quad-title">数据飞轮贡献度</h4>
+        <p class="quad-desc">运行中是否持续积累数据并转化为系统能力的提升？飞轮能转：指数积累 / 飞轮不转：只是存量。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">K · Knowledge</span>
+        <h4 class="quad-title">知识沉淀深度</h4>
+        <p class="quad-desc">智能体承载了多少企业专有知识？知识越深，迁移成本越高，不可替代性越强。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">E · Execution</span>
+        <h4 class="quad-title">执行效能指数</h4>
+        <p class="quad-desc">以人工完成同等工作的成本为基准，效能倍数是多少？衡量当期效益与使用价值。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">P · Platform Synergy</span>
+        <h4 class="quad-title">平台协同价值</h4>
+        <p class="quad-desc">是否与其他智能体和企业系统形成协同？嵌入越深，越难替换。</p>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>四维综合评分决定资产级别</span><span><i class="dot"></i>S 级战略资产 / A·B 级常规资产 / C 级费用项</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">智能体在企业里到底是费用还是资产？如何用资产的方式管理和评估它？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第五层 · 负责回答<span class="text-fg">「这些 Agent 在财务与战略上算什么」</span>，是从能力建设进入资产经营的认知升级。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">人力资本会计理论（弗拉霍尔兹，1972）+ 无形资产价值评估（FASB/IASB）<span class="text-fg-dim2">→</span> 创新：构建"数字劳动力资产"概念 + DKEP 四维评估模型。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>CFO 看起来理性的决定，带来一连串下游影响</h2>
+      <p>一家企业的 CFO 在年度预算会上做了一个看起来理性的决定：<em>把所有智能体相关支出归类为"数字化运营费用"，按季度摊销。</em>理由充分：这是外购的服务，不是固定资产，会计准则也支持这种处理。</p>
+      <p>这个决定在财务上完全合规。但它带来了一系列下游影响：AI 预算在下一轮削减中成为第一批被压缩的对象，因为它在报表上体现为纯粹的成本；几个正在积累数据飞轮的智能体项目因此被中断，而被中断的恰好是那些越用越好、需要时间积累的类型；董事会问"我们的 AI 战略价值是什么"，没有人能给出一个财务语言下的清晰回答。</p>
+      <p>这不是会计技术问题，这是<strong>认知框架问题</strong>。一个组织用什么方式看待智能体，决定了它用什么方式管理智能体，最终决定了它能从智能体投入里获得什么。</p>
+      <h2><span class="num">02</span>费用思维的三重危害</h2>
+      <div class="theory-note"><strong>理论来源</strong>：人力资本会计理论（埃里克·弗拉霍尔兹，<em>Human Resource Accounting</em>，1972）；无形资产价值评估（FASB/IASB 无形资产会计准则）。<br/><strong>本框架创新</strong>：将人力资本会计的"将人力视为资产"逻辑迁移至智能体，构建"数字劳动力资产"概念，提出 DKEP 四维评估模型作为智能体资产价值的量化框架。</div>
+      <p>"把智能体当费用"这个认知框架，会系统性地损害 AI 战略，表现在三个层面。</p>
+      <p><strong>第一，资源被本能削减。</strong>任何在报表上以费用出现的支出，在成本压力下都会成为削减候选。而智能体投入恰恰有一个特点：<em>越早中断，损失越大</em>——不只是当期投入损失，还有因为飞轮被切断而损失的未来收益。费用思维让管理者在面对 AI 支出时，本能地用"这笔钱能省吗"替代"这个资产值不值得继续投"。</p>
+      <p><strong>第二，无法评估组合整体价值。</strong>当所有智能体都被记为费用，就没有"智能体资产组合"这个概念，也就不可能用 F03 的智能体组合矩阵（APM）来做系统性评估。你只能看到每个项目单独的支出，看不到跨项目的整体战略价值。</p>
+      <p><strong>第三，资本市场估值叙事缺位。</strong>对于需要向投资人讲故事的企业，智能体能力是否被资产化，直接影响"AI 战略"在估值逻辑里的分量。一家把智能体记为费用的企业，在报表层面看不出 AI 战略和非 AI 战略企业的区别。</p>
+      <h2><span class="num">03</span>DKEP 四维资产评估</h2>
+      <p>智能体资产观（DLAM）的核心，是把每一个智能体系统视为一项<strong>数字劳动力资产</strong>，并用四个维度评估其资产价值。</p>
+      <h3>D · 数据飞轮贡献度（Data Flywheel）</h3>
+      <p>这个智能体在运行过程中，是否在持续积累有价值的数据，并将这些数据转化为系统能力的提升？<em>一个能转动飞轮的智能体，其资产价值随时间增长；一个只消耗数据不产生飞轮的智能体，其价值是静态的。</em></p>
+      <h3>K · 知识沉淀深度（Knowledge Depth）</h3>
+      <p>这个智能体承载了多少企业专有知识？这些知识是否在智能体的运行过程中被不断深化和精炼？<em>知识沉淀越深，迁移成本越高，资产的不可替代性越强。</em></p>
+      <h3>E · 执行效能指数（Execution Efficiency）</h3>
+      <p>以人工完成同等工作的成本为基准，这个智能体的执行效能是多少倍？这个指标既衡量当期效益，也反映资产的"使用价值"。</p>
+      <h3>P · 平台协同价值（Platform Synergy）</h3>
+      <p>这个智能体是否与其他智能体或企业系统形成了协同效应？<em>一个高度嵌入企业系统的智能体，比一个孤立运行的智能体有更高的平台价值，也更难被替换。</em></p>
+      <p>四个维度综合评分，决定该智能体的资产级别：<strong>S 级</strong>（战略核心资产，高度保护并持续投入）、<strong>A/B 级</strong>（常规资产，按标准运营）、<strong>C 级</strong>（费用项，按成本管理）。</p>
+      <h2><span class="num">04</span>资产化不是会计创新，是管理基础设施</h2>
+      <p>有一种常见的误解，认为"把智能体资产化"只是一个会计处理问题。事实上，<strong>会计准则层面的资产化是结果，不是原因。</strong></p>
+      <p>真正重要的是<strong>认知层面的资产化</strong>——管理者是否用看待资产的方式来看待智能体投入：关注其价值的长期增长而非短期成本、关注其是否在积累护城河而非是否在控制预算、在投资决策时问"这个资产的预期回报是什么"而不是"这笔费用能省吗"。</p>
+      <p>这种认知方式的改变，会自然地改变资源分配逻辑、改变项目评估标准、改变向董事会汇报的语言。<em>当一家企业的管理团队真正用资产思维看待智能体，他们会发现，过去很多"理性的"削减决策，实际上是在以费用的名义损毁资产。</em></p>
+      <blockquote>人类雇员的薪酬，没有人会说"这季度人力成本太高了，把研发团队裁一半"来优化利润表。因为每个人都知道，那些人是资产，不是费用。智能体需要同样的认知地位。</blockquote>
+      <h2><span class="num">05</span>一个检验问题</h2>
+      <p>你的组织里，有没有人能回答这个问题：<em>我们现在的智能体资产组合，总资产价值是多少，增长趋势是怎样的？</em></p>
+      <p>如果没有人能回答，<strong>不是因为问题太难，而是因为这个问题从来没有被问过</strong>。而一个从来没有被问过的问题，意味着这件事从来没有被当作资产来管理。</p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>重分类：识别哪些 Agent 属于资产。</strong>按"可复用 + 可复制 + 可优化 + 可组合"四特征，对所有 Agent 进行资产/工具的重分类，建立 Agent 资产台账。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>建立双轨核算体系。</strong>区分 CapEx 型（自建 Agent）和 OpEx 型（调用型 Agent）的核算方式。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>设立数字劳动力指标。</strong>Agent 工时、任务完成量、并发处理能力——使数字劳动可量化可比较。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>估值与战略布局。</strong>将 Agent 资产规模、生产能力和效率水平纳入企业战略估值维度。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">企业未来最重要的资产，不是代码，而是<span class="not-italic" style="color:var(--fg)">可执行能力</span>。能定义和管理"数字生产力"的企业，将在下一个十年形成传统企业无法追赶的竞争优势。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">DLAM 的核心影响是三重的：财务逻辑变化（软件费用→生产成本）、组织逻辑变化（人不再是唯一生产单位）、估值逻辑变化（"拥有多少可持续运作的数字劳动力"成为新的竞争力指标）。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>向 CFO 汇报 AI 投资价值主张</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>制定 Agent 能力的资本化与摊销策略</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>对外融资时展示公司的 AI 资产结构</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>内部资源分配时建立 Agent 资产的优先级</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>把所有 Agent 使用费归类为 OpEx 而错误低估 CapEx 型投入</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>只关注成本属性而忽略能力属性和资产属性</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>建立指标体系但不将其纳入实际决策流程</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>与 AaaS 割裂理解，而实际两者必须配套使用</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F03.html" class="rel-item"><span class="rel-num">F03</span><span class="rel-name">智能体组合矩阵 — 资产分布</span></a>
+          <a href="F04.html" class="rel-item"><span class="rel-num">F04</span><span class="rel-name">能力三元获取法 — CapEx vs OpEx 来源</span></a>
+          <a href="F06.html" class="rel-item"><span class="rel-num">F06</span><span class="rel-name">智能体即服务商业模型 — 配套变现</span></a>
+          <a href="F30.html" class="rel-item"><span class="rel-num">F30</span><span class="rel-name">单次成功任务成本法 — 资产成本核算</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F05"><span>▸ DLAM 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ DLAM Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F04.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F04</span><span class="nav-title">智能体能力三元获取法</span></div></a>
+    <a href="F06.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F06</span><span class="nav-title">智能体即服务商业模型</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

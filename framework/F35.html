@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F35 · 智能体能力结构评估法 (FALA) — 智能体管理学</title>
+<meta name="description" content="用使用力 / 编排力 / 判断力 / 学习力四维独立评估个体的 Agent 协作能力——以"能力结构图"替代"能力等级评分"作为核心输出，结构 &gt; 等级。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="6">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块六 · 人类重写 / F35</span>
+      <span class="type-tag">评估级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-6" class="hover:text-fg transition">所有人类重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体能力结构评估法
+      <span class="en">Four-Dimensional Agentic Literacy Assessment</span>
+      <span class="abbr">FALA</span>
+    </h1>
+    <p class="claim" data-reveal>
+      Prompt 技巧被严重过度强调了——真正的智能体能力，和它几乎没有关系。
+      <br/><span class="text-fg-dim2">你学会了一百个提示词技巧，还是没办法构建一个可靠运行的智能体系统。这不是因为技巧不够多，而是因为你在练习的不是那件事。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">用<strong>使用力 / 编排力 / 判断力 / 学习力</strong>四维独立评估个体的 Agent 协作能力——以"<strong>能力结构图</strong>"替代"能力等级评分"作为核心输出，<strong>结构 &gt; 等级</strong>。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F35 · FALA 四维能力结构</span></div>
+      <span class="viz-pattern">P2</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 480 480" class="viz-svg" style="max-width:480px" xmlns="http://www.w3.org/2000/svg">
+        <circle class="v-axis-grid" cx="240" cy="240" r="40"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="80"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="120"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="160"/>
+<line class="v-axis" x1="240" y1="240" x2="240.0" y2="80.0"/>
+<line class="v-axis" x1="240" y1="240" x2="400.0" y2="240.0"/>
+<line class="v-axis" x1="240" y1="240" x2="240.0" y2="400.0"/>
+<line class="v-axis" x1="240" y1="240" x2="80.0" y2="240.0"/>
+<polygon class="v-polygon" points="240.0,128.0 312.0,240.0 240.0,368.0 136.0,240.0"/>
+        <circle class="v-dot" cx="240.0" cy="128.0" r="4"/>
+<circle class="v-dot special" cx="312.0" cy="240.0" r="6"/>
+<circle class="v-dot" cx="240.0" cy="368.0" r="4"/>
+<circle class="v-dot" cx="136.0" cy="240.0" r="4"/>
+<text class="v-axis-label" x="240.0" y="43.0" text-anchor="middle">U</text>
+<text class="v-axis-name" x="240.0" y="57.0" text-anchor="middle">使用力</text>
+<text class="v-axis-label" x="430.0" y="233.0" text-anchor="middle">O</text>
+<text class="v-axis-name" x="430.0" y="247.0" text-anchor="middle">编排力 ★ ★</text>
+<text class="v-axis-label" x="240.0" y="423.0" text-anchor="middle">J</text>
+<text class="v-axis-name" x="240.0" y="437.0" text-anchor="middle">判断力</text>
+<text class="v-axis-label" x="50.0" y="233.0" text-anchor="middle">L</text>
+<text class="v-axis-name" x="50.0" y="247.0" text-anchor="middle">学习力</text>
+
+        <text class="v-node-mono" x="240" y="237" text-anchor="middle">FALA · 4 dims</text>
+      </svg>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>四个独立维度（相关性低，需不同培养路径）</span><span><i class="dot" style="background:transparent;outline:2px solid var(--mod-c);outline-offset:-1px;border-radius:50%"></i>★ 编排力 — 当前市场极度稀缺</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">一个人的 AI 协作能力，怎么用结构而非单一等级来评估？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第三层 · 负责回答<span class="text-fg">「个人能力的多维结构」</span>，与 F33 等级体系互补。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">加德纳多元智能理论（1983）+ 技能矩阵方法<span class="text-fg-dim2">→</span> 创新：四维独立评估 + 以"结构图"替代"等级评分" + "结构 &gt; 等级"原则。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>一百个提示词技巧救不了你</h2>
+      <p>在 AI 能力培训的市场里，有一类课程极受欢迎：<em>"如何写出更好的提示词"</em>。各种框架、模板、技巧、秘诀——"角色扮演法"、"思维链提示"、"少样本学习"……学员花大量时间学习和练习这些技巧，并且确实能够获得更好的单次对话输出质量。</p>
+      <p>然后，这些学员被分配到一个真实的 AI 项目：<em>他们需要设计一个能够稳定运行的智能体系统，处理实际业务流程，面对真实用户的各种输入，在系统出现问题时进行有效调试。</em></p>
+      <p>他们发现，<strong>之前学到的所有提示词技巧，对这些工作的帮助极其有限</strong>。能否写出优秀的提示词，和能否构建一个可靠的智能体系统，<em>是两种几乎没有关联的能力</em>。</p>
+      <h2><span class="num">02</span>能力结构比能力等级更重要</h2>
+      <div class="theory-note"><strong>理论来源</strong>：多元智能理论（Howard Gardner，<em>Frames of Mind</em>，1983）；技能矩阵（Skills Matrix）方法。<br/><strong>本框架创新</strong>：建立智能体协作能力的四维独立评估模型，以"能力结构图"替代"能力等级评分"作为核心评估输出；提出"结构比等级更重要"作为 AI 人才评估的核心原则。</div>
+      <p>在讨论 AI 能力评估时，大多数框架关注的是"等级"问题——这个人的 AI 能力是初级、中级还是高级？<em>这种单维度的等级评估，可以对个人的总体能力水平给出一个粗略的判断，但完全无法指导岗位匹配。</em></p>
+      <p>原因在于，<strong>AI 协作能力不是一个单维度的能力，而是由多个相对独立的能力维度构成的复合能力</strong>。不同维度的能力，需要通过完全不同的学习路径来发展，也对应完全不同的岗位需求。</p>
+      <p><em>一个"使用力 L4 但编排力 L2"的人，和一个"使用力 L2 但编排力 L4"的人</em>，如果用单一的总体能力等级来衡量，可能被评为"相当"——<strong>但他们适合的岗位完全不同</strong>。前者适合需要高质量直接产出的创意类工作，后者适合需要构建和管理 AI 系统的工程类工作。<em>把他们放错位置，不只是浪费，而是让双方都陷入挫败。</em></p>
+      <h2><span class="num">03</span>四个相对独立的能力维度</h2>
+      <p>FALA 把 AI 协作能力分解为四个相对独立的评估维度，每个维度都有自己独立的成熟度路径。</p>
+      <h3>使用力（Usage Proficiency）</h3>
+      <p>与 AI 工具和智能体进行高质量交互的能力。包括：<em>能否准确表达复杂的意图、能否有效地提供上下文信息、能否评估和迭代输出质量、能否在不同任务类型下选择适合的工具和交互方式。</em><strong>提示词技巧主要属于这个维度，但这个维度本身在四个维度里影响面最窄。</strong>高使用力帮助你和 AI 协作产出高质量的单次结果，但不能帮助你构建系统、管理系统或评估系统。</p>
+      <h3>编排力（Orchestration Capability）★ 最稀缺</h3>
+      <p>设计和管理人机协作工作流的能力。包括：<em>能否把复杂业务需求分解为可以由 AI 处理的子任务、能否设计多步骤的工作流并处理各步骤之间的信息传递、能否处理工作流中的例外情况和边界条件、能否评估并持续优化工作流的整体表现。</em><strong>这是 F33 中 L3 能力的核心，也是当前最稀缺的能力维度。</strong></p>
+      <h3>判断力（Critical Judgment）</h3>
+      <p>在 AI 辅助工作中保持批判性思维的能力。包括：<em>能否识别 AI 输出中的错误、偏见和不合理之处、能否在 AI 建议和人类判断之间做出有质量的权衡、能否识别 AI 适合和不适合做判断的场景边界。</em><strong>高判断力的人，在 AI 时代越来越有价值</strong>——因为随着 AI 能力提升，验证和把关 AI 输出的能力，比生成 AI 输出的能力更稀缺。</p>
+      <h3>学习力（Adaptive Learning）</h3>
+      <p>持续追踪 AI 能力发展并更新自身工作方式的能力。<em>这个维度评估的是元能力</em>——"学习 AI 的能力"，而不是某个特定 AI 工具的掌握程度。</p>
+      <h2><span class="num">04</span>能力结构图比单一评分更有指导价值</h2>
+      <p>四维能力结构图把一个人在四个维度上的当前水平以雷达图（蜘蛛图）的形式呈现，<em>而不是给出一个总体评分</em>。这个呈现方式的价值，体现在两个具体的应用场景里。</p>
+      <h3>应用一：岗位匹配</h3>
+      <p>不同的岗位，对四个维度的需求权重完全不同。<em>内容创作类岗位需要高使用力，AI 工程类岗位需要高编排力，AI 治理类岗位需要高判断力，AI 战略类岗位需要高学习力。</em><strong>用结构图而不是总体评分来做岗位匹配，能够识别出"总分相似但结构完全不同"的候选人，把他们放到真正适合的位置。</strong></p>
+      <h3>应用二：个人发展规划</h3>
+      <p><em>知道自己在哪个维度薄弱，比知道自己的总体"AI 能力等级"更有指导价值。</em><strong>编排力 L2 的人，需要的不是更多的提示词练习（那只会提升使用力），而是参与真实的 AI 工作流设计项目，在实践中积累编排能力。</strong>两条发展路径，在方向上是根本不同的。</p>
+      <h2><span class="num">05</span>用单一维度的熟练程度替代多维能力结构——AI 时代的认知错误</h2>
+      <p>能力结构评估法揭示的，是 AI 时代人才培养和使用中一个<strong>系统性的认知错误</strong>：<em>用单一维度的熟练程度，替代了多维度的能力结构。</em></p>
+      <p>这个错误来自一个隐含的假设：<strong>AI 能力是单一的，所有类型的 AI 工作都需要同样的能力，只是深度不同。</strong>因此，培训就是让人们学习更多、更深的 AI 技能，评估就是看掌握了多少工具、多少技巧。</p>
+      <p><em>但 AI 协作能力是多维的，不同维度之间的相关性很低</em>，每个维度需要不同的学习方式，也对应不同的价值创造方式。</p>
+      <blockquote>把一个高编排力、低使用力的工程师，放进一个注重内容产出质量的岗位，和把一个高使用力、低编排力的创作者，放进一个需要构建 AI 系统的岗位，都是浪费——但在只用总体等级评估的框架下，这类错配很难被提前发现。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>四维独立评估。</strong>对候选人或团队成员逐维度评估。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>绘制能力结构图。</strong>雷达图直观呈现结构而非单一分数。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>岗位匹配。</strong>不同岗位需要不同结构权重——按结构匹配而非按等级。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>定向培养。</strong>编排力 L2 的人不需要更多 Prompt 练习，需要真实工作流设计项目。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">用<span class="not-italic" style="color:var(--fg)">结构图</span>做岗位匹配，精准度远高于用<span class="not-italic" style="color:var(--fg)">总体等级</span>评分。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">编排力是当前市场最稀缺的维度——也是企业 AI 落地的人才瓶颈。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>招聘评估的精准匹配</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>岗位调整与团队重组</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>个人能力发展规划</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>识别高潜力 AI 人才</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>用总体"AI 能力"评分</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 Prompt 技巧当核心能力</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>所有人按同一路径培养</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视判断力的反向稀缺性</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F10.html" class="rel-item"><span class="rel-num">F10</span><span class="rel-name">ARRM — 岗位需求</span></a>
+          <a href="F33.html" class="rel-item"><span class="rel-num">F33</span><span class="rel-name">IACMM — 等级体系互补</span></a>
+          <a href="F34.html" class="rel-item"><span class="rel-num">F34</span><span class="rel-name">TSMM — 任务级视角</span></a>
+          <a href="F36.html" class="rel-item"><span class="rel-num">F36</span><span class="rel-name">AC6 — 人类核心能力</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F35"><span>▸ FALA 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ FALA Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F34.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F34</span><span class="nav-title">角色转型地图</span></div></a>
+    <a href="F36.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F36</span><span class="nav-title">人类核心能力六维模型</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

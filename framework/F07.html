@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F07 · 人机混合网络组织 (HACNO) — 智能体管理学</title>
+<meta name="description" content="用人类节点、智能体节点、工具节点、编排节点、治理节点五类节点重构组织——分为战略层（人类主权）、协同层（人机混合）、自动化层三层结构；用编排幅度替代管理幅度作为衡量管理者能力的新标准。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="2">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块二 · 组织重写 / F07</span>
+      <span class="type-tag">方法级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-2" class="hover:text-fg transition">所有组织重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      人机混合网络组织
+      <span class="en">Human-Agent Capability Network Organization</span>
+      <span class="abbr">HACNO</span>
+    </h1>
+    <p class="claim" data-reveal>
+      层级制不是管理的真理——它只是工业时代信息传递的一种协议。
+      <br/><span class="text-fg-dim2">我们以为在设计组织，其实在设计信息流动的方式。信息流动的方式变了，组织的形态就必须跟着变。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">用<strong>人类节点、智能体节点、工具节点、编排节点、治理节点</strong>五类节点重构组织——分为战略层（人类主权）、协同层（人机混合）、自动化层三层结构；用<strong>编排幅度</strong>替代<strong>管理幅度</strong>作为衡量管理者能力的新标准。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F07 · 三层节点网络</span></div>
+      <span class="viz-pattern">P4</span>
+    </div>
+    <div class="viz-stack">
+      <div class="layer">
+        <div class="layer-num">L1 战略层</div>
+        <div class="layer-name">人类主权层<span class="en">Human Sovereignty Layer</span></div>
+        <div class="layer-desc">处理需要价值判断、方向选择、责任承担的事务。节点构成：人类。智能体可作信息工具但不参与决策。</div>
+      </div>
+      <div class="layer is-key">
+        <div class="layer-num">L2 协同层 ★</div>
+        <div class="layer-name">人机混合层<span class="en">Human-Agent Hybrid Layer</span></div>
+        <div class="layer-desc">最复杂、最有价值的一层——人负责"判断什么是重要的"、智能体负责"快速整合信息和执行标准化操作"。管理者像系统导演。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L3 自动化层</div>
+        <div class="layer-name">智能体自治层<span class="en">Agent Automation Layer</span></div>
+        <div class="layer-desc">边界清晰、规则明确、可完全自动化的任务。治理重点是监控和审计——确保自动化行为符合预期。</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>三层之间有清晰的信息流向和升级路径</span><span><i class="dot"></i>编排幅度 → 比管理幅度高出一个数量级</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">当"人不再是唯一执行主体"时，组织应该是什么形态？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第一层 · 负责回答<span class="text-fg">「组织的基本形态是什么」</span>，是后续五个组织重写框架的起点。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">法约尔管理原理（1916）+ 明茨伯格组织结构理论（1979）<span class="text-fg-dim2">→</span> 创新：引入"智能体节点"作为正式组织成员，以"编排幅度"替代"管理幅度"，重构三层人机混合组织模型。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>智能体在组织图之外运行</h2>
+      <p>几乎所有正在推进 AI 转型的企业，都在经历同一种结构性的尴尬：<strong>智能体在组织图之外运行</strong>。</p>
+      <p>公司的组织架构图上，画的是一个个部门方块和汇报线，<em>智能体不在上面</em>。它们以"工具"的名义存在于某个 IT 系统清单里，没有汇报关系，没有考核，没有在组织设计层面被认真对待。它们做了大量的工作，但在组织的正式结构里，它们是不可见的。</p>
+      <p>这种不可见，带来的不只是管理上的混乱。更深层的问题是：<strong>当执行工作大量转移到智能体身上，但组织的协调机制还是围绕人与人之间的汇报关系设计，这两者之间的错位，会产生持续的摩擦和效率损耗。</strong>组织架构图描述的，越来越不是工作实际发生的样子。</p>
+      <h2><span class="num">02</span>为什么层级制在今天开始显得笨重</h2>
+      <div class="theory-note"><strong>理论来源</strong>：法约尔管理原理（《工业管理与一般管理》，1916）；明茨伯格组织结构理论（<em>The Structuring of Organizations</em>，1979）。<br/><strong>本框架创新</strong>：在明茨伯格组织层级理论基础上，引入"智能体节点"作为正式组织成员，提出"编排幅度"替代"管理幅度"作为衡量管理者能力的新标准，重构三层人机混合组织模型。</div>
+      <p>层级制组织不是一个武断的选择。它在工业时代有其深刻的理由。</p>
+      <p>亨利·法约尔在 1916 年系统阐述管理原理时，将层级制确立为有效管理的基础。背后的逻辑是<strong>信息经济学</strong>：在那个没有即时通信的时代，信息从底层传递到顶层需要消耗大量资源，<em>层级结构是一种信息压缩协议</em>——每向上一级，信息就被过滤和提炼一次，管理者只需要处理从下层传来的摘要，而不是原始数据洪流。</p>
+      <p>这个设计在它所处的时代是高效的。但它建立在一个前提上：<strong>信息的汇聚和过滤，必须依靠人来完成</strong>，因为只有人能理解信息的业务含义并做出判断。</p>
+      <p>智能体开始打破这个前提。当一个智能体能够实时汇总、分析并呈现跨部门的运营状态，当另一个智能体能够自动识别异常并推送给相关决策者，传统层级制里那些"负责信息传递和过滤"的中间层，<em>其存在的信息经济学理由开始减弱</em>。层级制不是变坏了，而是它解决的那个问题，有了新的解法。</p>
+      <h2><span class="num">03</span>三层人机混合组织的内在逻辑</h2>
+      <p>三层结构不是随意划分的，它的依据是<strong>决策所需的判断类型</strong>。</p>
+      <h3>战略层（人类主权层）</h3>
+      <p>由人类决策者构成，处理的是需要价值判断、方向选择和责任承担的事务。这个层级里，智能体可以作为信息工具存在，但不参与决策。<em>法约尔意义上的"最终权威"，在这一层始终属于人</em>。这不只是伦理立场，也是实践必要——智能体没有承担后果的能力，真正的方向性决策必须由愿意承担后果的人来做。</p>
+      <h3>协同层（人机混合层）</h3>
+      <p>是最复杂、也最有价值的一层。这里的工作既需要人的判断和关系能力，也需要智能体的处理速度和信息整合能力。<strong>人类负责的是"判断什么是重要的"和"决定如何处理边界情况"，智能体负责的是"快速获取和整合信息"和"执行明确的标准化操作"。</strong>这一层的管理者，越来越像<em>系统导演</em>——他们的核心能力不是亲自完成工作，而是设计人与智能体之间的协作方式，让整个系统高效运转。</p>
+      <h3>自动化层（智能体自治层）</h3>
+      <p>由智能体节点构成，处理的是边界清晰、规则明确、可以完全自动化的任务。这一层的治理重点不是管理，而是<em>监控和审计</em>——确保自动化执行的行为符合预期，在越界时能够被快速发现和纠正。</p>
+      <p>三层之间不是封闭的，而是有清晰的信息流向和升级路径：当自动化层遇到超出边界的情况，自动升级到协同层的人类判断；当协同层遇到方向性争议，升级到战略层的最终决策。</p>
+      <h2><span class="num">04</span>管理幅度 → 编排幅度</h2>
+      <p>人机混合网络组织揭示的，不只是一种新的组织形态，而是一个关于"管理幅度"的根本性重构。</p>
+      <p>传统管理学里，<strong>"管理幅度"（Span of Control）</strong>是一个重要概念——一个管理者能有效管理多少直接下属。工业时代的答案通常是 5 到 15 人，超过这个数字，沟通成本和协调难度就会指数级上升。<em>这个限制，是层级制组织必然呈现金字塔形态的根本原因。</em></p>
+      <p>但智能体改变了这个等式。<strong>一个管理者可以有效"编排"的智能体数量，远超他能有效"管理"的人类下属数量</strong>——因为智能体不需要情感关照，不需要职业发展规划，不会在会议室里产生政治博弈。</p>
+      <blockquote>管理幅度被编排幅度替代，而编排幅度的上限，比管理幅度高出一个数量级。</blockquote>
+      <p>这意味着，未来组织的形态会比今天更扁平，<em>不是因为层级制被废除，而是因为那些原本用于信息传递和过滤的中间层，正在被智能体节点替代</em>。留下来的人，是那些真正在做判断、建关系、承担责任的人。</p>
+      <h2><span class="num">05</span>组织设计的起点改变</h2>
+      <p>没有这个框架的时候，组织设计的讨论通常是：<em>这个新业务需要多少人，分几个部门，汇报线怎么画。</em>智能体是后来再想的，是在人的架构搭好之后附加进去的工具。</p>
+      <p>有了这个框架之后，组织设计的讨论变成：<em>这个业务的任务结构里，哪些环节适合自动化层处理，哪些需要协同层的人机混合，哪些必须在战略层由人来判断？</em>智能体节点和人类节点的分工，从一开始就进入组织设计的核心。</p>
+      <blockquote>组织设计的起点，从"我们需要多少人"变成了"我们需要什么样的节点网络"——两个问题的答案，会把组织推向完全不同的形态。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>绘制当前任务流图。</strong>不是绘制组织架构图，而是绘制任务流图和能力调用图——识别哪些任务已可由 Agent 承担，哪些仍需人类主导。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>识别五类节点。</strong>对每个关键业务流程，识别人类/Agent/工具/编排/治理五类节点的职责边界。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>设计网络协调规则。</strong>什么条件下任务从 Agent 升级到人类？编排节点如何处理失败？治理节点的触发条件？</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>评估编排幅度。</strong>评估关键管理者的编排幅度——他们能有效管理多少 Agent 和工具节点？识别瓶颈，针对性建设。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">从"管理幅度"到<span class="not-italic" style="color:var(--fg)">"编排幅度"</span>——管理者的核心能力从激励员工、分配任务，转变为设计任务结构、配置人机协同方式、定义边界并维护系统效率。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">HACNO 不是取消组织，而是重新定义组织的基本单元。高风险、高模糊、高关系密度的任务，仍然必须由人主导。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>重组团队结构以适应 AI 工具大规模使用</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>识别哪些管理岗位将演化为编排者角色</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>设计新业务单元的组织形态</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>评估现有组织设计与 Agent 时代要求的差距</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 HACNO 等同于"全自动化组织"，忽视人类节点的不可替代性</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>只画组织架构图而不画任务流图，分析与实际运作脱节</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视治理节点的建设，埋下 Agent 失控风险</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把"扁平化"等同于 HACNO，误解其本质</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F08.html" class="rel-item"><span class="rel-num">F08</span><span class="rel-name">双前台中台架构 — 具体运作结构</span></a>
+          <a href="F09.html" class="rel-item"><span class="rel-num">F09</span><span class="rel-name">RACI-A × DAL — 责任分配</span></a>
+          <a href="F10.html" class="rel-item"><span class="rel-num">F10</span><span class="rel-name">岗位体系 — 编排者角色</span></a>
+          <a href="F11.html" class="rel-item"><span class="rel-num">F11</span><span class="rel-name">安全三系统 — 治理节点</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F07"><span>▸ HACNO 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ HACNO Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F06.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F06</span><span class="nav-title">智能体即服务商业模型</span></div></a>
+    <a href="F08.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F08</span><span class="nav-title">双前台智能体中台架构</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

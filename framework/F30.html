@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F30 · 单次成功任务成本法 (CPST) — 智能体管理学</title>
+<meta name="description" content="计算 Agent 完成一次有效任务的真实成本，包括 Token / 工具调用 / 人工审校 / 运维 / 构建摊销 / 失败 六类——并引入动态视角（每年成本约降 10 倍）。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="5">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块五 · 价值重写 / F30</span>
+      <span class="type-tag">工具级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-5" class="hover:text-fg transition">所有价值重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      单次成功任务成本法
+      <span class="en">Cost per Successful Task</span>
+      <span class="abbr">CPST</span>
+    </h1>
+    <p class="claim" data-reveal>
+      只算 Token 成本，你严重低估了智能体的真实成本——但这个误判，也可能让你错过未来。
+      <br/><span class="text-fg-dim2">成本计算错了，所有投资决策就都建立在错误的数字上。更糟糕的是，如果成本计算的方向对了，却用了静态而非动态的视角，好的机会可能被提前放弃。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">计算 Agent 完成<strong>一次有效任务</strong>的真实成本，包括 <strong>Token / 工具调用 / 人工审校 / 运维 / 构建摊销 / 失败</strong> 六类——并引入<strong>动态视角</strong>（每年成本约降 10 倍）。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F30 · CPST 六类成本 + 动态视角</span></div>
+      <span class="viz-pattern">custom</span>
+    </div>
+    <div class="viz-matrix" style="grid-template-columns: 1fr 1fr; grid-template-rows: auto; min-height:auto;">
+      <div class="quad">
+        <span class="quad-tag">类 1</span>
+        <h4 class="quad-title">API 调用</h4>
+        <p class="quad-desc">Token 费用——最可见的部分，但通常只占 30-50%。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">类 2</span>
+        <h4 class="quad-title">工具调用</h4>
+        <p class="quad-desc">搜索/数据库/API——高频时是主要成本。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">类 3</span>
+        <h4 class="quad-title">人工审校</h4>
+        <p class="quad-desc">L0-L2 场景的真实人力成本，严重被低估。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">类 4</span>
+        <h4 class="quad-title">运维监控</h4>
+        <p class="quad-desc">系统持续运维 + 监控 + 模型再校准——长期持续成本。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">类 5</span>
+        <h4 class="quad-title">构建摊销</h4>
+        <p class="quad-desc">系统开发的初始投入，按周期摊分到任务量。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">类 6 ★</span>
+        <h4 class="quad-title">失败成本</h4>
+        <p class="quad-desc">失败任务消耗的资源没有产生有效输出——纯粹浪费。失败率越高，单位有效任务成本越高。</p>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>CPST = (六类成本) ÷ 成功任务数</span><span><i class="dot"></i>动态视角：今天不经济 → 18-24 月后可能经济</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">智能体的真实单位成本是多少？我们的 ROI 计算是建立在准确数字上吗？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第四层 · 负责回答<span class="text-fg">「Agent 成本应该怎么算才不被误导」</span>。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">单位经济模型理论 + 作业成本法（Kaplan，1980s）<span class="text-fg-dim2">→</span> 创新：以"成功任务"替代"系统运行"作为计量单位 + 六类完整成本 + 动态视角。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"AI 成本低于人力成本就值得投入"——这个逻辑哪里错了</h2>
+      <p>当企业评估某个智能体项目是否值得继续投入时，最常见的财务分析框架是：<em>把 API 调用成本加起来，算出每月的 Token 花费，然后和节省的人力成本做比较。如果 AI 成本低于被替代的人力成本，项目有价值；反之，项目需要重新考虑。</em></p>
+      <p>这个框架的逻辑看起来清晰，<strong>但它有两个相互独立的致命问题</strong>。</p>
+      <p><strong>第一个问题是：它严重低估了真实成本。</strong>Token 成本，在大多数成熟智能体系统的总成本里，<em>占比可能只有 30% 到 50%，有时候更低</em>。其余的成本——工具调用费用、人工审校时间、系统维护和监控、错误处理和边界案例处理、构建成本的分摊——往往被完全忽略。<strong>当你用一个被低估了一倍甚至两倍的成本数字来做决策，所有的投资回报计算都是失真的。</strong></p>
+      <p><strong>第二个问题是：它用了静态视角。</strong>Token 价格每年大约下降 10 倍，<em>今天 CPTA 不经济的项目，18 到 24 个月后可能因为模型成本的急剧下降而变得高度经济</em>。一个基于今天价格的"不经济"结论，可能正在把一个未来竞争优势的来源提前关掉。</p>
+      <h2><span class="num">02</span>为什么需要"单次成功任务成本"这个新指标</h2>
+      <div class="theory-note"><strong>理论来源</strong>：单位经济模型（Unit Economics）理论；作业成本法（Activity-Based Costing，卡普兰，1980 年代）。<br/><strong>本框架创新</strong>：将单位经济模型的思路引入智能体成本分析，以"成功任务"替代"系统运行"作为成本计量单位；系统性罗列除 Token 之外的五类被忽视成本；引入"动态 CPTA 视角"。</div>
+      <p>传统 IT 系统的成本分析，通常以"系统运行成本"为单位——<em>服务器费用、带宽费用、人力费用，按月或按年计算，比较容易理解和管理</em>。</p>
+      <p>这个成本单位在智能体系统里有根本性的问题：<strong>它没有把成本和价值产出挂钩。</strong>一个系统运行成本是每月 10 万元，但如果它<em>成功完成了 1000 个任务，和成功完成了 10000 个任务，这两种情况下这 10 万元的"价值"完全不同</em>，但在"运行成本"这个指标下没有区别。</p>
+      <p><strong>单次成功任务成本（CPST）</strong>把成本计量单位，<em>从"系统运行"切换到"成功任务"</em>：把所有相关成本加总，除以真正成功完成的任务数量，得到每个有效产出的完整成本。</p>
+      <p>这个切换，不只是数学计算方式的改变。<strong>它意味着，当一个智能体的任务失败率从 20% 下降到 10%，CPTA 会显著改善，即使 Token 消耗没有减少</strong>——因为相同的成本产生了更多的有效成果。优化 CPST 的路径，因此比优化 Token 消耗更广：<em>可以通过减少 Token 消耗、减少任务失败率、降低人工审校时间等多条路径来改善。</em></p>
+      <h2><span class="num">03</span>CPST 的完整成本构成</h2>
+      <p>完整计算 CPST，需要把以下六类成本都纳入。</p>
+      <h3>类 1 · 大模型 API 调用成本</h3>
+      <p>直接的 Token 费用，<em>通常是最可见的部分，但不是唯一的部分</em>。包括提示词 Token 和补全 Token，以及不同模型的不同定价。</p>
+      <h3>类 2 · 工具调用成本</h3>
+      <p>很多智能体系统集成了外部工具——搜索 API、数据库查询、专有数据源。<em>这些工具调用通常按次或按量收费，在高调用频率的系统里可能是主要成本来源。</em></p>
+      <h3>类 3 · 人工审校成本</h3>
+      <p>在高风险或低自主级别（DAL L1-L2）的系统里，人工需要审查并确认智能体的输出或决策。<strong>这部分人力成本，是实实在在的机会成本，需要被纳入计算。</strong></p>
+      <h3>类 4 · 运维和监控成本</h3>
+      <p>系统的持续运维、监控体系的维护、定期评测集的运行、模型更新后的重新校准——<em>这些工作需要人力时间，是被严重低估的持续成本。</em></p>
+      <h3>类 5 · 构建和维护成本的摊销</h3>
+      <p>系统开发的初始投入，需要分摊到系统整个生命周期内处理的任务数量上。<em>一个花了 300 万元开发的系统，如果使用周期是三年，每年处理 10 万个任务，构建成本摊销每任务是 10 元。</em></p>
+      <h3>类 6 · 失败成本</h3>
+      <p>每一个失败的任务，其消耗的资源（Token、工具调用、人工时间）没有产生有效输出，<strong>是纯粹的浪费</strong>。失败率越高，有效任务的分摊成本越高。</p>
+      <blockquote>CPST = (API成本 + 工具成本 + 人工审校成本 + 运维成本 + 构建摊销 + 失败成本) ÷ 成功任务数</blockquote>
+      <h2><span class="num">04</span>动态 CPST：为什么不能用今天的数字做永久决策</h2>
+      <p>理解了 CPST 的完整构成，还需要理解一个关键的动态因素：<strong>大模型推理成本的下降速度，在历史上大约是每年 10 倍量级。</strong></p>
+      <p>这意味着：<em>一个今天 CPST 为 100 元/任务、因此被认为"不经济"的系统，在 18-24 个月后，如果推理成本下降了 5-10 倍，而其他成本维持不变，CPST 可能降低到 20-30 元/任务</em>——而这个数字，可能已经远低于对应的人力成本。</p>
+      <p><strong>用今天的 CPST 判断"这个场景值不值得 AI 化"，在很多情况下是错误的决策框架。</strong>正确的问题是：<em>这个场景的 CPST 在当前价格下是多少，随着模型成本下降，它的 CPST 趋势是什么，在什么时间点会跨越经济性临界值？</em></p>
+      <p>这个动态分析需要两个判断：一是<em>当前 CPST 的主要成本构成</em>（如果主要是 Token 成本，则受益于价格下降；如果主要是人工审校成本，则不那么受益）；二是<em>这个业务场景的时间敏感性</em>（如果竞争对手也在等价格下降，等待是合理的；如果早期建设有先发优势，等待有隐性代价）。</p>
+      <h2><span class="num">05</span>两个相反方向的系统性偏差</h2>
+      <p>CPST 揭示的，是智能体投资决策中<strong>两个相反方向的系统性偏差</strong>，而且两个偏差都普遍存在。</p>
+      <p><strong>第一个偏差，是低估当前成本</strong>——只看 Token 费用，忽略了其他五类成本，认为 AI 比实际上便宜，<em>做出了过于乐观的投资决策，导致系统上线后成本远超预期</em>。</p>
+      <p><strong>第二个偏差，是高估未来成本</strong>——用今天的成本静态计算未来的经济性，认为"目前 CPST 不合算，以后也不会合算"，<em>错失了在成本曲线下降之前建立能力基础的时间窗口</em>。</p>
+      <blockquote>两个偏差同样有害，但方向相反。CPST 框架的价值，不是给出一个"应该做还是不应该做"的简单答案，而是提供一个足够完整的成本视图，让这个决策建立在准确的信息基础上，同时引入动态视角，避免用静态的今天否定可能性很大的未来。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>识别六类完整成本。</strong>每类分别估算，不要遗漏。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>分子分母严谨。</strong>分子是六类成本总和，分母是<em>成功</em>任务数（不是总任务数）。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>预判 12-24 月成本趋势。</strong>分析主要成本构成对模型降本的敏感度。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>决策"现在做/等待时机/优先降低 X 成本"。</strong>动态 + 静态联合判断。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">今天 CPST 不经济的场景，<span class="not-italic" style="color:var(--fg)">18-24 个月后可能高度经济</span>——动态追踪比静态判断更重要。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">两个偏差同样有害，方向相反：低估当前成本盲目投入，高估未来成本过早放弃。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>AI 项目可行性评估</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 服务定价决策</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>面向 CFO 的 AI 投资汇报</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>ROI 计算的准确化</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>只算 Token 成本</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>不算失败成本和人工审校</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>用今天价格判断永久不经济</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视模型降本趋势</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F05.html" class="rel-item"><span class="rel-num">F05</span><span class="rel-name">DLAM — 数字劳动力资产的成本侧</span></a>
+          <a href="F06.html" class="rel-item"><span class="rel-num">F06</span><span class="rel-name">AaaS — 定价的成本基础</span></a>
+          <a href="F28.html" class="rel-item"><span class="rel-num">F28</span><span class="rel-name">3DSP — CPTA 在中层效能</span></a>
+          <a href="F31.html" class="rel-item"><span class="rel-num">F31</span><span class="rel-name">Agent ROI — 综合 ROI 核算</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F30"><span>▸ CPST 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ CPST Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F29.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F29</span><span class="nav-title">数字员工绩效评分卡</span></div></a>
+    <a href="F32.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F32</span><span class="nav-title">智能体全域风险治理法</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

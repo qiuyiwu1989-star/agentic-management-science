@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F02 · 智能体护城河重估法 (SDMA) — 智能体管理学</title>
+<meta name="description" content="从传统护城河与新型智能体护城河两类维度，评估企业壁垒状态与相对竞争差距。模块一·竞争重写 F02。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="1">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块一 · 竞争重写 / F02</span>
+      <span class="type-tag">方法级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-1" class="hover:text-fg transition">所有竞争重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体护城河重估法
+      <span class="en">Seven-Dimensional Moat Assessment</span>
+      <span class="abbr">SDMA</span>
+    </h1>
+    <p class="claim" data-reveal>
+      护城河不只是高不高的问题——它还有半衰期，而那个半衰期正在缩短。
+      <br/><span class="text-fg-dim2">真正危险的，不是护城河消失了——而是你以为它还在，但你用来测量它的尺子已经失准了。</span>
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="btn-primary">阅读长文 <span class="arr">↓</span></a>
+      <a href="#resources" class="text-cta">下载 Skill 与提示词 <span class="arr">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">
+      从<strong>传统护城河校正版（4 维）</strong>与<strong>智能体时代原生版（3 维）</strong>共七个维度，评估企业壁垒状态与相对竞争差距，并引入"<strong>半衰期</strong>"与"<strong>绝对/相对双轨评估</strong>"两个原创概念。
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISUALIZATION ============ -->
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F02 · 七维护城河雷达图</span>
+      </div>
+      <span class="viz-pattern">P2</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 540 540" class="viz-svg" style="max-width:540px" xmlns="http://www.w3.org/2000/svg">
+        <!-- concentric grid circles -->
+        <circle class="v-axis-grid" cx="270" cy="270" r="50"/>
+        <circle class="v-axis-grid" cx="270" cy="270" r="100"/>
+        <circle class="v-axis-grid" cx="270" cy="270" r="150"/>
+        <circle class="v-axis-grid" cx="270" cy="270" r="200"/>
+
+        <!-- 7 axes -->
+        <line class="v-axis" x1="270" y1="270" x2="270" y2="70"/>
+        <line class="v-axis" x1="270" y1="270" x2="426" y2="174"/>
+        <line class="v-axis" x1="270" y1="270" x2="465" y2="315"/>
+        <line class="v-axis" x1="270" y1="270" x2="357" y2="465"/>
+        <line class="v-axis" x1="270" y1="270" x2="183" y2="465"/>
+        <line class="v-axis" x1="270" y1="270" x2="75" y2="315"/>
+        <line class="v-axis" x1="270" y1="270" x2="114" y2="174"/>
+
+        <!-- sample polygon (说明动态护城河强，静态护城河弱) -->
+        <polygon class="v-polygon" points="270,90  396,189  430,310  335,440  205,440  110,310  144,189"/>
+
+        <circle class="v-dot" cx="270" cy="90" r="4"/>
+        <circle class="v-dot" cx="396" cy="189" r="4"/>
+        <circle class="v-dot" cx="430" cy="310" r="4"/>
+        <circle class="v-dot" cx="335" cy="440" r="4"/>
+        <circle class="v-dot" cx="205" cy="440" r="4"/>
+        <circle class="v-dot" cx="110" cy="310" r="4"/>
+        <circle class="v-dot" cx="144" cy="189" r="4"/>
+
+        <!-- labels: 7 dimensions -->
+        <text class="v-axis-label" x="270" y="48" text-anchor="middle">原生 1</text>
+        <text class="v-axis-name"  x="270" y="62" text-anchor="middle">数据飞轮</text>
+
+        <text class="v-axis-label" x="445" y="160" text-anchor="middle">原生 2</text>
+        <text class="v-axis-name"  x="445" y="174" text-anchor="middle">编排能力</text>
+
+        <text class="v-axis-label" x="493" y="313" text-anchor="middle">原生 3</text>
+        <text class="v-axis-name"  x="493" y="327" text-anchor="middle">主权控制</text>
+
+        <text class="v-axis-label" x="370" y="485" text-anchor="middle">校正 1</text>
+        <text class="v-axis-name"  x="370" y="499" text-anchor="middle">转换成本</text>
+
+        <text class="v-axis-label" x="170" y="485" text-anchor="middle">校正 2</text>
+        <text class="v-axis-name"  x="170" y="499" text-anchor="middle">网络效应</text>
+
+        <text class="v-axis-label" x="48" y="313" text-anchor="middle">校正 3</text>
+        <text class="v-axis-name"  x="48" y="327" text-anchor="middle">流程优势</text>
+
+        <text class="v-axis-label" x="95" y="160" text-anchor="middle">校正 4</text>
+        <text class="v-axis-name"  x="95" y="174" text-anchor="middle">品牌/规模</text>
+
+        <!-- center -->
+        <text class="v-node-mono" x="270" y="265" text-anchor="middle">F02 · SDMA</text>
+        <text class="v-axis-name" x="270" y="282" text-anchor="middle">7 维护城河</text>
+      </svg>
+    </div>
+    <div class="viz-legend">
+      <span><i class="dot"></i>传统校正版 4 维（半衰期分化）</span>
+      <span><i class="dot" style="background:transparent;outline:2px solid var(--mod-c);outline-offset:-1px;border-radius:50%"></i>智能体时代原生版 3 维（半衰期加长）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AT-A-GLANCE ============ -->
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">在智能体时代，什么样的优势才算真正的护城河？我们的护城河有多深，半衰期还剩多久？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第二层 · 负责回答<span class="text-fg">「我们凭什么赢」</span>，是从行业分析进入企业战略的关键桥梁。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">巴菲特护城河理论 + Helmer《7 Powers》（2016）<span class="text-fg-dim2">→</span> 创新：增补 3 个原生维度、引入"半衰期"和"绝对/相对双轨评估"。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAIN: ARTICLE + SIDE RAIL ============ -->
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+
+      <h2><span class="num">01</span>沃伦·巴菲特的隐含假设</h2>
+      <p>
+        沃伦·巴菲特把护城河这个概念带入主流商业语言时，他说的大概是这样一件事：好的企业就像中世纪城堡，周围有一条宽阔的护城河，敌人很难攻进来。护城河的来源最常提到的有几类：品牌溢价、转换成本、网络效应、成本优势、规模效应。
+      </p>
+      <p>
+        这个框架在过去几十年里大体上是对的。但它成立有一个前提，同样没有被明说：<strong>护城河是相对稳定的存量资产，其宽度由历史积累决定，竞争对手要从零开始缩短差距，需要付出与当初积累同等量级的时间和成本。</strong>
+      </p>
+      <p>
+        汉密尔顿·海尔默（Hamilton Helmer）在《7 Powers》（2016 年）里把这套逻辑进一步精炼成七种战略力量，给出了更结构化的护城河分类体系——规模经济、网络效应、反向定位、转换成本、强力品牌、独特资源、流程优势。每一种都是积累的结果，每一种在传统竞争环境里都需要时间来侵蚀。
+      </p>
+      <p>
+        问题在于：<em>智能体开始改变其中几个关键变量的积累速度和侵蚀速度</em>。那个"竞争对手缩短差距需要付出同等时间"的假设，在某些维度上开始松动。
+      </p>
+
+      <div class="theory-note">
+        <strong>理论来源</strong>：巴菲特护城河理论（Berkshire Hathaway 年度信件，1986 起系统阐述）、海尔默《7 Powers》（2016）。
+        <br/><strong>本框架创新</strong>：在 Helmer 七力结构基础上，将智能体时代新增的三个护城河维度（数据飞轮、编排能力、主权控制）整合进来，并引入"半衰期"和"绝对/相对双轨评估"两个原创概念。
+      </div>
+
+      <h2><span class="num">02</span>护城河的半衰期问题</h2>
+      <p>
+        在讨论七个维度之前，需要先说一个更根本的概念变化：<strong>护城河有了半衰期</strong>。
+      </p>
+      <p>
+        传统护城河理论里，护城河的宽度是一个相对稳定的存量。品牌积累了十年，不会在一年内消散；渠道建设了多年，不会在一个季度里被替代。正是这种稳定性，让护城河成为战略规划的可靠锚点。
+      </p>
+      <p>
+        智能体带来的变化，不只是护城河被攻破，而是<strong>某些类型的护城河的侵蚀速度在加快</strong>。当竞争对手能够用智能体快速复制某个交付流程，用数据飞轮快速追赶用户理解，用编排能力快速整合外部资源——原本需要五年才能缩短的差距，可能在十八个月内就被填平。
+      </p>
+      <p>
+        与此同时，有另一类护城河的积累速度也在加快：那些依赖数据积累和系统进化的动态资产，在智能体驱动的飞轮机制下，可以以比人工驱动快得多的速度变宽。
+      </p>
+      <blockquote>
+        这形成了一种两极分化：<strong>静态护城河的半衰期在缩短，动态护城河的积累速度在加快</strong>。站在同一条基准线上的两家企业，若走上不同的护城河构建路径，它们的差距可能以前所未有的速度分化。
+      </blockquote>
+
+      <h2><span class="num">03</span>七个维度，两类资产</h2>
+      <p>
+        系统性护城河模型把企业竞争优势分解为七个维度，分为两类——传统维度的智能体时代校正版，以及新增的智能体时代原生维度。
+      </p>
+
+      <h3>传统维度的校正（4 个）</h3>
+      <p>
+        <strong>转换成本（Switching Cost）</strong>仍然有效，但其来源正在从"流程依赖"向"数据依赖"迁移——当一个客户的历史数据深度嵌入某个智能体系统，迁移成本会比纯粹的流程依赖更高。
+      </p>
+      <p>
+        <strong>网络效应（Network Effect）</strong>在智能体场景下有了新的表现形式：不只是用户数量带来的直接网络效应，更是用户行为数据持续训练模型、提升系统智能带来的间接飞轮效应。
+      </p>
+      <p>
+        <strong>流程优势（Process Power）</strong>在智能体时代面临双向压力：一方面，深度优化的流程更难被外部复制；另一方面，标准化程度高的流程更容易被智能体直接替代。
+      </p>
+      <p>
+        <strong>品牌/规模</strong>：品牌信任难以快速复制，但规模壁垒被部分绕过——10 个人用智能体做的事可能匹敌千人公司。
+      </p>
+
+      <h3>新增的三个原生维度</h3>
+      <p>
+        <strong>数据飞轮（Data Flywheel）</strong>：企业拥有的数据资产，能否随使用量的增加而持续提升智能体的表现？飞轮能转起来的，是指数级积累；转不起来的，只是数据存量。
+      </p>
+      <p>
+        <strong>编排能力（Orchestration Capability）</strong>：在多智能体协同已经成为常态的环境里，能否把分散的智能体能力有效整合成超越单一工具的系统性优势？这是一种新型的组织能力，<em>既不在传统管理学的词汇里，也很难通过简单的技术采购来获取</em>。
+      </p>
+      <p>
+        <strong>主权控制（Sovereignty Control）</strong>：对核心数据资产、模型能力和执行系统的自主控制程度，是护城河能否被维护的基础条件——<em>一个主权低的企业，所有的护城河都建在租来的地基上</em>。
+      </p>
+
+      <h2><span class="num">04</span>绝对评估与相对评估，必须同时做</h2>
+      <p>
+        这个框架有一个使用上的关键点，值得单独说清楚。传统护城河分析，大多数时候是绝对评估——我们的护城河有多宽？这七个维度我们各自打几分？这种评估能告诉你现状，但<em>告诉不了你战略优先级</em>。
+      </p>
+      <p>
+        <strong>系统性护城河模型的完整使用，需要同时进行绝对评估和相对评估。</strong>绝对评估回答"我们在哪里"，相对评估回答"我们和最强对手之间的差距在哪里、差距在变大还是变小"。两个维度放在一起，才能看出战略行动的优先序——
+      </p>
+      <p>
+        哪个维度的差距是拉大的（需要防守），哪个维度的差距是收窄的（可以进攻），哪个维度我们有绝对领先但对手正在快速追赶（需要加速积累）。
+      </p>
+      <blockquote>
+        只做绝对评估的企业，很容易产生一种危险的自我安慰：分数还不错，护城河还在。但对手可能正在以快两倍的速度追赶。
+      </blockquote>
+
+      <h2><span class="num">05</span>不是护城河消失了，是你需要把它重新测量一遍</h2>
+      <p>
+        真正危险的，不是护城河消失了，而是<strong>你以为它还在，但你用来测量它的尺子，已经失准了</strong>——因为那个框架只测量存量，不测量侵蚀速度，也不测量飞轮能否转起来。
+      </p>
+      <p>
+        把七个维度过一遍，分别问两个问题：<em>这条护城河的半衰期在变长还是变短？我们和最强对手在这个维度上的差距，在扩大还是在缩小？</em>
+      </p>
+      <p class="text-fg" style="font-size:1.05rem;">
+        这两个问题的答案，比护城河的绝对分数更能告诉你，下一步该把资源押在哪里。
+      </p>
+
+    </article>
+
+    <aside class="fw-side">
+
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        <div class="op-step">
+          <div class="op-num">S1</div>
+          <div class="op-text"><strong>逐维度证据评分（0–10 分）。</strong>对每个维度进行<em>证据式</em>评分，而非主观判断。每项评分必须有具体事实依据：实际数据规模、工作流嵌入的业务环节数量、已接入工具数量等可量化指标。</div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S2</div>
+          <div class="op-text"><strong>识别最大短板（最低 2 项）。</strong>评分最低的两个维度，是当前最急需补强的护城河缺口，也是竞争对手最可能突破的地方。</div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S3</div>
+          <div class="op-text"><strong>竞争对手雷达图对比。</strong>把自身评分与 3–5 个核心竞争对手的估算评分绘制成雷达图，识别相对优势与相对劣势的具体分布。</div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S4</div>
+          <div class="op-text"><strong>制定 12 个月强化路径。</strong>针对最弱的 2 个维度，制定具体可执行的提升计划，包括具体举措、关键里程碑和评估指标。</div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">
+          真正危险的，不是护城河消失了——而是<span class="not-italic" style="color:var(--fg)">你以为它还在，但你用来测量它的尺子，已经失准了</span>。
+        </p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">
+          优势的本质已从"拥有什么"转向"进化得多快"。除了评估当前分数，更重要的是评估每个维度的<strong>改善速度</strong>，以及竞争对手在同一维度的追赶速度。
+        </p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>战略规划周期的竞争优势审查</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>并购尽调中评估标的方的真实壁垒</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>新业务方向的竞争可行性评估</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>融资路演中结构化呈现竞争优势</div>
+        </div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>把传统护城河直接映射到新框架不重审</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>评分停留在主观感受而缺乏可验证证据</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>只做单次评估而不持续更新（护城河是动态的）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽略原生 3 维（数据飞轮 / 编排 / 主权）</div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F01.html" class="rel-item">
+            <span class="rel-num">F01</span>
+            <span class="rel-name">智能体五力重构法 — 行业结构分析</span>
+          </a>
+          <a href="F03.html" class="rel-item">
+            <span class="rel-num">F03</span>
+            <span class="rel-name">智能体组合矩阵 — 资源配置决策</span>
+          </a>
+          <a href="F04.html" class="rel-item">
+            <span class="rel-num">F04</span>
+            <span class="rel-name">能力三元获取法 — 自建/采购/编排</span>
+          </a>
+          <a href="G03.html" class="rel-item">
+            <span class="rel-num">G03</span>
+            <span class="rel-name">智能体主权模型 — 主权控制底层</span>
+          </a>
+        </div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F02"><span>▸ 七维护城河评估提示词</span><span class="soon" style="background:var(--accent);color:#0a0a0a;">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;">
+          <span>▸ SDMA 雷达评分 Skill</span>
+          <span class="soon">即将上线</span>
+        </a>
+        <a class="res-link disabled" href="#" onclick="return false;">
+          <span>▸ 行业案例：从 SaaS 到智能体公司</span>
+          <span class="soon">即将上线</span>
+        </a>
+      </div>
+
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F01.html">
+      <div class="dir">← 上一篇</div>
+      <div><span class="nav-num">F01</span><span class="nav-title">智能体五力重构法</span></div>
+    </a>
+    <a href="F03.html" class="right">
+      <div class="dir">下一篇 →</div>
+      <div><span class="nav-num">F03</span><span class="nav-title">智能体组合矩阵</span></div>
+    </a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F20 · 评测驱动工程法 (E³) — 智能体管理学</title>
+<meta name="description" content="为概率性输出的 Agent 系统建立评测先行（Evaluation-driven）+ 工程实现（Engineering-first）+ 持续演化（Evolving-continuously）三层循环——把评测集（Eval Set）作为成功的定义。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="4">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块四 · 系统重写 / F20</span>
+      <span class="type-tag">工程级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-4" class="hover:text-fg transition">所有系统重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      评测驱动工程法
+      <span class="en">Triple-E Evaluation-Driven Engineering</span>
+      <span class="abbr">E³</span>
+    </h1>
+    <p class="claim" data-reveal>
+      先跑再说、后补质量——这是智能体开发最危险的反模式。
+      <br/><span class="text-fg-dim2">传统软件可以先建后测，因为它的行为是确定的。智能体不行，因为它的行为是概率的。这一个字的差距，让整个工程方法论需要被重写。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">为概率性输出的 Agent 系统建立<strong>评测先行（Evaluation-driven）+ 工程实现（Engineering-first）+ 持续演化（Evolving-continuously）</strong>三层循环——把评测集（Eval Set）作为成功的定义。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F20 · Triple-E 三层循环</span></div>
+      <span class="viz-pattern">P6</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 540 480" class="viz-svg" style="max-width:540px" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="ar-cyc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="v-arrow-head"/></marker></defs>
+        <circle cx="270" cy="240" r="60" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <text class="v-node-mono" x="270" y="235" text-anchor="middle">Triple-E</text>
+        <text class="v-axis-name" x="270" y="252" text-anchor="middle" style="font-size:14px">3 阶段闭环</text>
+        <g class="v-loop-node">
+          <circle class="bg" cx="270.0" cy="75.0" r="40"/>
+          <text class="v-node-mono" x="270.0" y="70.0" text-anchor="middle">E1</text>
+          <text class="v-axis-name" x="270.0" y="87.0" text-anchor="middle">评测驱动</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="412.9" cy="322.5" r="40"/>
+          <text class="v-node-mono" x="412.9" y="317.5" text-anchor="middle">E2</text>
+          <text class="v-axis-name" x="412.9" y="334.5" text-anchor="middle">工程实现</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="127.1" cy="322.5" r="40"/>
+          <text class="v-node-mono" x="127.1" y="317.5" text-anchor="middle">E3</text>
+          <text class="v-axis-name" x="127.1" y="334.5" text-anchor="middle">持续演化</text>
+        </g>
+      </svg>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>评测集 = 成功的定义（先于代码）</span><span><i class="dot ring"></i>评测集是活的，随生产失败场景持续更新</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">智能体系统的"质量达标"是怎么被定义和持续验证的？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第一层 · 负责回答<span class="text-fg">「概率系统的工程方法应该怎么变」</span>，是系统重写的方法论基石。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">敏捷开发方法（敏捷宣言，2001）+ 测试驱动开发（TDD，Beck，2002）<span class="text-fg-dim2">→</span> 创新：把 TDD 的"测试先行"扩展为 Triple-E 三层 + 概率分布替代二元判断 + 评测集作为活资产。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"先实现功能，再写测试"——错误顺序的代价</h2>
+      <p>大多数团队在开发智能体系统时，遵循的是一套从传统软件开发继承来的工作习惯：<em>先实现功能，再写测试，最后在发布前做一轮质量检查。</em>这个顺序在软件工程里运行了几十年，看起来没什么问题。</p>
+      <p>但在智能体系统里，这套顺序会带来一个后果——<strong>这个后果在发布后才会慢慢显现：你不知道系统在哪些情况下会出问题，直到它在生产环境里出了问题。</strong></p>
+      <p>不是因为没有做测试，而是<em>因为测试的方式是错的</em>。传统测试覆盖的是"已知的确定性路径"，智能体的失败往往发生在<strong>"未被发现的边界情况"</strong>上。这些边界情况，在你的测试用例里不存在，在你的提示词里没有描述，但它们在真实用户的使用里真实存在。</p>
+      <h2><span class="num">02</span>确定性系统和概率性系统的根本差异</h2>
+      <div class="theory-note"><strong>理论来源</strong>：传统敏捷开发方法（敏捷宣言，2001）；测试驱动开发（TDD，肯特·贝克，<em>Test-Driven Development</em>，2002）。<br/><strong>本框架创新</strong>：针对概率性输出系统的特性，将传统 TDD 的"测试先行"扩展为 Triple-E 三层工程方法论：评测驱动、工程实现、持续演化；提出"评测集（Eval Set）"作为智能体质量的核心度量工具，以统计分布替代二元通过/失败作为质量标准。</div>
+      <p>传统软件工程的所有核心实践——单元测试、集成测试、回归测试、持续集成——都建立在一个没有被声明的假设上：<strong>给定相同的输入，系统产生相同的输出。</strong></p>
+      <p>这个假设让测试变得可行。如果一个函数在测试环境里通过了，可以合理相信它在生产环境里也会通过。<em>这种可预测性，是整个软件工程质量保障体系的基础。</em></p>
+      <p>智能体系统打破了这个假设。同一个提示词，在不同时刻、不同上下文、模型的不同采样结果下，可能产生不同的输出。一个今天通过的测试用例，明天未必还能通过——不是因为系统被修改了，而是<em>因为概率性系统本来就有这种特性</em>。</p>
+      <blockquote>你无法用"通过/失败"这个二元标准来评估一个概率性系统的质量。正确的问题不是"这个输出是对还是错"，而是"这个系统在各种类型的输入下，产生高质量输出的概率分布是什么"。</blockquote>
+      <h2><span class="num">03</span>把"评测"提升为一等公民</h2>
+      <p>重新设计智能体工程方法论的核心思路，来自一个优先级的倒转：<strong>把评测从开发流程的末端，提升到开发流程的起点。</strong></p>
+      <p>在传统 TDD 里，"先写测试，再写代码"是一个已经被广泛接受的最佳实践。但即使是 TDD 的拥护者，在面对智能体开发时也会遇到一个困难：<em>智能体的"测试"不能是一组确定性的断言，因为没有确定性的正确答案可以被断言。</em></p>
+      <p>需要被提前定义的，不是"正确答案是什么"，而是<strong>"什么叫做一个好的输出"——也就是评测标准</strong>。评测标准一旦确定，才能构建评测集（Eval Set）：一组覆盖典型场景、边缘场景和对抗场景的测试输入，配合对应的评估维度和质量基准线。</p>
+      <h3>E1 · 评测驱动（Evaluation-driven）</h3>
+      <p>在写任何一行代码之前，先定义评测集。包括覆盖了哪些场景类型（正常、边缘、对抗），用什么维度评估输出质量，合格的基准线是什么。<strong>评测集是整个工程工作的"成功定义"</strong>——没有这个定义，后续所有工程工作都是在不知道终点的情况下行进。</p>
+      <h3>E2 · 工程实现（Engineering-first）</h3>
+      <p>在评测集指引下进行系统实现。每一次代码变更之后，立即运行评测集，得到的不是"通过/失败"，<em>而是在各个维度上的评分分布</em>。这个分布成为驱动下一步工程决策的数据基础。</p>
+      <h3>E3 · 持续演化（Evolving-continuously）</h3>
+      <p>评测集本身也需要随着系统的演化而不断更新。<strong>每一次在生产环境里发现的新失败场景，都应该被添加到评测集中，让这个失败不再重演。</strong>评测集是活的，不是一次性定义的文档。</p>
+      <h2><span class="num">04</span>"先跑再说"的真实代价</h2>
+      <p>为什么"先跑再说、后补质量"这个反模式如此普遍？因为它在<em>短期内给人一种进展的感觉</em>——系统跑起来了，有输出了，用户可以开始使用了。质量的问题，好像可以后面再优化。</p>
+      <p>但在智能体开发里，这种延迟的代价是<strong>指数级的，而不是线性的</strong>。</p>
+      <p>当你在没有系统性评测体系的情况下积累了大量代码、提示词和系统配置，<em>你不知道哪些部分是稳定的，哪些是脆弱的，哪些改动会破坏什么</em>。每次想要"后补质量"，都需要先理清这些未知，而这个理清的代价比从一开始就有评测体系要高出三到五倍。</p>
+      <p>更隐蔽的代价是<strong>边界案例的未知性</strong>——在没有系统性评测的开发过程中，你积累的是功能，同时也在积累"不知道哪些边界案例存在"的盲区。这个盲区本身就是技术债，<em>而且它不会随着后来的测试工作全部消除——因为你无法测试你不知道的存在。</em></p>
+      <h2><span class="num">05</span>质量不是状态，是统计属性</h2>
+      <p>Triple-E 揭示的，是智能体工程质量的根本性重新定义：<strong>质量不是一个可以在发布前被检验出来的状态，而是在整个开发过程中被持续追踪的统计属性。</strong></p>
+      <p>传统软件质量可以被"检验"——产品在发布前经过质量检查，检查通过意味着达到了质量标准。<em>这种检验模式建立在确定性输出的假设上。</em></p>
+      <p>智能体质量只能被<strong>"追踪"</strong>——在各个评测维度上，系统的表现分布是否在向好的方向演化？新功能的加入是否造成了某些维度的退化？这种追踪，需要评测集和统计分析，不是一次性的发布前检查。</p>
+      <blockquote>一个没有评测集的智能体系统，就像一个没有仪表盘的飞机。它可能在飞，但你不知道飞向哪里，也不知道什么时候会出问题。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>写代码前先定义评测集。</strong>覆盖正常/边缘/对抗场景，定义各维度质量基准线。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>每次变更后立即运行评测集。</strong>得到分布而非通过/失败，作为下一步决策依据。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>生产失败场景回流。</strong>每次真实失败加入评测集，让该失败不再重演。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>评测集与代码同等地位维护。</strong>评测集是活资产，不是一次性文档。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">没有评测集的智能体系统，就像<span class="not-italic" style="color:var(--fg)">没有仪表盘的飞机</span>——可能在飞，但你不知道飞向哪里。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">质量不是一个可以在发布前被检验出来的状态，而是在整个开发过程中被持续追踪的统计属性。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 项目立项与技术方案评审</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>提示词迭代的科学化</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>模型升级的安全验证</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>高频迭代场景的质量护栏</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>评测集等系统稳定再写</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把单点测试当成评测集</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>生产失败不回流评测集</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>评测集做完不再更新</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F22.html" class="rel-item"><span class="rel-num">F22</span><span class="rel-name">PRTD — 评测落点是四环</span></a>
+          <a href="F24.html" class="rel-item"><span class="rel-num">F24</span><span class="rel-name">ADLC — 评测在 ADLC 哪个阶段</span></a>
+          <a href="F25.html" class="rel-item"><span class="rel-num">F25</span><span class="rel-name">TSEM — 三层评测的内容</span></a>
+          <a href="F26.html" class="rel-item"><span class="rel-num">F26</span><span class="rel-name">PRT — 概率回归测试配套</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F20"><span>▸ E³ 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ E³ Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F19.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F19</span><span class="nav-title">多智能体架构成熟度阶梯</span></div></a>
+    <a href="F21.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F21</span><span class="nav-title">智能体 Skill 资产治理</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

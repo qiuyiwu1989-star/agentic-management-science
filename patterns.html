@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>可视化模式库 · Visual Pattern Library — 智能体管理学</title>
+<meta name="description" content="8 个可复用可视化模式覆盖 40 框架——五力放射图、雷达图、双轴矩阵、层级栈、成熟度阶梯、闭环、链路流程、同心圆。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg">
+
+<!-- ============ NAV ============ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="framework/F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="patterns.html" class="px-4 py-2 mono text-[13px] text-accent transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative pt-32 pb-16 overflow-hidden noise">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="absolute inset-0 accent-glow pointer-events-none"></div>
+  <div class="relative container">
+    <div class="kicker mb-6" data-reveal>
+      <span class="accent">▌</span> visual pattern library · v1.0
+    </div>
+    <h1 class="display text-[clamp(40px,6vw,84px)] max-w-[1080px]" data-reveal>
+      可视化<span class="text-accent">模式库</span>
+    </h1>
+    <p class="mt-6 max-w-3xl text-fg-dim text-lg leading-relaxed" data-reveal>
+      8 个可复用的视觉模式，覆盖 40 个框架中的 27 个。每个模式用对应的代表框架做参考实现，剩余 13 个走轻定制。<span class="text-fg">模式相同，模块色不同——视觉一致，语义清晰。</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ P1 · 五力放射图 ============ -->
+<section class="container py-12 border-t border-line" data-module="1">
+  <div class="mb-6">
+    <div class="kicker mb-2"><span class="accent">P1 ·</span> 五力放射图</div>
+    <h2 class="display text-2xl">中心 + 周边 + 外圈包裹</h2>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="framework/F01.html" class="text-accent hover:underline">F01 智能体五力重构法 (AFFR)</a> · 模块一 · SVG</p>
+    <p class="text-fg-dim2 text-sm mt-1">适用范围：单一框架（F01）</p>
+  </div>
+
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F01 · 智能体五力重构法 (AFFR)</span>
+      </div>
+      <span class="viz-pattern">P1</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 720 600" class="viz-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar-p1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" class="v-arrow-head"/>
+          </marker>
+        </defs>
+        <circle class="v-ring" cx="360" cy="305" r="275"/>
+        <text class="v-ring-label" x="360" y="28" text-anchor="middle">主权力 · SOVEREIGNTY POWER</text>
+        <text class="v-ring-sub" x="360" y="48" text-anchor="middle">数据 · 模型 · 执行 · 治理 · 经济</text>
+        <line class="v-connector" x1="360" y1="165" x2="360" y2="232" marker-end="url(#ar-p1)"/>
+        <line class="v-connector" x1="450" y1="305" x2="437" y2="305" marker-end="url(#ar-p1)"/>
+        <line class="v-connector" x1="360" y1="445" x2="360" y2="378" marker-end="url(#ar-p1)"/>
+        <line class="v-connector" x1="270" y1="305" x2="283" y2="305" marker-end="url(#ar-p1)"/>
+        <g class="v-node">
+          <circle class="v-center" cx="360" cy="305" r="72"/>
+          <text class="v-node-mono" x="360" y="280" text-anchor="middle">F01 · AFFR</text>
+          <text class="v-node-title" x="360" y="305" text-anchor="middle">同业竞争</text>
+          <text class="v-node-sub" x="360" y="325" text-anchor="middle">编排能力的竞争</text>
+        </g>
+        <g class="v-node">
+          <rect class="v-node-rect" x="270" y="100" width="180" height="65" rx="4"/>
+          <text class="v-node-mono" x="285" y="118">FORCE 1</text>
+          <text class="v-node-title" x="360" y="135" text-anchor="middle">进入威胁</text>
+          <text class="v-node-sub" x="360" y="155" text-anchor="middle">能力门槛 → 系统门槛</text>
+        </g>
+        <g class="v-node">
+          <rect class="v-node-rect" x="450" y="272" width="180" height="65" rx="4"/>
+          <text class="v-node-mono" x="465" y="290">FORCE 2</text>
+          <text class="v-node-title" x="540" y="307" text-anchor="middle">买方力量</text>
+          <text class="v-node-sub" x="540" y="327" text-anchor="middle">采购 Agent 进场</text>
+        </g>
+        <g class="v-node">
+          <rect class="v-node-rect" x="270" y="445" width="180" height="65" rx="4"/>
+          <text class="v-node-mono" x="285" y="463">FORCE 3</text>
+          <text class="v-node-title" x="360" y="480" text-anchor="middle">替代品威胁</text>
+          <text class="v-node-sub" x="360" y="500" text-anchor="middle">能力替代 · 跨行业</text>
+        </g>
+        <g class="v-node">
+          <rect class="v-node-rect" x="90" y="272" width="180" height="65" rx="4"/>
+          <text class="v-node-mono" x="105" y="290">FORCE 4</text>
+          <text class="v-node-title" x="180" y="307" text-anchor="middle">供应商力量</text>
+          <text class="v-node-sub" x="180" y="327" text-anchor="middle">模型平台依赖</text>
+        </g>
+      </svg>
+    </div>
+    <div class="viz-legend">
+      <span><i class="dot hub"></i>同业竞争（中心 rivalry hub）</span>
+      <span><i class="dot"></i>四力（来源被重构）</span>
+      <span><i class="dot ring"></i>主权力（第六维度，外圈）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P1.b · 五力放射图（HTML/CSS 版本，对比用） ============ -->
+<section class="container pb-12" data-module="1">
+  <div class="mb-6 mt-2">
+    <div class="kicker mb-2"><span class="accent">P1.b ·</span> 同上，但用纯 HTML/CSS 实现</div>
+    <h2 class="display text-2xl">HTML 版本（对比看 SVG 与 HTML 的差异）</h2>
+    <p class="text-fg-dim text-sm mt-2">同一张五力放射图，用 CSS Grid + 绝对定位 + 伪元素箭头实现。技术：纯 HTML/CSS，无 SVG。</p>
+  </div>
+
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F01 · 智能体五力重构法 (HTML 版本)</span>
+      </div>
+      <span class="viz-pattern">P1.b</span>
+    </div>
+
+    <div class="vh-radial">
+      <div class="vh-ring-label">
+        <span class="top">主权力 · SOVEREIGNTY POWER</span>
+        <span class="sub">数据 · 模型 · 执行 · 治理 · 经济</span>
+      </div>
+
+      <div class="vh-arrow vh-arrow-top"></div>
+      <div class="vh-arrow vh-arrow-bottom"></div>
+      <div class="vh-arrow vh-arrow-left"></div>
+      <div class="vh-arrow vh-arrow-right"></div>
+
+      <div class="vh-force vh-top">
+        <div class="vh-tag">FORCE 1</div>
+        <h5 class="vh-title">进入威胁</h5>
+        <div class="vh-sub">能力门槛 → 系统门槛</div>
+      </div>
+
+      <div class="vh-force vh-right">
+        <div class="vh-tag">FORCE 2</div>
+        <h5 class="vh-title">买方力量</h5>
+        <div class="vh-sub">采购 Agent 进场</div>
+      </div>
+
+      <div class="vh-force vh-bottom">
+        <div class="vh-tag">FORCE 3</div>
+        <h5 class="vh-title">替代品威胁</h5>
+        <div class="vh-sub">能力替代 · 跨行业</div>
+      </div>
+
+      <div class="vh-force vh-left">
+        <div class="vh-tag">FORCE 4</div>
+        <h5 class="vh-title">供应商力量</h5>
+        <div class="vh-sub">模型平台依赖</div>
+      </div>
+
+      <div class="vh-center">
+        <div class="vh-tag">F01 · AFFR</div>
+        <h5 class="vh-title">同业竞争</h5>
+        <div class="vh-sub">编排能力的竞争</div>
+      </div>
+    </div>
+
+    <div class="viz-legend">
+      <span><i class="dot hub"></i>同业竞争（中心）</span>
+      <span><i class="dot"></i>四力（来源被重构）</span>
+      <span><i class="dot ring"></i>主权力（外圈虚线）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P2 · 雷达图 ============ -->
+<section class="container py-12 border-t border-line" data-module="3">
+  <div class="mb-6">
+    <div class="kicker mb-2"><span class="accent">P2 ·</span> 雷达 / 多维图</div>
+    <h2 class="display text-2xl">N 轴星形评估</h2>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F17 可信智能体七维评估法 (VERITAS)</a> · 模块三 · SVG</p>
+    <p class="text-fg-dim2 text-sm mt-1">适用范围：F02 七维 · F17 VERITAS · F18 CATER · F29 DWPS · F35 FALA · F36 AC6（共 6 个）</p>
+  </div>
+
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F17 · VERITAS 七维质量画像</span>
+      </div>
+      <span class="viz-pattern">P2</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 480 480" class="viz-svg" style="max-width:480px" xmlns="http://www.w3.org/2000/svg">
+        <!-- concentric grid circles -->
+        <circle class="v-axis-grid" cx="240" cy="240" r="40"/>
+        <circle class="v-axis-grid" cx="240" cy="240" r="80"/>
+        <circle class="v-axis-grid" cx="240" cy="240" r="120"/>
+        <circle class="v-axis-grid" cx="240" cy="240" r="160"/>
+
+        <!-- 7 axes (V/E/R/I/T/A/S clockwise from top) -->
+        <line class="v-axis" x1="240" y1="240" x2="240" y2="80"/>
+        <line class="v-axis" x1="240" y1="240" x2="365" y2="140"/>
+        <line class="v-axis" x1="240" y1="240" x2="396" y2="276"/>
+        <line class="v-axis" x1="240" y1="240" x2="309" y2="384"/>
+        <line class="v-axis" x1="240" y1="240" x2="171" y2="384"/>
+        <line class="v-axis" x1="240" y1="240" x2="84" y2="276"/>
+        <line class="v-axis" x1="240" y1="240" x2="115" y2="140"/>
+
+        <!-- sample evaluation polygon (V=.72 E=.65 R=.82 I=.55 T=.7 A=.5 S=1.0) -->
+        <polygon class="v-polygon" points="240,125  321,175  368,269  278,319  191,341  162,258  115,140"/>
+
+        <!-- dots at vertices -->
+        <circle class="v-dot" cx="240" cy="125" r="4"/>
+        <circle class="v-dot" cx="321" cy="175" r="4"/>
+        <circle class="v-dot" cx="368" cy="269" r="4"/>
+        <circle class="v-dot" cx="278" cy="319" r="4"/>
+        <circle class="v-dot" cx="191" cy="341" r="4"/>
+        <circle class="v-dot" cx="162" cy="258" r="4"/>
+        <circle class="v-dot special" cx="115" cy="140" r="6"/>
+
+        <!-- labels -->
+        <text class="v-axis-label" x="240" y="60" text-anchor="middle">V</text>
+        <text class="v-axis-name"  x="240" y="74" text-anchor="middle">可验证</text>
+
+        <text class="v-axis-label" x="385" y="125" text-anchor="middle">E</text>
+        <text class="v-axis-name"  x="389" y="139" text-anchor="middle">可解释</text>
+
+        <text class="v-axis-label" x="425" y="278" text-anchor="middle">R</text>
+        <text class="v-axis-name"  x="425" y="292" text-anchor="middle">可靠</text>
+
+        <text class="v-axis-label" x="325" y="402" text-anchor="middle">I</text>
+        <text class="v-axis-name"  x="325" y="416" text-anchor="middle">影响度</text>
+
+        <text class="v-axis-label" x="155" y="402" text-anchor="middle">T</text>
+        <text class="v-axis-name"  x="155" y="416" text-anchor="middle">可信</text>
+
+        <text class="v-axis-label" x="55" y="278" text-anchor="middle">A</text>
+        <text class="v-axis-name"  x="55" y="292" text-anchor="middle">适应</text>
+
+        <text class="v-axis-label" x="95" y="125" text-anchor="middle">S</text>
+        <text class="v-axis-name"  x="91" y="139" text-anchor="middle">安全 ★</text>
+
+        <!-- center label -->
+        <text class="v-node-mono" x="240" y="237" text-anchor="middle">VERITAS</text>
+        <text class="v-axis-name" x="240" y="252" text-anchor="middle">truth · 7 axes</text>
+      </svg>
+    </div>
+    <div class="viz-legend">
+      <span><i class="dot"></i>七维评估锚点</span>
+      <span><i class="dot" style="background:transparent;outline:2px solid var(--mod-c);outline-offset:-1px;border-radius:50%"></i>★ 安全维度（不可补偿，必须满分）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P3 · 双轴矩阵 ============ -->
+<section class="container py-12 border-t border-line" data-module="1">
+  <div class="mb-6">
+    <div class="kicker mb-2"><span class="accent">P3 ·</span> 双轴矩阵</div>
+    <h2 class="display text-2xl">2×2 象限决策图</h2>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F03 智能体组合矩阵 (APM)</a> · 模块一 · HTML/CSS</p>
+    <p class="text-fg-dim2 text-sm mt-1">适用范围：F03 APM · F09 RACI×DAL · F10 T1–T4 · F13 APS · F34 任务迁移（共 5 个）</p>
+  </div>
+
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F03 · 智能体组合矩阵 (APM)</span>
+      </div>
+      <span class="viz-pattern">P3</span>
+    </div>
+
+    <div class="viz-matrix">
+      <div class="axis-y">战略价值 / Strategic Value</div>
+
+      <div class="quad">
+        <span class="quad-tag">高价值 · 低成熟</span>
+        <h4 class="quad-title">★ 明星智能体</h4>
+        <p class="quad-desc">战略上重要，但技术尚不稳定——这里是未来竞争优势的来源。</p>
+        <div class="quad-action">→ 重点投入 · 攻关关键瓶颈</div>
+      </div>
+
+      <div class="quad">
+        <span class="quad-tag">高价值 · 高成熟</span>
+        <h4 class="quad-title">$ 现金牛智能体</h4>
+        <p class="quad-desc">已稳定运行，ROI 明确，是当下最核心的竞争资产。</p>
+        <div class="quad-action">→ 加深为飞轮 · 规模复制</div>
+      </div>
+
+      <div class="quad">
+        <span class="quad-tag">低价值 · 低成熟</span>
+        <h4 class="quad-title">? 问题智能体</h4>
+        <p class="quad-desc">技术不稳，价值不清——大多是跟风项目，资源黑洞。</p>
+        <div class="quad-action">→ 快速验证 · 及时淘汰</div>
+      </div>
+
+      <div class="quad">
+        <span class="quad-tag">低价值 · 高成熟</span>
+        <h4 class="quad-title">⚙ 工具智能体</h4>
+        <p class="quad-desc">稳定但不差异化——是效率资产，不是战略资产。</p>
+        <div class="quad-action">→ 标准化降本 · 复用</div>
+      </div>
+
+      <div class="corner"></div>
+      <div class="axis-x"><span>低</span>自主化成熟度 / Automation Maturity · L0 → L5<span>高</span></div>
+    </div>
+
+    <div class="viz-legend">
+      <span><i class="dot"></i>四象限对应四种资源配置策略</span>
+      <span><i class="dot"></i>动态追踪迁移路径（周级更新）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P4 · 层级栈 ============ -->
+<section class="container py-12 border-t border-line" data-module="4">
+  <div class="mb-6">
+    <div class="kicker mb-2"><span class="accent">P4 ·</span> 层级栈</div>
+    <h2 class="display text-2xl">横/竖叠层架构</h2>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F23 企业智能体六层架构 (SEAA)</a> · 模块四 · HTML/CSS</p>
+    <p class="text-fg-dim2 text-sm mt-1">适用范围：F08 双前台中台 · F14 JTBO 三层 · F15 上下文四层 · F23 SEAA · F28 3DSP · G01 意图四层（共 6 个）</p>
+  </div>
+
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F23 · 企业智能体六层架构 (SEAA)</span>
+      </div>
+      <span class="viz-pattern">P4</span>
+    </div>
+
+    <div class="viz-stack">
+      <div class="layer">
+        <div class="layer-num">L6 / TOP</div>
+        <div class="layer-name">应用层<span class="en">Application</span></div>
+        <div class="layer-desc">面向最终用户或业务场景的智能体应用——价值最可见、ROI 最直接。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L5</div>
+        <div class="layer-name">编排层<span class="en">Orchestration</span></div>
+        <div class="layer-desc">多 Agent 协作管理、工作流设计、任务调度——单点能力升级为系统优势的关键。</div>
+      </div>
+      <div class="layer is-key">
+        <div class="layer-num">L4 / 关键</div>
+        <div class="layer-name">协议层<span class="en">Protocol · MCP / A2A</span></div>
+        <div class="layer-desc">标准化接口与互操作协议——当前最被低估的战略层次，AI 时代的 HTTP+TCP。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L3</div>
+        <div class="layer-name">数据层<span class="en">Data</span></div>
+        <div class="layer-desc">知识库、向量数据库、实时接入与数据治理——AI 质量的决定性基础。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L2</div>
+        <div class="layer-name">模型层<span class="en">Model</span></div>
+        <div class="layer-desc">大语言模型与其他 AI 模型的选型、部署与管理——决定主权与能力上限。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L1 / 底</div>
+        <div class="layer-name">基础设施层<span class="en">Infrastructure</span></div>
+        <div class="layer-desc">计算、存储、网络——所有 AI 能力的物理基础。</div>
+      </div>
+    </div>
+
+    <div class="viz-legend">
+      <span><i class="dot"></i>每层有独立的技术属性与管理决策意义</span>
+      <span><i class="dot" style="outline:2px solid var(--mod-c);outline-offset:-1px"></i>L4 协议层 = 最被低估的战略层次</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P5 · 成熟度阶梯 ============ -->
+<section class="container py-12 border-t border-line" data-module="5">
+  <div class="mb-6">
+    <div class="kicker mb-2"><span class="accent">P5 ·</span> 成熟度阶梯</div>
+    <h2 class="display text-2xl">N 级上升评估</h2>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F27 智能体运营五级成熟度模型 (AOMM)</a> · 模块五 · HTML/CSS</p>
+    <p class="text-fg-dim2 text-sm mt-1">适用范围：F19 MAAML · F21 SAG · F27 AOMM · F33 IACMM（共 4 个）</p>
+  </div>
+
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F27 · AgentOps 五级成熟度</span>
+      </div>
+      <span class="viz-pattern">P5</span>
+    </div>
+
+    <div class="viz-ladder">
+      <div class="step">
+        <div class="step-num">M1</div>
+        <div class="step-name">实验级</div>
+        <div class="step-desc">运营靠感觉，没有系统监控，问题靠用户投诉。</div>
+        <div class="step-flag">Experimental</div>
+      </div>
+      <div class="step">
+        <div class="step-num">M2</div>
+        <div class="step-name">可监控级</div>
+        <div class="step-desc">基础日志和告警，但只覆盖技术指标。</div>
+        <div class="step-flag">Observable</div>
+      </div>
+      <div class="step is-critical">
+        <div class="step-num">M3 · 分水岭</div>
+        <div class="step-name">可量化级</div>
+        <div class="step-desc">SLI/SLO 体系，业务级质量基准。从"实验性"进入"生产级"。</div>
+        <div class="step-flag">Measurable ★</div>
+      </div>
+      <div class="step">
+        <div class="step-num">M4</div>
+        <div class="step-name">可优化级</div>
+        <div class="step-desc">自动化质量门禁 + Error Budget——M3→M4 是规模化真正门槛。</div>
+        <div class="step-flag">Optimizable</div>
+      </div>
+      <div class="step">
+        <div class="step-num">M5</div>
+        <div class="step-name">自治级</div>
+        <div class="step-desc">系统可自我监控、评估、优化——人类成为系统设计者。</div>
+        <div class="step-flag">Autonomous</div>
+      </div>
+    </div>
+
+    <div class="viz-legend">
+      <span><i class="dot"></i>五级递进（高度反映成熟度）</span>
+      <span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 50%, transparent)"></i>M3 = 实验 / 生产分水岭</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P6 · 闭环/循环 ============ -->
+<section class="container py-12 border-t border-line" data-module="4">
+  <div class="mb-6">
+    <div class="kicker mb-2"><span class="accent">P6 ·</span> 闭环 / 循环</div>
+    <h2 class="display text-2xl">圆形流程</h2>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F24 智能体全生命周期开发法 (ADLC)</a> · 模块四 · SVG</p>
+    <p class="text-fg-dim2 text-sm mt-1">适用范围：F20 Triple-E · F24 ADLC（共 2 个）</p>
+  </div>
+
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F24 · ADLC 六阶段迭代闭环</span>
+      </div>
+      <span class="viz-pattern">P6</span>
+    </div>
+
+    <div class="viz-canvas">
+      <svg viewBox="0 0 540 480" class="viz-svg" style="max-width:540px" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar-p6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" class="v-arrow-head"/>
+          </marker>
+        </defs>
+
+        <!-- center label -->
+        <circle cx="270" cy="240" r="60" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <text class="v-node-mono" x="270" y="232" text-anchor="middle">F24 · ADLC</text>
+        <text class="v-node-title" x="270" y="252" text-anchor="middle" style="font-size:14px">六阶段</text>
+
+        <!-- arcs between nodes (curved arrows clockwise) -->
+        <path class="v-loop-arc" d="M 270 80 A 160 160 0 0 1 408 165" marker-end="url(#ar-p6)"/>
+        <path class="v-loop-arc" d="M 425 200 A 160 160 0 0 1 408 320" marker-end="url(#ar-p6)"/>
+        <path class="v-loop-arc" d="M 390 358 A 160 160 0 0 1 270 395" marker-end="url(#ar-p6)"/>
+        <path class="v-loop-arc" d="M 245 395 A 160 160 0 0 1 130 358" marker-end="url(#ar-p6)"/>
+        <path class="v-loop-arc" d="M 112 320 A 160 160 0 0 1 130 200" marker-end="url(#ar-p6)"/>
+        <path class="v-loop-arc" d="M 152 165 A 160 160 0 0 1 245 80" marker-end="url(#ar-p6)"/>
+
+        <!-- 6 nodes at 60° intervals starting top -->
+        <g class="v-loop-node">
+          <circle class="bg" cx="270" cy="60" r="40"/>
+          <text class="v-node-mono" x="270" y="55" text-anchor="middle">①</text>
+          <text class="v-axis-name" x="270" y="72" text-anchor="middle">发现定义</text>
+        </g>
+        <g class="v-loop-node">
+          <circle class="bg" cx="425" cy="150" r="40"/>
+          <text class="v-node-mono" x="425" y="145" text-anchor="middle">②</text>
+          <text class="v-axis-name" x="425" y="162" text-anchor="middle">上下文设计</text>
+        </g>
+        <g class="v-loop-node">
+          <circle class="bg" cx="425" cy="330" r="40"/>
+          <text class="v-node-mono" x="425" y="325" text-anchor="middle">③</text>
+          <text class="v-axis-name" x="425" y="342" text-anchor="middle">能力构建</text>
+        </g>
+        <g class="v-loop-node">
+          <circle class="bg" cx="270" cy="420" r="40"/>
+          <text class="v-node-mono" x="270" y="415" text-anchor="middle">④</text>
+          <text class="v-axis-name" x="270" y="432" text-anchor="middle">评测验证</text>
+        </g>
+        <g class="v-loop-node">
+          <circle class="bg" cx="115" cy="330" r="40"/>
+          <text class="v-node-mono" x="115" y="325" text-anchor="middle">⑤</text>
+          <text class="v-axis-name" x="115" y="342" text-anchor="middle">部署监控</text>
+        </g>
+        <g class="v-loop-node">
+          <circle class="bg" cx="115" cy="150" r="40"/>
+          <text class="v-node-mono" x="115" y="145" text-anchor="middle">⑥</text>
+          <text class="v-axis-name" x="115" y="162" text-anchor="middle">持续优化</text>
+        </g>
+      </svg>
+    </div>
+    <div class="viz-legend">
+      <span><i class="dot"></i>六阶段顺时针循环</span>
+      <span><i class="dot ring"></i>评测集随每轮迭代持续更新</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P7 · 链路流程 ============ -->
+<section class="container py-12 border-t border-line" data-module="4">
+  <div class="mb-6">
+    <div class="kicker mb-2"><span class="accent">P7 ·</span> 链路流程</div>
+    <h2 class="display text-2xl">左 → 右步骤流</h2>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F22 执行链路四环诊断法 (PRTD)</a> · 模块四 · HTML/CSS</p>
+    <p class="text-fg-dim2 text-sm mt-1">适用范围：F12 Kotter-AI · F22 PRTD · F25 TSEM 三层（共 3 个）</p>
+  </div>
+
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F22 · PRTD 执行链路四环</span>
+      </div>
+      <span class="viz-pattern">P7</span>
+    </div>
+
+    <div class="viz-flow">
+      <div class="step">
+        <div class="step-num">环 1</div>
+        <div class="step-name">提示词</div>
+        <div class="step-en">P · Prompt · 意图理解</div>
+        <div class="step-fail">失败模式：意图被错误理解、任务边界设错。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">环 2</div>
+        <div class="step-name">检索</div>
+        <div class="step-en">R · Retrieval · 信息获取</div>
+        <div class="step-fail">失败模式：精度不够、召回不足、引入噪声。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">环 3</div>
+        <div class="step-name">工具</div>
+        <div class="step-en">T · Tool · 能力调用</div>
+        <div class="step-fail">失败模式：参数错、格式错、外部服务异常。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">环 4</div>
+        <div class="step-name">决策</div>
+        <div class="step-en">D · Decision · 输出生成</div>
+        <div class="step-fail">失败模式：推理错、格式错、不确定性未表达。</div>
+      </div>
+    </div>
+
+    <div class="viz-legend">
+      <span><i class="dot"></i>沿链路逐环假设-验证（一次只改一变量）</span>
+      <span><i class="dot"></i>避免"散弹枪调试"</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P8 · 同心圆系统 ============ -->
+<section class="container py-12 border-t border-line" data-module="2">
+  <div class="mb-6">
+    <div class="kicker mb-2"><span class="accent">P8 ·</span> 同心圆 / 嵌套</div>
+    <h2 class="display text-2xl">由内而外的纵深防御</h2>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F11 智能体安全三系统架构 (ABERS)</a> · 模块二 · SVG</p>
+    <p class="text-fg-dim2 text-sm mt-1">适用范围：F11 ABERS · F25 TSEM · F32 SRAG · G02 BSN（共 4 个）</p>
+  </div>
+
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F11 · 边界 / 升级 / 恢复 三系统纵深</span>
+      </div>
+      <span class="viz-pattern">P8</span>
+    </div>
+
+    <div class="viz-canvas">
+      <svg viewBox="0 0 540 480" class="viz-svg" style="max-width:540px" xmlns="http://www.w3.org/2000/svg">
+        <!-- outer ring: recovery -->
+        <circle class="v-concentric" cx="270" cy="240" r="220"/>
+        <text class="v-ring-label" x="270" y="38" text-anchor="middle">恢复系统 · RECOVERY</text>
+        <text class="v-ring-sub" x="270" y="58" text-anchor="middle">即时遏制 · 影响评估 · 根因闭环</text>
+
+        <!-- middle ring: escalation -->
+        <circle class="v-concentric" cx="270" cy="240" r="150"/>
+        <text class="v-ring-label" x="270" y="115" text-anchor="middle">升级系统 · ESCALATION</text>
+        <text class="v-ring-sub" x="270" y="132" text-anchor="middle">5 类触发条件 · 具名升级 · 时效要求</text>
+
+        <!-- inner: boundary -->
+        <circle class="v-concentric v-concentric-inner" cx="270" cy="240" r="78"/>
+        <text class="v-node-mono" x="270" y="225" text-anchor="middle">F11 · ABERS</text>
+        <text class="v-node-title" x="270" y="248" text-anchor="middle" style="font-size:14px">边界系统</text>
+        <text class="v-axis-name" x="270" y="266" text-anchor="middle">任务/资源/决策</text>
+
+        <!-- annotations on right -->
+        <line class="v-connector" x1="362" y1="240" x2="430" y2="240" stroke-dasharray="3 3"/>
+        <text class="v-axis-name" x="438" y="232" style="font-size:10.5px">B → 定义</text>
+        <text class="v-axis-name" x="438" y="247" style="font-size:10.5px">E → 检测</text>
+        <text class="v-axis-name" x="438" y="262" style="font-size:10.5px">R → 复原</text>
+      </svg>
+    </div>
+    <div class="viz-legend">
+      <span><i class="dot hub"></i>内：边界系统（第一道防线）</span>
+      <span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 60%, transparent)"></i>中：升级系统（发现越界）</span>
+      <span><i class="dot ring"></i>外：恢复系统（限制损害 + 根因闭环）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="container py-16 border-t border-line">
+  <div class="mb-8">
+    <div class="kicker mb-2">summary</div>
+    <h2 class="display text-3xl">8 个模式覆盖 27 个框架</h2>
+    <p class="text-fg-dim mt-3 max-w-3xl">剩余 13 个框架走"轻定制"——大多是上述 8 个模式的轻微变体（如三角图、漏斗、节点网络、公式分解、时间曲线），用同一套 SVG/CSS 元件组合即可。</p>
+  </div>
+
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-3 mt-6">
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P1–P2</span> · SVG</div>
+      <div class="text-sm text-fg">放射图 + 雷达图</div>
+      <div class="text-fg-dim2 text-xs mt-1 mono">7 frameworks</div>
+    </div>
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P3–P5, P7</span> · HTML</div>
+      <div class="text-sm text-fg">矩阵 / 层级 / 阶梯 / 流程</div>
+      <div class="text-fg-dim2 text-xs mt-1 mono">18 frameworks</div>
+    </div>
+    <div class="p-4 border border-line rounded">
+      <div class="kicker mb-2"><span class="accent">P6, P8</span> · SVG</div>
+      <div class="text-sm text-fg">闭环 + 同心圆</div>
+      <div class="text-fg-dim2 text-xs mt-1 mono">6 frameworks</div>
+    </div>
+    <div class="p-4 border border-line rounded" style="border-style: dashed">
+      <div class="kicker mb-2"><span class="accent">custom</span> · 轻定制</div>
+      <div class="text-sm text-fg">F00 · F04 · F05 · F06 · F07 ...</div>
+      <div class="text-fg-dim2 text-xs mt-1 mono">13 frameworks</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-line py-10">
+  <div class="container flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+    <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0 · pattern library</div>
+    <div class="flex gap-4 text-xs text-fg-dim2 mono">
+      <a href="index.html" class="hover:text-accent transition">返回首页</a>
+      <a href="framework/F01.html" class="hover:text-accent transition">F01 模板页</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

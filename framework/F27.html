@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F27 · 智能体运营五级成熟度模型 (AOMM) — 智能体管理学</title>
+<meta name="description" content="从实验级、监控级、量化级、自动化级到自治级，判断企业 Agent 运营能力阶段。模块五·价值重写 F27。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="5">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块五 · 价值重写 / F27</span>
+      <span class="type-tag">评估级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-5" class="hover:text-fg transition">所有价值重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体运营五级成熟度模型
+      <span class="en">AgentOps Five-Level Maturity Model</span>
+      <span class="abbr">AOMM</span>
+    </h1>
+    <p class="claim" data-reveal>
+      你的智能体运营，停在哪一级——大多数企业不知道，也不知道自己不知道。
+      <br/><span class="text-fg-dim2">运营能力的差距，不会在第一天显现。它会在第一年的第六个月，以一场你完全没准备好的故障，突然让你看见。</span>
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="btn-primary">阅读长文 <span class="arr">↓</span></a>
+      <a href="#resources" class="text-cta">下载 Skill 与提示词 <span class="arr">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">
+      从<strong>实验级、监控级、量化级、自动化级到自治级</strong>，判断企业 Agent 运营能力阶段；<strong>M3 → M4 是规模化生产的真正门槛</strong>。
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISUALIZATION ============ -->
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F27 · AgentOps 五级成熟度阶梯</span>
+      </div>
+      <span class="viz-pattern">P5</span>
+    </div>
+
+    <div class="viz-ladder">
+      <div class="step">
+        <div class="step-num">M1</div>
+        <div class="step-name">实验级</div>
+        <div class="step-desc">运营靠感觉，没有系统监控，问题靠用户投诉发现。系统是黑盒。</div>
+        <div class="step-flag">Experimental</div>
+      </div>
+      <div class="step">
+        <div class="step-num">M2</div>
+        <div class="step-name">可监控级</div>
+        <div class="step-desc">基础日志和告警，但只覆盖技术指标，无质量基准。</div>
+        <div class="step-flag">Observable</div>
+      </div>
+      <div class="step is-critical">
+        <div class="step-num">M3 · 分水岭</div>
+        <div class="step-name">可量化级</div>
+        <div class="step-desc">SLI/SLO 体系，业务级质量基准。从"实验性"进入"生产级"。</div>
+        <div class="step-flag">Measurable ★</div>
+      </div>
+      <div class="step">
+        <div class="step-num">M4</div>
+        <div class="step-name">可优化级</div>
+        <div class="step-desc">自动化质量门禁 + Error Budget——M3→M4 是规模化真正门槛。</div>
+        <div class="step-flag">Optimizable</div>
+      </div>
+      <div class="step">
+        <div class="step-num">M5</div>
+        <div class="step-name">自治级</div>
+        <div class="step-desc">系统可自我监控、评估、优化——人类成为系统设计者。</div>
+        <div class="step-flag">Autonomous</div>
+      </div>
+    </div>
+
+    <div class="viz-legend">
+      <span><i class="dot"></i>五级递进（高度反映成熟度）</span>
+      <span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 50%, transparent)"></i>M3 = 实验 / 生产分水岭</span>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">企业的智能体运营能力，目前在哪一级？离 M3 / M4 还有多远，这个距离意味着什么业务风险？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">价值重写第一层 · 负责回答<span class="text-fg">「智能体系统能否稳定持续地交付价值」</span>。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">CMMI 软件能力成熟度模型（1991）+ Google SRE 实践（2016）<span class="text-fg-dim2">→</span> 创新：M3→M4 跃迁条件 + Error Budget 引入。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+
+      <h2><span class="num">01</span>一个普遍存在的现象</h2>
+      <p>
+        几乎所有企业在部署智能体系统之后，都会经历一段<strong>"蜜月期"</strong>：系统跑起来了，指标看起来不错，用户反馈积极，团队对成果感到满意。
+      </p>
+      <p>
+        然后，在某个普通的工作日，一些事情开始出错。可能是某个智能体开始以一种难以解释的方式产生低质量输出，可能是某个关键业务场景的成功率悄悄下滑，可能是成本指标在没有明显原因的情况下异常攀升。
+      </p>
+      <p>
+        团队开始追查，但发现自己<em>没有足够的数据来定位问题</em>——因为从一开始，就没有建立系统性的监控和分析机制。他们凭着对系统的直觉和对日志的手动翻查，几天后找到了一个可能的原因，修复了它，然后继续等待下一次类似的问题。
+      </p>
+      <p>
+        这不是个别团队的特殊遭遇，而是<strong>运营成熟度停留在低级别的系统性表现</strong>。
+      </p>
+
+      <h2><span class="num">02</span>为什么智能体运营需要独立的成熟度框架</h2>
+      <p>
+        软件运营领域有一套成熟的能力评估体系——从 CMMI 到 SRE 实践，这些框架已经帮助无数企业系统性地提升了软件系统的运营质量。
+      </p>
+      <p>
+        智能体系统的运营，在几个关键维度上和传统软件运营有<strong>根本性的不同</strong>，这些不同导致传统框架不能直接套用：
+      </p>
+      <p>
+        <strong>第一，智能体的"好"和"坏"更难测量。</strong>传统软件的运营质量，主要体现在可用性、延迟和错误率上。智能体的输出质量是<em>主观的、概率性的、多维度的</em>，任何单一指标都不能完整描述其运营状态。
+      </p>
+      <p>
+        <strong>第二，智能体系统的退化模式是渐进的而非突发的。</strong>传统软件通常以"正常运行 / 崩溃"两种状态存在。智能体系统更常见的退化模式，是输出质量的<em>缓慢下滑</em>、成功率的<em>渐进降低</em>——这种退化在早期几乎不可见。
+      </p>
+      <p>
+        <strong>第三，智能体运营需要持续的人类判断介入。</strong>传统软件运营可以高度自动化。智能体运营在很多关键节点上，仍然需要人类判断——输出质量的评估、边界情况的处理、模型更新后的重新校准。
+      </p>
+
+      <div class="theory-note">
+        <strong>理论来源</strong>：软件能力成熟度模型（CMMI，卡内基梅隆，1991）；站点可靠性工程（SRE，Google 工程团队，2016）。
+        <br/><strong>本框架创新</strong>：针对智能体系统的概率性输出和渐进退化特征，构建专属五级运营成熟度模型，将 SRE 的"Error Budget"概念引入智能体质量管理，提出 M3 → M4 的跃迁条件作为规模化生产的关键门槛判断。
+      </div>
+
+      <h2><span class="num">03</span>五级运营成熟度</h2>
+      <p>
+        AgentOps 描述的是一个企业从"几乎没有运营能力"到"系统可以自我优化"的完整演进路径。
+      </p>
+      <p>
+        <strong>M1 · 实验级（Experimental）</strong>：运营靠感觉。没有系统性的监控，问题发现依赖用户投诉或人工观察，处理依赖个人经验。<em>这是绝大多数企业在智能体系统上线初期的真实状态，也是大量企业在系统运行了相当长时间之后仍然停留的状态。</em>
+      </p>
+      <p>
+        <strong>M2 · 可监控级（Observable）</strong>：建立了基础监控，有日志和告警，可以在问题发生后追溯。但监控覆盖的是基础技术指标（响应时间、错误率），<em>没有系统性的质量指标追踪</em>，问题发现依然滞后，没有量化的质量基准。
+      </p>
+      <p>
+        <strong>M3 · 可量化级（Measurable）★</strong>：建立了系统性的质量评估体系，有 SLI（服务级别指标）和 SLO（服务级别目标），能够持续追踪关键业务指标，有明确的质量基准和退化预警机制。
+      </p>
+      <blockquote>
+        M3 是智能体系统从"实验性产品"到"生产级系统"的关键分水岭。没有达到 M3，智能体系统实际上还处于持续的探索状态，不具备稳定的价值交付能力。
+      </blockquote>
+      <p>
+        <strong>M4 · 可优化级（Optimizable）</strong>：建立了基于数据的持续优化循环。不只是发现问题，而是能够<em>主动识别优化机会</em>，有自动化的质量门禁（未达标的变更自动被阻止发布），有 Error Budget 管理机制，有系统性的根因分析能力。
+      </p>
+      <p>
+        <strong>M3 到 M4 的跃迁，是大多数企业里最难迈过的一步</strong>，因为它要求把质量保障从"事后响应"重构为"前置防护"。
+      </p>
+      <p>
+        <strong>M5 · 自治级（Autonomous）</strong>：系统可以自我监控、自我评估、自我优化，在预设的边界内不需要持续的人工干预。<em>人类的角色从"运营者"变成"系统设计者和边界定义者"</em>。这是大多数当前企业的长期目标，而非近期可达的现实。
+      </p>
+
+      <h2><span class="num">04</span>M3 到 M4：那道最难跨越的门槛</h2>
+      <p>
+        在实践中，M3 和 M4 之间的差距，常常比它们在描述上看起来的要大得多。
+      </p>
+      <p>
+        <strong>M3 意味着：你知道系统现在的状态。M4 意味着：你的系统会主动阻止退化，而不是等你发现退化之后再处理。</strong>这个差距，需要两套机制支撑。
+      </p>
+      <p>
+        <strong>第一套是自动化质量门禁</strong>：每次代码变更、模型更新或配置修改，都必须通过自动运行的评测集检验，如果任何关键指标退化超过阈值，<em>变更被自动阻止，而不是等上线后发现问题再回滚</em>。这要求评测集足够完善、评测速度足够快、阈值设置足够合理。
+      </p>
+      <p>
+        <strong>第二套是 Error Budget 管理</strong>：为每个关键质量维度设定允许的退化预算，当某个维度的预算耗尽，<em>强制暂停该方向的迭代工作，专注于质量修复</em>。这要求团队在"快速迭代"和"保护质量预算"之间建立明确的优先级规则——这是一个需要管理层参与认可的文化和制度变革，不只是技术建设。
+      </p>
+
+      <h2><span class="num">05</span>这个框架揭示的底层逻辑</h2>
+      <p>
+        AgentOps 揭示的，是<strong>智能体系统的运营质量和业务价值之间存在一个时间滞后的强相关</strong>。
+      </p>
+      <p>
+        运营成熟度低的系统，在短期内可能感觉不出问题——系统在跑，用户在用，看起来还不错。但随着时间推移，那些未被系统性追踪的质量退化会积累，那些未被及时发现的边界案例会扩散，那些缺乏系统性根因分析的问题会反复出现。
+      </p>
+      <blockquote>
+        运营成熟度是一种<strong>复利效应的能力</strong>——高成熟度的团队，每次出现的问题都在系统性地减少，每次修复都在让系统更强壮；低成熟度的团队，每次出现的问题在重复，每次修复只是临时止血，问题会以不同的形态在不同的时间再次出现。
+      </blockquote>
+      <p class="text-fg" style="font-size:1.05rem;">
+        这个复利效应，在系统运行的第一年并不明显，在第二年开始分化，在第三年会产生难以弥合的差距。
+      </p>
+
+    </article>
+
+    <aside class="fw-side">
+
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        <div class="op-step">
+          <div class="op-num">S1</div>
+          <div class="op-text"><strong>诊断当前级别。</strong>对照 M1–M5 五级标准，盘点企业实际处于哪一级。<em>大多数企业实际在 M1–M2 之间，但自我评估时会高估。</em></div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S2</div>
+          <div class="op-text"><strong>识别下一级所需机制。</strong>明确从当前级别到下一级缺失的具体机制（SLI/SLO体系？质量门禁？Error Budget？）。</div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S3</div>
+          <div class="op-text"><strong>建设 M3 优先 → 攻关 M3→M4。</strong>把投资集中在让所有生产 Agent 达到 M3，再选择性推进 M4。<em>M5 是长期目标，不是近期投资重点。</em></div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S4</div>
+          <div class="op-text"><strong>季度成熟度复盘。</strong>每季度评估所有 Agent 的成熟度位置，识别退化情况，对应调整投资。</div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">
+          运营成熟度是<span class="not-italic" style="color:var(--fg)">复利效应的能力</span>——高成熟度团队每次让系统更强壮，低成熟度团队问题在重复发生。
+        </p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">
+          差距在第一年不明显，第二年开始分化，第三年产生难以弥合的差距。
+        </p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>智能体系统上线 6 个月后的资源决策</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>年度 AI 战略复盘 + 投资分配</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>评估是否值得规模化某个 Agent 试点</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>故障复盘后的运营能力差距诊断</div>
+        </div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>自我评估高估当前级别（M1 当 M2 算）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>跳过 M3 直接追 M5（地基没打好）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把运维投入当成本而非战略投资</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>稳定运行 = 安全状态的危险错觉</div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F26.html" class="rel-item">
+            <span class="rel-num">F26</span>
+            <span class="rel-name">概率回归测试法 — Error Budget 概念源</span>
+          </a>
+          <a href="F28.html" class="rel-item">
+            <span class="rel-num">F28</span>
+            <span class="rel-name">智能体运营指标金字塔 — SLI/SLO 体系</span>
+          </a>
+          <a href="F29.html" class="rel-item">
+            <span class="rel-num">F29</span>
+            <span class="rel-name">数字员工绩效评分卡 — 成熟度配套评估</span>
+          </a>
+          <a href="F32.html" class="rel-item">
+            <span class="rel-num">F32</span>
+            <span class="rel-name">智能体全域风险治理法 — 高成熟度的安全配套</span>
+          </a>
+        </div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F27"><span>▸ 五级成熟度自评清单</span><span class="soon" style="background:var(--accent);color:#0a0a0a;">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;">
+          <span>▸ M3 SLI/SLO 配置 Skill</span>
+          <span class="soon">即将上线</span>
+        </a>
+        <a class="res-link disabled" href="#" onclick="return false;">
+          <span>▸ M3→M4 跃迁路线图</span>
+          <span class="soon">即将上线</span>
+        </a>
+      </div>
+
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F26.html">
+      <div class="dir">← 上一篇</div>
+      <div><span class="nav-num">F26</span><span class="nav-title">概率回归测试法</span></div>
+    </a>
+    <a href="F28.html" class="right">
+      <div class="dir">下一篇 →</div>
+      <div><span class="nav-num">F28</span><span class="nav-title">智能体运营指标金字塔</span></div>
+    </a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

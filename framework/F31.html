@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F31 · 智能体价值回报核算法 (Agent ROI) — 智能体管理学</title>
+<meta name="description" content="整合效率价值、间接业务价值、能力积累价值和战略防御价值，形成可解释的 Agent ROI 判断——盈亏平衡点时间线替代当前 ROI。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="5">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块五 · 价值重写 / F31</span>
+      <span class="type-tag">工具级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-5" class="hover:text-fg transition">所有价值重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体价值回报核算法
+      <span class="en">Agent ROI Accounting Method</span>
+      <span class="abbr">Agent ROI</span>
+    </h1>
+    <p class="claim" data-reveal>
+      "3 个月看不到 ROI 就放弃"——这个决策，往往发生在恰好跨越盈亏平衡点之前。
+      <br/><span class="text-fg-dim2">AI 投资的 ROI 不是一个算不算得出来的问题，而是一个价值被分散在哪里、用什么时间维度来看的问题。</span>
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="btn-primary">阅读长文 <span class="arr">↓</span></a>
+      <a href="#resources" class="text-cta">下载 Skill 与提示词 <span class="arr">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">
+      整合<strong>直接效率价值、间接业务价值、能力积累价值、战略防御价值</strong>四类价值来源，以<strong>盈亏平衡点时间线</strong>替代"当前 ROI 是否为正"作为 AI 投资评估标准——避免在跨越盈亏平衡前过早放弃。
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISUALIZATION: 四类价值 + 盈亏平衡时间线 ============ -->
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F31 · 四类价值 + 盈亏平衡曲线</span></div>
+      <span class="viz-pattern">Custom</span>
+    </div>
+
+    <div class="viz-canvas">
+      <svg viewBox="0 0 720 480" class="viz-svg" style="max-width:760px" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad-cost" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#FF6B8A" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#FF6B8A" stop-opacity="0.05"/>
+          </linearGradient>
+          <linearGradient id="grad-value" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="var(--mod-c)" stop-opacity="0.1"/>
+            <stop offset="100%" stop-color="var(--mod-c)" stop-opacity="0.6"/>
+          </linearGradient>
+        </defs>
+
+        <!-- LEFT: 四类价值堆叠图 -->
+        <text class="v-ring-label" x="180" y="32" text-anchor="middle">四类价值来源</text>
+
+        <g>
+          <rect x="60" y="60" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1"/>
+          <rect x="60" y="60" width="4" height="60" rx="2" fill="var(--mod-c)"/>
+          <text class="v-node-mono" x="75" y="78" style="font-size:9.5px;fill:var(--mod-c);">类 1 · 最易量化</text>
+          <text class="v-axis-name" x="75" y="95" style="font-size:13px;font-weight:500;">直接效率价值</text>
+          <text class="v-axis-name" x="75" y="110" style="font-size:10.5px;fill:var(--fg-dim);">人力时间节省 · 错误减少 · 处理加速</text>
+        </g>
+
+        <g>
+          <rect x="60" y="130" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1" stroke-dasharray="0"/>
+          <rect x="60" y="130" width="4" height="60" rx="2" fill="var(--mod-c)" opacity=".75"/>
+          <text class="v-node-mono" x="75" y="148" style="font-size:9.5px;fill:var(--mod-c);">类 2 · 代理指标可估</text>
+          <text class="v-axis-name" x="75" y="165" style="font-size:13px;font-weight:500;">间接业务价值</text>
+          <text class="v-axis-name" x="75" y="180" style="font-size:10.5px;fill:var(--fg-dim);">决策加速 · 客户体验 · 业务机会捕获</text>
+        </g>
+
+        <g>
+          <rect x="60" y="200" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1"/>
+          <rect x="60" y="200" width="4" height="60" rx="2" fill="var(--mod-c)" opacity=".5"/>
+          <text class="v-node-mono" x="75" y="218" style="font-size:9.5px;fill:var(--mod-c);">类 3 · 资产性增值</text>
+          <text class="v-axis-name" x="75" y="235" style="font-size:13px;font-weight:500;">能力积累价值</text>
+          <text class="v-axis-name" x="75" y="250" style="font-size:10.5px;fill:var(--fg-dim);">数据飞轮 · 组织 AI 成熟度 · Skill 资产</text>
+        </g>
+
+        <g>
+          <rect x="60" y="270" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1"/>
+          <rect x="60" y="270" width="4" height="60" rx="2" fill="var(--mod-c)" opacity=".3"/>
+          <text class="v-node-mono" x="75" y="288" style="font-size:9.5px;fill:var(--mod-c);">类 4 · 机会成本</text>
+          <text class="v-axis-name" x="75" y="305" style="font-size:13px;font-weight:500;">战略防御价值</text>
+          <text class="v-axis-name" x="75" y="320" style="font-size:10.5px;fill:var(--fg-dim);">不建设的竞争劣势 · 时间窗口被关</text>
+        </g>
+
+        <text class="v-axis-name" x="180" y="365" text-anchor="middle" style="font-size:11px;fill:var(--fg-dim2);">大多数 ROI 计算只算第 1 类，至多第 2 类</text>
+
+        <!-- RIGHT: 盈亏平衡曲线 -->
+        <text class="v-ring-label" x="540" y="32" text-anchor="middle">盈亏平衡点时间线</text>
+
+        <!-- 坐标轴 -->
+        <line x1="380" y1="320" x2="690" y2="320" stroke="var(--line-2)" stroke-width="1"/>
+        <line x1="380" y1="60" x2="380" y2="320" stroke="var(--line-2)" stroke-width="1"/>
+        <text class="v-axis-name" x="535" y="345" text-anchor="middle" style="font-size:10px;fill:var(--fg-dim2);">时间 →</text>
+        <text class="v-axis-name" x="370" y="190" text-anchor="end" style="font-size:10px;fill:var(--fg-dim2);transform-origin:370px 190px;transform:rotate(-90deg);">累计金额</text>
+
+        <!-- 累计成本曲线（前期陡峭后平缓）-->
+        <path d="M 380 320 L 410 240 L 460 200 L 530 180 L 600 170 L 680 165"
+              fill="none" stroke="#FF6B8A" stroke-width="2.2" opacity=".85"/>
+        <path d="M 380 320 L 410 240 L 460 200 L 530 180 L 600 170 L 680 165 L 680 320 Z"
+              fill="url(#grad-cost)"/>
+        <text class="v-axis-name" x="430" y="225" style="font-size:10px;fill:#FF6B8A;">累计成本</text>
+
+        <!-- 累计价值曲线（前期慢后期加速）-->
+        <path d="M 380 320 L 420 305 L 470 280 L 520 240 L 570 180 L 620 120 L 680 80"
+              fill="none" stroke="var(--mod-c)" stroke-width="2.5"/>
+        <path d="M 380 320 L 420 305 L 470 280 L 520 240 L 570 180 L 620 120 L 680 80 L 680 320 L 380 320 Z"
+              fill="url(#grad-value)" opacity=".5"/>
+        <text class="v-axis-name" x="640" y="100" style="font-size:10px;fill:var(--mod-c);">累计价值</text>
+
+        <!-- 盈亏平衡点 -->
+        <circle cx="569" cy="180" r="6" fill="var(--bg)" stroke="var(--mod-c)" stroke-width="2.5"/>
+        <line x1="569" y1="180" x2="569" y2="320" stroke="var(--mod-c)" stroke-width="1" stroke-dasharray="3 4" opacity=".6"/>
+        <text class="v-node-mono" x="569" y="170" text-anchor="middle" style="font-size:10px;fill:var(--mod-c);">盈亏平衡点</text>
+        <text class="v-axis-name" x="569" y="338" text-anchor="middle" style="font-size:10px;fill:var(--fg-dim2);">第 12-18 月</text>
+
+        <!-- 危险区标注：3个月放弃 -->
+        <line x1="430" y1="60" x2="430" y2="320" stroke="#FF6B8A" stroke-width="1.2" stroke-dasharray="4 4" opacity=".7"/>
+        <rect x="395" y="55" width="70" height="20" fill="rgba(255,107,138,0.15)" stroke="#FF6B8A" stroke-width="0.5" rx="2"/>
+        <text class="v-node-mono" x="430" y="69" text-anchor="middle" style="font-size:9.5px;fill:#FF6B8A;">⚠ 3 月放弃区</text>
+
+        <text class="v-axis-name" x="535" y="420" text-anchor="middle" style="font-size:11px;fill:var(--fg);">前 0-6 月 ROI 为负是<tspan style="fill:var(--mod-c);font-weight:500"> 正常积累期</tspan></text>
+        <text class="v-axis-name" x="535" y="438" text-anchor="middle" style="font-size:10.5px;fill:var(--fg-dim2);">在转折点前放弃 = 把全部投入变成沉没成本</text>
+      </svg>
+    </div>
+
+    <div class="viz-legend">
+      <span><i class="dot" style="background:#FF6B8A;"></i>累计成本曲线（前置 · 建设期集中）</span>
+      <span><i class="dot hub"></i>累计价值曲线（后置 · 能力积累驱动加速）</span>
+      <span><i class="dot ring"></i>盈亏平衡点 — 通常在 6–18 个月之间</span>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">AI 项目的 ROI 怎么算才不被误导？季度评估为什么会让你过早放弃一笔好的投资？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">价值重写第五层 · 负责回答<span class="text-fg">「AI 投资的回报应该用什么时间维度评估」</span>，是 CPST（F30）的上游决策框架。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">传统 ROI 分析 + 净现值（NPV）+ 学习曲线理论（Wright，1936）<span class="text-fg-dim2">→</span> 创新：四类价值拆解 + 盈亏平衡点时间线 + 战略防御价值作为机会成本。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+
+      <h2><span class="num">01</span>"董事会开始追问，团队却给不出说服性的答案"</h2>
+      <p>
+        一家企业投入了相当大的资源推进智能体建设，三个月过去了，董事会开始追问：<strong>投入了这么多，ROI 在哪里？</strong>
+      </p>
+      <p>
+        负责 AI 的团队汇报了一批效率数据——<em>某业务线处理时间减少了 40%，某部门人力从 8 人降到了 5 人，某流程的错误率从 5% 降到了 1%……</em>但当这些被转化成财务语言时，数字看起来并没有那么惊人。<strong>总成本还没有被覆盖，ROI 在理论上还是负的。</strong>
+      </p>
+      <p>
+        董事会决定收缩 AI 投入，把资源转回到有更清晰回报的业务。然后，竞争对手的系统在这期间悄悄成熟，建立了积累优势。<em>六个月后，那家企业发现自己已经落后了一个时间窗口</em>——而这个窗口的意义，<strong>是某种学习曲线上的位置，不是可以简单用钱追回来的。</strong>
+      </p>
+
+      <h2><span class="num">02</span>为什么 AI 投资的 ROI 特别难计算</h2>
+      <div class="theory-note">
+        <strong>理论来源</strong>：传统 ROI 分析框架；净现值（NPV）投资分析方法；学习曲线理论（Wright，1936）。
+        <br/><strong>本框架创新</strong>：将 AI 投资的价值来源系统性拆解为四类，提出"0-6 个月 ROI 为负是正常积累期"作为管理预期的核心命题；以"盈亏平衡点时间线"替代"是否当前 ROI 为正"作为投资评估标准；引入"战略防御价值"作为机会成本性质的价值来源，使 AI ROI 计算更完整。
+      </div>
+      <p>
+        ROI 在大多数企业里是一个成熟的财务概念——<em>投入多少，产生多少回报，用回报除以投入。</em>这个计算在大多数投资类型上相对直接。AI 投资的 ROI 之所以特别难计算，有<strong>三个结构性原因</strong>。
+      </p>
+
+      <h3>原因一：价值来源是分散的</h3>
+      <p>
+        一个智能体系统产生的价值，通常分布在<strong>四个不同的类别</strong>里。把这四类价值都归入同一个 ROI 公式，需要跨越多个部门的数据收集，需要一些主观的归因假设，也需要一个比季度更长的时间窗口。
+      </p>
+      <p>
+        <em>大多数企业的 AI ROI 计算，实际上只包含了第一类价值，最多包含了部分第二类，后两类几乎从来不在计算里。</em>
+      </p>
+
+      <h3>原因二：成本是前置的，价值是后置的</h3>
+      <p>
+        建设期的投入（开发成本、系统建设、人员培训）<em>集中在最初几个月</em>，而价值的产生是随着系统成熟、使用量增加、能力积累而逐渐显现的。
+      </p>
+      <p>
+        这意味着 <strong>AI 项目的 ROI 曲线天然有一个前期为负、后期转正的形态</strong>。在任何前期为负的时间点，"这个投资 ROI 为负"是一个<em>事实正确但决策误导</em>的结论。
+      </p>
+
+      <h3>原因三：时间窗口太短会产生错误判断</h3>
+      <p>
+        3 个月是大多数企业的季度复盘周期，<strong>但很多 AI 投资的 ROI 转折点在 6 个月到 18 个月之间</strong>。在转折点之前放弃投资，是<em>把前期的全部投入变成沉没成本，同时关掉了后期更大回报的可能性</em>。
+      </p>
+
+      <h2><span class="num">03</span>四类价值来源的识别和计算</h2>
+      <p>
+        Agent ROI 要求<strong>系统性地识别和量化四类价值来源</strong>，而不是只看最容易计算的那一类。
+      </p>
+
+      <h3>类 1 · 直接效率价值</h3>
+      <p>
+        识别被替代或加速的人工任务，<em>计算时间节省，乘以对应的人力成本或处理能力扩展价值</em>。<strong>这类价值可以用财务数字表示，通常也是向管理层最容易汇报的部分。</strong>大多数企业的 AI ROI 计算只到这一层就停下了。
+      </p>
+
+      <h3>类 2 · 间接业务价值</h3>
+      <p>
+        需要通过<em>代理指标来估算</em>：智能体加速了哪些业务决策，这些决策的加速有多大概率转化为收入或避免了损失？客户体验改善了多少，这个改善历史上和客户留存率之间的关系是什么？<strong>这类价值的计算需要一些假设，但完全忽略它是一种更大的错误。</strong>
+      </p>
+
+      <h3>类 3 · 能力积累价值</h3>
+      <p>
+        更难量化，但可以被定性描述并赋予参考值：<em>积累的数据量和质量、团队 AI 能力成熟度的提升、可被复用的 Skill 资产的价值……</em><strong>这类价值更像是无形资产的增值，在严格的财务计算里难以处理，但在战略决策里不能被忽视</strong>（与 F05 数字劳动力资产观、F21 Skill 资产治理直接对应）。
+      </p>
+
+      <h3>类 4 · 战略防御价值（机会成本性质）</h3>
+      <p>
+        <em>如果不建设，竞争对手建设了同等能力，预计会带来多大的竞争劣势？</em>这类价值最难计算，<strong>但在某些行业和竞争格局下，可能是四类价值里最重要的一类</strong>。
+      </p>
+
+      <h2><span class="num">04</span>盈亏平衡点的时间分析</h2>
+      <p>
+        在四类价值都被识别之后，Agent ROI 提出用<strong>盈亏平衡点时间线</strong>替代"当前 ROI 是否为正"作为核心评估标准。
+      </p>
+      <p>
+        分析步骤是：<em>把所有成本和价值按时间展开，绘制累计投入和累计回报的曲线。两条曲线的交叉点，就是盈亏平衡点。</em>评估的核心问题不是"今天 ROI 是多少"，而是：
+      </p>
+      <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);">
+        <li><strong>盈亏平衡点预计在什么时间出现？</strong>（是 6 个月、12 个月还是 24 个月？）</li>
+        <li><strong>这个时间线是否在可接受的投资回报周期内？</strong>（不同类型的 AI 投资，合理的回收周期不同）</li>
+        <li><strong>当前的进展是否符合预期的盈亏平衡时间线？</strong>（是否在正常的积累轨道上，还是出现了可能延迟盈亏平衡点的偏差？）</li>
+      </ul>
+      <blockquote>
+        "3 个月看不到 ROI 就放弃"这个决策错误，往往是因为没有做盈亏平衡点时间线分析——如果做了，大多数情况下会发现，3 个月的时间节点处于积累期的最前段，<strong>远没有到达预期的盈亏平衡点，放弃等于在最难熬的阶段退出，把前面所有的积累变成了纯粹的沉没成本。</strong>
+      </blockquote>
+
+      <h2><span class="num">05</span>AI 投资的时间结构与传统投资根本不同</h2>
+      <p>
+        Agent ROI 揭示的，是 AI 投资的时间结构与传统投资根本性的不同。
+      </p>
+      <p>
+        大多数传统投资，<em>价值产生是相对线性的</em>——投入多少，产出多少，时间跨度不太影响评估框架。<strong>AI 投资，价值产生是非线性的</strong>——早期投入换来的是<em>能力积累</em>，能力积累到某个临界点后，价值产生开始加速，形成<strong>复利效应</strong>。
+      </p>
+      <p>
+        这种非线性结构，意味着用线性思维看 AI 投资，<em>会系统性地低估后期价值</em>，并在还没有到达价值加速阶段之前，就做出"不值得"的判断。
+      </p>
+      <blockquote>
+        最有价值的 AI 投资，从来不是那些一开始就 ROI 为正的投资。那类投资通常是低风险、低回报、容易被复制的改进。<strong>真正有战略意义的 AI 建设，往往经历一段看起来 ROI 为负的积累期，然后在某个时间点开始产生加速的战略回报</strong>——这个时间点之前退出，和这个时间点之后坚持，所获得的价值可能相差一个数量级。
+      </blockquote>
+      <p style="font-size:1.05rem;color:var(--fg);">
+        这个框架不会把每个 AI 项目都变成值得继续投入的——有些项目确实存在根本性的问题，即使给更长的时间也不会产生足够的价值。<em>但它会帮助团队在"正常积累期的暂时性 ROI 为负"和"项目本身存在根本性问题"之间做出准确的区分，避免在最不该退出的时候退出。</em>
+      </p>
+
+    </article>
+
+    <aside class="fw-side">
+
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>识别四类价值。</strong>对每个 AI 项目逐类盘点：效率价值（量化）、业务价值（代理指标）、能力积累（定性）、战略防御（机会成本）。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>绘制盈亏平衡曲线。</strong>把所有成本和价值按时间展开，找到两条曲线的交叉点 = 盈亏平衡点。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>判断是否在轨道上。</strong>当前进展是否符合预期时间线？偏差是阶段性的还是结构性的？</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>季度复盘三问。</strong>① 四类价值进展？② 是否符合盈亏平衡点时间线？③ 还有哪些价值未被纳入？</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">
+          最有价值的 AI 投资，从来不是那些<span class="not-italic" style="color:var(--fg)">一开始就 ROI 为正</span>的投资——那类投资通常是低风险、低回报、容易被复制的改进。
+        </p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">
+          0-6 个月 ROI 为负是正常积累期。在跨越盈亏平衡点之前退出，等于把全部投入变成沉没成本。
+        </p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>AI 项目季度复盘与续投决策</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>面向董事会的 AI 投资汇报</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>区分"积累期"vs"项目失败"的诊断</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>大型 AI 转型的多年投资规划</div>
+        </div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>只算"直接效率价值"忽略另外三类</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>用季度（3 个月）做 AI 投资判断</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把"当前 ROI 为负"等同于"项目失败"</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽略战略防御价值（机会成本）</div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F05.html" class="rel-item"><span class="rel-num">F05</span><span class="rel-name">数字劳动力资产观 — 能力积累价值的资产化</span></a>
+          <a href="F27.html" class="rel-item"><span class="rel-num">F27</span><span class="rel-name">AgentOps 成熟度 — 运营成熟度是价值兑现前提</span></a>
+          <a href="F29.html" class="rel-item"><span class="rel-num">F29</span><span class="rel-name">DWPS — 绩效评估反馈到 ROI</span></a>
+          <a href="F30.html" class="rel-item"><span class="rel-num">F30</span><span class="rel-name">CPST — 成本核算的精细化</span></a>
+        </div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F31"><span>▸ 四类价值盘点提示词</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ 盈亏平衡曲线 Excel 模板</span><span class="soon">即将上线</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ 董事会 AI ROI 汇报模板</span><span class="soon">即将上线</span></a>
+      </div>
+
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F30.html">
+      <div class="dir">← 上一篇</div>
+      <div><span class="nav-num">F30</span><span class="nav-title">单次成功任务成本法</span></div>
+    </a>
+    <a href="F32.html" class="right">
+      <div class="dir">下一篇 →</div>
+      <div><span class="nav-num">F32</span><span class="nav-title">智能体全域风险治理法</span></div>
+    </a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

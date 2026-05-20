@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F08 · 双前台智能体中台架构 (DFAMP) — 智能体管理学</title>
+<meta name="description" content="以 Agent 中台沉淀能力，Agent 前台承担高频标准化执行，人类前台承担高价值判断与关系任务——两者并行而非替代；数据后台从"合规工具"升级为"进化引擎"。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="2">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块二 · 组织重写 / F08</span>
+      <span class="type-tag">架构级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-2" class="hover:text-fg transition">所有组织重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      双前台智能体中台架构
+      <span class="en">Dual-Front Agent Middle Platform</span>
+      <span class="abbr">DFAMP</span>
+    </h1>
+    <p class="claim" data-reveal>
+      互联网中台和智能体中台，解决的根本不是同一个问题。
+      <br/><span class="text-fg-dim2">用建互联网中台的方式建智能体中台，是用上个时代的解法处理这个时代的问题。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">以 Agent 中台沉淀能力，<strong>Agent 前台</strong>承担高频标准化执行，<strong>人类前台</strong>承担高价值判断与关系任务——两者<strong>并行而非替代</strong>；数据后台从"合规工具"升级为"进化引擎"。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F08 · 中台 + 双前台 + 数据后台四层架构</span></div>
+      <span class="viz-pattern">P4</span>
+    </div>
+    <div class="viz-stack">
+      <div class="layer">
+        <div class="layer-num">FRONT</div>
+        <div class="layer-name">Agent 前台<span class="en">Agent Front-End</span></div>
+        <div class="layer-desc">高频 · 标准化 · 边界清晰的执行任务。优化目标：执行效率、任务完成率、边界内稳定性。</div>
+      </div>
+      <div class="layer is-key">
+        <div class="layer-num">FRONT</div>
+        <div class="layer-name">人类前台 ★ 并行<span class="en">Human Front-End</span></div>
+        <div class="layer-desc">低频 · 高价值 · 需要判断与关系能力。并行运行，各有不可替代的工作域——不是 Agent 前台的"备份"。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">PLATFORM</div>
+        <div class="layer-name">中台（能力操作系统）<span class="en">Agent Platform</span></div>
+        <div class="layer-desc">编排引擎 + Skill 资产库 + 治理中心三大模块。核心：动态编排，不是静态复用。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">DATA</div>
+        <div class="layer-name">数据后台 · 持续进化引擎<span class="en">Data Platform</span></div>
+        <div class="layer-desc">前台行为数据 → 反哺 Skill 优化、校准编排逻辑、更新边界规则。没有这个闭环，中台只是静态系统。</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>规模交给 Agent，复杂留给人——双前台并行</span><span><i class="dot"></i>静态复用 → 动态编排，认知跃迁</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">当组织变成人机混合网络后，这个网络靠什么架构来稳定运行？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第二层 · 负责回答<span class="text-fg">「人机混合网络靠什么结构运行」</span>，是从形态进入运作方式的关键。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">阿里巴巴"大中台、小前台"战略（2015）+ 微服务架构<span class="text-fg-dim2">→</span> 创新：提出"双前台"设计，将数据后台从合规工具升级为进化引擎。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>中台建好了，前台不用——架构错位</h2>
+      <p>"建中台"是过去几年大量企业在 AI 建设上的优先动作，而且做法高度相似：把分散在各部门的 AI 工具、数据、模型能力统一到一个平台上，对各业务线提供统一服务。</p>
+      <p>这个方向听起来正确，实践中却频繁遇到一个困境：<strong>中台建好了，前台不用。</strong>业务部门抱怨中台的能力不够灵活，不贴业务场景，调用一个功能要走漫长的审批流程；中台团队抱怨业务部门需求无边界，改来改去，标准化永远推不下去。</p>
+      <p>双方都有道理，但<em>就是协作不起来</em>。这个困境的根源，不是人的问题，不是流程的问题，是<strong>架构本身有一个设计错误：它在用"静态能力复用"的逻辑，处理"动态能力编排"的需求</strong>。</p>
+      <h2><span class="num">02</span>互联网中台解决的是什么问题</h2>
+      <div class="theory-note"><strong>理论来源</strong>：阿里巴巴"大中台、小前台"战略（2015）；微服务架构理论。<br/><strong>本框架创新</strong>：提出"双前台"设计——智能体前台承担高频标准化执行，人类前台承担低频高价值判断，两者并行而非替代；将数据后台从"合规工具"升级为"进化引擎"。</div>
+      <p>阿里巴巴在 2015 年提出"大中台，小前台"战略，背后的核心逻辑是：当一家公司有多条业务线，每条业务线都在重复开发相同的用户系统、订单系统、支付系统，这是资源的巨大浪费。中台的使命，是把这些重复建设的标准化能力沉淀到中间层，让各前台业务复用，<em>而不是反复从零建设</em>。</p>
+      <p>这个逻辑的前提是：<strong>沉淀的能力是相对稳定的，业务线需要的是调用，而不是重新设计。</strong>互联网中台是一个<em>静态能力库</em>——功能固定，接口标准，调用即用。</p>
+      <p>智能体的工作性质完全不同。<em>一个销售智能体今天需要的上下文信息，明天可能因为产品策略调整而完全不同</em>；一个客服智能体的处理边界，会随着业务政策的变化而实时调整。智能体的核心需求不是"调用一个固定能力"，而是"<strong>在变化的场景中编排合适的能力组合</strong>"。</p>
+      <p>用静态能力库的设计，服务动态编排需求，是当前大多数企业 AI 中台失效的根本原因。</p>
+      <h2><span class="num">03</span>双前台架构的核心设计</h2>
+      <p>DFAMP 的完整结构由三个层次构成。</p>
+      <h3>智能体前台（Agent Front-End）</h3>
+      <p>承担高频、标准化、边界清晰的执行任务。它直接面向具体业务场景，由智能体自主完成从理解任务到输出结果的完整链路。<em>它的优化目标是：执行效率、任务完成率、边界内的稳定性。</em>当任务超出边界，自动升级。</p>
+      <h3>人类前台（Human Front-End）</h3>
+      <p>承担低频、高价值、需要判断和关系能力的任务。<strong>它不是智能体前台的"备份"，而是处理完全不同类型工作的并行系统</strong>——那些需要人类理解细微语境、建立信任关系、承担决策责任的工作。双前台的关键是"并行"而不是"替代"——<em>错误的设计是把人类前台视为智能体前台失败时的降级选项，正确的设计是两者各自有不可替代的工作域。</em></p>
+      <h3>中台层</h3>
+      <p>包含三个核心组件：<strong>编排引擎</strong>（解析任务意图，规划执行路径，协调多智能体协作）、<strong>Skill 资产库</strong>（标准化的能力单元，版本化管理，可被编排引擎灵活调用）、<strong>治理中心</strong>（权限管理、行为审计、版本控制、异常监控）。</p>
+      <h3>数据后台</h3>
+      <p>是整个架构持续进化的引擎，<strong>而不只是合规工具</strong>。所有前台行为产生的数据，通过结构化反馈进入数据后台，持续优化 Skill 资产库、校准编排引擎、更新治理中心的规则边界。<em>没有这个反馈闭环，中台只是一个静态系统；有了它，中台才是一个会进化的系统。</em></p>
+      <h2><span class="num">04</span>效率和判断这两种工作性质的根本性分离</h2>
+      <p>双前台架构揭示的，是"效率"和"判断"这两种工作性质的<strong>根本性分离</strong>。</p>
+      <p>在传统组织里，效率和判断通常是混合在同一个人身上的——<em>一个客服人员既要快速处理大量标准问题（效率），也要在某些时候做出超出规则的灵活判断（判断）</em>。这种混合是必要的，因为没有其他选择。</p>
+      <p>智能体的出现，让这两种工作性质的分离成为可能。<strong>智能体前台专注效率，人类前台专注判断，两者并行运行，各自被优化到最高状态。</strong>当效率和判断不再被迫混合在同一个人身上，两者都可以被更充分地释放。</p>
+      <blockquote>但这个分离也带来了一个新的管理挑战：如何界定哪些工作属于智能体前台，哪些属于人类前台？这条线画在哪里，是整个双前台架构设计中最关键、也最需要持续调整的判断。</blockquote>
+      <h2><span class="num">05</span>从"复用"到"编排"的认知跃迁</h2>
+      <p>这个框架最直接改变的，是在 AI 中台建设立项时的<strong>架构选型</strong>。</p>
+      <p>没有这个框架的团队，通常会问：<em>我们需要什么功能，怎么封装成 API，谁来调用。</em>这是互联网中台的思维。</p>
+      <p>有了这个框架之后，讨论变成：<em>我们的业务场景里，哪些任务类型适合智能体前台处理，哪些必须保留人类前台，编排引擎需要具备什么能力，数据反馈闭环怎么设计，双前台之间的边界在哪里？</em></p>
+      <p>两种讨论，会导向完全不同的技术架构和组织设计。<strong>一个用"复用"逻辑建的中台，和一个用"编排"逻辑建的中台，在一年之后的状态会相差巨大</strong>——前者会越来越难以满足业务需求，后者会越用越好。</p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>诊断现有架构缺口。</strong>评估三个关键缺口：能力中台是否存在？前台是否已区分人与 Agent？数据后台是否支撑持续优化？</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>设计 Agent 中台能力范围。</strong>避免两个极端：过轻（各业务各建烟囱）或过重（拖慢响应）。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>重构双前台人员配置。</strong>明确哪些岗位/任务从人类前台迁移到 Agent 前台，留在人类前台的人重新定位职责。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>建立数据治理闭环。</strong>"执行 → 数据沉淀 → 能力优化 → 更好执行"飞轮。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">中台是大脑，前台是行动，后台是记忆——<span class="not-italic" style="color:var(--fg)">三者缺一系统无法持续进化</span>。最关键的原创贡献是"双前台"——规模交给 Agent，复杂留给人。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">从"系统复用"升级为"能力编排"，是这一框架最重要的认知跃迁。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>企业 AI 战略落地时的组织架构设计</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>评估现有中台架构是否适应 Agent 规模化</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 规模化部署的组织保障体系</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>设计统一 Agent 能力管理体系</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 Agent 中台做得过重，复制了互联网大中台的臃肿问题</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>双前台设计不清晰，导致职责混乱</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>数据后台只做合规不做反哺</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>直接套用互联网中台架构</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F07.html" class="rel-item"><span class="rel-num">F07</span><span class="rel-name">人机混合网络组织 — 整体形态</span></a>
+          <a href="F10.html" class="rel-item"><span class="rel-num">F10</span><span class="rel-name">岗位体系 — 双前台对应岗位</span></a>
+          <a href="F21.html" class="rel-item"><span class="rel-num">F21</span><span class="rel-name">Skill 资产治理 — 中台核心组件</span></a>
+          <a href="F23.html" class="rel-item"><span class="rel-num">F23</span><span class="rel-name">六层架构 — 完整技术栈</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F08"><span>▸ DFAMP 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ DFAMP Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F07.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F07</span><span class="nav-title">人机混合网络组织</span></div></a>
+    <a href="F09.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F09</span><span class="nav-title">人机责任决策矩阵</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

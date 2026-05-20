@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F22 · 执行链路四环诊断法 (PRTD) — 智能体管理学</title>
+<meta name="description" content="将 Agent 任务执行拆为意图理解（P）→ 信息检索（R）→ 工具调用（T）→ 决策输出（D）四环，每环有独立失败模式——用"一次只改一个变量"的逐环假设-验证替代"散弹枪调试"。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="4">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块四 · 系统重写 / F22</span>
+      <span class="type-tag">诊断级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-4" class="hover:text-fg transition">所有系统重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      执行链路四环诊断法
+      <span class="en">Prompt-Retrieval-Tool-Decision Diagnostic Method</span>
+      <span class="abbr">PRTD</span>
+    </h1>
+    <p class="claim" data-reveal>
+      智能体调试不是猜谜——它是沿着四条链路逐节点定位根因。
+      <br/><span class="text-fg-dim2">调试一个传统程序，是在确定性的地图上找错误。调试一个智能体，是在概率分布里寻找偏差的来源。两件事需要完全不同的方法。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">将 Agent 任务执行拆为<strong>意图理解（P）→ 信息检索（R）→ 工具调用（T）→ 决策输出（D）</strong>四环，每环有独立失败模式——用"<strong>一次只改一个变量</strong>"的逐环假设-验证替代"散弹枪调试"。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F22 · PRTD 四环执行链路</span></div>
+      <span class="viz-pattern">P7</span>
+    </div>
+    <div class="viz-flow">
+      <div class="step">
+        <div class="step-num">环 1</div>
+        <div class="step-name">提示词</div>
+        <div class="step-en">P · Prompt · 意图理解</div>
+        <div class="step-fail">失败模式：意图被错误理解、任务边界设错。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">环 2</div>
+        <div class="step-name">检索</div>
+        <div class="step-en">R · Retrieval · 信息获取</div>
+        <div class="step-fail">失败模式：精度不够、召回不足、引入噪声。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">环 3</div>
+        <div class="step-name">工具</div>
+        <div class="step-en">T · Tool · 能力调用</div>
+        <div class="step-fail">失败模式：参数错、格式错、外部服务异常。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">环 4</div>
+        <div class="step-name">决策</div>
+        <div class="step-en">D · Decision · 输出生成</div>
+        <div class="step-fail">失败模式：推理错、格式错、不确定性未表达。</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>沿链路逐环假设-验证（一次只改一变量）</span><span><i class="dot"></i>避免散弹枪调试</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">Agent 出错了，怎么沿着执行链路定位根因，而不是猜测？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第三层 · 负责回答<span class="text-fg">「调试与根因分析的系统化方法」</span>。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">软件工程根因分析（RCA）+ 分布式系统链路追踪<span class="text-fg-dim2">→</span> 创新：智能体专属四环模型 + 每环失败模式显式化 + 替代散弹枪调试的系统方法。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"散弹枪调试"——令人沮丧的循环</h2>
+      <p>智能体系统出现问题时，开发团队的调试过程往往呈现出一种令人沮丧的模式：<em>试了改提示词，没好；换了一个模型，好一点但不稳定；调整了检索逻辑，好了，但过两天又出问题了；最后把这三个都改了，好像解决了，但没人说得清楚是哪个改动起了作用。</em></p>
+      <p>这种调试方式，在传统软件里叫做<strong>"散弹枪调试"（Shotgun Debugging）</strong>——同时修改多个地方，希望其中一个能解决问题。它在确定性系统里已经是糟糕的实践，<em>在概率性的智能体系统里则会产生一个额外的危害：你永远不知道问题是否真的解决了，还是只是在当前的测试案例上碰巧表现好了。</em></p>
+      <p>这个问题的根源，不是工程师能力不足，而是<strong>缺少一个系统性的诊断框架</strong>——一张可以让调试过程沿着明确路径推进的地图。</p>
+      <h2><span class="num">02</span>智能体调试比传统软件困难得多</h2>
+      <div class="theory-note"><strong>理论来源</strong>：软件工程根因分析方法（Root Cause Analysis，RCA）；分布式系统调试理论（链路追踪，Distributed Tracing）。<br/><strong>本框架创新</strong>：针对智能体系统"输出概率性+链路复杂性"的双重特征，构建专属的四环执行链路模型（提示词→检索→工具→决策），将每个环节的典型失败模式显式化，提供"按环节假设-验证"的系统性调试方法，替代"散弹枪调试"的低效实践。</div>
+      <p>传统软件的调试有一个基础性优势：<strong>执行路径是确定的，错误是可重现的。</strong>当一个函数产生了错误的输出，可以精确地重现这个错误，在调试器里逐步追踪执行路径，找到产生错误的那一行代码。</p>
+      <p>智能体系统的调试有两个额外的困难。</p>
+      <p><strong>第一是输出的概率性。</strong>同一个输入，不同运行得到不同输出，<em>错误可能只在某些运行里出现</em>。当你试图重现一个错误时，可能发现它并不总是可重现的，这让传统的调试方法完全失效。</p>
+      <p><strong>第二是链路的复杂性。</strong>一个智能体从接收输入到产生输出，经历了多个不同类型的处理阶段：理解输入意图、检索相关信息、调用外部工具、综合生成输出。<em>这四个阶段，每个都有自己的失败模式，而且它们的失败可能以复杂的方式互相影响</em>——检索阶段引入了错误信息，直接影响了生成阶段的输出，但表面上看，问题好像出在生成阶段。</p>
+      <p>如果没有一个框架把执行过程分解成独立的、可以分别检验的节点，<strong>调试就只能是猜测</strong>。</p>
+      <h2><span class="num">03</span>四环执行链路</h2>
+      <p>执行链路四环诊断法把智能体的每次任务执行，分解为四个按顺序展开的环节，每个环节有独立的输入、处理过程和输出，也有自己特有的失败模式。</p>
+      <h3>环 1：提示词（Prompt）——意图理解</h3>
+      <p>这是执行链路的起点。输入是用户的原始请求，输出是智能体对这个请求的"理解"。<em>这个环节失败的典型模式是：意图被错误理解（把"总结这篇文章的争议点"理解成了"总结这篇文章的主要观点"），或者任务边界被错误设定。</em></p>
+      <h3>环 2：检索（Retrieval）——信息获取</h3>
+      <p>这个环节负责获取完成任务所需的信息，包括从知识库检索、调用外部 API 获取数据、在历史上下文中查找相关记录。<em>典型失败模式是：检索精度不够（返回了相关但不精确的信息），检索召回不足（漏掉了关键信息），或者引入了噪声（检索到了与任务无关的信息，而这些信息会干扰后续的决策）。</em></p>
+      <h3>环 3：工具（Tool）——能力调用</h3>
+      <p>这个环节负责调用外部工具来获取实时信息或执行特定操作。<em>典型失败模式是：工具调用参数错误、工具返回结果格式不符合预期、工具依赖的外部服务出现异常、工具调用序列不正确。</em>工具调用的错误往往是最容易被检测到的，因为它们通常会产生明确的错误信号。</p>
+      <h3>环 4：决策（Decision）——输出生成</h3>
+      <p>这是执行链路的终点。在前三个环节提供的信息基础上，智能体综合判断并生成最终输出。<em>典型失败模式是：推理逻辑错误（前提正确但结论错误）、输出格式不符合规格、不确定性未被适当地表达。</em></p>
+      <h2><span class="num">04</span>系统性调试的正确方法</h2>
+      <p>有了四环模型，调试过程就有了明确的方法：<strong>从怀疑出现问题的那个环节开始，逐环假设和验证。</strong></p>
+      <p>具体的操作方式是：<em>固定其他环节的输入，只改变目标环节的条件，观察输出是否改变。</em>如果改变了目标环节的条件，输出改善了，说明问题在这个环节；如果没有改善，移到下一个环节继续假设和验证。</p>
+      <p>这个方法的关键在于<strong>"一次只改一个变量"</strong>——这是基本的科学实验逻辑，在调试里同样成立。<em>散弹枪调试同时改变多个环节，让你永远无法确定是哪个改变起了作用，也无法确定一个改变是否对其他环节产生了副作用。</em></p>
+      <p>在实践中，有一些经验性的规律可以加速定位：<strong>问题如果只出现在特定类型的输入上，往往指向环 1（意图理解偏差）；问题如果表现为输出缺少某些应有的内容，往往指向环 2（检索召回不足）；问题如果伴随着明确的错误信息，往往指向环 3（工具调用失败）；问题如果表现为推理逻辑错误，往往指向环 4（决策质量问题）。</strong></p>
+      <h2><span class="num">05</span>从"找错误"到"定位偏差来源"</h2>
+      <p>四环诊断法揭示的，是智能体系统调试中最关键的认知转换：<strong>从"找错误"到"定位偏差来源"。</strong></p>
+      <p><em>在确定性系统里，调试是"找错误"</em>——有一个明确的错误，有一个产生这个错误的具体位置，找到它，修复它。</p>
+      <p><strong>在概率性系统里，调试是"定位偏差来源"</strong>——不是某次特定输出错了，而是某类输入在某个概率分布下产生了偏差。问题不在某行代码，而在某个环节的某种处理方式，在特定条件下产生了系统性的偏差。</p>
+      <blockquote>调试工具不是调试器（Debugger），而是评测集；调试结论不是"这个 bug 修了"，而是"这个环节在这类输入上的表现分布，从这个状态改善到了那个状态"。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>先定位是哪个环。</strong>意图问题指向 P，输出缺失指向 R，明确错误信息指向 T，推理错指向 D。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>固定其他三环，单独测目标环。</strong>不一次改多处。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>验证根因。</strong>修复后重测，确认偏差不再出现且无副作用。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>回流评测集。</strong>这次失败案例加入评测集，让根因不再重演。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">调试工具不是 Debugger，<span class="not-italic" style="color:var(--fg)">是评测集</span>；调试结论不是"bug 修了"，是"这个环节在这类输入上的分布从这状态改善到了那状态"。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">一次只改一个变量——这是基本的科学实验逻辑，在调试里同样成立。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 出错后的根因分析</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>团队调试协作的共同语言</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>迭代优化时的瓶颈识别</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>生产事故复盘</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>散弹枪调试（一次改多处）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 P 错当 D 错乱改提示词</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>不固定变量做对比</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>修复后不回流评测集</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F15.html" class="rel-item"><span class="rel-num">F15</span><span class="rel-name">CADM — 上下文 = 提示环</span></a>
+          <a href="F20.html" class="rel-item"><span class="rel-num">F20</span><span class="rel-name">Triple-E — 评测集是调试基础</span></a>
+          <a href="F26.html" class="rel-item"><span class="rel-num">F26</span><span class="rel-name">PRT — 概率回归捕获偏差</span></a>
+          <a href="F28.html" class="rel-item"><span class="rel-num">F28</span><span class="rel-name">3DSP — 指标层定位环</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F22"><span>▸ PRTD 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ PRTD Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F21.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F21</span><span class="nav-title">智能体 Skill 资产治理</span></div></a>
+    <a href="F23.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F23</span><span class="nav-title">企业智能体六层架构</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F15 · 上下文优先设计 (CADM) — 智能体管理学</title>
+<meta name="description" content="先定义 Agent 判断所需的四层上下文（系统/任务/历史/动态），再设计交互和提示词——把上下文作为 Agent 的感知系统，遵循"精准 &gt; 丰富"核心原则。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="3">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块三 · 产品重写 / F15</span>
+      <span class="type-tag">方法级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-3" class="hover:text-fg transition">所有产品重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      上下文优先设计
+      <span class="en">Context-Aware Design Method</span>
+      <span class="abbr">CADM</span>
+    </h1>
+    <p class="claim" data-reveal>
+      上下文不是智能体的配置参数——它是智能体感知世界的唯一方式。
+      <br/><span class="text-fg-dim2">我们花了大量时间优化智能体能做什么，却很少认真设计它能看到什么。但后者，决定了前者能实现多少。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">先定义 Agent 判断所需的<strong>四层上下文（系统/任务/历史/动态）</strong>，再设计交互和提示词——把上下文作为 Agent 的<strong>感知系统</strong>，遵循<strong>"精准 &gt; 丰富"</strong>核心原则。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F15 · 四层上下文架构</span></div>
+      <span class="viz-pattern">P4</span>
+    </div>
+    <div class="viz-stack">
+      <div class="layer">
+        <div class="layer-num">L1 系统</div>
+        <div class="layer-name">系统上下文 · System Context<span class="en">最稳定</span></div>
+        <div class="layer-desc">角色定义 · 工作原则 · 行为边界 · 价值观。回答"这个智能体是谁"，包含不可覆盖的边界规则。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L2 任务</div>
+        <div class="layer-name">任务上下文 · Task Context<span class="en">按任务变化</span></div>
+        <div class="layer-desc">任务目标 · 背景数据 · 约束条件。回答"这次要做什么"。设计挑战：精准排除噪声。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L3 历史</div>
+        <div class="layer-name">历史上下文 · Historical Context<span class="en">随时间积累</span></div>
+        <div class="layer-desc">交互记录 · 偏好模式 · 过往结果。回答"之前发生了什么"。挑战：记什么不记什么。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L4 动态</div>
+        <div class="layer-name">动态上下文 · Dynamic Context<span class="en">最不稳定</span></div>
+        <div class="layer-desc">当前时间 · 实时数据 · 中间执行信息。回答"现在的环境"。最难设计，需运行时注入。</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>四层从稳定到动态递减</span><span><i class="dot"></i>冲突时优先级：动态 &gt; 任务 &gt; 历史 &gt; 系统（系统边界规则除外）</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">智能体输出质量不达预期，是模型不够强，还是它看到的信息错了？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第三层 · 负责回答<span class="text-fg">「智能体需要看到什么才能做好」</span>，是产品设计起点从"功能规格"转向"信息需求"。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">情境认知理论（Brown, Collins & Duguid，1989）+ 软件工程上下文管理模式<span class="text-fg-dim2">→</span> 创新：四层上下文架构 + "精准 &gt; 丰富"原则 + 层间优先级规则。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>当智能体输出不达预期，第一反应总是错的</h2>
+      <p>在许多企业的 AI 项目评审中，有一个固定的讨论模式：当智能体的输出质量不达预期，第一个被提出的解决方案几乎总是"<em>换一个更好的模型</em>"，或者"<em>调整一下提示词</em>"。</p>
+      <p>这两个动作都会被执行，有时候也有效果，但一段时间之后，问题往往以不同的形式再度出现。</p>
+      <p>问题的根源很少被触及，因为它不在模型能力上，也不在提示词技巧上。<strong>它在一个更基础的地方：智能体处理的上下文（Context），决定了它能看到什么信息，而它能看到什么，决定了它能产生什么输出。</strong></p>
+      <p><em>上下文设计的质量，是限制智能体输出质量的首要因素，而不是模型能力。</em>在同等模型条件下，上下文设计的差距可以让输出质量相差数倍。但奇怪的是，在大多数产品团队的工作流里，上下文设计所获得的关注，远少于功能开发和提示词工程。</p>
+      <h2><span class="num">02</span>三种人群对"上下文"的认知错位</h2>
+      <div class="theory-note"><strong>理论来源</strong>：情境认知理论（Situated Cognition，Brown, Collins & Duguid，1989）；软件工程中的上下文管理模式。<br/><strong>本框架创新</strong>：将认知科学的"情境"概念结构化为可工程化的四层上下文架构，将"上下文设计"从工程配置问题升级为产品设计核心工作；提出"精准 &gt; 丰富"作为核心设计原则。</div>
+      <p>"上下文"这个词，在技术人员、产品经理和业务人员那里，<strong>有三种完全不同的理解</strong>，而这种理解的分歧，是上下文设计经常出问题的根源。</p>
+      <p><strong>技术人员</strong>通常把上下文理解为"传入模型的输入文本"——一个纯粹的工程参数，越长越好，信息越全越好。<em>这种理解导致的常见问题是：把所有可能相关的信息都塞入上下文，然后发现输出质量反而下降了，因为模型在噪声里失去了焦点。</em></p>
+      <p><strong>产品经理</strong>通常把上下文理解为"用户提供的背景信息"——是用户侧的输入，产品设计者的工作是设计一个好的界面让用户输入这些信息。<em>这种理解的常见问题是：过度依赖用户的自觉性和表达能力。</em></p>
+      <p><strong>业务人员</strong>通常根本不把上下文当作一个需要设计的东西——他们认为"AI 应该能理解我说的话"，上下文问题是技术团队的责任。</p>
+      <p>三种理解都不完整，它们共同导致了一个结果：<strong>没有人把上下文当作产品设计的核心工作来做。</strong></p>
+      <h2><span class="num">03</span>把感知系统当作产品来设计</h2>
+      <p>重新认识上下文，需要一个视角的根本转换：<strong>不要把上下文当作参数，而要把它当作智能体的感知系统。</strong></p>
+      <p>这个转换有实质性的含义。感知系统决定了一个智能体能理解的世界的边界——<em>它看不到的，不存在；它看到的，是它判断和行动的全部依据</em>。一个感知系统设计糟糕的智能体，即使拥有强大的"处理能力"（模型能力），也无法产生高质量的输出。</p>
+      <p>上下文优先设计的核心主张是：<strong>先设计智能体需要看到什么，再设计它应该做什么。</strong>这个顺序的改变看起来不大，但它意味着产品设计的起点从"功能规格"变成了"信息需求"。</p>
+      <h3>系统上下文（System Context）</h3>
+      <p>最稳定的一层：角色定义、工作原则、行为边界、价值观设定。回答的是"这个智能体是谁"。<em>系统上下文一旦设计好，在相当长的时间里不应该频繁变动。</em></p>
+      <h3>任务上下文（Task Context）</h3>
+      <p>每次任务特定的信息：任务的目标、相关的背景数据、已知的约束条件。<strong>设计挑战是：既要包含完成这个任务真正需要的信息，又要避免引入不相关的噪声。</strong></p>
+      <h3>历史上下文（Historical Context）</h3>
+      <p>记忆和学习的载体：过去的交互记录、用户的偏好模式、之前任务的结果和反馈。<em>设计挑战不是记住多少，而是记住什么</em>——决定什么历史信息值得被保留。</p>
+      <h3>动态上下文（Dynamic Context）</h3>
+      <p>实时变化的环境信息：当前时间、用户的当前状态、外部系统的实时数据、任务执行过程中产生的中间信息。<em>最难设计，因为它要求在运行时进行信息的实时获取、过滤和注入。</em></p>
+      <p>四层之间有优先级规则：<strong>动态 &gt; 任务 &gt; 历史 &gt; 系统</strong>——越具体、越即时的信息，优先级越高。但系统上下文有一类特殊的"不可覆盖规则"（边界和安全约束），这类规则不被任何其他层次的信息覆盖。</p>
+      <h2><span class="num">04</span>精准胜过丰富</h2>
+      <p>上下文优先设计揭示的，是一个关于"AI 能力上限"的重新定位。</p>
+      <p>大量企业把提升 AI 输出质量的期望放在"模型能力"上——等待更强的模型发布，或者负担更贵的模型费用。这种期望有其道理，但它忽略了一个关键事实：<strong>在任何给定的模型能力水平下，上下文质量对输出质量的影响，往往大于模型能力的提升。</strong></p>
+      <p><em>模型是上限，上下文是实际表现。</em>换句话说，花在上下文设计上的工程和产品资源，<strong>其单位回报往往高于花在模型升级上的资源</strong>。</p>
+      <blockquote>精准胜过丰富。上下文中的噪声——与当前任务无关的信息——是智能体性能下降的主要原因之一。不是因为模型"读不懂"这些信息，而是因为不相关的信息会分散模型的注意力，模糊真正重要的信号。</blockquote>
+      <p>在大量实践中，<em>删减上下文带来的性能提升，往往比增加上下文更显著</em>。确定什么不该放入，有时比确定什么该放入更重要。</p>
+      <h2><span class="num">05</span>调试方式和迭代优先级的改变</h2>
+      <p>这个框架最直接改变的，是<strong>智能体系统的调试方式和迭代优先级</strong>。</p>
+      <p>没有这个框架时，当智能体输出质量不达预期，团队通常优先考虑：优化提示词、升级模型版本、增加训练数据。这三个方向都可能有效，但都是在假设"感知系统是合理的，处理能力需要提升"。</p>
+      <p>有了这个框架，第一步变成了：<em>审查上下文设计</em>。检查系统上下文是否准确定义了角色和边界，任务上下文是否包含了真正需要的信息而没有引入噪声，历史上下文是否调用了正确的历史记录，动态上下文是否成功注入了关键的实时信息。</p>
+      <p>这个审查往往会发现，质量问题的根源<strong>不在模型能力，而在"给了模型错误的信息"或"没有给模型它需要的信息"</strong>。这类问题的修复成本，远低于模型升级，效果却可以非常显著。</p>
+      <blockquote>先审上下文，再优化能力——这个顺序的改变，可以为一个团队节省大量被浪费在错误方向上的工程资源。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>四层上下文盘点。</strong>对当前 Agent 系统逐层梳理：系统/任务/历史/动态分别提供什么信息？</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>噪声审查（精准 &gt; 丰富）。</strong>识别上下文中的无关信息——删减比增加更有效。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>设计运行时注入机制。</strong>动态上下文最难——需要在运行时实时获取、过滤、注入。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>建立优先级冲突解决规则。</strong>明确动态 &gt; 任务 &gt; 历史 &gt; 系统，但系统边界规则不可被覆盖。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">先审上下文，再优化能力——<span class="not-italic" style="color:var(--fg)">设计顺序的改变</span>决定工程资源是否被用在正确方向。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">精准 &gt; 丰富——确定什么不该放入，有时比确定什么该放入更重要。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 输出质量不达预期时的诊断</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>提示词工程之前的上下文审查</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>产品 PRD 信息架构设计</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>多 Agent 协作的上下文传递设计</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>把所有可能信息塞入上下文</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>过度依赖用户提供背景</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>不区分系统/任务/历史/动态</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>动态上下文设计为静态注入</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F14.html" class="rel-item"><span class="rel-num">F14</span><span class="rel-name">JTBO — 结果定义在系统上下文</span></a>
+          <a href="F20.html" class="rel-item"><span class="rel-num">F20</span><span class="rel-name">Triple-E — 评测集是上下文质量验证</span></a>
+          <a href="F22.html" class="rel-item"><span class="rel-num">F22</span><span class="rel-name">PRTD — 提示词环 = 上下文环</span></a>
+          <a href="G01.html" class="rel-item"><span class="rel-num">G01</span><span class="rel-name">意图管理 — 意图→上下文的翻译</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F15"><span>▸ CADM 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ CADM Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F14.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F14</span><span class="nav-title">结果导向任务框架</span></div></a>
+    <a href="F16.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F16</span><span class="nav-title">托付型产品市场匹配法</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

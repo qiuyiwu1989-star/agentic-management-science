@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>G01 · 意图管理模型 (IAN) — 智能体管理学</title>
+<meta name="description" content="把人类下达指令时同时传递的四层信息——表层指令 / 目标意图 / 约束意图 / 价值意图——显式化、对齐、持续校准，确保 Agent 理解的任务始终对齐人的真实目标。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="g">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 治理神经 / G01</span>
+      <span class="type-tag">治理神经</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-g" class="hover:text-fg transition">所有治理神经框架 →</a>
+    </div>
+    <h1 data-reveal>
+      意图管理模型
+      <span class="en">Intent Alignment Nerve</span>
+      <span class="abbr">IAN</span>
+    </h1>
+    <p class="claim" data-reveal>
+      不是写好提示词，是管理好意图——这是人机协作最根本的能力。
+      <br/><span class="text-fg-dim2">意图是人机协作的起点，也是它最脆弱的地方。一个模糊的意图，会让后续所有的执行都建立在错误的前提上。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">把人类下达指令时同时传递的四层信息——<strong>表层指令 / 目标意图 / 约束意图 / 价值意图</strong>——显式化、对齐、持续校准，确保 Agent 理解的任务始终对齐人的真实目标。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">G01 · 意图四层结构</span></div>
+      <span class="viz-pattern">P4</span>
+    </div>
+    <div class="viz-stack">
+      <div class="layer">
+        <div class="layer-num">L1 表层</div>
+        <div class="layer-name">表层指令<span class="en">Surface Instruction</span></div>
+        <div class="layer-desc">具体要做什么——唯一被显式传递的层次。例："帮我写一份市场分析报告"。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L2 目标</div>
+        <div class="layer-name">目标意图<span class="en">Goal Intent</span></div>
+        <div class="layer-desc">背后的真实目的——融资？退出？竞争响应？目的不同好报告完全不同。⚠ 通常隐含未表达。</div>
+      </div>
+      <div class="layer">
+        <div class="layer-num">L3 约束</div>
+        <div class="layer-name">约束意图<span class="en">Constraint Intent</span></div>
+        <div class="layer-desc">不能做什么——合规边界、法律风险约束、战略禁区。通常出问题才被提起。</div>
+      </div>
+      <div class="layer is-key">
+        <div class="layer-num">L4 价值 ★</div>
+        <div class="layer-name">价值意图<span class="en">Value Intent</span></div>
+        <div class="layer-desc">最终服务于什么原则——以客户为中心 · 让非专业读者理解。<strong>最隐性 · 缺失时"差了点什么"</strong>。</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>四层意图同时传递，但通常只有 L1 被显式表达</span><span><i class="dot"></i>横切 F10 / F14 / F15</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">人对智能体下达指令时，真正想要传递的是什么？为什么"说了什么"和"想要什么"会脱节？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">治理神经① · 横切模块二（F10）+ 模块三（F14、F15）· 人机协作的认知锚点。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">自然语言处理领域意图识别研究 + 目标树分析<span class="text-fg-dim2">→</span> 创新：从技术层"意图识别"升级为管理层"意图管理" + 四层架构。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>一个横跨所有模块的现象</h2>
+      <p>在梳理整套体系的 37 个框架时，有一个问题反复出现，但没有在任何单一框架里被完整回答：<strong>当一个人类想让智能体做某件事，"想让它做什么"这件事本身，是如何被清晰、完整地传递给智能体的？</strong></p>
+      <p>这个问题在不同的框架里以不同的面目出现——<em>在 F14（结果导向任务框架）里，它是"如何定义智能体应该达成的结果"；在 F15（上下文优先设计）里，它是"如何把任务目标转化为智能体可以理解的上下文"；在 F10（智能体时代企业岗位体系）里，它是"谁负责把业务意图翻译成智能体指令"。</em></p>
+      <p>这不是三个独立的问题，而是<strong>同一个问题在三个层面上的表现：意图管理</strong>——如何把人类模糊的、分层的、动态变化的意图，以一种可以被智能体准确理解和执行的方式表达出来，并在执行过程中持续校准。</p>
+      <h2><span class="num">02</span>意图的四层结构</h2>
+      <div class="theory-note"><strong>理论来源</strong>：自然语言处理领域的意图识别研究（Intent Detection）；目标树分析（Goal Tree Analysis，系统工程方法）。<br/><strong>本框架创新</strong>：将技术层面的"意图识别"升级为管理层面的"意图管理"，使其成为面向管理者的操作工具；提出意图四层架构，解释为什么"写好提示词"不等于"管理好意图"。</div>
+      <p>人类在给智能体下达指令时，实际上在同时传递四个层次的信息，<strong>但通常只有第一层被显式地表达</strong>。</p>
+      <h3>第一层·表层指令（Surface Instruction）</h3>
+      <p>具体要做什么，明确陈述的任务描述。<em>"帮我写一份市场分析报告"——这是能被直接传递给智能体的部分</em>。但它只是意图的最表层，下面还有三层。</p>
+      <h3>第二层·目标意图（Goal Intent）</h3>
+      <p>这个任务背后的真实目的是什么。<em>同样是"市场分析报告"，可能是为了向董事会争取新市场的投资（关注增长潜力和风险），也可能是为了评估是否退出某个市场（关注竞争格局和成本），也可能是为了回应竞争对手的新动作（关注对比和时效）。</em><strong>目标意图不同，好的报告完全不同。</strong></p>
+      <h3>第三层·约束意图（Constraint Intent）</h3>
+      <p>不能做什么，什么是边界。<em>可能是"不能包含竞争对手的内部数据（数据合规）"，可能是"不能产生可能引发法律风险的结论"，可能是"不能违反公司现有的战略方向"。</em>这层意图通常在任务出了问题才会被提起，<strong>但如果能提前明确，可以避免大量的返工</strong>。</p>
+      <h3>第四层·价值意图（Value Intent）</h3>
+      <p>最终服务于什么原则。这层通常是<em>最隐性的</em>——"要体现我们以客户为中心的价值观"、"要让非专业读者也能理解"、"要符合我们一贯的保守风格"。<strong>价值意图影响的是任务的整体取向，当表层指令和目标意图都被满足但价值意图没有被传达，结果往往让人感觉"差了点什么"，但说不出差在哪里。</strong></p>
+      <h2><span class="num">03</span>意图管理的三个核心挑战</h2>
+      <p>意图管理之所以被称为"治理神经"，是因为它横切了组织（模块二）和产品（模块三）两个模块，是所有人机协作能否有效运行的底层基础。</p>
+      <h3>挑战一：意图模糊性（Intent Ambiguity）</h3>
+      <p>人类在表达意图时，<em>大量依赖于隐含的共识、语境和默会知识</em>。两个在同一家公司工作了五年的同事，可能用一句"写个平时那种风格的报告"就传递了大量信息。<strong>但智能体没有这个共识背景</strong>，它只能从被明确表达的内容中提取信息。</p>
+      <h3>挑战二：意图漂移（Intent Drift）</h3>
+      <p>在一个复杂任务的执行过程中，<em>人类的意图可能会随着执行结果的出现而变化</em>——看到了初步结果，意识到自己真正想要的是另外一个方向。意图管理需要建立机制，让这种漂移能够被识别和沟通，而不是让智能体在错误的方向上持续深入。</p>
+      <h3>挑战三：意图分层（Intent Stratification）</h3>
+      <p>在一个有多个层级的组织里，<em>战略意图、部门意图和任务意图可能不一致</em>——公司战略说要扩张，部门策略说要谨慎，具体任务的发布者有自己对"好结果"的理解。<strong>当这些意图层次没有对齐，智能体的执行无论多么精准，都可能产生各层级都不满意的结果。</strong></p>
+      <h2><span class="num">04</span>意图管理的核心原则</h2>
+      <p>有效的意图管理，建立在三个核心原则上。</p>
+      <h3>明确化原则</h3>
+      <p>不依赖隐含信息，把目标意图、约束意图和价值意图<em>尽可能显式地表达出来</em>。一个有效的测试是：<strong>如果把这段指令交给一个完全不了解你和你公司背景的人，他能产生你期待的结果吗？</strong>如果不能，那些缺失的信息就是需要被显式化的意图层次。</p>
+      <h3>对齐原则</h3>
+      <p>在任务开始之前，<em>确认战略意图、部门意图和任务意图之间是一致的</em>。当不一致存在，应该先解决意图层面的对齐，再开始任务执行——<strong>否则是在为一个未对齐的目标做完美的执行</strong>。</p>
+      <h3>校准原则</h3>
+      <p>在任务执行过程中，建立<em>定期的意图校准节点</em>。不是等到任务完成才验证结果，而是在关键的中间阶段，确认执行方向是否仍然符合真实意图。</p>
+      <h2><span class="num">05</span>智能体只理解你"说了什么"</h2>
+      <p>意图管理模型揭示的，是人机协作中最被低估的一个事实：<strong>智能体不能理解你"真正想要什么"，只能理解你"说了什么"。</strong>这两者之间的差距，是大量人机协作低效的根本来源。</p>
+      <p><em>提示词工程（Prompt Engineering）试图填补这个差距</em>——通过更精确的措辞、更完整的上下文、更清晰的格式要求，让智能体的输出更接近期望。这是有价值的，但它处理的是表层问题。</p>
+      <p><strong>意图管理处理的是更深层的问题：不只是如何更好地表达指令，而是如何理解和明确你自己真正想要的是什么，然后把它完整地传递出去。</strong></p>
+      <blockquote>这需要的不是更多的提示词技巧，而是一种更深层的自我反思能力——在给智能体下指令之前，先问自己：我真正想达成的是什么？</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>四层意图显式化。</strong>下指令前先回答：表层做什么？目标是什么？约束有哪些？价值原则？</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>对齐三层意图。</strong>战略 / 部门 / 任务三级意图一致后再启动执行。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>建立校准节点。</strong>关键中间阶段确认方向是否仍符合真实意图。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>意图记录回流上下文。</strong>历史意图变化纳入历史上下文（F15 L3）。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">智能体不能理解你"真正想要什么"，<span class="not-italic" style="color:var(--fg)">只能理解你"说了什么"</span>——这两者之间的差距，是大量人机协作低效的根本来源。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">管理好意图 = 在给智能体下指令之前，先把四层意图清晰化——这是人机协作的起点。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>多 Agent 系统的协作设计</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>复杂任务的需求澄清</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>组织级 AI 治理规范</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>编排者岗位的核心能力</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>只优化 Prompt 不管理意图</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>约束意图等出问题才补</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>价值意图被默认省略</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>不做意图漂移校准</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F10.html" class="rel-item"><span class="rel-num">F10</span><span class="rel-name">ARRM — 编排者职责</span></a>
+          <a href="F14.html" class="rel-item"><span class="rel-num">F14</span><span class="rel-name">JTBO — 结果层定义</span></a>
+          <a href="F15.html" class="rel-item"><span class="rel-num">F15</span><span class="rel-name">CADM — 上下文架构</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#G01"><span>▸ IAN 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ IAN Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F36.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F36</span><span class="nav-title">人类核心能力六维模型</span></div></a>
+    <a href="G02.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">G02</span><span class="nav-title">边界与升级机制</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F00 · 企业能力编排论 (ECOT) — 智能体管理学</title>
+<meta name="description" content="对科斯'企业的本质'在智能体时代的破立合一回答——破科斯三支柱，立企业之能力编排。企业是编排人、智能体、数据、模型、流程、知识与外部资源的能力系统。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="1">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-accent transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="orb orb-accent orb-drift" style="width:480px;height:480px;top:-80px;right:-100px;opacity:.16;"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 总序章 / F00 · 体系的哲学起点</span>
+      <span class="type-tag">理论级</span>
+    </div>
+    <h1 data-reveal>
+      企业能力编排论
+      <span class="en">Enterprise Capability Orchestration Theory</span>
+      <span class="abbr">ECOT</span>
+    </h1>
+    <p class="claim" data-reveal>
+      科斯的理论撑起了企业这个物种——智能体正在把它的地基一根根撼动。
+      <br/><span class="text-fg-dim2">一百年前我们问"市场为什么需要企业"。今天我们重新问一遍同样的问题。只是这一次，答案变了——破科斯之三支柱，立企业之能力编排。</span>
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="btn-primary">阅读长文 <span class="arr">↓</span></a>
+      <a href="../index.html#index" class="text-cta">从 F01 进入体系 <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">
+      对科斯"企业的本质"在智能体时代的<strong>破立合一回答</strong>——企业不再只是<em>降低交易成本的组织容器</em>，而是<strong>编排人、智能体、数据、模型、流程、知识与外部资源的复杂能力系统</strong>。企业未来存在的核心理由，是<strong>积累信任、承担责任、创造意义</strong>。
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISUALIZATION: 破立合一 ============ -->
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F00 · 破立合一图</span>
+      </div>
+      <span class="viz-pattern">Custom</span>
+    </div>
+
+    <div class="viz-canvas">
+      <svg viewBox="0 0 720 460" class="viz-svg" style="max-width:760px" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="ar-f00" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" class="v-arrow-head"/>
+          </marker>
+          <linearGradient id="grad-f00" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="var(--mod-c)" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="var(--mod-c)" stop-opacity="0.8"/>
+          </linearGradient>
+        </defs>
+
+        <!-- LEFT: 破 - 科斯三支柱被撼动 -->
+        <text class="v-ring-label" x="180" y="40" text-anchor="middle">破 · DECONSTRUCT</text>
+        <text class="v-axis-name" x="180" y="60" text-anchor="middle" style="font-size:11px;fill:var(--fg-dim2)">科斯 1937 · 三支柱被撼动</text>
+
+        <!-- 三支柱 (crumbling) -->
+        <g>
+          <rect x="55" y="90" width="80" height="180" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 4"/>
+          <text class="v-node-mono" x="95" y="120" text-anchor="middle" style="font-size:10px">支柱 1</text>
+          <text class="v-axis-name" x="95" y="150" text-anchor="middle" style="font-size:12px;font-weight:500">执行成本</text>
+          <text class="v-axis-name" x="95" y="175" text-anchor="middle" style="font-size:10px;fill:var(--fg-dim);">↓ 崩溃</text>
+        </g>
+        <g>
+          <rect x="140" y="90" width="80" height="180" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 4"/>
+          <text class="v-node-mono" x="180" y="120" text-anchor="middle" style="font-size:10px">支柱 2</text>
+          <text class="v-axis-name" x="180" y="150" text-anchor="middle" style="font-size:12px;font-weight:500">有限理性</text>
+          <text class="v-axis-name" x="180" y="175" text-anchor="middle" style="font-size:10px;fill:var(--fg-dim);">↓ 外部化</text>
+        </g>
+        <g>
+          <rect x="225" y="90" width="80" height="180" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 4"/>
+          <text class="v-node-mono" x="265" y="120" text-anchor="middle" style="font-size:10px">支柱 3</text>
+          <text class="v-axis-name" x="265" y="150" text-anchor="middle" style="font-size:12px;font-weight:500">资产专用性</text>
+          <text class="v-axis-name" x="265" y="175" text-anchor="middle" style="font-size:10px;fill:var(--fg-dim);">↓ 迁移到系统</text>
+        </g>
+
+        <!-- "支柱松动" 标注 -->
+        <text class="v-axis-name" x="180" y="295" text-anchor="middle" style="font-size:10.5px;fill:var(--fg-dim2);">三支柱被同时撼动 · 旧理由失效</text>
+
+        <!-- 中间过渡箭头 -->
+        <path d="M 320 180 L 400 180" stroke="url(#grad-f00)" stroke-width="3" marker-end="url(#ar-f00)" fill="none"/>
+        <text class="v-node-mono" x="360" y="170" text-anchor="middle" style="font-size:9.5px;fill:var(--mod-c);">破立合一</text>
+
+        <!-- RIGHT: 立 - 企业作为能力编排系统 -->
+        <text class="v-ring-label" x="555" y="40" text-anchor="middle">立 · CONSTRUCT</text>
+        <text class="v-axis-name" x="555" y="60" text-anchor="middle" style="font-size:11px;fill:var(--fg-dim2)">企业 = 能力编排系统</text>
+
+        <!-- Central hub: 企业 -->
+        <circle cx="555" cy="200" r="62" fill="rgba(var(--surface-rgb), 0.06)" stroke="var(--mod-c)" stroke-width="2"/>
+        <text class="v-node-mono" x="555" y="190" text-anchor="middle" style="font-size:10px;fill:var(--mod-c);">ECOT</text>
+        <text class="v-node-title" x="555" y="210" text-anchor="middle">企业</text>
+        <text class="v-axis-name" x="555" y="228" text-anchor="middle" style="font-size:10.5px;">能力编排系统</text>
+
+        <!-- 6 orchestrated elements around -->
+        <g>
+          <circle cx="555" cy="115" r="22" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1.2"/>
+          <text class="v-axis-name" x="555" y="119" text-anchor="middle" style="font-size:10px;">人</text>
+        </g>
+        <g>
+          <circle cx="635" cy="155" r="22" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1.2"/>
+          <text class="v-axis-name" x="635" y="159" text-anchor="middle" style="font-size:10px;">智能体</text>
+        </g>
+        <g>
+          <circle cx="660" cy="240" r="22" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1.2"/>
+          <text class="v-axis-name" x="660" y="244" text-anchor="middle" style="font-size:10px;">数据</text>
+        </g>
+        <g>
+          <circle cx="610" cy="305" r="22" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1.2"/>
+          <text class="v-axis-name" x="610" y="309" text-anchor="middle" style="font-size:10px;">模型</text>
+        </g>
+        <g>
+          <circle cx="500" cy="305" r="22" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1.2"/>
+          <text class="v-axis-name" x="500" y="309" text-anchor="middle" style="font-size:10px;">流程</text>
+        </g>
+        <g>
+          <circle cx="450" cy="240" r="22" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1.2"/>
+          <text class="v-axis-name" x="450" y="244" text-anchor="middle" style="font-size:10px;">知识</text>
+        </g>
+
+        <!-- Connector lines from center to 6 -->
+        <line x1="555" y1="137" x2="555" y2="138" stroke="var(--mod-c)" stroke-width="0.8" opacity=".4"/>
+        <line x1="617" y1="172" x2="500" y2="223" stroke="var(--mod-c)" stroke-width="0.6" opacity=".25"/>
+        <line x1="638" y1="240" x2="555" y2="200" stroke="var(--mod-c)" stroke-width="0.6" opacity=".25"/>
+        <line x1="555" y1="262" x2="555" y2="283" stroke="var(--mod-c)" stroke-width="0.6" opacity=".25"/>
+        <line x1="472" y1="240" x2="555" y2="200" stroke="var(--mod-c)" stroke-width="0.6" opacity=".25"/>
+
+        <!-- Footer text -->
+        <text class="v-axis-name" x="555" y="365" text-anchor="middle" style="font-size:10.5px;fill:var(--fg-dim2);">编排幅度 &gt;&gt; 管理幅度</text>
+        <text class="v-axis-name" x="360" y="425" text-anchor="middle" style="font-size:11.5px;fill:var(--fg);">企业未来存在的核心理由：<tspan style="fill:var(--mod-c)">积累信任 · 承担责任 · 创造意义</tspan></text>
+      </svg>
+    </div>
+
+    <div class="viz-legend">
+      <span><i class="dot ring"></i>破：科斯三支柱被撼动（虚线 = 失效）</span>
+      <span><i class="dot hub"></i>立：企业作为编排 6 类资源的能力系统</span>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">在执行可以被智能体承担的世界里，企业为什么还需要存在？它的新理由是什么？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第零层 · 全体系的<span class="text-fg">哲学起点与归宿</span>——其余 39 篇都是它的展开。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">科斯《企业的本质》（1937）+ 西蒙《行政行为》（1947）+ 威廉姆森《市场与科层》（1975）<span class="text-fg-dim2">→</span> 创新：将三位经济学家的理论体系置于智能体时代的语境下重新检验，推导出企业管理学所有基本假设的重写必要性，以"能力编排论"作为企业本质的新定义。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+
+      <h2><span class="num">01</span>那个"我不知道边界在哪里了"的 CEO</h2>
+      <p>
+        一位制造业企业的 CEO，在一次私下对话里说了一句让我一直记得的话。那时他们公司已经部署了超过 80 个智能体——销售预测、生产排程、供应链监控、客服响应……每一个都在稳定运行，每一个都有可量化的效率数据。但他问我：<em>"你知道我最困惑的是什么吗？我越来越不知道，我的公司的边界在哪里了。"</em>
+      </p>
+      <p>
+        他的困惑不是技术问题。他说的"边界"，是一种更深的东西：<strong>这家公司的核心竞争力到底是什么？哪些事情必须在公司内部完成，哪些可以交给系统？组织为什么还要保持现在这个规模和形态？</strong>当越来越多的执行工作被智能体承接，管理这家公司的逻辑，是不是也应该跟着变？
+      </p>
+      <p>
+        这些问题，在过去不需要被追问。因为有一套现成的答案，已经沉默地支撑着企业这个物种<em>将近一个世纪</em>。
+      </p>
+
+      <h2><span class="num">02</span>破 · 科斯给出了答案，这个答案统治了一百年</h2>
+      <div class="theory-note">
+        <strong>理论来源</strong>：科斯《企业的本质》（<em>The Nature of the Firm</em>，1937）、西蒙《行政行为》（<em>Administrative Behavior</em>，1947）、威廉姆森《市场与科层》（<em>Markets and Hierarchies</em>，1975）。
+        <br/><strong>本框架创新</strong>：将三位经济学家的理论体系置于智能体时代的语境下重新检验，指出三根支柱正在被同时撼动，由此推导出企业管理学所有基本假设的重写必要性；并提出"企业能力编排论"作为破立合一的新答案——企业不再只是降低交易成本的组织容器，而是编排复杂资源的能力系统。
+      </div>
+      <p>
+        1937 年，经济学家罗纳德·科斯（Ronald Coase）发表了《企业的本质》。这篇不到三十页的论文，回答了一个此前经济学刻意回避的问题：<strong>既然市场是最有效的资源配置机制，企业为什么存在？</strong>
+      </p>
+      <p>
+        科斯的答案是：<em>因为市场交易有成本</em>。当在市场上完成一次交易的成本——谈判、合同、履约监督——高于把这件事纳入企业内部管理的成本，理性的人就会选择建立企业。<strong>企业的边界，由内部管理成本和市场交易成本的比较来决定。</strong>
+      </p>
+      <p>
+        这个回答奠定了现代企业理论的基础。此后，赫伯特·西蒙用<em>有限理性（Bounded Rationality）</em>概念补充了它——人类决策者的认知能力有限，企业的科层结构可以通过专业分工弥补个体的认知局限。威廉姆森进一步发展了<em>资产专用性（Asset Specificity）</em>理论——当某项资产（包括人的技能和知识）高度专用于特定企业的生产活动，企业就必须将其内化。
+      </p>
+      <p>
+        <strong>三根理论支柱，共同支撑着"企业为什么以现在这种形态存在"的完整解释。</strong>
+      </p>
+
+      <h2><span class="num">03</span>破 · 三根支柱，正在被智能体一根根撼动</h2>
+
+      <h3>第一根：执行成本的崩溃</h3>
+      <p>
+        科斯告诉我们，企业存在是因为<em>内部执行比市场交易更便宜</em>。这个命题的前提是：执行需要人，人是有成本的——工资、福利、管理开销、协调摩擦。
+      </p>
+      <p>
+        智能体直接撼动了这个前提。当执行主体可以是一个<strong>边际成本接近于零的算法系统</strong>，大量原本必须内化在企业里的执行工作，开始可以用极低的成本在外部完成。<em>一个小型企业主可以用几个智能体完成过去需要一个团队才能做的工作量；一个大型企业可以把原本需要内部专职团队处理的标准化事务，分解给多个高度专业化的外部智能体服务。</em>
+      </p>
+      <p>
+        企业的边界，<strong>不再只由"内外成本比较"决定</strong>。执行成本的崩溃，让"把事情放在企业内部做"这件事的默认优势，正在消失。
+      </p>
+
+      <h3>第二根：有限理性的外部化</h3>
+      <p>
+        西蒙说，企业存在是因为个体认知有限，组织通过专业分工弥补了这个局限——<em>把复杂的决策分解给不同的专业部门，每个人只需要在自己的认知边界内做出判断。</em>
+      </p>
+      <p>
+        但智能体正在<strong>改变有限理性的边界本身</strong>。一个能访问大量信息、能跨领域综合判断、能处理远超人类短期记忆容量的智能体，<em>并不受西蒙意义上的有限理性约束</em>。过去必须通过企业科层结构才能解决的认知协调问题，在某些场景下，可以由单一的智能体系统在毫秒内完成。
+      </p>
+      <p>
+        这意味着，企业用来弥补有限理性的核心机制之一——<strong>专业化分工与层级协调</strong>——其存在理由开始被侵蚀。不是人变聪明了，而是系统可以代替人处理认知分散的问题。
+      </p>
+
+      <h3>第三根：资产专用性的迁移</h3>
+      <p>
+        威廉姆森说，当一项技能或知识高度专用于某家企业，这家企业就必须将持有这项技能的人内化，否则<em>他一旦离开或外部市场漫天要价，企业就面临严重风险</em>。资产专用性，是"人才必须留在企业内部"的经济学解释。
+      </p>
+      <p>
+        智能体正在悄悄完成一次<strong>资产专用性的迁移</strong>。过去，核心知识附着在人的身上，人走了知识就走了，这是"人才是企业最重要的资产"这句话的经济学本质。<em>但当企业开始系统性地将核心知识转化为智能体的提示词（Prompt）、工作流（Workflow）、上下文设计（Context Design），资产专用性就从人身上，迁移到了系统上。</em>
+      </p>
+      <blockquote>
+        这是一个根本性的变化：知识开始从人的大脑里，变成企业可以拥有的可执行资产。
+      </blockquote>
+
+      <h2><span class="num">04</span>立 · 企业是能力编排系统</h2>
+      <p>
+        旧理由失效，不意味着企业会消失——而意味着<strong>企业存在的理由需要被重新论证</strong>。
+      </p>
+      <p>
+        如果企业不再只是"降低交易成本的组织容器"，那它是什么？<em>这就是 ECOT 给出的新答案：</em>
+      </p>
+      <blockquote>
+        <strong>企业是一个编排人、智能体、数据、模型、流程、知识与外部资源的复杂能力系统。</strong>企业的核心能力，不再是"内部拥有的资源存量"，而是"协调多种异质资源完成复杂目标的编排能力"。
+      </blockquote>
+      <p>
+        这个新定义包含三个根本性转变：
+      </p>
+
+      <h3>转变一：从"资源拥有"到"能力编排"</h3>
+      <p>
+        旧问题问的是：<em>哪些资源企业应该拥有？</em>（自建 vs. 采购）。新问题问的是：<strong>企业能把多少异质资源编排成超越部分之和的系统？</strong>——这个能力本身，比任何一项被拥有的资源都更难复制（F04 三元获取法 把"编排"独立为第三战略主线，正是这个逻辑的具体化）。
+      </p>
+
+      <h3>转变二：从"管理幅度"到"编排幅度"</h3>
+      <p>
+        工业时代一个管理者能直接管 5-15 人，这是组织呈金字塔的根本原因。<em>当智能体节点进入组织，"管理幅度"被"编排幅度"替代——一个管理者可以有效编排数十个智能体节点</em>，这个数量级的提升，正在让组织从根本上扁平化（F07 人机混合网络组织 是这个新结构的具体描述）。
+      </p>
+
+      <h3>转变三：从"降低成本"到"积累信任"</h3>
+      <p>
+        当执行成本崩溃、认知可被增强、知识可被资产化，企业真正稀缺的、最难被复制的——<strong>是信任</strong>。客户对品牌的信任、员工对组织的认同、合作伙伴对体系的依赖、社会对企业承担后果的预期。<em>这些都是智能体系统在短期内无法复制、必须由人来承载的资产</em>（F36 AC6 中的"价值锚定力"是这个新理由在能力层面的终极表达；G03 智能体主权模型 是它在治理层面的实践）。
+      </p>
+
+      <h2><span class="num">05</span>关键洞见：企业的新理由</h2>
+      <p>
+        <strong>不是企业会消失，而是企业存在的三个理由正在被重写。</strong>当执行成本崩溃、有限理性可外部化、资产专用性从人转移到系统，我们用来回答"企业为什么以现在这种形态存在"的所有答案，<em>都需要重新论证一遍</em>。
+      </p>
+      <p>
+        这是一个令人不安、但必须正视的结论。<strong>管理学的所有核心命题——如何设计组织、如何分配任务、如何激励人才、如何建立竞争优势——都建立在三根科斯主义支柱的默默支撑上。支柱松动，上层建筑的每一块砖，都需要被重新检视。</strong>
+      </p>
+      <p>
+        这就是「智能体管理学」为什么从"企业能力编排论"开始，而不是从某一个具体的管理工具开始。<em>工具的选择，取决于你对这个更根本问题的回答。</em>
+      </p>
+      <blockquote>
+        企业未来存在的核心理由，与其说是降低成本，不如说是<strong>积累信任、承担责任、创造意义</strong>——这些都是智能体系统在短期内无法复制的资产，是需要时间、关系和价值观才能积累的东西。
+      </blockquote>
+
+      <h2><span class="num">06</span>真实场景：这个框架在哪里最有价值</h2>
+      <p>
+        <strong>第一个场景，是企业在进行 AI 战略规划时的认知校准。</strong>大多数企业的 AI 规划，停留在"用 AI 提升效率"这个层级。但效率是工具视角，重构是战略视角。<em>当管理层开始追问"企业存在的逻辑是否在改变"，整个 AI 战略的格局和投资重点都会随之改变。</em>
+      </p>
+      <p>
+        <strong>第二个场景，是评估一个行业的竞争结构变化。</strong>当三根支柱开始松动，行业里的企业边界会重新划定——哪些功能会被外化，哪些会向核心聚集，哪些原本是大企业才能做的事会被小团队复制。<em>理解这一层，才能真正看懂为什么"10 个人做千人公司的事"不只是一个噱头。</em>
+      </p>
+      <p>
+        <strong>第三个场景，是组织文化与人才战略的底层重设。</strong>当编排幅度 &gt;&gt; 管理幅度，当信任和价值锚定成为企业最稀缺的资源，HR / OD / L&amp;D 的全部假设都需要被重新论证——这是 F10 / F12 / F33-F36 共同回答的问题，但它们的出发点是这里。
+      </p>
+
+      <h2><span class="num">07</span>边界与收束：这个框架不能说什么</h2>
+      <p>
+        ECOT 是一个<strong>哲学诊断 + 新理论定位框架</strong>，不是一个操作工具。它告诉你"为什么要重写"和"新答案是什么"，<em>但不告诉你"具体怎么重写"</em>。后者是后续 39 个框架各自回答的具体问题。
+      </p>
+      <p>
+        此外需要说清楚的是：<strong>三根支柱正在被撼动，不等于它们已经倒塌。</strong>在相当长的时间里，大多数企业和大多数场景下，科斯的逻辑仍然适用。<em>重构是一个过程，不是一个开关。</em>这个框架的价值，是帮助管理者识别那个过程正在哪些地方开始发生。
+      </p>
+      <p style="font-size:1.08rem;color:var(--fg);">
+        科斯问的是：<em>企业为什么存在</em>。智能体管理学的答案是：<strong>在一个执行可以被智能体承担的世界里，企业存在是为了保护和发挥人类在机器面前的主权——追问意义、承担责任、创造信任。</strong>
+      </p>
+      <p>
+        这就是为什么这是第零框架，而不是终点。<em>整个体系，是这一句话的展开。</em>
+      </p>
+
+    </article>
+
+    <aside class="fw-side">
+
+      <div class="side-card">
+        <div class="side-title">三个根本性转变</div>
+        <div class="op-step"><div class="op-num">①</div><div class="op-text"><strong>从资源拥有 → 能力编排。</strong>企业核心能力不再是"拥有的资源存量"，而是"协调异质资源的编排能力"。</div></div>
+        <div class="op-step"><div class="op-num">②</div><div class="op-text"><strong>从管理幅度 → 编排幅度。</strong>智能体节点入组织，幅度上限提升一个数量级，组织根本扁平化。</div></div>
+        <div class="op-step"><div class="op-num">③</div><div class="op-text"><strong>从降低成本 → 积累信任。</strong>执行可被外包、认知可被增强、知识可被资产化后，企业唯一不可复制的护城河是信任。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">
+          不是企业会消失，而是<span class="not-italic" style="color:var(--fg)">企业存在的三个理由正在被重写</span>——支柱松动，上层建筑每一块砖都需要被重新检视。
+        </p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">
+          这就是「智能体管理学」为什么从 ECOT 开始，而不是从某一个具体的管理工具开始。工具的选择，取决于你对这个更根本问题的回答。
+        </p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">体系展开路径</div>
+        <div class="rel-list">
+          <a href="F01.html" class="rel-item"><span class="rel-num">F01–F06</span><span class="rel-name">竞争重写 · 五力、护城河、组合、获取、资产、商业化</span></a>
+          <a href="F07.html" class="rel-item"><span class="rel-num">F07–F12</span><span class="rel-name">组织重写 · 节点网络、中台、责任、岗位、安全、文化</span></a>
+          <a href="F13.html" class="rel-item"><span class="rel-num">F13–F19</span><span class="rel-name">产品重写 · 定位、结果、上下文、托付、信任、架构</span></a>
+          <a href="F20.html" class="rel-item"><span class="rel-num">F20–F26</span><span class="rel-name">系统重写 · 评测、Skill、调试、架构、生命周期、回归</span></a>
+          <a href="F27.html" class="rel-item"><span class="rel-num">F27–F32</span><span class="rel-name">价值重写 · 运营、指标、绩效、成本、ROI、风险</span></a>
+          <a href="F33.html" class="rel-item"><span class="rel-num">F33–F36</span><span class="rel-name">人类重写 · 个人能力、岗位迁移、能力结构、AC6</span></a>
+          <a href="G01.html" class="rel-item"><span class="rel-num">G01–G03</span><span class="rel-name">治理神经 · 意图、边界升级、智能体主权</span></a>
+        </div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F00"><span>▸ 企业 AI 战略评估提示词</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ ECOT 诊断对照表</span><span class="soon">即将上线</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ 课堂讲义 (PDF)</span><span class="soon">即将上线</span></a>
+      </div>
+
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="../index.html">
+      <div class="dir">← 返回</div>
+      <div><span class="nav-num">▌</span><span class="nav-title">智能体管理学首页</span></div>
+    </a>
+    <a href="F01.html" class="right">
+      <div class="dir">下一篇 →</div>
+      <div><span class="nav-num">F01</span><span class="nav-title">智能体五力重构法</span></div>
+    </a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../knowledge-map.html" class="hover:text-accent transition">知识图谱</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

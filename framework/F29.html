@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F29 · 数字员工绩效评分卡 (DWPS) — 智能体管理学</title>
+<meta name="description" content="将 Agent 作为数字员工，从结果（40%）/ 效能（25%）/ 可靠（25%）/ 安全（10%）四维加权综合评估——结果维度 40% 是核心设计主张。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="5">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块五 · 价值重写 / F29</span>
+      <span class="type-tag">工具级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-5" class="hover:text-fg transition">所有价值重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      数字员工绩效评分卡
+      <span class="en">Digital Worker Performance Scorecard</span>
+      <span class="abbr">DWPS</span>
+    </h1>
+    <p class="claim" data-reveal>
+      管理层问"这个智能体干得怎么样"，技术团队给一串数字——双方都无法判断好坏。
+      <br/><span class="text-fg-dim2">没有人会接受这样的绩效评估：把数十项原始指标扔给你，然后说"你自己理解"。智能体也不应该被这样评估。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">将 Agent 作为<strong>数字员工</strong>，从<strong>结果（40%）/ 效能（25%）/ 可靠（25%）/ 安全（10%）</strong>四维加权综合评估——<strong>结果维度 40% 是核心设计主张</strong>。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F29 · DWPS 四维评分卡</span></div>
+      <span class="viz-pattern">P2</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 480 480" class="viz-svg" style="max-width:480px" xmlns="http://www.w3.org/2000/svg">
+        <circle class="v-axis-grid" cx="240" cy="240" r="40"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="80"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="120"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="160"/>
+<line class="v-axis" x1="240" y1="240" x2="240.0" y2="80.0"/>
+<line class="v-axis" x1="240" y1="240" x2="400.0" y2="240.0"/>
+<line class="v-axis" x1="240" y1="240" x2="240.0" y2="400.0"/>
+<line class="v-axis" x1="240" y1="240" x2="80.0" y2="240.0"/>
+<polygon class="v-polygon" points="240.0,104.0 364.8,240.0 240.0,352.0 88.0,240.0"/>
+        <circle class="v-dot" cx="240.0" cy="104.0" r="4"/>
+<circle class="v-dot" cx="364.8" cy="240.0" r="4"/>
+<circle class="v-dot" cx="240.0" cy="352.0" r="4"/>
+<circle class="v-dot" cx="88.0" cy="240.0" r="4"/>
+<text class="v-axis-label" x="240.0" y="43.0" text-anchor="middle">R</text>
+<text class="v-axis-name" x="240.0" y="57.0" text-anchor="middle">结果 40%</text>
+<text class="v-axis-label" x="430.0" y="233.0" text-anchor="middle">E</text>
+<text class="v-axis-name" x="430.0" y="247.0" text-anchor="middle">效能 25%</text>
+<text class="v-axis-label" x="240.0" y="423.0" text-anchor="middle">Q</text>
+<text class="v-axis-name" x="240.0" y="437.0" text-anchor="middle">可靠 25%</text>
+<text class="v-axis-label" x="50.0" y="233.0" text-anchor="middle">S</text>
+<text class="v-axis-name" x="50.0" y="247.0" text-anchor="middle">安全 10%</text>
+
+        <text class="v-node-mono" x="240" y="237" text-anchor="middle">DWPS · 4 dims</text>
+      </svg>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>四维加权综合 0-100 分</span><span><i class="dot"></i>结果 40% 是核心主张——确保团队不忘业务价值</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">智能体的总体绩效如何被综合评估，而不是一串散落的指标？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第三层 · 负责回答<span class="text-fg">「智能体总体绩效如何被概括为可解读的评级」</span>。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">卡普兰-诺顿平衡计分卡（1992）+ 德鲁克目标管理（1954）<span class="text-fg-dim2">→</span> 创新：四维 + 结果 40% 权重 + 月度评估频率。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"我们在大多数指标上都达标了，但……"</h2>
+      <p>在智能体系统的季度运营复盘会上，技术团队通常会准备一份详细的数据报告：<em>任务完成率 87%、P95 延迟 2.3 秒、Token 消耗环比增加 12%、错误率 0.4%、Override 率 23%……</em></p>
+      <p>管理层看着这一组数字，问了一个简单的问题：<strong>"这个智能体总体上表现好还是不好？"</strong></p>
+      <p>房间里沉默了几秒，技术团队负责人说：<em>"我们在大多数指标上都达标了，但有几个维度还有提升空间……"</em></p>
+      <p><strong>会议在一种双方都不满意的状态下结束。</strong>管理层得不到他们需要的决策依据，技术团队觉得自己的工作成果没有被正确理解。</p>
+      <p>这个场景几乎在每一个建立了智能体系统的企业里都在发生。问题的根源不是数据不够多，而是<em>多维度的原始数据和管理层需要的综合判断之间，缺少一座桥梁</em>。</p>
+      <h2><span class="num">02</span>原始指标为什么无法直接支撑管理决策</h2>
+      <div class="theory-note"><strong>理论来源</strong>：卡普兰-诺顿平衡计分卡（Balanced Scorecard，《平衡计分卡：化战略为行动》，1992）；传统绩效管理理论（德鲁克目标管理，1954）。<br/><strong>本框架创新</strong>：将平衡计分卡的多维度加权评估逻辑，应用于智能体系统的绩效评估；提出"结果指标 40% 权重"作为核心设计主张，将 JTBO 的结果导向原则贯彻进绩效评估体系；确立月度为合理评估频率。</div>
+      <p>这个问题在传统人力资源管理里早就有了解决方案：<strong>绩效评估体系</strong>。一个优秀的绩效评估，不是把员工的所有行为数据都堆在一张表上，而是<em>把多个维度的数据通过一套清晰的权重和标准，转化为一个综合评级</em>。</p>
+      <p>智能体系统面临完全类似的问题，但没有对应的解决方案。它积累了大量的运行数据，却没有一套把这些数据转化为可解读综合评估的框架。</p>
+      <p>这个缺失带来三个具体问题。</p>
+      <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);"><li><strong>无法进行横向比较。</strong>企业部署了十几个智能体，如何比较它们的相对表现？没有统一的评分体系，这个比较只能凭感觉。</li><li><strong>无法追踪纵向趋势。</strong>当指标有多个方向同时变化时（某些好转某些退化），没有综合评分，"上个季度还是这个季度更好"没有答案。</li><li><strong>无法对齐业务期待。</strong>管理层关心的是业务结果，技术团队关心的是系统性能——综合评分卡是让双方在同一个框架下讨论的工具。</li></ul>
+      <h2><span class="num">03</span>评分卡的设计逻辑</h2>
+      <p>数字员工绩效评分卡把智能体的绩效评估，分解为四个维度，每个维度有明确的权重和评分标准。</p>
+      <h3>结果维度（40%）★ 最高</h3>
+      <p>这个智能体产生了多少真实的业务价值？包括：<em>任务真实完成率（以 JTBO 结果层标准衡量）、业务目标达成率、用户再委托率</em>。<strong>结果维度的 40% 最高权重，是整个评分卡最重要的设计主张</strong>——智能体存在的根本理由，是产生有价值的结果，而不是完成技术上无懈可击的任务执行。</p>
+      <h3>效能维度（25%）</h3>
+      <p>这个智能体的资源使用效率如何？包括：<em>单次成功任务成本（CPTA）、响应延迟分布（P50/P95/P99）、Token 使用效率</em>。</p>
+      <h3>可靠性维度（25%）</h3>
+      <p>这个智能体的行为是否可预期和稳定？包括：<em>输出质量的一致性、错误率和升级率、边界内的行为合规性</em>。</p>
+      <h3>安全维度（10%）</h3>
+      <p>这个智能体是否按照治理规范运行？包括：<em>RACI-A 合规性、隐私和数据合规、审计日志完整性</em>。<strong>权重虽低，但任何违规事件对信任的损害是非线性的。</strong></p>
+      <h2><span class="num">04</span>为什么结果指标必须占最高权重</h2>
+      <p>在设计这个评分卡时，最容易引发争议的是<strong>结果维度的 40% 权重</strong>——很多技术团队觉得，<em>结果受到很多智能体控制不了的外部因素影响</em>（业务环境、用户行为、上下游系统），把结果作为主要评估标准对智能体"不公平"。</p>
+      <p>这个论点有其合理性，但<strong>最终结论是错误的</strong>。</p>
+      <p><em>如果结果不是主要评估标准，那么"把智能体做到技术指标优秀但不产生业务价值"就变成了一种可接受的状态。</em>而在实践中，这恰恰是最容易发生的退化模式——团队把精力集中在可以被量化的技术指标上（因为那些更容易优化），<strong>而忽视了更难量化但更重要的业务结果</strong>。</p>
+      <blockquote>结果维度的高权重，不是对智能体的"惩罚"，而是对整个团队的正确导向——你的评估目标是什么，你的优化重心就会在哪里。40% 的结果权重，确保了团队不会在优化技术指标的过程中忘记业务价值。</blockquote>
+      <h2><span class="num">05</span>智能体是数字员工，不是技术系统</h2>
+      <p>DWPS 揭示的，是智能体系统绩效评估的一个基本事实：<strong>智能体不是工具，它是一个在组织中承担工作职责的"数字员工"，应该像评估员工一样评估它。</strong></p>
+      <p><em>当我们评估一个销售人员的绩效，不会只看他打了多少电话（活动量指标），也不会只看他的通话时长（效率指标）。我们首先看的是：他完成了多少销售（结果指标）。活动量和效率指标是辅助分析的，不是核心评估维度。</em></p>
+      <p>同样的逻辑，适用于智能体。<strong>响应时间、Token 消耗、错误率是辅助指标，它们帮助诊断问题，但不是核心评估标准。</strong>核心评估标准是：这个智能体完成了多少有真实价值的工作，对它负责的那个具体的业务目标，实现了多少。</p>
+      <blockquote>把智能体视为"数字员工"而不是"技术系统"，是整个价值评估思维转变的起点。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>四维评分卡设计。</strong>结果 40% · 效能 25% · 可靠 25% · 安全 10%。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>月度评估。</strong>不周也不季——月度是综合评估的合理窗口。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>跨 Agent 横向对比。</strong>用统一评分卡比较多个 Agent 的相对表现。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>结合 APM 矩阵。</strong>评分卡输入到 F03 的资源分配决策。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">智能体是<span class="not-italic" style="color:var(--fg)">"数字员工"</span>——评估标准应该像评估员工：首看结果，而非活动量。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">把智能体视为数字员工而非技术系统，是整个价值评估思维转变的起点。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>季度 AI 投资决策</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>面向董事会汇报</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>多 Agent 横向比较</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>设定团队 OKR 与 Agent 绩效挂钩</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>把"技术指标"当核心评估</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>结果权重过低（&lt;30%）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>周级评估（噪声太大）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>安全维度被忽视</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F14.html" class="rel-item"><span class="rel-num">F14</span><span class="rel-name">JTBO — 结果维度定义</span></a>
+          <a href="F27.html" class="rel-item"><span class="rel-num">F27</span><span class="rel-name">AOMM — 评分卡是 M3 标志</span></a>
+          <a href="F28.html" class="rel-item"><span class="rel-num">F28</span><span class="rel-name">3DSP — 三层指标供原料</span></a>
+          <a href="F30.html" class="rel-item"><span class="rel-num">F30</span><span class="rel-name">CPST — 效能维度数据</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F29"><span>▸ DWPS 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ DWPS Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F28.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F28</span><span class="nav-title">智能体运营指标金字塔</span></div></a>
+    <a href="F30.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F30</span><span class="nav-title">单次成功任务成本法</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

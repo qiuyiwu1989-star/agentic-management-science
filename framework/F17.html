@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F17 · 可信智能体七维评估法 (VERITAS) — 智能体管理学</title>
+<meta name="description" content="从可验证（V）/ 可解释（E）/ 可靠（R）/ 影响度（I）/ 可信（T）/ 适应（A）/ 安全（S）七个维度建立 Agent 质量画像——其中 S 安全性是唯一不可弥补的维度，必须满分。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="3">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块三 · 产品重写 / F17</span>
+      <span class="type-tag">评估级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-3" class="hover:text-fg transition">所有产品重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      可信智能体七维评估法
+      <span class="en">VERITAS — Seven-Dimensional Trustworthy Agent Evaluation</span>
+      <span class="abbr">VERITAS</span>
+    </h1>
+    <p class="claim" data-reveal>
+      99% 准确率的智能体，为什么照样可以造成灾难——单一指标是最危险的自欺欺人。
+      <br/><span class="text-fg-dim2">你怎么评估一个智能体，决定了你最终会拥有一个什么样的智能体。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">从<strong>可验证（V）/ 可解释（E）/ 可靠（R）/ 影响度（I）/ 可信（T）/ 适应（A）/ 安全（S）</strong>七个维度建立 Agent 质量画像——其中 <strong>S 安全性是唯一不可弥补的维度</strong>，必须满分。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F17 · VERITAS 七维雷达</span></div>
+      <span class="viz-pattern">P2</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 480 480" class="viz-svg" style="max-width:480px" xmlns="http://www.w3.org/2000/svg">
+        <circle class="v-axis-grid" cx="240" cy="240" r="40"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="80"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="120"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="160"/>
+<line class="v-axis" x1="240" y1="240" x2="240.0" y2="80.0"/>
+<line class="v-axis" x1="240" y1="240" x2="365.1" y2="140.2"/>
+<line class="v-axis" x1="240" y1="240" x2="396.0" y2="275.6"/>
+<line class="v-axis" x1="240" y1="240" x2="309.4" y2="384.2"/>
+<line class="v-axis" x1="240" y1="240" x2="170.6" y2="384.2"/>
+<line class="v-axis" x1="240" y1="240" x2="84.0" y2="275.6"/>
+<line class="v-axis" x1="240" y1="240" x2="114.9" y2="140.2"/>
+<polygon class="v-polygon" points="240.0,124.8 321.3,175.2 367.9,269.2 278.2,319.3 191.4,340.9 162.0,257.8 114.9,140.2"/>
+        <circle class="v-dot" cx="240.0" cy="124.8" r="4"/>
+<circle class="v-dot" cx="321.3" cy="175.2" r="4"/>
+<circle class="v-dot" cx="367.9" cy="269.2" r="4"/>
+<circle class="v-dot" cx="278.2" cy="319.3" r="4"/>
+<circle class="v-dot" cx="191.4" cy="340.9" r="4"/>
+<circle class="v-dot" cx="162.0" cy="257.8" r="4"/>
+<circle class="v-dot special" cx="114.9" cy="140.2" r="6"/>
+<text class="v-axis-label" x="240.0" y="43.0" text-anchor="middle">V</text>
+<text class="v-axis-name" x="240.0" y="57.0" text-anchor="middle">可验证</text>
+<text class="v-axis-label" x="388.5" y="114.5" text-anchor="middle">E</text>
+<text class="v-axis-name" x="388.5" y="128.5" text-anchor="middle">可解释</text>
+<text class="v-axis-label" x="425.2" y="275.3" text-anchor="middle">R</text>
+<text class="v-axis-name" x="425.2" y="289.3" text-anchor="middle">可靠</text>
+<text class="v-axis-label" x="322.4" y="404.2" text-anchor="middle">I</text>
+<text class="v-axis-name" x="322.4" y="418.2" text-anchor="middle">影响度</text>
+<text class="v-axis-label" x="157.6" y="404.2" text-anchor="middle">T</text>
+<text class="v-axis-name" x="157.6" y="418.2" text-anchor="middle">可信</text>
+<text class="v-axis-label" x="54.8" y="275.3" text-anchor="middle">A</text>
+<text class="v-axis-name" x="54.8" y="289.3" text-anchor="middle">适应</text>
+<text class="v-axis-label" x="91.5" y="114.5" text-anchor="middle">S</text>
+<text class="v-axis-name" x="91.5" y="128.5" text-anchor="middle">安全 ★</text>
+
+        <text class="v-node-mono" x="240" y="237" text-anchor="middle">VERITAS · truth</text>
+      </svg>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>七维评估锚点（V·E·R·I·T·A 互相补偿）</span><span><i class="dot" style="background:transparent;outline:2px solid var(--mod-c);outline-offset:-1px;border-radius:50%"></i>★ S 安全维度（不可补偿，必须满分）</span></div>
+  </div>
+</section>
+
+<!-- F17 旗舰升级：六维互补 vs S 不可补偿示意 -->
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F17 · 六维互补 vs S 不可补偿 — 核心公理图</span></div>
+      <span class="viz-pattern">Custom</span>
+    </div>
+
+    <div class="viz-canvas">
+      <svg viewBox="0 0 720 320" class="viz-svg" style="max-width:760px" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="grad-compensate" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="var(--mod-c)" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="var(--mod-c)" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+
+        <!-- LEFT: 六维互补关系（圆环箭头）-->
+        <text class="v-ring-label" x="180" y="32" text-anchor="middle">六维 · 可互相补偿</text>
+        <text class="v-axis-name" x="180" y="50" text-anchor="middle" style="font-size:10.5px;fill:var(--fg-dim2);">V · E · R · I · T · A</text>
+
+        <!-- 6 nodes around center, with bidirectional arrows between -->
+        <g>
+          <circle cx="180" cy="100" r="22" fill="rgba(var(--surface-rgb), 0.06)" stroke="var(--mod-c)" stroke-width="1.5"/>
+          <text class="v-node-title" x="180" y="105" text-anchor="middle" style="font-size:13px;">V</text>
+        </g>
+        <g>
+          <circle cx="245" cy="135" r="22" fill="rgba(var(--surface-rgb), 0.06)" stroke="var(--mod-c)" stroke-width="1.5"/>
+          <text class="v-node-title" x="245" y="140" text-anchor="middle" style="font-size:13px;">E</text>
+        </g>
+        <g>
+          <circle cx="245" cy="205" r="22" fill="rgba(var(--surface-rgb), 0.06)" stroke="var(--mod-c)" stroke-width="1.5"/>
+          <text class="v-node-title" x="245" y="210" text-anchor="middle" style="font-size:13px;">R</text>
+        </g>
+        <g>
+          <circle cx="180" cy="240" r="22" fill="rgba(var(--surface-rgb), 0.06)" stroke="var(--mod-c)" stroke-width="1.5"/>
+          <text class="v-node-title" x="180" y="245" text-anchor="middle" style="font-size:13px;">I</text>
+        </g>
+        <g>
+          <circle cx="115" cy="205" r="22" fill="rgba(var(--surface-rgb), 0.06)" stroke="var(--mod-c)" stroke-width="1.5"/>
+          <text class="v-node-title" x="115" y="210" text-anchor="middle" style="font-size:13px;">T</text>
+        </g>
+        <g>
+          <circle cx="115" cy="135" r="22" fill="rgba(var(--surface-rgb), 0.06)" stroke="var(--mod-c)" stroke-width="1.5"/>
+          <text class="v-node-title" x="115" y="140" text-anchor="middle" style="font-size:13px;">A</text>
+        </g>
+
+        <!-- 多方向互补箭头（双向）—— 用半透明环形填充提示 -->
+        <circle cx="180" cy="170" r="68" fill="url(#grad-compensate)" stroke="var(--mod-c)" stroke-width="1.2" stroke-dasharray="3 4" opacity=".75"/>
+        <text class="v-axis-name" x="180" y="170" text-anchor="middle" style="font-size:11px;fill:var(--mod-c);font-weight:500;">⇄ 可互补</text>
+        <text class="v-axis-name" x="180" y="184" text-anchor="middle" style="font-size:9px;fill:var(--fg-dim);">弱→强弥补</text>
+
+        <!-- 中间分隔 -->
+        <line x1="370" y1="30" x2="370" y2="290" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="4 6"/>
+        <text class="v-axis-name" x="370" y="305" text-anchor="middle" style="font-size:10px;fill:var(--fg-dim2);">vs</text>
+
+        <!-- RIGHT: S 不可补偿 -->
+        <text class="v-ring-label" x="555" y="32" text-anchor="middle" style="fill:#FF6B8A;">S · 不接受任何补偿</text>
+        <text class="v-axis-name" x="555" y="50" text-anchor="middle" style="font-size:10.5px;fill:var(--fg-dim2);">安全维度 · Safe</text>
+
+        <!-- S节点突出 -->
+        <g>
+          <!-- 警告环 outer -->
+          <circle cx="555" cy="170" r="62" fill="none" stroke="#FF6B8A" stroke-width="1.5" stroke-dasharray="6 4" opacity=".5"/>
+          <!-- S节点 -->
+          <circle cx="555" cy="170" r="50" fill="rgba(255,107,138,0.12)" stroke="#FF6B8A" stroke-width="2.5"/>
+          <text class="v-node-title" x="555" y="166" text-anchor="middle" style="font-size:22px;font-weight:600;fill:#FF6B8A;">S</text>
+          <text class="v-axis-name" x="555" y="186" text-anchor="middle" style="font-size:10.5px;fill:#FF6B8A;">★ 必须满分</text>
+        </g>
+
+        <!-- 拦截箭头：表示其他维度无法补偿 S -->
+        <g>
+          <line x1="455" y1="120" x2="500" y2="155" stroke="#FF6B8A" stroke-width="1.2" stroke-dasharray="2 3" opacity=".5"/>
+          <line x1="455" y1="155" x2="500" y2="170" stroke="#FF6B8A" stroke-width="1.2" stroke-dasharray="2 3" opacity=".5"/>
+          <line x1="455" y1="185" x2="500" y2="185" stroke="#FF6B8A" stroke-width="1.2" stroke-dasharray="2 3" opacity=".5"/>
+          <line x1="455" y1="220" x2="500" y2="200" stroke="#FF6B8A" stroke-width="1.2" stroke-dasharray="2 3" opacity=".5"/>
+          <!-- ✕ 拦截标 -->
+          <text class="v-node-mono" x="480" y="172" text-anchor="middle" style="font-size:14px;font-weight:600;fill:#FF6B8A;">✕</text>
+        </g>
+
+        <text class="v-axis-name" x="555" y="255" text-anchor="middle" style="font-size:11.5px;fill:var(--fg);">99 分 ≠ 接近满分</text>
+        <text class="v-axis-name" x="555" y="272" text-anchor="middle" style="font-size:10.5px;fill:var(--fg-dim);">而是 = 有可利用漏洞</text>
+
+        <!-- 底部规则 -->
+        <text class="v-axis-name" x="180" y="305" text-anchor="middle" style="font-size:10.5px;fill:var(--fg-dim2);">六维加权计算综合分</text>
+      </svg>
+    </div>
+
+    <div class="viz-legend">
+      <span><i class="dot hub"></i>六维任意一弱可由其他维强 + 完善审计弥补</span>
+      <span><i class="dot" style="background:#FF6B8A"></i>S 维不进入加权计算，独立审查；未满分阻止发布</span>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">智能体的"质量"如何被多维度立体评估，而不是塌缩为一个准确率数字？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第五层 · 负责回答<span class="text-fg">「质量画像如何被全面构建」</span>，是产品 + 工程 + 安全三方共同的评估语言。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">软件质量评估体系（ISO/IEC 25010）+ 机器学习模型评估实践<span class="text-fg-dim2">→</span> 创新：七维框架 + "S 唯一不可补偿"公理 + 维度间补偿关系。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>准确率创造的是危险的安全感</h2>
+      <p>在智能体产品的评估实践里，有一个几乎普遍存在的简化倾向：<strong>用准确率作为核心甚至唯一的评估指标。</strong></p>
+      <p>这种倾向是可以理解的。准确率直观、可量化、有基准可以对比。在产品汇报里，"准确率从 85% 提升到 92%"是一个清晰、有说服力的进展表述。</p>
+      <p>问题在于，<em>准确率只反映了智能体"做对了多少"，但没有反映"做错的那些会产生什么后果"</em>。一个准确率 99% 的医疗建议智能体，如果那 1% 的错误恰好是危及生命的误诊，那个 99% 不只是毫无意义，<strong>它还会制造一种危险的安全感——团队相信系统足够好了，不需要额外的防护机制</strong>。</p>
+      <blockquote>单一指标创造的问题，不只是遗漏了重要维度，而是遮蔽了遗漏本身。当你有一个指标并且这个指标表现良好，你会停止追问它是否足够。</blockquote>
+      <h2><span class="num">02</span>评估智能体比评估传统软件难得多</h2>
+      <div class="theory-note"><strong>理论来源</strong>：软件质量评估体系（ISO/IEC 25010，系统和软件质量要求与评估）；机器学习模型评估实践。<br/><strong>本框架创新</strong>：针对智能体系统的非确定性和多维失败模式，构建专属七维质量评估框架 VERITAS；提出"安全性是唯一不可弥补维度"作为框架的核心公理，明确七维之间的补偿关系和不可补偿边界。</div>
+      <p>传统软件产品的质量评估，本质上是<em>确定性问题</em>——给定输入，检查输出是否符合规格。测试用例可以被穷举，通过/失败是二元的，质量边界是清晰的。</p>
+      <p>智能体产品的质量评估是<strong>概率性问题</strong>。同一个输入，在不同时刻、不同上下文、不同模型状态下，可能产生不同的输出。"通过"和"失败"之间有一片灰色地带。</p>
+      <p>更重要的是，智能体的"失败模式"远比传统软件复杂——它不只是"输出错误的结果"，还包括<em>"产生了有害的内容"、"以不透明的方式做了本不该它做的决定"、"在某类特定的对抗性输入下被操纵"</em>。</p>
+      <p><strong>这些不同类型的失败，有着根本不同的产生机制和根本不同的危害性。</strong>一个质量评估框架，必须能够区分这些不同类型的失败，而不是把它们全部压缩进一个单一的准确率数字。</p>
+      <h2><span class="num">03</span>VERITAS 七维框架</h2>
+      <p>可信智能体七维评估法用七个独立的维度构建智能体质量的立体画像，每个维度评估的是不同类型的能力，对应不同类型的失败风险。</p>
+      <h3>V · 可验证性（Verifiable）</h3>
+      <p>智能体的输出结论是否可以被验证？它是否提供了可以被检查的推理路径或依据来源？<em>不可验证的输出，即使大多数时候是正确的，也会让用户处于无法判断何时信任、何时质疑的困境。</em></p>
+      <h3>E · 可解释性（Explainable）</h3>
+      <p>智能体的判断逻辑是否可以被用户以有意义的方式理解？这不要求展示所有技术细节，而是要求用户能够<strong>理解"为什么它这么做"</strong>，从而能够在需要时做出有质量的人类监督。</p>
+      <h3>R · 可靠性（Reliable）</h3>
+      <p>智能体在不同场景、不同时间点、不同输入变体下，是否保持一致的表现水准？<em>一个高准确率但低可靠性的系统，是一个你不知道何时会失灵的系统，这比一个稳定的低准确率系统更难管理。</em></p>
+      <h3>I · 影响度（Impact）</h3>
+      <p>这个智能体的决策和行动，在产生错误时，会造成多大范围和多高严重程度的影响？影响度高的智能体（处理金融交易、医疗诊断、法律文件的智能体），对所有其他维度的要求都相应提高。</p>
+      <h3>T · 可信度（Trustworthy）</h3>
+      <p>智能体是否有足够的透明度和一致性，让用户可以形成<strong>准确的信任预期</strong>——既不过度信任，也不无谓地不信任？<em>可信度是一个"校准"维度。</em></p>
+      <h3>A · 适应性（Adaptive）</h3>
+      <p>智能体在遇到没有见过的新场景、边缘案例或上下文变化时，是否能够合理地处理？<em>适应性弱的智能体，其高准确率是在训练分布内的准确率，一旦遇到分布外的场景就会崩塌。</em></p>
+      <h3>S · 安全性（Safe）</h3>
+      <p>这是七维中最特殊的一维。它评估的是：智能体是否存在可以被恶意利用的漏洞（如提示注入）、是否会产生潜在的有害输出、在边界情况下是否有足够的防护。</p>
+      <h2><span class="num">04</span>安全性是唯一不可弥补的维度</h2>
+      <p>这是 VERITAS 框架最重要的设计决策，也是最需要被理解的一条<strong>公理</strong>：<em>七个维度之间，有六个维度可以互相补偿，但安全性是例外。</em></p>
+      <p>六个维度之间的补偿是真实的：<em>一个可解释性较弱的系统，可以通过更强的可靠性和更完善的审计机制来弥补；一个适应性较弱的系统，可以通过清晰定义使用边界来管理失败风险；一个影响度高的系统，可以通过提高其他维度的要求来管理风险。</em></p>
+      <p>但<strong>安全性的失效是非补偿性的</strong>。一个在其他六维上表现出色的智能体，如果有一个安全漏洞可以让攻击者劫持它的行为，<em>那个漏洞的存在会让所有其他维度的优秀表现失去意义</em>——因为你不知道你在任何时刻看到的那个"优秀表现"，是不是已经被操纵过的结果。</p>
+      <blockquote>安全性评分必须达到满分，这不是苛刻的要求，而是最基本的诚实。一个"99 分安全"的智能体，和一个"100 分安全"的智能体之间的差距，不是一分的差距，而是"有没有可利用漏洞"的差距。</blockquote>
+      <h2><span class="num">05</span>把一把螺丝刀当七套工具用</h2>
+      <p>VERITAS 揭示的，是"质量"在智能体领域的重新定义。</p>
+      <p><em>在传统软件里，质量是一个相对同质的概念——系统按规格工作的程度。</em>在智能体领域，质量是<strong>多维异质</strong>的——不同类型的质量问题，有着根本不同的性质和危害方式，不能被同一把尺子测量。</p>
+      <p>一个理解了 VERITAS 的产品团队，会把"提升质量"这个模糊的目标，<em>分解成七个独立的有针对性的工作</em>：可验证性是信息架构问题，可解释性是设计问题，可靠性是工程稳定性问题，影响度是风险治理问题，可信度是用户预期管理问题，适应性是鲁棒性工程问题，安全性是专门的安全工程问题。</p>
+      <blockquote>七个问题，对应七类不同的专业能力和工作方法。把它们混在一个准确率数字里，是在假装一把螺丝刀可以解决所有问题。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>建立七维评估清单。</strong>对每个 Agent 产品定义 VERITAS 七维评估指标和基准线。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>建立补偿关系矩阵。</strong>明确六维之间哪些可以互补。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>S 单独门禁。</strong>安全维度独立审查，未满分阻止发布——不进入六维加权计算。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>定期重审。</strong>七维评估不是一次性，按季度或重大变更后重新评估。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">安全性是<span class="not-italic" style="color:var(--fg)">唯一不可补偿</span>的维度——99 分和 100 分之间不是 1 分的差距，而是"有没有可利用漏洞"的差距。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">你怎么评估一个智能体，决定了你最终会拥有一个什么样的智能体。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 系统发布质量审查</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>高风险场景的产品准入门禁</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>多 Agent 系统的统一质量语言</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>供应链评估第三方 Agent 服务</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>用单一准确率代替七维</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 S 当成可补偿维度</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>七维评估只做一次</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视维度间补偿设计</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F11.html" class="rel-item"><span class="rel-num">F11</span><span class="rel-name">ABERS — 安全的运维实施</span></a>
+          <a href="F18.html" class="rel-item"><span class="rel-num">F18</span><span class="rel-name">CATER — 治理信任配套</span></a>
+          <a href="F25.html" class="rel-item"><span class="rel-num">F25</span><span class="rel-name">TSEM — 评测层级配套</span></a>
+          <a href="F32.html" class="rel-item"><span class="rel-num">F32</span><span class="rel-name">SRAG — 安全风险来源识别</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F17"><span>▸ VERITAS 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ VERITAS Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F16.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F16</span><span class="nav-title">托付型产品市场匹配法</span></div></a>
+    <a href="F18.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F18</span><span class="nav-title">可治理信任模型</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

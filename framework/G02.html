@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>G02 · 边界与升级机制 (BSN) — 智能体管理学</title>
+<meta name="description" content="通过三维边界（任务/资源/决策）+ 五类升级触发 + 根因回流闭环，确保 Agent 知道什么不能做、什么时候停下、什么时候升级、出错后如何恢复。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="g">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 治理神经 / G02</span>
+      <span class="type-tag">治理神经</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-g" class="hover:text-fg transition">所有治理神经框架 →</a>
+    </div>
+    <h1 data-reveal>
+      边界与升级机制
+      <span class="en">Boundary Safeguard Nerve</span>
+      <span class="abbr">BSN</span>
+    </h1>
+    <p class="claim" data-reveal>
+      边界定义了智能体不能越过的线——但更大的问题是：怎么保证那条线真的有效。
+      <br/><span class="text-fg-dim2">边界不是一次性设计就永久有效的。它会腐烂，会漂移，会在你没有注意到的时候悄悄失效。升级机制，是边界腐烂的解药。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">通过<strong>三维边界（任务/资源/决策）+ 五类升级触发 + 根因回流闭环</strong>，确保 Agent 知道什么不能做、什么时候停下、什么时候升级、出错后如何恢复。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">G02 · 边界 → 升级 → 回流 闭环</span></div>
+      <span class="viz-pattern">P6</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 540 480" class="viz-svg" style="max-width:540px" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="ar-cyc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="v-arrow-head"/></marker></defs>
+        <circle cx="270" cy="240" r="60" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <text class="v-node-mono" x="270" y="235" text-anchor="middle">G02 · BSN</text>
+        <text class="v-axis-name" x="270" y="252" text-anchor="middle" style="font-size:14px">6 阶段闭环</text>
+        <g class="v-loop-node">
+          <circle class="bg" cx="270.0" cy="75.0" r="40"/>
+          <text class="v-node-mono" x="270.0" y="70.0" text-anchor="middle">①</text>
+          <text class="v-axis-name" x="270.0" y="87.0" text-anchor="middle">边界定义</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="412.9" cy="157.5" r="40"/>
+          <text class="v-node-mono" x="412.9" y="152.5" text-anchor="middle">②</text>
+          <text class="v-axis-name" x="412.9" y="169.5" text-anchor="middle">行为监控</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="412.9" cy="322.5" r="40"/>
+          <text class="v-node-mono" x="412.9" y="317.5" text-anchor="middle">③</text>
+          <text class="v-axis-name" x="412.9" y="334.5" text-anchor="middle">升级触发</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="270.0" cy="405.0" r="40"/>
+          <text class="v-node-mono" x="270.0" y="400.0" text-anchor="middle">④</text>
+          <text class="v-axis-name" x="270.0" y="417.0" text-anchor="middle">人工介入</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="127.1" cy="322.5" r="40"/>
+          <text class="v-node-mono" x="127.1" y="317.5" text-anchor="middle">⑤</text>
+          <text class="v-axis-name" x="127.1" y="334.5" text-anchor="middle">根因分析</text>
+        </g><g class="v-loop-node">
+          <circle class="bg" cx="127.1" cy="157.5" r="40"/>
+          <text class="v-node-mono" x="127.1" y="152.5" text-anchor="middle">⑥</text>
+          <text class="v-axis-name" x="127.1" y="169.5" text-anchor="middle">边界更新</text>
+        </g>
+      </svg>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>六阶段闭环——边界定义→升级触发→根因回流→边界更新</span><span><i class="dot ring"></i>每一次越界都让系统更安全</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">边界设了，但怎么保证持续有效？升级机制怎么从被动响应变成主动学习？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">治理神经② · 横切模块二（F09、F11）+ 模块五（F29）· 智能体安全的操作锚点。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">信息安全边界理论（NIST Zero Trust）+ ITIL 变更与事件管理<span class="text-fg-dim2">→</span> 创新：边界腐烂概念 + 实时监控预警 + 意图歧义和不可逆影响特殊触发 + 升级记录根因回流。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>横切整个体系的安全命题</h2>
+      <p>在「智能体管理学」的 37 个框架里，"边界"这个概念在多处以不同的形式出现：<em>F11 定义了边界系统、升级系统和恢复系统；F09 中的 DAL 阶梯隐含了自动化程度的边界；F12 中的 Agent-First 文化需要有清晰的行为边界……</em></p>
+      <p>这些<strong>不是孤立的、在各自模块里解决的问题，而是同一个安全命题在不同维度上的表现</strong>：智能体系统在什么范围内可以自主行动，越出这个范围时如何被发现，发现之后如何被处理？</p>
+      <p>这三个问题，构成了「边界与升级机制」治理神经的完整逻辑——<strong>定义边界、检测越界、响应越界，缺少任何一环，安全治理都是不完整的。</strong></p>
+      <h2><span class="num">02</span>边界的三个维度</h2>
+      <div class="theory-note"><strong>理论来源</strong>：信息安全边界理论（Zero Trust Architecture，NIST）；软件系统监控实践（Observability，Google SRE）；ITIL 服务管理中的变更管理和事件管理流程。<br/><strong>本框架创新</strong>：提出"边界腐烂"概念并建立防腐烂的定期审查机制；将升级机制从"出问题才启动"重构为"实时监控+预警触发"。</div>
+      <p>有效的边界定义，需要覆盖三个相互独立的维度。</p>
+      <h3>任务边界（Task Boundary）</h3>
+      <p>这个智能体可以执行哪些类型的任务。<em>不是能力边界（能做什么），而是授权边界（被允许做什么）。</em>一个智能体可能技术上有能力访问公司所有的数据库，但被授权访问的只有特定的几个。<strong>任务边界的清晰，是防止越权执行的基础。</strong></p>
+      <h3>资源边界（Resource Boundary）</h3>
+      <p>这个智能体可以调用哪些工具、访问哪些数据、消耗多少算力。<em>资源边界防止的是智能体在"完成任务"的名义下，使用了本不应该使用的资源</em>——这类越界往往不是恶意的，而是智能体在遇到障碍时"创造性地"寻找替代方案时产生的。</p>
+      <h3>决策边界（Decision Boundary）</h3>
+      <p>这个智能体可以自主做出哪个风险级别的决策。<em>低风险的日常决策可以完全自主；高风险的不可逆决策需要人工确认。</em><strong>决策边界和 DAL 阶梯直接挂钩：不同风险级别的决策，对应不同的自动化授权级别。</strong></p>
+      <h2><span class="num">03</span>边界腐烂——最隐蔽的治理风险</h2>
+      <p>边界设计完成的那一刻，是边界最清晰的时刻。<strong>之后，如果没有主动维护，边界会经历多种形式的腐烂</strong>。</p>
+      <h3>业务漂移</h3>
+      <p>业务规则变化了，但边界定义没有跟着更新。<em>原本正确设定的约束条件，在业务变化之后不再准确</em>——某些本应被禁止的操作变成了合理的，某些本应被允许的操作被不必要地限制了。</p>
+      <h3>技术漂移</h3>
+      <p>底层模型更新了，工具接口改变了，系统架构调整了——<em>这些变化可能使原本清晰的边界变得模糊，也可能开放了原本没有预见的操作路径。</em></p>
+      <h3>使用漂移</h3>
+      <p>随着用户对智能体系统的适应，使用方式会超出最初设计的场景。<em>这些新的使用方式，可能完全落入边界之内，也可能在设计者没有预见的方向上越界。</em></p>
+      <p><strong>边界腐烂的关键特征是不可见性</strong>——它不是一次性的失效事件，而是渐进的有效性衰减，很难在发生的过程中被察觉，<em>通常在某次越界事件发生时，才意识到边界早就已经不再有效</em>。</p>
+      <h2><span class="num">04</span>升级机制——让越界在影响之前被发现</h2>
+      <p>边界定义回答的是"什么是被允许的"，<strong>升级机制回答的是"当越界发生或即将发生时，怎么让人知道"</strong>。</p>
+      <p>升级机制的<strong>五类触发条件</strong>，其中前三类和传统 IT 系统有共性，后两类是智能体特有的：</p>
+      <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);"><li><strong>不确定性超过阈值</strong>（置信度低于设定标准）— 传统触发</li><li><strong>资源需求超出权限</strong>（试图调用未授权的工具或数据）— 传统触发</li><li><strong>执行结果影响不可逆</strong>（试图执行无法撤销的操作）— 传统触发</li><li><strong>意图歧义检测 ★</strong>（智能体判断当前任务的意图存在多种合理解读，且不同解读会导致完全不同的执行结果，需要人类确认）— 智能体特有</li><li><strong>环境异常感知 ★</strong>（外部环境出现了明显不同于正常状态的信号）— 智能体特有</li></ul>
+      <p>升级机制的有效性，取决于三个要素：<em>触发条件要具体（太模糊的条件会造成大量误报或漏报）、升级路径要具名（不是"通知相关部门"，而是"在 X 分钟内通知 Y 具名负责人"）、响应时效要明确（没有时效要求的升级，往往变成没有人认领的通知）。</em></p>
+      <h2><span class="num">05</span>升级记录必须回流到边界系统</h2>
+      <p>升级机制的价值，<strong>不只在于即时处理单次越界事件，更在于通过升级记录的积累，持续改进边界定义和触发条件</strong>。</p>
+      <p>每一次升级事件，都包含了重要的信息：<em>这次越界发生的场景是什么，触发的是哪个条件，处理的结果是什么，从这次事件中可以学到什么——是边界的某个地方定义得不够清楚，是某个触发条件的阈值需要调整，还是业务变化导致某类操作需要重新授权？</em></p>
+      <p><strong>这个"升级记录→根因分析→边界更新"的闭环，是边界系统保持长期有效性的关键机制。</strong>没有这个闭环，边界系统只是在管理已知的问题；有了这个闭环，每一次越界事件都让系统变得更完善。</p>
+      <blockquote>边界与升级机制是智能体生态的神经系统——没有它，智能体的能力越强，风险就越大；有了它，能力和安全可以同步增长。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>三维边界显式定义。</strong>任务边界 + 资源边界 + 决策边界，写入治理文档。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>五类升级触发部署。</strong>含意图歧义和环境异常两类智能体特有触发。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>升级路径具名 + 时效要求。</strong>不是"通知部门"，是"X 分钟内通知 Y 具名负责人"。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>根因回流闭环。</strong>每次越界事件 → 根因分析 → 识别哪类边界定义不清 → 更新边界定义。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">每一次越界事件，都应该让系统<span class="not-italic" style="color:var(--fg)">更安全</span>——而不只是被解决。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">没有这个闭环，升级机制只是救火；有了它，安全能力会持续成长。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 上线前的边界与升级设计</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>安全事件复盘流程</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>合规审计要求满足</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>高风险场景准入门禁</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>只设边界不建升级回流</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>升级路径模糊无具名</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>不做季度边界审查</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>越界事件不做根因回流</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F09.html" class="rel-item"><span class="rel-num">F09</span><span class="rel-name">RACI-A × DAL — 决策边界</span></a>
+          <a href="F11.html" class="rel-item"><span class="rel-num">F11</span><span class="rel-name">ABERS — 三系统配套</span></a>
+          <a href="F29.html" class="rel-item"><span class="rel-num">F29</span><span class="rel-name">DWPS — 安全维度评估</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#G02"><span>▸ BSN 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ BSN Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="G01.html"><div class="dir">← 上一篇</div><div><span class="nav-num">G01</span><span class="nav-title">意图管理模型</span></div></a>
+    <a href="G03.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">G03</span><span class="nav-title">智能体主权模型</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

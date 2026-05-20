@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F11 · 智能体安全三系统架构 (ABERS) — 智能体管理学</title>
+<meta name="description" content="用边界、升级、恢复三套系统保障 Agent 规模化运行时不越权、不失控、可恢复。模块二·组织重写 F11。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="2">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块二 · 组织重写 / F11</span>
+      <span class="type-tag">机制级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-2" class="hover:text-fg transition">所有组织重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体安全三系统架构
+      <span class="en">Agent Boundary-Escalation-Recovery System</span>
+      <span class="abbr">ABERS</span>
+    </h1>
+    <p class="claim" data-reveal>
+      最危险的智能体，不是那个明显越界的，而是那个你以为还在边界内但其实早已漂移的。
+      <br/><span class="text-fg-dim2">边界设计完成的那一刻，是系统最安全的时刻——之后只会越来越不安全，如果没有持续治理的话。</span>
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="btn-primary">阅读长文 <span class="arr">↓</span></a>
+      <a href="#resources" class="text-cta">下载 Skill 与提示词 <span class="arr">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">
+      用<strong>边界、升级、恢复</strong>三套系统保障 Agent 规模化运行时<strong>不越权、不失控、可恢复</strong>——并引入<strong>"边界腐烂"</strong>概念与<strong>根因回流闭环</strong>。
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISUALIZATION ============ -->
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">F11 · 三系统纵深防御</span>
+      </div>
+      <span class="viz-pattern">P8</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 540 480" class="viz-svg" style="max-width:540px" xmlns="http://www.w3.org/2000/svg">
+        <circle class="v-concentric" cx="270" cy="240" r="220"/>
+        <text class="v-ring-label" x="270" y="38" text-anchor="middle">恢复系统 · RECOVERY</text>
+        <text class="v-ring-sub" x="270" y="58" text-anchor="middle">即时遏制 · 影响评估 · 根因闭环</text>
+
+        <circle class="v-concentric" cx="270" cy="240" r="150"/>
+        <text class="v-ring-label" x="270" y="115" text-anchor="middle">升级系统 · ESCALATION</text>
+        <text class="v-ring-sub" x="270" y="132" text-anchor="middle">5 类触发条件 · 具名升级 · 时效要求</text>
+
+        <circle class="v-concentric v-concentric-inner" cx="270" cy="240" r="78"/>
+        <text class="v-node-mono" x="270" y="225" text-anchor="middle">F11 · ABERS</text>
+        <text class="v-node-title" x="270" y="248" text-anchor="middle" style="font-size:14px">边界系统</text>
+        <text class="v-axis-name" x="270" y="266" text-anchor="middle">任务 / 资源 / 决策</text>
+
+        <line class="v-connector" x1="362" y1="240" x2="430" y2="240" stroke-dasharray="3 3"/>
+        <text class="v-axis-name" x="438" y="232" style="font-size:10.5px">B → 定义</text>
+        <text class="v-axis-name" x="438" y="247" style="font-size:10.5px">E → 检测</text>
+        <text class="v-axis-name" x="438" y="262" style="font-size:10.5px">R → 复原</text>
+      </svg>
+    </div>
+    <div class="viz-legend">
+      <span><i class="dot hub"></i>内：边界系统（第一道防线）</span>
+      <span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 60%, transparent)"></i>中：升级系统（发现越界）</span>
+      <span><i class="dot ring"></i>外：恢复系统（限制损害 + 根因闭环）</span>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">智能体规模化运行时，怎么保证它不越权、不失控、出问题时可恢复——而且边界本身不会"腐烂"？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">组织重写第五层 · 负责回答<span class="text-fg">「智能体的安全护栏怎么搭建并持续维护」</span>。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">信息安全纵深防御原则 + ITIL 事件升级机制<span class="text-fg-dim2">→</span> 创新：边界腐烂概念 + 意图歧义触发 + 根因回流闭环。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+
+      <h2><span class="num">01</span>一个普遍存在的现象</h2>
+      <p>
+        企业在部署智能体时，通常会认真地设计初始边界：什么可以做，什么不能做，超出哪些条件需要停止并升级给人工处理。这个设计工作做得越仔细，团队越觉得系统是安全的。
+      </p>
+      <p>
+        问题在于，<strong>边界设计完成的那一刻，是系统最安全的时刻，之后只会越来越不安全</strong>——如果没有对应的持续治理机制的话。
+      </p>
+      <p>
+        业务规则在变，客户场景在变，系统接入的外部数据在变，智能体底层的模型版本在更新。每一次变化，都可能让原本精心设计的边界出现一个新的缺口，而没有人注意到这个缺口，因为没有人在专门盯着这件事。
+      </p>
+      <p>
+        这种边界随时间悄悄退化的现象，叫做<strong>"边界腐烂"（Boundary Decay）</strong>，是当前大规模部署智能体的企业里最普遍、也最难被发现的安全风险。
+      </p>
+
+      <h2><span class="num">02</span>为什么单靠边界设计是不够的</h2>
+      <p>
+        安全领域有一个经典原则——<strong>"纵深防御"（Defense in Depth）</strong>——意思是不要依赖单一的防线，应该建立多层次的防御机制。单层防御一旦被突破，就没有第二道防线。
+      </p>
+      <p>
+        但大多数企业的智能体安全，实际上只有一层：初始边界定义。规则写在系统提示词里，限制了某些操作，检查了某些条件，这就是全部的安全机制。
+      </p>
+      <p>
+        这种单层防御的问题，不只是深度不够。更根本的问题在于，它是<em>静态的</em>，而真实世界是<em>动态的</em>。一个设计精良的静态边界，面对持续变化的业务环境、不断更新的技术基础和持续演化的攻击手段，其有效性会随时间单调递减。
+      </p>
+      <p>
+        在软件工程的传统安全体系里，这个问题已经有了成熟的解法：防火墙+入侵检测+应急响应，三层机制分别负责"阻止"、"发现"和"恢复"。<strong>但这套体系是为确定性系统设计的</strong>——相同输入产生相同输出的系统。智能体是概率性系统，同一输入在不同情境下可能产生不同输出，传统安全体系的检测逻辑在这里有根本性的适配问题。
+      </p>
+
+      <div class="theory-note">
+        <strong>理论来源</strong>：纵深防御原则（Defense in Depth，来源于军事战略，被引入信息安全领域）；ITIL 服务管理框架中的事件升级机制。
+        <br/><strong>本框架创新</strong>：将纵深防御逻辑迁移至智能体治理场景，构建专门针对概率性系统的三层安全架构：边界系统（定义）+ 升级系统（发现）+ 恢复系统（复原）；提出"边界腐烂"概念并建立边界有效性定期审查机制；增加"意图歧义检测"和"不可逆后果预判"作为智能体特有的升级触发维度。
+      </div>
+
+      <h2><span class="num">03</span>三系统的核心设计</h2>
+
+      <h3>边界系统（Boundary System）</h3>
+      <p>
+        定义智能体不能越过的三类边界：<strong>任务边界</strong>（可执行的工作范围）、<strong>资源边界</strong>（可调用的权限和资产）、<strong>决策边界</strong>（可自主判断的风险级别）。
+      </p>
+      <p>
+        但设计完成不是终点，边界系统还必须包含一个关键组件：<strong>定期有效性审查</strong>。建议每季度强制审查一次——<em>不是检查边界是否被违反，而是检查边界的定义是否仍然匹配当前的业务现实</em>。这是防止"边界腐烂"的核心机制。
+      </p>
+
+      <h3>升级系统（Escalation System）</h3>
+      <p>
+        定义五类必须触发人工介入的条件：
+      </p>
+      <ol style="padding-left: 1.5em; margin: 1rem 0; color: var(--fg-dim);">
+        <li>不确定性超过预设阈值</li>
+        <li>资源需求超出权限</li>
+        <li>输出结果影响不可逆</li>
+        <li><strong>检测到意图歧义 ★ 智能体特有</strong></li>
+        <li><strong>外部环境发生异常变化 ★ 智能体特有</strong></li>
+      </ol>
+      <p>
+        这五个触发条件里，最容易被忽视的是最后两个——<strong>"意图歧义"和"环境异常"都是智能体特有的风险类型，传统 IT 升级机制里没有对应的检测逻辑。</strong>
+      </p>
+      <p>
+        升级路径必须是<em>具名的、有时效要求的</em>——不是"出问题联系技术部门"，而是"在 X 分钟内升级给具名负责人 Y"。
+      </p>
+
+      <h3>恢复系统（Recovery System）</h3>
+      <p>
+        包含三个组件：
+      </p>
+      <ul style="padding-left: 1.5em; margin: 1rem 0; color: var(--fg-dim);">
+        <li><strong>即时遏制</strong>：发现越界后第一时间限制损害扩散</li>
+        <li><strong>影响评估</strong>：明确这次越界实际产生了什么影响、涉及了哪些数据或决策</li>
+        <li><strong>根因闭环 ★ 关键</strong>：越界记录必须回流到边界系统，驱动边界定义的更新</li>
+      </ul>
+      <blockquote>
+        没有根因闭环，恢复系统只是在救火，不是在治本。<strong>每一次越界事件，都应该让系统更安全，而不只是被解决。</strong>
+      </blockquote>
+
+      <h2><span class="num">04</span>这个框架揭示的底层逻辑</h2>
+      <p>
+        智能体安全三系统架构揭示的，是一个关于"安全"本质的重新理解：<strong>安全不是一种状态，而是一种持续运转的能力</strong>。
+      </p>
+      <p>
+        传统 IT 安全的隐性假设，是把"安全"视为一种可以达到并维持的状态——系统通过了安全审计，就是安全的。这个假设在确定性系统里勉强成立。
+      </p>
+      <p>
+        智能体系统打破了这个假设。它的行为是概率性的，它的边界有效性会随环境变化而衰减，它面临的攻击手段（如提示注入）是动态演化的。对于这种系统，<em>"安全状态"是不存在的</em>，存在的只有<strong>"安全运维能力"</strong>——一种持续发现问题、持续响应、持续改进的组织能力。
+      </p>
+      <p>
+        把安全从"状态"重新定义为"能力"，意味着安全工作不再是一次性的部署前审查，而是一项持续的运营工作，<em>需要专门的人力投入和制度支撑</em>。
+      </p>
+
+      <h2><span class="num">05</span>它在哪个具体决策节点上改变判断</h2>
+      <p>
+        这个框架最直接改变的是<strong>智能体系统的运维预算和人员配置决策</strong>。
+      </p>
+      <p>
+        没有这个框架的管理者，通常会在系统稳定上线之后，逐步减少对它的投入——"系统跑得很稳，不需要那么多关注了"。这是把"稳定运行"误解为"安全状态已达到"。
+      </p>
+      <p>
+        有了这个框架，理解会变成：一个上线后没有人在认真维护三系统的智能体，不是"已经安全了"，而是<em>"正在从安全状态向不安全状态漂移，而且没有人知道"</em>。维护三系统的持续投入，不是冗余成本，是防止边界腐烂的必要代价。
+      </p>
+      <p class="text-fg" style="font-size:1.05rem;">
+        你现在部署的那些智能体，上一次审查它们的边界有效性是什么时候？
+      </p>
+
+    </article>
+
+    <aside class="fw-side">
+
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        <div class="op-step">
+          <div class="op-num">S1</div>
+          <div class="op-text"><strong>边界三维盘点。</strong>对每个生产 Agent 显式定义任务/资源/决策三类边界，写入治理文档。</div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S2</div>
+          <div class="op-text"><strong>五类升级触发部署。</strong>实施前三类常规触发条件，再补齐"意图歧义"和"环境异常"两类智能体特有触发，所有升级必须具名 + 时效要求。</div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S3</div>
+          <div class="op-text"><strong>恢复机制 + 根因闭环。</strong>设计即时遏制 / 影响评估 / 根因回流三个组件，确保越界记录驱动边界更新。</div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S4</div>
+          <div class="op-text"><strong>季度边界有效性审查。</strong>每季度复审边界定义是否仍匹配业务现实——这是防止"边界腐烂"的核心机制。</div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">
+          安全不是一种状态，而是<span class="not-italic" style="color:var(--fg)">一种持续运转的能力</span>——对概率性系统尤其如此。
+        </p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">
+          一个上线后无人维护三系统的智能体，不是"安全了"，而是"正在向不安全漂移，而没人知道"。
+        </p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 上线前的治理设计</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>大规模部署后的安全运维体系</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>合规高敏感场景（金融/医疗/法律）</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 安全事故后的根因复盘</div>
+        </div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>只设边界不建升级和恢复</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>升级路径模糊（"联系技术部"而无具名时效）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>不做季度审查（边界悄悄腐烂）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>越界后只救火不建根因闭环</div>
+        </div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F09.html" class="rel-item">
+            <span class="rel-num">F09</span>
+            <span class="rel-name">RACI-A × DAL — 决策边界的责任分配</span>
+          </a>
+          <a href="F18.html" class="rel-item">
+            <span class="rel-num">F18</span>
+            <span class="rel-name">CATER — 可控性的产品级实现</span>
+          </a>
+          <a href="F32.html" class="rel-item">
+            <span class="rel-num">F32</span>
+            <span class="rel-name">智能体全域风险治理法 — 7 类风险防御</span>
+          </a>
+          <a href="G02.html" class="rel-item">
+            <span class="rel-num">G02</span>
+            <span class="rel-name">边界与升级机制 — 治理神经层</span>
+          </a>
+        </div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F11"><span>▸ 边界三维定义模板</span><span class="soon" style="background:var(--accent);color:#0a0a0a;">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;">
+          <span>▸ 5 类升级触发 Skill</span>
+          <span class="soon">即将上线</span>
+        </a>
+        <a class="res-link disabled" href="#" onclick="return false;">
+          <span>▸ 季度边界审查清单</span>
+          <span class="soon">即将上线</span>
+        </a>
+      </div>
+
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F10.html">
+      <div class="dir">← 上一篇</div>
+      <div><span class="nav-num">F10</span><span class="nav-title">智能体时代企业岗位体系</span></div>
+    </a>
+    <a href="F12.html" class="right">
+      <div class="dir">下一篇 →</div>
+      <div><span class="nav-num">F12</span><span class="nav-title">组织变革与文化范式</span></div>
+    </a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

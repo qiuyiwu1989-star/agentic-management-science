@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F04 · 智能体能力三元获取法 (TICA) — 智能体管理学</title>
+<meta name="description" content="企业通过自建（Build）、采购（Buy）、编排（Orchestrate）三种方式获取智能体能力——其中编排是被严重低估的第三战略选项，不是退而求其次的中间方案。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="1">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块一 · 竞争重写 / F04</span>
+      <span class="type-tag">方法级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-1" class="hover:text-fg transition">所有竞争重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体能力三元获取法
+      <span class="en">Triadic Intelligence Capability Acquisition</span>
+      <span class="abbr">TICA</span>
+    </h1>
+    <p class="claim" data-reveal>
+      自建还是采购，这道选择题本身就是错的——第三条路，才是真正的战略主线。
+      <br/><span class="text-fg-dim2">不是每一种能力都需要拥有，但有一种能力是必须拥有的：知道什么时候该自建、什么时候该采购、什么时候该编排。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">企业通过<strong>自建（Build）、采购（Buy）、编排（Orchestrate）</strong>三种方式获取智能体能力——其中<strong>编排</strong>是被严重低估的第三战略选项，不是退而求其次的中间方案。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F04 · TICA 三元决策矩阵</span></div>
+      <span class="viz-pattern">custom</span>
+    </div>
+    <div class="viz-matrix" style="grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto; min-height:auto;">
+      <div class="quad">
+        <span class="quad-tag">Build 自建</span>
+        <h4 class="quad-title">🏗 自主开发</h4>
+        <p class="quad-desc">战略重要性极高 / 外部无法满足 / 数据主权严格。成本最高、周期最长、控制最强。本质：用控制权换长期优势。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">Buy 采购</span>
+        <h4 class="quad-title">🛒 直接购买</h4>
+        <p class="quad-desc">能力标准化高 / 市场供给成熟 / 非差异化但必备。成本最低、速度最快、依赖最高。本质：用速度换效率。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">Orchestrate 编排</span>
+        <h4 class="quad-title">🎭 组合编排</h4>
+        <p class="quad-desc">★ 框架原创。单一能力不足 / 多个专业模块可组合 / 组合方式本身是壁垒。本质：用系统能力换结构优势。</p>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>三种方式对应三种战略选择，非此即彼</span><span><i class="dot"></i>编排是第三条独立主线，不是中间方案</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">这个 Agent 能力，我们应该自己做、买现成、还是通过编排整合？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第四层 · 负责回答<span class="text-fg">「能力该通过什么路径获得」</span>，是从战略意图落地为组织与技术决策的关键桥梁。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">科斯交易成本理论（1937）<span class="text-fg-dim2">→</span> 创新：在传统 Make-or-Buy 二元基础上增加"Orchestrate（编排）"作为独立战略主线。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>金融科技公司的四次会议</h2>
+      <p>一家金融科技公司的技术委员会，为"要不要自研大模型"这个问题开了四次会，每次都没有结论。</p>
+      <p><strong>自研派说</strong>：核心能力不能依赖别人，数据安全有风险，长期成本不可控。<strong>采购派说</strong>：自研周期太长，算力投入太大，外部模型已经够用。</p>
+      <p>两派都有道理，但两派都忽略了一件事：<em>这道选择题本来就是在错误的框架下提出的</em>。在智能体爆发的时代，真正的问题不是"自建还是采购"，而是"这个能力，通过什么方式获取，能形成最难被复制的竞争优势"——而那个答案，有三个选项，不是两个。</p>
+      <h2><span class="num">02</span>科斯的二元框架，漏掉了第三条路</h2>
+      <div class="theory-note"><strong>理论来源</strong>：科斯"Make or Buy"交易成本理论（1937）。<br/><strong>本框架创新</strong>：在传统二元框架基础上增加第三选项"Orchestrate（编排）"，将其从"过渡手段"升格为独立战略主线，并建立三维决策模型确定每种方式的适用边界。</div>
+      <p>"自建还是采购"这个问题，在管理学里有一个学术名字叫"Make or Buy"决策，根源可以追溯到科斯的交易成本理论（1937）——当内部自建的成本低于外部采购的成本，就选择自建；反之，就选择采购。这套逻辑简洁有效，几十年来指导了无数企业的外包和内化决策。</p>
+      <p>但这个框架有一个时代局限：<strong>它成立的前提是能力是相对独立的模块，可以明确地"买进来"或者"建出来"。</strong>在智能体时代，出现了第三种情况——很多能力既不需要自建，也不需要单一采购，而是可以通过将多个外部智能体有效整合来创造出来。这种方式，就是<strong>编排</strong>。</p>
+      <blockquote>编排不是采购的别名。采购是买一个现成的能力，获得的是别人定义好的东西。编排是把多个分散的能力片段重新组合成一个系统，创造的是一种在任何单一采购来源里都不存在的新能力。</blockquote>
+      <h2><span class="num">03</span>三分法的决策逻辑</h2>
+      <p>TICA 的判断依据是三个维度的交叉评估：<strong>战略重要性</strong>（是否构成核心差异化）、<strong>构建可行性</strong>（内部是否具备资源和时间）、<strong>市场成熟度</strong>（外部是否已有高质量供给）。</p>
+      <h3>自建（Build）的适用条件</h3>
+      <p>战略重要性极高、市场上没有可以满足要求的外部供给、或者数据安全和主权控制要求不允许外部依赖。<em>自建是最重的选择，意味着最长的周期、最高的前期投入、最强的控制权。</em>它适合的是那种"这个能力一旦形成就是护城河的核心，而且外部根本买不到"的场景。</p>
+      <h3>采购（Buy）的适用条件</h3>
+      <p>能力是标准化的、市场上有成熟且高质量的供给、这个能力不构成差异化但必须具备。<em>采购是最快的选择，意味着最低的起步成本、最高的供应商依赖。</em>它适合的是那种"这是必要条件但不是胜负手"的场景——比如通用的文档处理、标准化的数据清洗。</p>
+      <h3>编排（Orchestrate）的适用条件</h3>
+      <p>单一能力无法满足需求、市场上有多个专业化智能体可以被组合、核心竞争力在于"如何组合"而不是"某个组件本身"。<strong>这是三分法最重要的原创贡献</strong>——编排能力本身是一种稀缺资产，能把市场上所有人都能买到的组件，通过独特的组合方式创造出竞争对手难以复制的系统性优势。</p>
+      <h2><span class="num">04</span>编排为什么是被低估的战略选项</h2>
+      <p>很多企业在实践中把编排当成一个临时状态——先编排，等内部能力成熟了再自建。<strong>这是一个代价很高的误解。</strong></p>
+      <p>编排的壁垒来自两个地方。<strong>第一是架构知识</strong>——如何设计多智能体之间的协作协议、如何处理不同系统之间的信息流转、如何建立稳定的容错和升级机制。这种知识是在实践中积累的，<em>不是靠采购可以获得的，也不是靠自建某个单一能力可以形成的</em>。</p>
+      <p><strong>第二是数据飞轮</strong>——一个优秀的编排架构，会在运行过程中持续产生关于"哪种组合效果更好"的数据，这些数据进一步优化编排策略，形成越用越好的循环。</p>
+      <blockquote>一家编排能力卓越的企业，能够把所有竞争对手都能采购到的通用智能体，组织成一个整体大于部分之和的系统。这种"组织能力"本身，才是下一个十年最重要的竞争资产之一。</blockquote>
+      <h2><span class="num">05</span>三分法不是一次性决策，是持续动态评估</h2>
+      <p>TICA 框架有一个使用上的关键：<strong>每一种能力的获取方式都不是永久固定的</strong>，它会随着市场成熟度、内部能力、战略优先级的变化而变化。</p>
+      <p>今天需要自建的，可能在一年后市场上出现了成熟的采购选项；今天通过编排实现的，可能在某个时间点值得自建核心部件；今天通过采购满足的，可能因为供应商政策变化而需要迁移。<em>3B 评估应该是一个定期复盘的动态机制，而不是一次性的战略文件。</em></p>
+      <p>回到开头那家金融科技公司。他们争了四次的那个问题，用 TICA 框架来看，答案其实相对清晰：基础语言模型能力，市场成熟度已经很高，采购是合理起点；涉及核心金融数据的专有推理能力，战略重要性高且数据安全要求严，值得自建；<strong>而连接不同能力模块、处理复杂金融工作流的编排层，才是他们真正应该投入最多精力去建设的地方</strong>——因为那是最难被复制的部分。</p>
+      <p>四次会议讨论的，只是三个选项里最重的那一个。</p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>建立能力清单。</strong>列出所有需要获取的 Agent 能力，按业务重要性排序，确保不遗漏核心能力需求。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>三维评分。</strong>对每项能力分别评估战略价值、数据敏感度和能力独特性，各项高/中/低三档。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>应用决策规则。</strong>三高→Build；三低→Buy；中间→Orchestrate。对复杂情况，分析哪个维度权重更高。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>每 6 个月动态复审。</strong>外部能力成熟度快速提升——今天需要自建的，6 个月后可能直接采购更经济。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">过去是选系统，未来是<span class="not-italic" style="color:var(--fg)">编排能力</span>。Build 决定上限，Buy 决定效率，Orchestrate 决定结构——而结构往往是最持久的竞争优势。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">许多企业的最大竞争优势，恰恰来自于把市场上已有的优秀能力组织成一个别人无法复制的协同系统。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>技术路线图规划</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 建设预算分配</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>评估是否引入第三方 Agent 平台</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>识别哪些能力需要自建形成护城河</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>默认所有 AI 能力都应该自建（过度 Build）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 Orchestrate 当作廉价的临时替代方案而非战略选择</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视数据敏感度维度，用外部服务处理核心敏感数据</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>决策后不再复审，错过外部能力成熟后的采购时机</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F02.html" class="rel-item"><span class="rel-num">F02</span><span class="rel-name">护城河重估法 — 编排能力是核心维度</span></a>
+          <a href="F03.html" class="rel-item"><span class="rel-num">F03</span><span class="rel-name">智能体组合矩阵 — 哪些值得投入</span></a>
+          <a href="F05.html" class="rel-item"><span class="rel-num">F05</span><span class="rel-name">数字劳动力资产观 — 财务属性归属</span></a>
+          <a href="G03.html" class="rel-item"><span class="rel-num">G03</span><span class="rel-name">智能体主权模型 — 主权约束自建判断</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F04"><span>▸ TICA 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ TICA Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F03.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F03</span><span class="nav-title">智能体组合矩阵</span></div></a>
+    <a href="F05.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F05</span><span class="nav-title">数字劳动力资产观</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

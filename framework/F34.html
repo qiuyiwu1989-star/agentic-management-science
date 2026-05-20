@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F34 · 角色转型地图 (TSMM) — 智能体管理学</title>
+<meta name="description" content="将岗位拆成T1 可自动化 / T2 AI 增强 / T3 人工主导 / T4 人类核心四类任务，主动设计迁移路径——T1 被 AI 接管后释放的时间，如不主动设计投向，默认会被更多 T1 填满。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="6">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块六 · 人类重写 / F34</span>
+      <span class="type-tag">工具级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-6" class="hover:text-fg transition">所有人类重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      角色转型地图
+      <span class="en">Task Structure Migration Map</span>
+      <span class="abbr">TSMM</span>
+    </h1>
+    <p class="claim" data-reveal>
+      "这个岗位会不会消失"是错误的问题——正确的问题是：这个岗位里有多少任务正在被重写。
+      <br/><span class="text-fg-dim2">AI 改变的不是岗位，是岗位里的任务结构。分析单元从"岗位"降到"任务"，才能看清真正发生了什么。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">将岗位拆成<strong>T1 可自动化 / T2 AI 增强 / T3 人工主导 / T4 人类核心</strong>四类任务，<strong>主动设计迁移路径</strong>——T1 被 AI 接管后释放的时间，如不主动设计投向，默认会被更多 T1 填满。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F34 · T1-T4 任务迁移矩阵</span></div>
+      <span class="viz-pattern">P3</span>
+    </div>
+    <div class="viz-matrix">
+      <div class="axis-y">情境/创造性需求</div>
+      <div class="quad">
+        <span class="quad-tag">T1</span>
+        <h4 class="quad-title">可自动化</h4>
+        <p class="quad-desc">规则清晰边界明确，无需情境判断。<strong>被 AI 替代</strong>——释放时间主动投入 T3/T4。不是被抢走，是被解放。</p>
+        <div class="quad-action">→ 自动化层处理</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">T2</span>
+        <h4 class="quad-title">AI 增强</h4>
+        <p class="quad-desc">人机协同最优。人判断方向，AI 处理执行。L3 能力的核心应用场景。</p>
+        <div class="quad-action">→ 优化协作方式</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">T3</span>
+        <h4 class="quad-title">人工主导</h4>
+        <p class="quad-desc">情境理解 · 关系信任 · 创造性判断。AI 辅助但无法主导。</p>
+        <div class="quad-action">→ 深化拓展方向</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">T4</span>
+        <h4 class="quad-title">人类核心</h4>
+        <p class="quad-desc">价值判断 · 责任承担 · 意义赋予。<strong>AI 时代价值持续提升</strong>。</p>
+        <div class="quad-action">→ 持续投入</div>
+      </div>
+      <div class="corner"></div>
+      <div class="axis-x"><span>低</span>人类不可替代性<span>高</span></div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>岗位重构方向：减少 T1 · 优化 T2 · 深化 T3 · 拓展 T4</span><span><i class="dot"></i>主动设计迁移路径，不会自然发生</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">我的岗位的 T1-T4 结构是什么？T1 释放的时间应该流向哪？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第二层 · 负责回答<span class="text-fg">「个人/岗位的转型路径设计」</span>，与 F10 岗位体系互为补充。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">沙因职业锚理论（1978）+ 超级生涯发展理论（1957）<span class="text-fg-dim2">→</span> 创新：以"任务结构分析"替代"岗位存亡判断" + 主动设计迁移路径。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"哪些职业将被 AI 取代"——这个问题问错了</h2>
+      <p>每隔一段时间，市场上就会出现一批关于"哪些职业将被 AI 取代"的研究报告和预测文章。<em>程序员、会计师、法律助理、内容创作者……</em>不同的研究给出不同的"消失风险"排名，引发一轮又一轮关于职业未来的焦虑讨论。</p>
+      <p>这些讨论有一个共同的分析逻辑：<strong>以"岗位"为单位</strong>，评估这个岗位的工作内容有多少可以被 AI 执行，来推断这个岗位的"被取代风险"。</p>
+      <p>这个逻辑的问题，<em>不在于结论是否准确，而在于分析单元选错了</em>。"岗位"是一个历史性的、社会性的构建，它打包了一批相关的任务，给这批任务赋予了一个职业身份。<strong>但这个打包方式，在 AI 重写了各类任务的执行方式之后，本身就需要被重新设计——而不只是被预测会不会消失。</strong></p>
+      <h2><span class="num">02</span>分析单元从岗位降到任务</h2>
+      <div class="theory-note"><strong>理论来源</strong>：沙因职业锚理论（<em>Career Anchors</em>，1978）；超级生涯发展理论（Super's Career Development Theory，1957）。<br/><strong>本框架创新</strong>：以"任务结构分析"替代"岗位存亡判断"作为 AI 时代职业评估的基础分析框架；提出 T1-T4 四类任务分类，将岗位重构从"被动应对 AI 冲击"转变为"主动设计任务迁移路径"。</div>
+      <p>传统的职业发展理论，以"岗位"作为基本分析单元——沙因的职业锚理论、霍兰德的职业兴趣模型——<em>这些经典框架都在"岗位"层面运作</em>：你适合什么类型的岗位，你在哪个职业通道上发展。</p>
+      <p>这个框架在一个"岗位内容相对稳定"的环境里是合理的——<em>一个会计师做的事，几十年里大体上是会计师该做的事</em>。</p>
+      <p>AI 正在改变这个稳定性。同一个"会计师"岗位，<em>今天包含的任务和五年前包含的任务，在构成上正在发生结构性的变化</em>——某些任务已经被 AI 工具大幅简化甚至替代，某些任务因为 AI 工具的存在而有了更大的发挥空间，还有一些全新的任务正在涌现。</p>
+      <blockquote>以"岗位"为单位来讨论 AI 的影响，就像试图用地图上的行政区划来分析一个生态系统的变化——边界是人为画的，现象是跨边界发生的。把分析单元降到"任务"，才能看清实际发生了什么，也才能设计出真正有效的转型路径。</blockquote>
+      <h2><span class="num">03</span>四类任务的重新认识</h2>
+      <p>TSMM 从 F10 引入并深化了任务四分法，在职业转型的视角下重新分析。</p>
+      <h3>T1 · 可自动化任务</h3>
+      <p>规则清晰、流程固定、不需要情境判断的执行工作。这类任务是 AI 替代效率最高的。<strong>关键认知：T1 被 AI 接管，不是"被抢走了工作"，而是"被解放了时间"。</strong>这批时间能不能被主动投入到 T3/T4，是个人转型成功与否的核心变量。</p>
+      <h3>T2 · AI 增强任务</h3>
+      <p>人类判断和 AI 能力互相补充时效果最好的任务。在 T2 里，AI 提升了人类工作的深度和速度，但人类的判断和选择仍然是核心。<em>这类任务是人机协作最密集的地带。</em></p>
+      <h3>T3 · 人工主导任务</h3>
+      <p>需要深度的情境理解、关系信任和创造性判断，AI 可以辅助但无法主导。<em>医生和患者的深度沟通，律师对特殊案情的创造性策略设计，管理者对复杂组织问题的综合判断。</em><strong>转型的关键方向：从 T1/T2 中解放出来的人，应该往 T3 的深度方向发展。</strong></p>
+      <h3>T4 · 人类核心任务</h3>
+      <p>需要价值判断、道德权衡、责任承担和意义赋予的工作。<strong>这是人类工作最不可替代的部分，也是在 AI 时代价值会持续提升的部分。</strong>企业文化的构建、战略方向的选择、重大责任的承担——这类任务本质上需要一个愿意承担后果的人类来做。</p>
+      <h2><span class="num">04</span>主动设计迁移路径，而不是等待自然发生</h2>
+      <p>岗位的 T1-T4 分布，<strong>不会自动地优化为对人类最有价值的结构。</strong>如果没有主动的设计，<em>T1 被 AI 接管之后释放的时间，会被默认填充回更多的 T1 工作</em>——通量增加，价值密度不变。</p>
+      <p>真正的转型，需要主动设计任务迁移路径：</p>
+      <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);"><li><strong>第一步</strong>：用 T1-T4 框架对自己的当前工作做任务盘点——哪些是 T1，哪些是 T2，哪些是 T3/T4，各自占多少时间</li><li><strong>第二步</strong>：识别当前 T1 任务中，哪些可以通过 AI 工具提效或部分替代，释放出多少时间</li><li><strong>第三步</strong>：明确地决定：这些被释放的时间，要投入到哪些 T3/T4 任务中。<em>这不是自动发生的——需要主动向上级和同事沟通这个重组</em></li><li><strong>第四步</strong>：持续追踪 T1-T4 的分布变化，确保转型方向是正确的</li></ul>
+      <h2><span class="num">05</span>AI 时代职业价值的根本性重新定位</h2>
+      <p>TSMM 揭示的，是 AI 时代职业价值的根本性重新定位：<strong>人的稀缺性，从"执行能力"迁移到了"判断能力"和"关系能力"。</strong></p>
+      <p><em>工业时代，规模化执行能力是稀缺的。知识经济时代，专业判断能力是稀缺的。</em></p>
+      <p>AI 时代，执行能力和大量的标准判断能力都在去稀缺化。<strong>新的稀缺，在三个方向上：</strong></p>
+      <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);"><li><strong>跨领域的综合判断</strong>（T3）</li><li><strong>高价值的关系能力</strong>（T3/T4）</li><li><strong>在人机系统中设计和管理协作方式的编排能力</strong>（F33 中的 L3 能力）</li></ul>
+      <p>这三个方向，<em>恰好是今天的教育和职业发展体系最不擅长培养的能力</em>。</p>
+      <blockquote>问题本身的改变，导向了完全不同的行动。前者的行动是"去学更多 AI 工具"，后者的行动是"重新设计我的工作内容，确保我的时间流向最不可替代的方向"。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>个人 T1-T4 盘点。</strong>对当前岗位每周的工作时间分布逐项分类。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>识别 T1 自动化机会。</strong>哪些 T1 任务可被 AI 替代？释放时间总量？</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>明确决定释放时间投向。</strong>哪些 T3/T4 任务可深化拓展？需要哪些新能力？</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>沟通工作结构重组。</strong>与上级/同事达成共识，避免被更多 T1 填满。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">不是被抢走，是<span class="not-italic" style="color:var(--fg)">被解放</span>——但解放的时间如果不主动设计投向，默认会被更多 T1 填满。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">人的稀缺性，从"执行能力"迁移到了"判断能力"和"关系能力"。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>个人职业发展规划</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>团队任务结构重组</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>岗位 JD 重写</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>AI 转型期的中层赋能</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>以岗位为分析单元</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 T1 释放当裁员理由</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>不主动设计迁移路径</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>只学 AI 工具不重组任务</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F10.html" class="rel-item"><span class="rel-num">F10</span><span class="rel-name">ARRM — 组织视角</span></a>
+          <a href="F33.html" class="rel-item"><span class="rel-num">F33</span><span class="rel-name">IACMM — 能力跃迁</span></a>
+          <a href="F35.html" class="rel-item"><span class="rel-num">F35</span><span class="rel-name">FALA — 能力结构</span></a>
+          <a href="F36.html" class="rel-item"><span class="rel-num">F36</span><span class="rel-name">AC6 — 核心能力</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F34"><span>▸ TSMM 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ TSMM Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F33.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F33</span><span class="nav-title">智能体能力成熟度模型</span></div></a>
+    <a href="F35.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F35</span><span class="nav-title">智能体能力结构评估法</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

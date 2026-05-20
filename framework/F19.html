@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F19 · 多智能体架构成熟度阶梯 (MAAML) — 智能体管理学</title>
+<meta name="description" content="从L1 单 Agent → L2 流水线 → L3 监督者编排 → L4 并行协作 → L5 自组织群体五级阶梯——其中 L3 是当前最佳实践中心点，L3→L4 工程成本增加 8-15 倍。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="3">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块三 · 产品重写 / F19</span>
+      <span class="type-tag">模型级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-3" class="hover:text-fg transition">所有产品重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      多智能体架构成熟度阶梯
+      <span class="en">Multi-Agent Architecture Maturity Ladder</span>
+      <span class="abbr">MAAML</span>
+    </h1>
+    <p class="claim" data-reveal>
+      你的智能体系统是什么级别——大多数企业的最优解，比你想象的简单。
+      <br/><span class="text-fg-dim2">越复杂不等于越成熟。在智能体架构的选择上，盲目追求高级别，是一种代价高昂的工程浪漫主义。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">从<strong>L1 单 Agent → L2 流水线 → L3 监督者编排 → L4 并行协作 → L5 自组织群体</strong>五级阶梯——其中 <strong>L3 是当前最佳实践中心点</strong>，<strong>L3→L4 工程成本增加 8-15 倍</strong>。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F19 · MAAML 五级架构阶梯</span></div>
+      <span class="viz-pattern">P5</span>
+    </div>
+    <div class="viz-ladder">
+      <div class="step">
+        <div class="step-num">L1</div>
+        <div class="step-name">单智能体</div>
+        <div class="step-desc">独立执行单一任务。工程复杂度最低 · 调试最简单。</div>
+        <div class="step-flag">Single Agent · 合理起点</div>
+      </div>
+      <div class="step">
+        <div class="step-num">L2</div>
+        <div class="step-name">流水线</div>
+        <div class="step-desc">固定顺序依次执行。当前生产环境最广泛应用。</div>
+        <div class="step-flag">Sequential · 应用最广</div>
+      </div>
+      <div class="step is-critical">
+        <div class="step-num">L3 ★</div>
+        <div class="step-name">监督者编排</div>
+        <div class="step-desc">主 Agent 动态调度子 Agent。最佳实践中心点——动态规划 + 可控性最佳平衡。</div>
+        <div class="step-flag">Supervised ★ 最佳实践</div>
+      </div>
+      <div class="step">
+        <div class="step-num">L4</div>
+        <div class="step-name">并行协作</div>
+        <div class="step-desc">并行执行 + 相互感知协调。⚠ vs L3 成本 ×8-15 倍。</div>
+        <div class="step-flag">Parallel · 慎重评估</div>
+      </div>
+      <div class="step">
+        <div class="step-num">L5</div>
+        <div class="step-name">自组织群体</div>
+        <div class="step-desc">Swarm 涌现协同。行为不可预测，调试极端困难。研究领域。</div>
+        <div class="step-flag">Swarm · 不适合生产</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>越复杂 ≠ 越成熟</span><span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 50%, transparent)"></i>L3 = 大多数企业最优解 · L5 是研究</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">我们到底需要哪个级别的多智能体架构？是不是越复杂越先进？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第七层 · 负责回答<span class="text-fg">「架构应该选哪个级别」</span>，是产品工程的技术架构决策依据。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">多智能体系统理论（MAS，1980s）+ 软件架构成熟度模型（CMMI，1991）<span class="text-fg-dim2">→</span> 创新：五级实践化阶梯 + L3 最佳实践判断 + L3→L4 成本估算（8-15 倍）。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"Agentic AI"叙事的副作用</h2>
+      <p>在 AI 技术社区，关于"Agentic AI"最激动人心的叙事，通常指向同一个方向：<em>自组织的智能体群体（Swarm），能够自主分工、互相协作、动态适应任务需求，不需要人的持续干预就能完成复杂的端到端任务。</em>这是 AGI 叙事的一种实践形式，也是当前 AI 研究的前沿方向之一。</p>
+      <p>这个叙事有一个副作用：<strong>它让很多企业在设计自己的智能体系统时，把 L5 自组织群体当作架构进化的终点来追求，并把当前的低级别架构视为"还不够先进的过渡状态"。</strong></p>
+      <p>这种认知是一个代价高昂的错误。<em>大多数企业在今天的实际业务场景下，真正需要的架构级别远低于 L5，而盲目追求更高级别会带来成倍增加的系统复杂度、成倍增加的调试难度、成倍增加的治理成本，以及成倍增加的失败风险</em>——同时，业务价值的提升往往远不成比例。</p>
+      <h2><span class="num">02</span>研究视角 vs 实践视角</h2>
+      <div class="theory-note"><strong>理论来源</strong>：多智能体系统理论（MAS，计算机科学，1980 年代起）；软件架构成熟度模型（CMMI，卡内基梅隆，1991）。<br/><strong>本框架创新</strong>：将学术 MAS 理论转化为面向企业实践的五级架构成熟度阶梯，增加每个级别的工程成本估算、适用条件和治理要求；提出 L3（监督者编排型）作为当前生产环境最佳实践中心点的判断。</div>
+      <p>多智能体系统（MAS）是计算机科学的一个成熟研究领域，从 1980 年代开始就有系统性的理论积累。这个领域对各种架构的特性有详尽的形式化描述，但这些描述是<em>面向研究者的，不是面向企业管理者和产品团队的</em>。</p>
+      <p><strong>研究视角关注的问题是：</strong>不同架构的理论性质是什么，涌现行为如何产生，多智能体系统在什么条件下可以实现什么能力。</p>
+      <p><strong>实践视角关注的问题是：</strong>对于我们这个特定的业务场景，哪个架构级别的系统能以可接受的工程复杂度和运维成本，可靠地产生我们需要的业务价值。</p>
+      <p>这两个问题的答案，在很多情况下是不同的。<em>一个在理论上更强大的架构，不一定是在实践中更适合某个具体场景的架构。</em></p>
+      <h2><span class="num">03</span>五级架构阶梯</h2>
+      <p>多智能体架构成熟度阶梯把智能体系统的架构复杂度分为五个级别。</p>
+      <h3>L1 · 单智能体（Single Agent）</h3>
+      <p>一个智能体接受指令，独立完成一个具体任务，没有与其他智能体的协作。<em>工程复杂度最低，调试最简单，是绝大多数企业 AI 能力建设的合理起点。</em>很多企业在 L1 已经可以获得显著的业务价值。</p>
+      <h3>L2 · 流水线（Sequential Pipeline）</h3>
+      <p>多个智能体按照固定的顺序依次执行，前一个的输出是后一个的输入。<em>工程实现相对简单，调试路径清晰——当出现问题，可以追溯到具体的哪一步出了问题。</em>这是当前生产环境中应用最广泛的多智能体架构。</p>
+      <h3>L3 · 监督者编排（Supervised Orchestration）★</h3>
+      <p>一个主智能体（Orchestrator）根据任务需求，动态调度多个专业子智能体，协调它们的工作，整合结果。主智能体不执行具体任务，而是负责规划、分配和监控。<strong>L3 是当前生产实践的最佳实践中心点</strong>——它支持比 L2 更复杂、更动态的任务，同时主智能体的存在保留了系统的可解释性和可控性。</p>
+      <h3>L4 · 并行协作（Parallel Coordination）</h3>
+      <p>多个智能体并行处理任务的不同部分，需要相互感知对方的状态并动态协调。<em>适用于可以被分解为并行子任务，且子任务之间有依赖关系的复杂场景。</em>L4 相比 L3，工程成本显著提升。</p>
+      <h3>L5 · 自组织群体（Self-organizing Swarm）</h3>
+      <p>智能体群体无需固定的调度者，通过相互通信和局部规则，自发涌现出全局层面的协同行为。<strong>这是学术研究的前沿领域，在当前的技术成熟度下，L5 几乎不适合任何生产环境部署</strong>——其行为的不可预测性、调试的极端困难性和治理的几乎不可能，使得它在需要可靠性和可控性的业务场景里不可接受。</p>
+      <h2><span class="num">04</span>L3 → L4 成本增加 8-15 倍</h2>
+      <p>这是一个需要被量化感受的问题。从 L2 到 L3，增加的主要是主智能体的规划逻辑，整体工程复杂度的增加是可接受的。<strong>但从 L3 升到 L4，工程成本会增加 8 到 15 倍</strong>——这是来自多个生产级系统实际开发和运维经验的估算。</p>
+      <p>这个巨大的成本增加来自几个方面：</p>
+      <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);"><li><strong>并行执行带来的竞争状态（Race Condition）处理</strong>，需要为每种可能的并发场景设计测试和处理逻辑</li><li><strong>智能体之间的实时通信协议</strong>，需要处理消息丢失、重复、乱序等工程问题</li><li><strong>全局状态的一致性维护</strong>，在分布式执行的情况下是一个经典的难题</li><li><strong>调试复杂度的指数级提升</strong>，因为问题可能来自任意一个智能体或它们之间的任意交互</li></ul>
+      <p>而<em>从 L3 到 L4 的价值提升，在大多数业务场景下是有限的</em>——因为大多数需要智能体处理的业务任务，本质上是可以被序列化的，并行执行带来的速度提升并不是核心需求。</p>
+      <blockquote>"我们要从 L3 升到 L4"这个决定，在大多数情况下，都应该被质疑：这 8 到 15 倍的工程成本，对应的是什么业务价值，这个比例是否值得？</blockquote>
+      <h2><span class="num">05</span>"刚好够用"才是工程智慧</h2>
+      <p>MAAML 揭示的，是工程决策中的一个普遍认知偏差：<strong>"更复杂 = 更先进 = 更好"</strong>。</p>
+      <p>这个偏差在技术领域特别强烈，因为<em>复杂的系统在演讲台上更令人印象深刻，在 GitHub 上更受关注，在招聘市场上更能体现工程师的能力</em>。但对于需要可靠地为业务产生价值的生产系统，这个偏差是有害的。</p>
+      <blockquote>"刚好够用"（Just Enough Architecture）才是真正的工程智慧——理解自己的业务需求，选择能以最低复杂度满足这个需求的架构，把省下来的工程资源投入到真正需要的地方。</blockquote>
+      <p>对大多数企业而言，"刚好够用"意味着：<strong>从 L1 开始，在 L2 获得大多数业务价值，在有明确需求时审慎地升级到 L3，只有在面对确实需要动态编排的复杂场景，且已经做好充分的工程评估之后，才考虑 L4</strong>。L5 是研究，不是实践。</p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>识别业务场景复杂度。</strong>需要多 Agent 协同还是单 Agent 即可？序列化还是真正并行？</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>匹配最低足够级别。</strong>从 L1 起步，L2 解决大多数生产需求，L3 用于真正动态编排。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>L3→L4 成本评估。</strong>多出的 8-15 倍工程成本对应多少业务价值增量？</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>L5 仅作研究。</strong>除非有充分的研究投入预算，否则 L5 不进入生产决策。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">"<span class="not-italic" style="color:var(--fg)">刚好够用</span>"（Just Enough Architecture）才是真正的工程智慧——越复杂 = 越难控制，不等于越先进。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">L5 是研究，不是实践。大多数企业最优解在 L2 或 L3。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 系统架构选型评审</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>技术路线图规划</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>工程成本/价值评估</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>招聘工程师时的能力定级</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>因为技术上可以就做了更复杂的</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 L5 当作进化终点追求</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视 L3→L4 的成本陡升</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把"并行"等同于"先进"</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F08.html" class="rel-item"><span class="rel-num">F08</span><span class="rel-name">DFAMP — 中台 = L3 监督者载体</span></a>
+          <a href="F22.html" class="rel-item"><span class="rel-num">F22</span><span class="rel-name">PRTD — 链路诊断的复杂度对应</span></a>
+          <a href="F23.html" class="rel-item"><span class="rel-num">F23</span><span class="rel-name">SEAA — 六层架构的编排层</span></a>
+          <a href="F24.html" class="rel-item"><span class="rel-num">F24</span><span class="rel-name">ADLC — 架构选型在哪个阶段决定</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F19"><span>▸ MAAML 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ MAAML Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F18.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F18</span><span class="nav-title">可治理信任模型</span></div></a>
+    <a href="F20.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F20</span><span class="nav-title">评测驱动工程法</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F21 · 智能体 Skill 资产治理 (SAG) — 智能体管理学</title>
+<meta name="description" content="将 Skill 从个人提示词和零散文档治理成可调用、可复用、可评估、可版本管理的组织资产——通过S/A/B/C 四级分类和五组件标准格式系统化。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="4">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块四 · 系统重写 / F21</span>
+      <span class="type-tag">治理级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-4" class="hover:text-fg transition">所有系统重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体 Skill 资产治理
+      <span class="en">Skill Asset Governance Method</span>
+      <span class="abbr">SAG</span>
+    </h1>
+    <p class="claim" data-reveal>
+      那个人离职了，他写的智能体也死了——这是企业 AI 最普遍的技术债。
+      <br/><span class="text-fg-dim2">当知识只活在某个人的脑子里，企业不拥有这个知识。当知识活在一个可执行的 Skill 文件里，企业才拥有这个知识。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">将 Skill 从<strong>个人提示词和零散文档</strong>治理成<strong>可调用、可复用、可评估、可版本管理的组织资产</strong>——通过<strong>S/A/B/C 四级分类</strong>和五组件标准格式系统化。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F21 · Skill 资产四级分类</span></div>
+      <span class="viz-pattern">P5</span>
+    </div>
+    <div class="viz-ladder">
+      <div class="step is-critical">
+        <div class="step-num">S 级</div>
+        <div class="step-name">战略核心资产</div>
+        <div class="step-desc">与核心竞争力高度相关。专属负责人，严格版本控制，修改需审批。</div>
+        <div class="step-flag">Strategic ★</div>
+      </div>
+      <div class="step">
+        <div class="step-num">A 级</div>
+        <div class="step-name">高价值运营资产</div>
+        <div class="step-desc">日常运营重要价值。稳定维护机制+明确责任人，版本管理适当简化。</div>
+        <div class="step-flag">A-tier</div>
+      </div>
+      <div class="step">
+        <div class="step-num">B 级</div>
+        <div class="step-name">通用效率资产</div>
+        <div class="step-desc">标准化任务，鼓励跨团队复用。维护成本尽量降低。</div>
+        <div class="step-flag">B-tier</div>
+      </div>
+      <div class="step">
+        <div class="step-num">C 级</div>
+        <div class="step-name">待评估或退役</div>
+        <div class="step-desc">效能不达标或战略价值存疑。修复升级至 B 级或正式退役。</div>
+        <div class="step-flag">C-pending</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>四级分类决定维护投入与审批门槛</span><span><i class="dot"></i>C 级不应长期存在 → "Skill 丛林"的清理重点</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">企业的 AI 能力，是个人资产还是组织资产？人走了能力会不会跟着走？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第二层 · 负责回答<span class="text-fg">「AI 能力如何从个人沉淀为组织资产」</span>。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">野中郁次郎《知识创造的企业》（1995）+ 软件资产管理理论（SAM）<span class="text-fg-dim2">→</span> 创新：增加"可执行化"作为 AI 时代知识管理新要求 + Skill 文件标准格式 + 四级分类治理。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>令人沮丧的重复——核心开发者一离职，智能体就死了</h2>
+      <p>许多企业在推进 AI 转型的过程中，会经历一种令人沮丧的重复：<em>某个团队开发了一个表现优秀的智能体，大家用得很好。然后那个核心开发者离职了，或者调岗了，没有人完全理解这个智能体是怎么设计的。几个月之后，智能体需要更新，没有人敢动，因为不知道改了什么会出问题。最终，它被放弃了，另一个团队从零开始重新开发一个类似的东西。</em></p>
+      <p>这不是个别企业的特殊情况。在几乎所有 AI 建设还处于探索期的企业里，<strong>这种"个人资产无法变成组织资产"的问题都以各种形式存在</strong>。</p>
+      <p>更深的问题是：这种现象不只是资源浪费，<em>它还在系统性地阻止企业 AI 能力的积累</em>。每一次从零开始，都意味着之前的所有探索经验没有沉淀下来。<strong>企业的 AI 能力不是在生长，而是在原地打转。</strong></p>
+      <h2><span class="num">02</span>知识管理在 AI 时代遇到了一个新维度</h2>
+      <div class="theory-note"><strong>理论来源</strong>：野中郁次郎《知识创造的企业》（<em>The Knowledge-Creating Company</em>，1995）；软件资产管理理论（SAM）。<br/><strong>本框架创新</strong>：在知识管理"显性化"原则基础上，增加"可执行化"作为 AI 时代的新要求，构建 Skill 文件标准格式规范；提出 Skill 资产四级分类（S/A/B/C）和完整的生命周期治理机制；将"Skill 丛林"定义为当前企业 AI 建设最普遍的技术债形态。</div>
+      <p>知识管理理论已经非常成熟。野中郁次郎在 1995 年的《知识创造的企业》里系统阐述了<em>隐性知识</em>和<em>显性知识</em>的区别，以及如何通过"显性化"把个人的隐性知识转化为组织可以共享和积累的显性资产。</p>
+      <p>智能体时代带来了一个新维度，让这个问题的性质发生了根本性的改变：<strong>知识不只需要被显性化，还需要被可执行化。</strong></p>
+      <p>一份关于"如何分析市场竞争态势"的文档，<em>是显性知识，但它不能被直接执行</em>——人还是需要阅读、理解、应用。一个经过精心设计的市场竞争分析 Skill 文件，包含了对任务的精确定义、合适的上下文架构、质量评估标准、边界条件处理——<strong>它不只是"写下来了"，而是"可以被直接调用执行"</strong>。</p>
+      <p>从显性知识到可执行资产，这一步的跨越，<em>是企业 AI 能力积累的关键基础设施，但也是当前大多数企业最薄弱的地方</em>。</p>
+      <h2><span class="num">03</span>从"知识"到"可执行资产"</h2>
+      <p>在思考如何解决这个问题时，有一个关键的认知转换：<strong>把 Skill 文件不当作"配置文档"，而当作"数字资产"来管理。</strong></p>
+      <p><em>配置文档的管理逻辑是：写一份，存起来，需要的时候找到，不用了就忘记。数字资产的管理逻辑是：评估价值、明确所有权、建立版本控制、设定更新机制、追踪使用情况、定期审查有效性、到期时主动退役。</em></p>
+      <p>一个标准化的 Skill 文件，应该包含以下<strong>五个核心组件</strong>：</p>
+      <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);"><li><strong>任务定义</strong>：这个 Skill 负责解决什么问题，适用场景是什么，明确的输入和输出规格</li><li><strong>执行逻辑</strong>：提示词模板、上下文架构设计、工具调用规范</li><li><strong>质量标准</strong>：如何评估这个 Skill 的输出质量，接受的基准线是什么</li><li><strong>边界说明</strong>：这个 Skill 不应该被用于什么场景，已知的局限性是什么</li><li><strong>维护信息</strong>：责任人、版本历史、最后更新时间、下次审查时间</li></ul>
+      <p>这五个组件，确保一个 Skill 文件不只是"能被执行"，<em>还"能被理解、能被维护、能被传承"</em>。</p>
+      <h2><span class="num">04</span>Skill 资产四级分类</h2>
+      <p>并非所有 Skill 都有同等的战略价值，也不应该被给予同等的维护投入。</p>
+      <h3>S 级（战略核心资产）</h3>
+      <p>与企业核心竞争力高度相关，在业务流程中被频繁调用，难以被外部直接替代。<em>这类 Skill 需要最高级别的维护，有专属的负责人，有严格的版本控制，有定期的质量审查。</em>任何对 S 级 Skill 的修改，需要明确的审批流程。</p>
+      <h3>A 级（高价值运营资产）</h3>
+      <p>在日常运营中有重要价值，但不直接构成核心竞争力。<em>这类 Skill 需要稳定的维护机制和明确的责任人，但版本管理可以适当简化。</em></p>
+      <h3>B 级（通用效率资产）</h3>
+      <p>处理常见的标准化任务，有稳定的质量表现，但价值相对通用。<em>这类 Skill 可以在团队间共享复用，维护成本应该尽量降低，鼓励被更优秀的 Skill 替代。</em></p>
+      <h3>C 级（待评估或待退役）</h3>
+      <p>效能表现不达标或战略价值存疑的 Skill。这类 Skill 需要进入明确的决策流程——<strong>要么修复提升至 B 级，要么正式退役清理</strong>。C 级不应该长期存在，<em>它的积累是"Skill 丛林"形成的主要原因</em>。</p>
+      <h2><span class="num">05</span>两种 AI 能力积累的命运</h2>
+      <p>Skill 资产治理揭示的，是企业 AI 能力积累的<strong>两种命运</strong>之间的根本差异。</p>
+      <p><strong>第一种命运</strong>：知识附着在人身上，AI 能力依赖于某几个关键人员的个人能力。<em>人员流动时，能力随之流失。每次新项目，从零开始探索，重复踩已经踩过的坑。</em>企业的 AI 能力是个人资产的集合，不是组织资产。</p>
+      <p><strong>第二种命运</strong>：知识被系统性地转化为 Skill 文件，经过标准化、评级、治理，成为组织可以管理、复用和持续优化的数字资产。<em>新成员加入，可以直接调用已有的高质量 Skill；关键人员离职，能力留在系统里；每次新项目，站在已有积累的基础上起步。</em>企业的 AI 能力是有复利效应的组织资产。</p>
+      <blockquote>从个人资产到组织资产，这个转化不会自动发生，它需要制度建设。"Skill 丛林"——各个团队各自开发、散落各处、重复开发、质量参差、无法追踪的 Skill 文件集合——是当前企业 AI 建设最普遍的技术债形态。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>盘点现有 Skill 文件。</strong>识别散落在个人/团队的所有 Skill 文件。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>标准化五组件格式。</strong>任务定义/执行逻辑/质量标准/边界说明/维护信息。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>四级分类。</strong>S/A/B/C 评级 + 对应维护投入。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>建立周/月级清理机制。</strong>C 级 Skill 不应长期存在——修复或退役。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">从个人资产到组织资产，<span class="not-italic" style="color:var(--fg)">不会自动发生</span>——它需要制度建设。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">人走能力走 vs 人走能力留——两种命运的分化在第二年开始，第三年差距无法弥合。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Skill 库治理与版本管理</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>人才流动的能力保留</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>跨团队复用机制</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>新员工快速上手 AI 能力</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 Skill 当一次性文档</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>无统一格式各团队自建</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>C 级 Skill 长期堆积</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>没有人在治理只在使用</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F08.html" class="rel-item"><span class="rel-num">F08</span><span class="rel-name">DFAMP — 中台的 Skill 资产库</span></a>
+          <a href="F11.html" class="rel-item"><span class="rel-num">F11</span><span class="rel-name">ABERS — Skill 的边界设计</span></a>
+          <a href="F20.html" class="rel-item"><span class="rel-num">F20</span><span class="rel-name">Triple-E — Skill 评测集</span></a>
+          <a href="F23.html" class="rel-item"><span class="rel-num">F23</span><span class="rel-name">SEAA — Skill 在六层架构的位置</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F21"><span>▸ SAG 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ SAG Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F20.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F20</span><span class="nav-title">评测驱动工程法</span></div></a>
+    <a href="F22.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F22</span><span class="nav-title">执行链路四环诊断法</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

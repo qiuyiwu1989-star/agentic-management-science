@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F01 · 智能体五力重构法 (AFFR) — 智能体管理学</title>
+<meta name="description" content="重新推导智能体时代五力的来源与强度，并增加主权力作为第六维度。模块一·竞争重写 F01。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="1">
+
+<!-- ============ NAV ============ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2">
+      <span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块一 · 竞争重写 / F01</span>
+      <span class="type-tag">方法级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-1" class="hover:text-fg transition">所有竞争重写框架 →</a>
+    </div>
+
+    <h1 data-reveal>
+      智能体五力重构法
+      <span class="en">Agentic Five Forces Reconstruction</span>
+      <span class="abbr">AFFR</span>
+    </h1>
+
+    <p class="claim" data-reveal>
+      波特没有错——但他的五力框架，建立在一个正在失效的前提上。
+      <br/><span class="text-fg-dim2">分析框架是有前提的。当前提改变，再精密的框架也会给出错误的答案。</span>
+    </p>
+
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="btn-primary">阅读长文 <span class="arr">↓</span></a>
+      <a href="#resources" class="text-cta">下载 Skill 与提示词 <span class="arr">↓</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CORE DEFINITION ============ -->
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">
+      重新推导智能体时代<strong>进入威胁、供应商力量、买方力量、替代品和同业竞争</strong>的来源与强度，并增加<strong>主权力</strong>作为第六维度。
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISUALIZATION MODEL ============ -->
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left">
+        <span class="viz-label">可视化模型 · Visual Model</span>
+        <h3>五力重构 + 主权力第六维</h3>
+      </div>
+      <span class="viz-pattern">P1 · 五力放射图</span>
+    </div>
+
+    <div class="viz-canvas">
+      <svg viewBox="0 0 720 600" class="viz-svg"
+           xmlns="http://www.w3.org/2000/svg"
+           role="img" aria-labelledby="viz-title viz-desc">
+        <title id="viz-title">智能体五力重构法 (AFFR) 可视化模型</title>
+        <desc id="viz-desc">中心为同业竞争，四个方向是另外四力（进入、供应商、买方、替代品），外圈虚线环为新增第六维度主权力</desc>
+
+        <defs>
+          <marker id="arrow-aff" viewBox="0 0 10 10" refX="9" refY="5"
+                  markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" class="v-arrow-head"/>
+          </marker>
+        </defs>
+
+        <!-- Outer Sovereignty Ring -->
+        <circle class="v-ring" cx="360" cy="305" r="275"/>
+        <text class="v-ring-label" x="360" y="28" text-anchor="middle">
+          主权力 · SOVEREIGNTY POWER
+        </text>
+        <text class="v-ring-sub" x="360" y="48" text-anchor="middle">
+          数据 · 模型 · 执行 · 治理 · 经济
+        </text>
+
+        <!-- Connectors (forces → rivalry) -->
+        <line class="v-connector" x1="360" y1="165" x2="360" y2="232" marker-end="url(#arrow-aff)"/>
+        <line class="v-connector" x1="450" y1="305" x2="437" y2="305" marker-end="url(#arrow-aff)"/>
+        <line class="v-connector" x1="360" y1="445" x2="360" y2="378" marker-end="url(#arrow-aff)"/>
+        <line class="v-connector" x1="270" y1="305" x2="283" y2="305" marker-end="url(#arrow-aff)"/>
+
+        <!-- Center: 同业竞争 -->
+        <g class="v-node center">
+          <circle class="v-center" cx="360" cy="305" r="72"/>
+          <text class="v-node-mono" x="360" y="280" text-anchor="middle">F01 · AFFR</text>
+          <text class="v-node-title" x="360" y="305" text-anchor="middle">同业竞争</text>
+          <text class="v-node-sub" x="360" y="325" text-anchor="middle">编排能力的竞争</text>
+        </g>
+
+        <!-- Top: 进入威胁 -->
+        <g class="v-node">
+          <rect class="v-node-rect" x="270" y="100" width="180" height="65" rx="4"/>
+          <text class="v-node-mono" x="285" y="118">FORCE 1</text>
+          <text class="v-node-title" x="360" y="135" text-anchor="middle">进入威胁</text>
+          <text class="v-node-sub" x="360" y="155" text-anchor="middle">能力门槛 → 系统门槛</text>
+        </g>
+
+        <!-- Right: 买方力量 -->
+        <g class="v-node">
+          <rect class="v-node-rect" x="450" y="272" width="180" height="65" rx="4"/>
+          <text class="v-node-mono" x="465" y="290">FORCE 2</text>
+          <text class="v-node-title" x="540" y="307" text-anchor="middle">买方力量</text>
+          <text class="v-node-sub" x="540" y="327" text-anchor="middle">采购 Agent 进场</text>
+        </g>
+
+        <!-- Bottom: 替代品威胁 -->
+        <g class="v-node">
+          <rect class="v-node-rect" x="270" y="445" width="180" height="65" rx="4"/>
+          <text class="v-node-mono" x="285" y="463">FORCE 3</text>
+          <text class="v-node-title" x="360" y="480" text-anchor="middle">替代品威胁</text>
+          <text class="v-node-sub" x="360" y="500" text-anchor="middle">能力替代 · 跨行业发生</text>
+        </g>
+
+        <!-- Left: 供应商力量 -->
+        <g class="v-node">
+          <rect class="v-node-rect" x="90" y="272" width="180" height="65" rx="4"/>
+          <text class="v-node-mono" x="105" y="290">FORCE 4</text>
+          <text class="v-node-title" x="180" y="307" text-anchor="middle">供应商力量</text>
+          <text class="v-node-sub" x="180" y="327" text-anchor="middle">模型平台依赖</text>
+        </g>
+
+      </svg>
+    </div>
+
+    <div class="viz-legend">
+      <span><i class="dot hub"></i>同业竞争（中心，rivalry hub）</span>
+      <span><i class="dot"></i>四力（来源被重构）</span>
+      <span><i class="dot ring"></i>主权力（第六维度，外圈包裹）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AT-A-GLANCE ============ -->
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">在智能体进入产业后，这个行业的竞争规则究竟变成了什么？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第一层 · 负责回答<span class="text-fg">「外部世界变了什么」</span>，是后续五个框架的分析起点。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">波特《竞争战略》（1980）<span class="text-fg-dim2">→</span> 创新点：回到五力成立的前提（"人是执行主体、价值链是线性的"）重新推导，并增加第六维度。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAIN: ARTICLE + SIDE RAIL ============ -->
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <!-- LEFT: long-form article -->
+    <article class="fw-article">
+
+      <h2><span class="num">01</span>波特在 1979 年做了一个假设，那个假设从未被说出来</h2>
+      <p>
+        迈克尔·波特在 1979 年发表《竞争力量如何塑造战略》，提出了影响行业竞争的五种力量：新进入者的威胁、供应商的议价能力、买方的议价能力、替代品的威胁、现有竞争者之间的竞争。这套框架后来成为战略分析的基础语言，至今仍是商学院最核心的课程之一。
+      </p>
+      <p>
+        但波特在建立这套框架时，做了一个从未被明说的假设：<strong>执行主体是人，价值链是线性的。</strong>
+      </p>
+      <p>
+        所谓"人是执行主体"，意味着进入一个行业需要招募和训练人才，规模的扩张受到人力组织能力的约束，竞争对手的行动速度取决于人的反应速度，供需双方的谈判也是在人与人之间进行。所谓"价值链是线性的"，意味着从研发到生产到销售，每个环节依次传递，有清晰的上下游关系，竞争优势来自在某个或某几个环节上建立比对手更深的壁垒。
+      </p>
+      <p>
+        这两个假设，在 1979 年不需要被说出来，因为它们太显然了。<em>人就是执行主体，价值链就是线性的——这还需要说吗？</em>
+      </p>
+      <p>但今天，这两个假设都开始出现裂缝。</p>
+
+      <div class="theory-note">
+        <strong>理论来源</strong>：波特《竞争战略》（<em>Competitive Strategy</em>，1980）、《竞争优势》（<em>Competitive Advantage</em>，1985）。
+        <br/><strong>本框架创新</strong>：不在五力基础上做"AI 补丁"，而是回到五力成立的前提条件——"人是执行主体、价值链是线性的"——重新推导每一力在前提改变后的新表现形式，并增加第六维度"主权力"。
+      </div>
+
+      <h2><span class="num">02</span>五力，在新的前提下，每一力都变了</h2>
+      <p>
+        当执行主体开始包含智能体，当价值链开始可以被实时编排，五种竞争力量的来源和强度都在发生变化——不是变强或变弱那么简单，而是<strong>来源本身在改变</strong>。
+      </p>
+
+      <h3>进入威胁：壁垒的厚度在某些维度上正在变薄</h3>
+      <p>
+        在波特的框架里，由资本需求、规模经济、品牌忠诚度、渠道控制权等因素决定。这些因素构成壁垒，本质上是因为它们都需要时间和人力来积累。智能体压缩了所有这些积累过程需要的人力成本和时间成本——选品、定价、用户获取、内容生成、客服响应这些过去需要大型团队同时推进的工作，现在可以用极小的人力驱动大量智能体并行完成。
+      </p>
+
+      <h3>供应商力量：新型供应商进入了竞争方程</h3>
+      <p>
+        模型提供商和智能体基础设施平台。任何企业一旦将核心业务流程建立在某个大型语言模型或某个智能体平台之上，就形成了新型的供应商依赖。这种依赖不只是定价依赖，更是<strong>能力依赖</strong>——当平台改变接口、调整政策或者停止服务，企业的核心执行能力可能会受到根本性威胁。
+      </p>
+
+      <h3>买方力量：信息不对称这个缓冲被系统性消除</h3>
+      <p>
+        当买方开始部署自己的采购智能体，谈判本身的速度和精度都发生了质变。一个能实时比价、自动测试供应商服务质量、持续优化采购策略的买方智能体，其议价能力远超一个经验丰富的人类采购团队。
+      </p>
+
+      <h3>替代品威胁：能力替代而非产品替代</h3>
+      <p>
+        一个企业的某项核心能力，可能被一个外部智能体服务在更低的成本下直接替代，而这个智能体服务的提供者，甚至不在传统意义上的同一个行业里。<em>当能力可以被即时调用，行业边界作为"替代品威胁"分析单元的有效性，正在下降。</em>
+      </p>
+
+      <h3>同业竞争：核心维度从"谁的产品更好"迁移到"谁的编排能力更强"</h3>
+      <p>
+        一家编排能力卓越的企业，能够把外部的通用智能体能力组织成独特的竞争优势，即使它没有任何独占的技术资产。这意味着传统意义上的差异化竞争，正在让位于一种新的竞争——<strong>系统编排能力的竞争</strong>。
+      </p>
+
+      <h2><span class="num">03</span>第六力：主权力 (Sovereignty Power)</h2>
+      <p>
+        在重写五力之后，有一个维度在原框架里完全缺席，但在智能体时代开始变得关键，需要被单独提出：<strong>主权力</strong>——企业对支撑其核心竞争力的数据、模型和执行系统的控制程度。
+      </p>
+      <blockquote>
+        这不是简单的"自研还是采购"问题。它问的是：当你的竞争优势越来越依赖智能体系统，你对那个系统的控制程度有多深？是你拥有数据和模型，还是你只是一个租用者？当基础设施提供商改变条款，你的护城河会不会因此缩水？
+      </blockquote>
+      <p>
+        主权力低的企业，即使在其他五力上暂时领先，也可能在某个时刻发现，自己的竞争地位建立在别人的地基上。
+      </p>
+
+      <h2><span class="num">04</span>从竞争分析入口到战略重估的起点</h2>
+      <p>
+        把这个框架和传统五力分析放在一起，有一个关键区别值得说清楚。传统五力给出的是一个<em>行业吸引力的静态截面</em>。智能体五力重构法（AFFR）给出的是一个<em>动态判断</em>：在智能体渗透这个行业的过程中，五力的重心正在如何移动，以及主权力这个新变量正在如何成形。
+      </p>
+      <p>
+        这意味着，用这个框架做分析，得不到一个"这个行业值不值得进入"的简单结论。它给出的是一系列更深层的问题：
+      </p>
+      <p>
+        你们在哪些竞争维度上已经感受到了智能体带来的结构性压力？哪些力量正在因为新前提而重新洗牌？你的护城河里，有多少部分在新的竞争方程里仍然有效？
+      </p>
+      <p>
+        <strong>从"工具选择"升级到"竞争结构重估"，这是这个框架想要完成的认知迁移。</strong>前者是在旧地图上找路，后者是先确认地图本身是否还准确。
+      </p>
+
+      <h2><span class="num">05</span>一个留下来的问题</h2>
+      <p>
+        波特的五力框架在 1979 年是对的。它不是在今天"失效"了，而是<em>它成立的前提，在某些行业的某些维度上，正在悄悄改变</em>。一个分析框架一旦失去了对自己前提的敏感性，就会开始给出那种"数字都对、方向却错"的分析结论。
+      </p>
+      <p class="text-fg" style="font-size:1.05rem;">
+        你现在用来判断竞争格局的那套框架，最后一次检查它的前提是什么时候？
+      </p>
+
+    </article>
+
+    <!-- RIGHT: sticky side rail -->
+    <aside class="fw-side">
+
+      <!-- 操作四步法 -->
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        <div class="op-step">
+          <div class="op-num">S1</div>
+          <div class="op-text"><strong>选定分析单元。</strong>明确分析的行业或细分市场边界，识别核心价值链结构和主要参与者类型。</div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S2</div>
+          <div class="op-text"><strong>逐力扫描变化。</strong>对五力分别评估：智能体进入后，这一力的来源是否改变？强度如何变化？原有壁垒是否还有效？</div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S3</div>
+          <div class="op-text"><strong>叠加主权维度。</strong>对每一力的分析叠加"Agent 主权"扫描：企业对该力相关的核心资源的控制权是否足够？</div>
+        </div>
+        <div class="op-step">
+          <div class="op-num">S4</div>
+          <div class="op-text"><strong>绘制竞争地图。</strong>将分析结果映射为竞争格局图，标注行业中各类参与者的相对位置变化，识别最大的战略机会与威胁区域。</div>
+        </div>
+      </div>
+
+      <!-- 关键洞见 -->
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">
+          问题不再是"AI 会不会影响竞争"，而是：<span class="not-italic" style="color:var(--fg)">当智能体成为生产与交易的基本单元后，行业竞争结构本身如何被重写。</span>
+        </p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">
+          这一框架的核心贡献是将"AI 影响"从战术层面（某个工具提高了效率）上升到结构层面（整个行业的游戏规则改变了）。
+        </p>
+      </div>
+
+      <!-- 适用场景 / 误区 -->
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>进入一个新行业前的战略尽调</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>判断现有护城河在 Agent 时代是否仍有效</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>识别行业内最可能被颠覆的环节</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>制定 3–5 年竞争战略的底层分析</div>
+        </div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>把五力变化当线性叠加而非结构性重写</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>只分析技术变化而忽略商业模式变化</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>用静态视角分析本质动态的竞争格局</div>
+        </div>
+      </div>
+
+      <!-- 关联框架 -->
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F02.html" class="rel-item">
+            <span class="rel-num">F02</span>
+            <span class="rel-name">智能体护城河重估法 — 量化优势来源</span>
+          </a>
+          <a href="F04.html" class="rel-item">
+            <span class="rel-num">F04</span>
+            <span class="rel-name">能力获取三分法 (3B) — 自建/采购/编排</span>
+          </a>
+          <a href="G03.html" class="rel-item">
+            <span class="rel-num">G03</span>
+            <span class="rel-name">智能体主权模型 — 主权力的哲学底座</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 资源 -->
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F01"><span>▸ 五力重写分析提示词模板</span><span class="soon" style="background:var(--accent);color:#0a0a0a;">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;">
+          <span>▸ AFFR 分析 Skill 文件</span>
+          <span class="soon">即将上线</span>
+        </a>
+        <a class="res-link disabled" href="#" onclick="return false;">
+          <span>▸ 行业应用案例集</span>
+          <span class="soon">即将上线</span>
+        </a>
+      </div>
+
+    </aside>
+  </div>
+</section>
+
+<!-- ============ PREV / NEXT NAV ============ -->
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F00.html">
+      <div class="dir">← 上一篇</div>
+      <div><span class="nav-num">F00</span><span class="nav-title">企业能力编排论</span></div>
+    </a>
+    <a href="F02.html" class="right">
+      <div class="dir">下一篇 →</div>
+      <div><span class="nav-num">F02</span><span class="nav-title">智能体护城河重估法</span></div>
+    </a>
+  </nav>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="https://www.zaowuyun.com/" target="_blank" class="hover:text-accent transition">造物云 ↗</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

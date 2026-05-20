@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth *)",
+      "Bash(git --version)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(open \"/Users/qiuyiwu/Downloads/智能体管理学-站点 \\(1\\)/index.html\")",
+      "Bash(brew --version)",
+      "Bash(sw_vers -productVersion)",
+      "Bash(mkdir -p ~/bin)",
+      "Bash(curl -s https://api.github.com/repos/cli/cli/releases/latest)",
+      "Bash(awk -F'\"' '{print $4}')",
+      "Bash(curl -sL https://api.github.com/repos/cli/cli/releases/latest -o /tmp/gh_release.json)",
+      "Read(//tmp/**)",
+      "Bash(cat /tmp/gh_release.json)",
+      "Bash(git ls-remote *)",
+      "Bash(curl -fsSL -o gh.zip \"https://github.com/cli/cli/releases/download/v2.92.0/gh_2.92.0_macOS_arm64.zip\")",
+      "Bash(unzip -oq gh.zip)",
+      "Bash(cp gh_2.92.0_macOS_arm64/bin/gh ~/bin/gh)",
+      "Bash(chmod +x ~/bin/gh)",
+      "Bash(xattr -d com.apple.quarantine ~/bin/gh)",
+      "Bash(~/bin/gh --version)",
+      "Read(//Users/qiuyiwu/**)",
+      "Bash(echo 'export PATH=\"$HOME/bin:$PATH\"')",
+      "Bash(rm -f /tmp/gh_login.log)",
+      "Bash(nohup ~/bin/gh auth login -h github.com -p https -s repo,workflow -w)",
+      "Bash(echo \"PID=$!\")",
+      "Bash(kill -0 11162)",
+      "Bash(~/bin/gh auth *)",
+      "Bash(git init *)",
+      "Bash(git config *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}

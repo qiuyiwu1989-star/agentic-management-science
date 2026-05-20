@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F09 · 人机责任决策矩阵 (RACI-A × DAL) — 智能体管理学</title>
+<meta name="description" content="融合责任分配（RACI-A）与决策自动化阶梯（DAL），同时回答"谁负责"和"自动化到什么程度"——核心规则：Ag ≠ A，A 永远是具名人类。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="2">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块二 · 组织重写 / F09</span>
+      <span class="type-tag">工具级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-2" class="hover:text-fg transition">所有组织重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      人机责任决策矩阵
+      <span class="en">Human-Agent Responsibility Decision Matrix</span>
+      <span class="abbr">RACI-A × DAL</span>
+    </h1>
+    <p class="claim" data-reveal>
+      责任，不会因为是 AI 做的决定就自动消失。
+      <br/><span class="text-fg-dim2">自动化程度越高，责任归属越需要被显式锚定。两者不是反比关系，而是正比关系。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">融合<strong>责任分配（RACI-A）</strong>与<strong>决策自动化阶梯（DAL）</strong>，同时回答"谁负责"和"自动化到什么程度"——核心规则：<strong>Ag ≠ A，A 永远是具名人类</strong>。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F09 · RACI-A × DAL 二维治理矩阵</span></div>
+      <span class="viz-pattern">P3</span>
+    </div>
+    <div class="viz-matrix">
+      <div class="axis-y">DAL 自动化等级</div>
+      <div class="quad">
+        <span class="quad-tag">高自动化 + 无具名 A</span>
+        <h4 class="quad-title">⚠ 治理死区</h4>
+        <p class="quad-desc">高 DAL（L3+） × A 栏空缺 = 孤儿智能体。最大治理风险——出错时无人发现、无人担责。</p>
+        <div class="quad-action">→ RACI-A 重点消除的状态</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">高自动化 + 具名 A</span>
+        <h4 class="quad-title">✓ 治理达标区</h4>
+        <p class="quad-desc">高 DAL × A 栏有具名人类 = 可审计 · 可追责。定期审查 · 半年更新一次。</p>
+        <div class="quad-action">→ RACI-A × DAL 目标状态</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">低自动化 + 无具名 A</span>
+        <h4 class="quad-title">○ 责任模糊</h4>
+        <p class="quad-desc">AI 辅助决策但无人对结果负责——容易出现"大家默认谁应该负责"的隐性状态。</p>
+        <div class="quad-action">→ 仍需补 A 角色</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">低自动化 + 具名 A</span>
+        <h4 class="quad-title">✓ 传统达标</h4>
+        <p class="quad-desc">人主导决策 · 具名问责 = 传统管理学正常状态。Ag 不参与或仅辅助。</p>
+        <div class="quad-action">→ 经典 RACI 适用</div>
+      </div>
+      <div class="corner"></div>
+      <div class="axis-x"><span>低</span>A 栏问责状态 · 是否具名人类<span>高</span></div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>四象限对应四种责任治理状态</span><span><i class="dot"></i>治理死区 = 高自动化 × 无具名 A</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">当 AI 做了一个有问题的决定，应该由谁来承担责任？怎么提前显式锚定？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第三层 · 负责回答<span class="text-fg">「谁负责 + 自动化到什么程度」</span>双重问题——也是治理神经 G02 边界升级机制的具体实现。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">RACI 责任分配矩阵（1950s）+ SAE 自动驾驶分级标准（2014）<span class="text-fg-dim2">→</span> 创新：增加"Ag·自动化执行"第五角色 + A 强制具名规则 + 二维治理矩阵。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>"这件事应该由谁负责？"——一个找不到答案的问题</h2>
+      <p>在部署了大量智能体的企业里，有一类问题在以越来越高的频率出现：<strong>智能体做了一个有问题的决定，但没有人能够清楚地说出——这件事，应该由谁来承担责任？</strong></p>
+      <p>这不是偶发的边缘案例。当一个自动审批系统批准了不该批准的申请，当一个智能体发出了措辞不当的客户通知，当一个自动调价算法在特殊情况下给出了错误定价，这些都是真实的、已经在多个行业里发生过的情形。</p>
+      <p>每次发生，都会产生同样的场景：<em>产品说规则是运营写的，运营说场景是产品没考虑到的，技术说自己只是实现了需求，管理层发现没有一个人的职责描述里明确写过"为这类 AI 决策负责"。</em></p>
+      <p><strong>这不是人的失职，这是制度的空白。</strong>我们引入了自动化执行的能力，但没有同步重建与之配套的责任分配制度。</p>
+      <h2><span class="num">02</span>RACI 矩阵为什么在这里开始失效</h2>
+      <div class="theory-note"><strong>理论来源</strong>：RACI 责任分配矩阵（项目管理标准实践，1950 年代）；SAE 自动驾驶分级标准（L0-L5，2014）。<br/><strong>本框架创新</strong>：在 RACI 基础上增加第五个角色类别"自动化执行（Ag·Automated）"，并建立强制规则——凡有 Ag 参与的任务，必须配套具名人类担任 A（最终问责）；将 SAE 自动驾驶分级逻辑迁移至管理决策场景，构建 DAL（决策自动化阶梯），两框架整合为二维治理矩阵。</div>
+      <p>责任分配矩阵（RACI Matrix）是管理学里应用最广泛的协作工具之一，起源于 1950 年代的项目管理实践。它把角色分为四类：负责执行（R）、最终问责（A）、咨询参与（C）、知情通知（I）。</p>
+      <p>RACI 在过去几十年里行之有效，原因简单：它建立在一个从未需要被声明的假设上——<strong>执行者是有名字的人，有名字的人可以被追责</strong>。</p>
+      <p>智能体打破了这个假设。当"负责执行"的那个角色是一个算法系统，它没有名字，没有法律人格，没有感受后果的能力。把 RACI 里的 R 分配给一个智能体，<em>在技术上是可行的描述，但在管理意义上是一个无意义的操作</em>——你无法追责一个系统。</p>
+      <p>更危险的是，"AI 做的"这个说法，会在组织里产生一种<strong>微妙的责任稀释效果</strong>——既然是系统做的，不是某个人故意为之，那好像谁都不用特别负责。这种责任感的弥散，是 AI 时代最隐蔽、代价最高的治理漏洞。</p>
+      <h2><span class="num">03</span>两个工具的互补缺口</h2>
+      <p>修复 RACI 在智能体场景下的失效，需要解决两个独立但相关的问题。</p>
+      <p><strong>第一个问题是角色定义</strong>：现有角色体系里没有智能体的位置，需要显式增加。<strong>第二个问题是自动化程度</strong>：不同级别的自动化，意味着不同强度的治理要求，这个维度在 RACI 里完全缺失。</p>
+      <p>只解决第一个问题——在 RACI 里加一个"AI 执行"标注——仍然不够。因为你不知道"这件事被 AI 做到什么程度"：<em>是 AI 提供建议、人来决定，还是 AI 完全自主运行、没有人在监督？</em>这两种情况的治理要求，差距是巨大的。这就是为什么需要两个框架的整合。</p>
+      <h3>RACI-A：解决"谁负责"</h3>
+      <p>增加<strong>自动化执行（Ag·Automated）</strong>作为第五类角色，并确立一条不可打破的规则：<strong>Ag 和 A 必须同时存在，且 A 永远是具名人类</strong>。</p>
+      <h3>DAL（决策自动化阶梯）：解决"自动化到什么程度"</h3>
+      <p>六个层级从 L0（全人工）到 L5（完全自治），每个层级有明确的适用条件和治理要求。</p>
+      <p>两个框架整合成<strong>二维治理矩阵</strong>，就能看到真正危险的地方：<em>高自动化（DAL L3 及以上）× 无具名问责（RACI-A 中 A 栏为空）= 治理死区</em>。</p>
+      <h2><span class="num">04</span>让一个人写下名字，本身就是一种管理干预</h2>
+      <p>人机责任决策矩阵揭示的，是一个关于"责任"的根本性重构：<strong>引入 AI，减少的是人的工作量，不是人的责任量。</strong></p>
+      <p>没有这个矩阵，责任分配停留在"大家默认谁应该负责"的隐性状态。一旦出问题，<em>那个隐性状态会立刻暴露其不可依赖性</em>。有了这个矩阵，责任分配变成显式的、文档化的、可审计的——每一个智能体参与的任务节点，都有一个具名的人类知道自己要为这件事负责。</p>
+      <blockquote>让一个人在 Accountable 栏里写下自己的名字，本身就是一种管理干预。那个人不会轻易让一个边界模糊的系统在没有监控的情况下运行，因为他知道下次出问题，那个名字会被念到。</blockquote>
+      <h2><span class="num">05</span>事故复盘里反复出现的三种模式</h2>
+      <p>这个框架在两个节点上最直接改变管理行为。</p>
+      <p><strong>第一是智能体系统上线之前的治理设计。</strong>用 RACI-A × DAL 矩阵逐节点填写，当你试图在 A 栏写下一个人名时，那些"没有人愿意写"的节点立刻可见——<em>它们就是治理盲点，也是潜在的事故点</em>。上线之前发现，远比上线之后处理的代价小。</p>
+      <p><strong>第二是 AI 事故发生之后的根因分析。</strong>几乎每一次，用这个矩阵重审出问题的节点，都会发现同样的模式之一：<em>A 栏为空、A 是一个部门而不是一个人、Ag 被错误标注为 A</em>。三种模式对应三种不同的制度缺陷，修复方式各不相同，但根源都是同一件事——责任归属没有被显式建立。</p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>Agent 上线前治理设计。</strong>用 RACI-A × DAL 矩阵逐节点填写——A 栏写不下名字的节点就是治理盲点。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>强制规则验证。</strong>Ag 和 A 必须同时存在，A 必须是具名人类（不是部门）。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>DAL 等级标注。</strong>每个 Agent 节点显式标记 L0-L5 当前等级，配套相应监控要求。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>事故后矩阵重审。</strong>事故复盘必看：A 栏是否空、A 是否部门而非个人、Ag 是否被错误标注为 A。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">引入 AI，减少的是人的工作量，<span class="not-italic" style="color:var(--fg)">不是人的责任量</span>——两者不可脱钩。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">让一个人在 A 栏写下自己的名字，本身就是一种管理干预——他知道下次出问题，那个名字会被念到。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 上线前的治理设计</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>AI 决策事故后的根因分析</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>合规要求严格的金融/医疗场景</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>高风险自动化决策审计</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 R 分给智能体却不补 A</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>A 写部门而非具名个人</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>设了矩阵但不做季度审查</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>高 DAL 等级但无对应监控配套</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F11.html" class="rel-item"><span class="rel-num">F11</span><span class="rel-name">安全三系统 — 升级机制是 A 的兜底</span></a>
+          <a href="F18.html" class="rel-item"><span class="rel-num">F18</span><span class="rel-name">CATER — 可控性的产品级实现</span></a>
+          <a href="F29.html" class="rel-item"><span class="rel-num">F29</span><span class="rel-name">数字员工绩效评分卡 — 安全维度评估</span></a>
+          <a href="G02.html" class="rel-item"><span class="rel-num">G02</span><span class="rel-name">边界与升级机制 — 治理神经底座</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F09"><span>▸ RACI-A × DAL 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ RACI-A × DAL Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F08.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F08</span><span class="nav-title">双前台智能体中台架构</span></div></a>
+    <a href="F10.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F10</span><span class="nav-title">智能体时代企业岗位体系</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

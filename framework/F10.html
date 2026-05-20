@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F10 · 智能体时代企业岗位体系 (ARRM) — 智能体管理学</title>
+<meta name="description" content="通过T1-T4 任务四分类（可自动化 / AI 增强 / 人工主导 / 人类核心）重构企业岗位体系——三层岗位（执行者 / 编排者 / 设计者），编排者是 Agent 时代新型岗位。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="2">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块二 · 组织重写 / F10</span>
+      <span class="type-tag">方法级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-2" class="hover:text-fg transition">所有组织重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体时代企业岗位体系
+      <span class="en">Agentic Role Redesign Method</span>
+      <span class="abbr">ARRM</span>
+    </h1>
+    <p class="claim" data-reveal>
+      你在招的那个人，可能是一个已经不存在的岗位。
+      <br/><span class="text-fg-dim2">智能体改变的不是某些岗位的命运，而是所有岗位存在的逻辑。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">通过<strong>T1-T4 任务四分类</strong>（可自动化 / AI 增强 / 人工主导 / 人类核心）重构企业岗位体系——三层岗位（<strong>执行者 / 编排者 / 设计者</strong>），编排者是 Agent 时代新型岗位。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F10 · T1-T4 任务分类矩阵</span></div>
+      <span class="viz-pattern">P3</span>
+    </div>
+    <div class="viz-matrix">
+      <div class="axis-y">任务情境复杂度</div>
+      <div class="quad">
+        <span class="quad-tag">T1 · 高自动化潜力</span>
+        <h4 class="quad-title">可自动化任务</h4>
+        <p class="quad-desc">规则清晰、边界明确、不需要情境判断的执行工作。<strong>被智能体替代——释放时间应主动投入 T3/T4。</strong></p>
+        <div class="quad-action">→ 自动化层处理</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">T2 · 协同最优</span>
+        <h4 class="quad-title">AI 增强任务</h4>
+        <p class="quad-desc">人机协同效果最佳——人负责判断和方向，AI 负责处理和执行。</p>
+        <div class="quad-action">→ 优化人机协作方式</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">T3 · 人主导</span>
+        <h4 class="quad-title">人工主导任务</h4>
+        <p class="quad-desc">需要情境理解、关系信任、创造性判断——AI 辅助但无法主导。</p>
+        <div class="quad-action">→ 深化拓展方向</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">T4 · 不可替代</span>
+        <h4 class="quad-title">人类核心任务</h4>
+        <p class="quad-desc">需要价值判断、责任承担、意义赋予——AI 时代价值持续提升。</p>
+        <div class="quad-action">→ 持续投入</div>
+      </div>
+      <div class="corner"></div>
+      <div class="axis-x"><span>低</span>人类不可替代性<span>高</span></div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>岗位重构方向：减少 T1 · 优化 T2 · 深化 T3 · 拓展 T4</span><span><i class="dot"></i>三层岗位：执行者 + 编排者★新 + 设计者</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">智能体时代，企业的岗位体系应该按什么逻辑来重新设计？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第四层 · 负责回答<span class="text-fg">「人的工作应该向哪里迁移」</span>，是组织重写的人才结构落地。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">德鲁克知识工作者理论（1954）+ 工作设计理论（Hackman & Oldham，1980）<span class="text-fg-dim2">→</span> 创新：提出"编排者"作为 Agent 时代独有的第三类工作角色，构建任务结构分析模型（T1-T4）。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>HR 部门正在经历的困惑</h2>
+      <p>企业的 HR 部门正在经历一种令人困惑的处境：<em>一边在裁员，一边在招人，而且这两件事往往同时在做。</em>裁掉的是某类岗位，招的是另一类，但招聘需求写出来，往往说不清楚那个新岗位和被裁掉的旧岗位有什么本质区别。</p>
+      <p>这种困惑的背后，是一个没有被认真回答的问题：<strong>在智能体大规模进入工作场景之后，企业的岗位体系应该按什么逻辑来重新设计？</strong></p>
+      <p>大多数企业给出的临时答案，是在现有岗位上加上"AI 能力要求"——产品经理要懂 AI，运营要会用 AI 工具，分析师要会写提示词。<em>这是一种增量调整，不是结构性重建。</em>它回避了一个更根本的问题：当执行工作大量转移到智能体，<strong>人的工作应该向哪里迁移</strong>，而不只是如何在原有岗位上加上 AI 工具？</p>
+      <h2><span class="num">02</span>为什么"岗位+AI技能要求"不够</h2>
+      <div class="theory-note"><strong>理论来源</strong>：德鲁克知识工作者理论（《管理的实践》，<em>The Practice of Management</em>，1954）；工作设计理论（Hackman & Oldham，《工作重设计》，1980）。<br/><strong>本框架创新</strong>：在德鲁克知识工作者框架基础上，提出"编排者"作为智能体时代独有的第三类工作角色，构建执行者-编排者-设计者三层岗位体系，并建立任务结构分析模型（T1-T4 分类）作为岗位重构的操作工具。</div>
+      <p>传统岗位设计的逻辑，来自工业组织理论的经典假设：<em>把一个复杂的工作系统分解为若干个专业化的工作单元，每个单元由一个具有对应专业技能的人来承担。</em>德鲁克在 1954 年系统阐述了知识工作者的概念，但他描述的知识工作者，本质上仍然是一个"执行特定专业工作"的人。</p>
+      <p>这个逻辑的核心是：<strong>岗位的价值来自它所执行的工作内容。</strong></p>
+      <p>但在智能体广泛渗透之后，这个逻辑出现了一个裂缝：<em>如果一个岗位核心工作的 80% 可以被智能体完成，那这个岗位的价值还有多少？</em>更重要的是，剩下的那 20%，真正的价值是什么？</p>
+      <p>仅仅在岗位要求里加上"会使用 AI 工具"，回答的是"怎么和 AI 协作完成原有工作"，<strong>而不是"在 AI 可以完成大量执行工作之后，人在组织里应该承担什么样的角色"</strong>。前者是工具培训，后者才是岗位体系的结构性重建。</p>
+      <h2><span class="num">03</span>任务的四种类型</h2>
+      <p>重建岗位体系的思路，来自一个关键的视角转换：<strong>分析单元从"岗位"降到"任务"</strong>。</p>
+      <p>"这个岗位会不会消失"是错误的问题，因为它把一个岗位当成一个不可分割的整体。正确的问题是：<em>"这个岗位所包含的各类任务，在智能体可以承担大量执行工作的前提下，应该分别往哪个方向演化？"</em></p>
+      <h3>T1 · 可自动化任务</h3>
+      <p>规则清晰、边界明确、不需要情境判断的执行工作。这类任务会被智能体替代，<em>释放出来的时间应该被重新投入，而不是被当作缩编理由。</em></p>
+      <h3>T2 · AI 增强任务</h3>
+      <p>人机协同完成效果最佳，人负责判断和方向，AI 负责处理和执行。</p>
+      <h3>T3 · 人工主导任务</h3>
+      <p>需要情境理解、关系信任、创造性判断，AI 可以辅助但无法主导。</p>
+      <h3>T4 · 人类核心任务</h3>
+      <p>需要价值判断、责任承担、意义赋予，是人类不可替代的价值所在。</p>
+      <blockquote>岗位重构的正确方向，是减少 T1，优化 T2，深化 T3，拓展 T4——而不是在每个任务类型上都附加"AI 工具使用"的要求。</blockquote>
+      <h2><span class="num">04</span>三层岗位体系：编排者是全新涌现的</h2>
+      <p>基于任务分类，三类岗位角色对应不同的核心价值来源。</p>
+      <p><strong>执行者岗位</strong>：负责在智能体系统无法完全自主处理的场景中，完成具体的工作任务。这类岗位的价值，在于<em>处理智能体边界之外的例外情况</em>——那些需要人类判断、关系能力或情境理解的任务。<strong>稳定性来自他们所处理的例外类型的不可标准化程度</strong>——越难被标准化的例外，对应的执行者岗位越稳固。</p>
+      <p><strong>编排者岗位</strong>：这是智能体时代<em>最新的岗位类型，在传统组织里几乎没有对应角色</em>。编排者不执行具体任务，也不制定战略方向——他们的工作是设计智能体和人类之间的协作流程，把业务需求转化为可执行的智能体系统，监控系统运行并持续优化。<strong>编排者需要同时理解业务逻辑和 AI 系统，是目前市场上最稀缺的人才类型。</strong></p>
+      <p><strong>设计者岗位</strong>：负责定义智能体系统的目标、约束和边界，对 AI 系统的整体方向负责。设计者的核心价值，在于<em>判断什么值得被做，以及什么不应该被自动化</em>。</p>
+      <h2><span class="num">05</span>稀缺性的根本性迁移</h2>
+      <p>这个框架揭示的，是一个关于"稀缺性"的根本性迁移。</p>
+      <p>工业时代，稀缺的是<em>专业执行能力</em>——能够可靠地、高质量地完成一种特定工作的人，是组织最核心的资产。知识经济时代，稀缺的是<em>专业判断能力</em>——能够在特定领域做出高质量判断的知识工作者，是组织的核心竞争力。</p>
+      <blockquote>智能体时代，执行能力和大量标准判断能力都开始去稀缺化。新的稀缺，是编排能力——理解 AI 的能力边界，设计人机协作的方式，把业务意图转化为可执行的系统。</blockquote>
+      <p>这种能力既不在传统技术培训体系里，也不在传统管理培训体系里，<strong>它在两者的交界处</strong>，是一种全新的跨界能力结构。</p>
+      <p><strong>关键执行层</strong>——那些在系统边界处理例外情况的人——需要被主动保护，不能在降本增效的压力下被错误压缩。<em>他们是整个智能体系统安全运行的最后一道人类防线。</em></p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>盘点现有岗位的 T1-T4 分布。</strong>对核心业务岗位逐一分析各类任务时间占比。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>识别 T1 自动化机会。</strong>哪些 T1 任务可被 AI 替代？释放的时间总量？</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>设计迁移路径。</strong>明确释放时间投向哪些 T3/T4 任务，避免被更多 T1 填满。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>建立编排者人才识别机制。</strong>识别有 L3 系统驾驭潜质的人，设计专门培养路径。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">新的稀缺，是<span class="not-italic" style="color:var(--fg)">编排能力</span>——理解 AI 能力边界、设计人机协作、把业务意图转化为可执行的系统。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">关键执行层需要被主动保护，不能在降本增效的压力下被错误压缩——他们是整个智能体系统安全运行的最后一道人类防线。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>年度人才战略会议</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>AI 转型期组织设计</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>岗位说明书重写</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>编排者人才识别与培养</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>只在现有岗位加"会用 AI"标签</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把 T1 释放的人当成本节约直接裁员</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视编排者岗位建设</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>错误压缩关键执行层</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F07.html" class="rel-item"><span class="rel-num">F07</span><span class="rel-name">人机混合网络组织 — 三层节点</span></a>
+          <a href="F08.html" class="rel-item"><span class="rel-num">F08</span><span class="rel-name">双前台中台 — 岗位对应</span></a>
+          <a href="F33.html" class="rel-item"><span class="rel-num">F33</span><span class="rel-name">IACMM 能力成熟度 — 个人发展</span></a>
+          <a href="F34.html" class="rel-item"><span class="rel-num">F34</span><span class="rel-name">角色转型地图 — 个人迁移</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F10"><span>▸ ARRM 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ ARRM Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F09.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F09</span><span class="nav-title">人机责任决策矩阵</span></div></a>
+    <a href="F11.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F11</span><span class="nav-title">智能体安全三系统架构</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

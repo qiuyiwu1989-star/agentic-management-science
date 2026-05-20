@@ -1,0 +1,1955 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>提示词与 Skill 资源 — 智能体管理学</title>
+<meta name="description" content="40 框架配套的提示词模板、Skill 文件、操作清单——按框架编号组织，可直接复制使用。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+<style>
+  .prompt-card { background: rgba(var(--surface-rgb), 0.025); border: 1px solid var(--line); border-left: 3px solid var(--mod-c); border-radius: 5px; padding: 1.5rem; transition: all .2s ease; }
+  .prompt-card:hover { background: rgba(var(--surface-rgb), 0.05); }
+  .prompt-block { background: var(--code-bg); border: 1px solid var(--line); border-radius: 4px; padding: 1.25rem 1.4rem; font-family: 'JetBrains Mono', monospace; font-size: .82rem; line-height: 1.7; color: var(--code-fg); white-space: pre-wrap; word-break: break-word; margin-top: .85rem; position: relative; }
+  .prompt-block .copy-btn { position: absolute; top: .75rem; right: .85rem; background: rgba(var(--surface-rgb), 0.08); border: 1px solid var(--line-2); color: var(--fg-dim); padding: .25rem .65rem; border-radius: 3px; font-size: .7rem; font-family: 'JetBrains Mono', monospace; cursor: pointer; transition: all .15s ease; }
+  .prompt-block .copy-btn:hover { background: var(--mod-c); color: var(--accent-fg); border-color: var(--mod-c); }
+  html { scroll-behavior: smooth; }
+  .prompt-card { scroll-margin-top: 88px; }
+  .prompt-jump { background: rgba(var(--surface-rgb), 0.02); border: 1px solid var(--line); border-radius: 6px; padding: 1.4rem 1.5rem; }
+  .prompt-jump .pj-group { display: grid; grid-template-columns: minmax(160px, 180px) 1fr; gap: 1rem 1.25rem; padding: .85rem 0; border-bottom: 1px dashed var(--line); }
+  .prompt-jump .pj-group:last-child { border-bottom: none; }
+  .prompt-jump .pj-label { font-family: 'JetBrains Mono', monospace; font-size: .78rem; letter-spacing: .04em; padding-top: .25rem; display: flex; align-items: center; gap: .5rem; }
+  .prompt-jump .pj-label::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .prompt-jump .pj-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .prompt-jump .pj-chip { display: inline-flex; align-items: center; padding: .3rem .65rem; font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--fg-dim); border: 1px solid var(--line-2); border-radius: 3px; background: rgba(var(--surface-rgb), 0.03); transition: all .15s ease; white-space: nowrap; }
+  .prompt-jump .pj-chip:hover { color: var(--fg); border-color: var(--c, var(--accent)); background: rgba(var(--surface-rgb), 0.08); transform: translateY(-1px); }
+  .prompt-jump .pj-chip .pj-num { color: var(--c, var(--accent)); font-weight: 600; margin-right: .35rem; }
+  .prompt-jump .pj-chip.star::after { content: '★'; color: var(--accent); margin-left: .3rem; font-size: .7rem; }
+  @media (max-width: 768px) { .prompt-jump .pj-group { grid-template-columns: 1fr; gap: .5rem; } }
+</style>
+</head>
+<body class="bg-bg text-fg">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="framework/F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="resources.html" class="px-4 py-2 mono text-[13px] text-accent transition">资源</a>
+      <a href="patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="relative pt-32 pb-12 overflow-hidden noise">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="kicker mb-5" data-reveal><span class="accent">▌</span> resources · v1.0</div>
+    <h1 class="display text-[clamp(40px,6vw,80px)] max-w-[1080px]" data-reveal>
+      提示词与<span class="text-accent">Skill</span> 资源
+    </h1>
+    <p class="mt-6 max-w-3xl text-fg-dim text-lg leading-relaxed" data-reveal>
+      每个框架配套<strong class="text-fg">可直接复制使用</strong>的提示词模板与操作清单。
+      点击「复制」即可粘贴到 Claude / ChatGPT / Gemini 等任何智能体里使用。
+    </p>
+    <p class="mt-4 max-w-3xl text-fg-dim2 text-sm leading-relaxed" data-reveal>
+      v1.0 已全量覆盖 40 个框架（F00 + F01-F36 + G01-G03），按模块分组。
+    </p>
+  </div>
+</section>
+
+<!-- 快速跳转索引 -->
+<section class="container py-8" data-reveal>
+  <div class="kicker mb-3"><span class="accent">▌</span> index · 快速跳转</div>
+  <div class="prompt-jump">
+    <div class="pj-group">
+      <div class="pj-label" style="color: var(--mod-1); --c: var(--mod-1)">模块一 · 竞争重写</div>
+      <div class="pj-chips" style="--c: var(--mod-1)">
+        <a class="pj-chip" href="#F00"><span class="pj-num">F00</span>ECOT</a>
+        <a class="pj-chip" href="#F01"><span class="pj-num">F01</span>AFFR</a>
+        <a class="pj-chip" href="#F02"><span class="pj-num">F02</span>SDMA</a>
+        <a class="pj-chip" href="#F03"><span class="pj-num">F03</span>APM</a>
+        <a class="pj-chip" href="#F04"><span class="pj-num">F04</span>TICA</a>
+        <a class="pj-chip" href="#F05"><span class="pj-num">F05</span>DLAM</a>
+        <a class="pj-chip" href="#F06"><span class="pj-num">F06</span>AaaS</a>
+      </div>
+    </div>
+    <div class="pj-group">
+      <div class="pj-label" style="color: var(--mod-2); --c: var(--mod-2)">模块二 · 组织重写</div>
+      <div class="pj-chips" style="--c: var(--mod-2)">
+        <a class="pj-chip" href="#F07"><span class="pj-num">F07</span>HACNO</a>
+        <a class="pj-chip" href="#F08"><span class="pj-num">F08</span>DFAMP</a>
+        <a class="pj-chip" href="#F09"><span class="pj-num">F09</span>RACI-A</a>
+        <a class="pj-chip" href="#F10"><span class="pj-num">F10</span>ARRM</a>
+        <a class="pj-chip" href="#F11"><span class="pj-num">F11</span>ABERS</a>
+        <a class="pj-chip" href="#F12"><span class="pj-num">F12</span>Kotter-AI</a>
+      </div>
+    </div>
+    <div class="pj-group">
+      <div class="pj-label" style="color: var(--mod-3); --c: var(--mod-3)">模块三 · 产品重写</div>
+      <div class="pj-chips" style="--c: var(--mod-3)">
+        <a class="pj-chip" href="#F13"><span class="pj-num">F13</span>ARPS</a>
+        <a class="pj-chip" href="#F14"><span class="pj-num">F14</span>JTBO</a>
+        <a class="pj-chip" href="#F15"><span class="pj-num">F15</span>CADM</a>
+        <a class="pj-chip" href="#F16"><span class="pj-num">F16</span>D-PMF</a>
+        <a class="pj-chip star" href="#F17"><span class="pj-num">F17</span>VERITAS</a>
+        <a class="pj-chip" href="#F18"><span class="pj-num">F18</span>CATER</a>
+        <a class="pj-chip" href="#F19"><span class="pj-num">F19</span>MAAML</a>
+      </div>
+    </div>
+    <div class="pj-group">
+      <div class="pj-label" style="color: var(--mod-4); --c: var(--mod-4)">模块四 · 系统重写</div>
+      <div class="pj-chips" style="--c: var(--mod-4)">
+        <a class="pj-chip" href="#F20"><span class="pj-num">F20</span>E³</a>
+        <a class="pj-chip" href="#F21"><span class="pj-num">F21</span>SAG</a>
+        <a class="pj-chip" href="#F22"><span class="pj-num">F22</span>PRTD</a>
+        <a class="pj-chip" href="#F23"><span class="pj-num">F23</span>SEAA</a>
+        <a class="pj-chip" href="#F24"><span class="pj-num">F24</span>ADLC</a>
+        <a class="pj-chip" href="#F25"><span class="pj-num">F25</span>TSEM</a>
+        <a class="pj-chip" href="#F26"><span class="pj-num">F26</span>PRT</a>
+      </div>
+    </div>
+    <div class="pj-group">
+      <div class="pj-label" style="color: var(--mod-5); --c: var(--mod-5)">模块五 · 价值重写</div>
+      <div class="pj-chips" style="--c: var(--mod-5)">
+        <a class="pj-chip" href="#F27"><span class="pj-num">F27</span>AOMM</a>
+        <a class="pj-chip" href="#F28"><span class="pj-num">F28</span>3DSP</a>
+        <a class="pj-chip" href="#F29"><span class="pj-num">F29</span>DWPS</a>
+        <a class="pj-chip" href="#F30"><span class="pj-num">F30</span>CPST</a>
+        <a class="pj-chip" href="#F31"><span class="pj-num">F31</span>Agent ROI</a>
+        <a class="pj-chip" href="#F32"><span class="pj-num">F32</span>SRAG</a>
+      </div>
+    </div>
+    <div class="pj-group">
+      <div class="pj-label" style="color: var(--mod-6); --c: var(--mod-6)">模块六 · 人类重写</div>
+      <div class="pj-chips" style="--c: var(--mod-6)">
+        <a class="pj-chip" href="#F33"><span class="pj-num">F33</span>IACMM</a>
+        <a class="pj-chip" href="#F34"><span class="pj-num">F34</span>TSMM</a>
+        <a class="pj-chip" href="#F35"><span class="pj-num">F35</span>FALA</a>
+        <a class="pj-chip star" href="#F36"><span class="pj-num">F36</span>AC6</a>
+      </div>
+    </div>
+    <div class="pj-group">
+      <div class="pj-label" style="color: var(--mod-g); --c: var(--mod-g)">治理神经 · Governance</div>
+      <div class="pj-chips" style="--c: var(--mod-g)">
+        <a class="pj-chip" href="#G01"><span class="pj-num">G01</span>IAN</a>
+        <a class="pj-chip" href="#G02"><span class="pj-num">G02</span>BSN</a>
+        <a class="pj-chip star" href="#G03"><span class="pj-num">G03</span>HSCN</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- F01 智能体五力重构法 -->
+<section class="container py-10 border-t border-line" data-module="1">
+  <div id="F01" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F01 · AFFR</div>
+        <h2 class="display text-xl">智能体五力重构 — 行业竞争分析</h2>
+      </div>
+      <a href="framework/F01.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：对一个具体行业做"智能体时代的五力分析"，识别哪一力的来源在变。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是一位智能体管理学（AMS）的战略分析顾问。请用 F01 · AFFR 框架，分析以下行业在智能体渗透后的竞争结构变化：
+
+【目标行业】：[在此填写行业]
+【主要参与者】：[列出 3-5 家代表企业]
+
+请按以下结构输出：
+
+一、两个假设的检验
+- 这个行业里，"执行主体是人"这个假设在哪些环节开始失效？
+- "价值链是线性的"这个假设在哪些环节出现裂缝？
+
+二、五力的重写
+逐一分析（每力 ≥ 2 段，含具体场景）：
+1. 进入威胁 — 智能体如何改变壁垒厚度？
+2. 供应商力量 — 新型供应商（模型平台/算力）的影响？
+3. 买方力量 — 买方智能体是否进场？信息不对称如何被消除？
+4. 替代品威胁 — 是否出现"能力替代"（跨行业的智能体服务）？
+5. 同业竞争 — 编排能力是否已成为新的竞争维度？
+
+三、第六力评估
+- 这个行业里，"主权力"（数据/模型/执行/治理/经济五维）的高低如何分化？
+- 主权力高 vs 低的企业，未来 3 年的命运分化点在哪？
+
+四、战略建议
+基于以上分析，给出 3 条最具决策意义的战略建议，每条 ≤ 50 字。</div>
+  </div>
+</section>
+
+<!-- F03 智能体组合矩阵 -->
+<section class="container py-10 border-t border-line" data-module="1">
+  <div id="F03" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F03 · APM</div>
+        <h2 class="display text-xl">智能体组合矩阵 — 项目盘点与象限定位</h2>
+      </div>
+      <a href="framework/F03.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：盘点企业当前所有智能体项目，按"战略价值 × 自主化成熟度"定位到四象限。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是一位智能体管理学（AMS）的组合管理顾问。请用 F03 · APM 框架，帮我对企业内部的所有 Agent 项目做盘点和资源配置建议。
+
+【企业背景】：[在此填写企业规模、行业、当前 AI 投入情况]
+【Agent 项目清单】：
+[以列表形式提供每个项目的：名称 / 用途 / 负责团队 / 当前状态]
+
+请按以下结构输出：
+
+一、双轴打分（每个项目逐一打分）
+- 战略价值（0-10）：从收入贡献、成本节省、用户体验、风险控制、护城河贡献五维综合
+- 自主化成熟度（L0-L5）：稳定性、准确率、边界清晰度三维综合
+- 给出具体依据，不允许凭感觉
+
+二、四象限定位
+- 明星象限（高价值 × 低成熟）：列出项目
+- 现金牛象限（高价值 × 高成熟）：列出项目
+- 问题象限（低价值 × 低成熟）：列出项目
+- 工具象限（低价值 × 高成熟）：列出项目
+
+三、资源配置建议
+对每个象限给出明确的资源配置策略：
+- 明星：重点投入哪些瓶颈？预期升级到现金牛的时间线？
+- 现金牛：如何推向数据飞轮？
+- 问题：哪些值得快速验证？哪些应当砍掉？
+- 工具：哪些可以 Skill 化复用？
+
+四、迁移追踪建议
+建议 4-6 周复盘一次，追踪每个项目在矩阵里的迁移路径——给出复盘所需的最小数据集。</div>
+  </div>
+</section>
+
+<!-- F17 VERITAS -->
+<section class="container py-10 border-t border-line" data-module="3">
+  <div id="F17" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F17 · VERITAS ★</div>
+        <h2 class="display text-xl">可信智能体七维评估</h2>
+      </div>
+      <a href="framework/F17.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：对一个智能体产品做"可信度"七维立体评估，安全维度单独审查。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是智能体管理学（AMS）的质量评估专家。请用 F17 · VERITAS 七维框架，对以下智能体产品做立体质量评估。
+
+【产品名称】：[名称]
+【用途场景】：[场景]
+【已知数据】：[准确率/响应延迟/错误模式/已知漏洞等]
+
+请按 VERITAS 七维逐项打分（0-100）并给出依据：
+
+V · 可验证性（Verifiable）— 输出是否可被独立验证？提供推理路径或来源？
+E · 可解释性（Explainable）— 判断逻辑是否能被人类有意义地理解？
+R · 可靠性（Reliable）— 跨场景跨时间表现是否一致？
+I · 影响度（Impact）— 出错时的影响范围和严重程度？
+T · 可信度（Trustworthy）— 用户信任程度是否与实际能力匹配？
+A · 适应性（Adaptive）— 面对新场景和边缘案例是否合理处理？
+S · 安全性（Safe）— 是否存在可被恶意利用的漏洞？是否产生有害输出？
+
+★ 重要规则：
+- 安全性（S）必须满分（100），否则阻止发布——不接受任何形式的补偿
+- 六个其他维度可以互相补偿（如可解释性弱可由可靠性强+审计完善弥补）
+
+输出格式：
+1. 七维评分表 + 各维度具体依据
+2. 互补关系分析：哪些弱维度被哪些强维度弥补？
+3. 发布建议：通过 / 阻止 / 有条件通过（列出条件）
+4. 改进路线图：未来 3 个月最该投入的 2 个维度</div>
+  </div>
+</section>
+
+<!-- F22 PRTD -->
+<section class="container py-10 border-t border-line" data-module="4">
+  <div id="F22" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F22 · PRTD</div>
+        <h2 class="display text-xl">执行链路四环诊断 — Agent 调试</h2>
+      </div>
+      <a href="framework/F22.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：当一个智能体出错，沿 P → R → T → D 四环逐节点定位根因，替代散弹枪调试。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的工程诊断专家。请用 F22 · PRTD 四环框架，帮我定位智能体系统出现的故障根因。
+
+【故障现象】：[详细描述出错的现象]
+【输入示例】：[给出导致出错的 1-3 个典型输入]
+【期望输出】：[给出对应的期望输出]
+【实际输出】：[给出系统实际输出]
+【已尝试的修改】：[列出已经做过的尝试]
+
+请按以下方法系统定位：
+
+第一步 · 初步定位
+基于故障表现，判断最可疑的环节（一次只指向一个）：
+- 问题只出现在特定类型输入上 → 倾向环 1（提示词/意图）
+- 输出缺少应有的内容 → 倾向环 2（检索）
+- 出现明确的错误信息或调用失败 → 倾向环 3（工具）
+- 推理逻辑前提对但结论错 → 倾向环 4（决策）
+
+第二步 · 逐环假设-验证（一次只改一个变量）
+给出针对目标环节的实验设计：
+- 实验 1：固定环 2/3/4 的条件，单独改变环 1 的提示词
+- 实验 2：固定环 1/3/4 的条件，单独改变环 2 的检索逻辑
+- ...
+每个实验给出明确的"如果...则可以确认根因在...环"
+
+第三步 · 修复后验证
+设计验证方案确认：
+- 故障是否真的不再出现（不只是当前测试通过）
+- 修改是否对其他环节产生了副作用
+
+第四步 · 回流评测集
+建议把这次失败案例如何抽象为评测集条目，防止未来重演。</div>
+  </div>
+</section>
+
+<!-- F27 AOMM -->
+<section class="container py-10 border-t border-line" data-module="5">
+  <div id="F27" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F27 · AOMM</div>
+        <h2 class="display text-xl">AgentOps 成熟度自评</h2>
+      </div>
+      <a href="framework/F27.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：诊断企业当前 Agent 运营处于 M1-M5 哪一级，识别 M3/M4 跃迁缺口。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的运营成熟度评估专家。请用 F27 · AOMM 五级框架，诊断我们的企业 Agent 运营目前处于哪一级。
+
+【运营现状描述】：
+- 在生产的 Agent 数量：[填写]
+- 监控机制：[填写 — 有无日志/告警/SLI/SLO]
+- 质量基准：[填写 — 是否有业务级质量指标/Error Budget]
+- 问题发现方式：[填写 — 用户投诉/人工巡检/自动告警]
+- 自动化质量门禁：[填写 — 是否有变更前评测自动阻止机制]
+- 团队配置：[填写 — 是否有专职 AgentOps 角色]
+
+请按以下结构输出：
+
+一、当前级别诊断（M1-M5）
+逐项对照五级标准，给出当前级别 + 具体依据。
+注意：自评通常高估——按"实质达到的最低级别"判定。
+
+二、距离 M3（实验/生产分水岭）的差距
+- M3 需要：SLI/SLO 体系 + 业务级质量基准 + 退化预警
+- 你们缺少哪些？预计建设周期？
+
+三、距离 M4 的真正门槛
+- M4 需要：自动化质量门禁 + Error Budget 管理
+- 这两套机制目前的状态？最难建立的是哪一个？
+
+四、6 个月行动路线
+给出从当前级别到下一级的具体行动清单（≤ 10 条），按优先级排序。
+特别标出：哪些是"建设型"工作（需要工程投入），哪些是"制度型"工作（需要管理层授权）。
+
+五、风险预警
+如果在当前级别停留超过 12 个月，最可能出现的业务风险是什么？</div>
+  </div>
+</section>
+
+<!-- F31 Agent ROI -->
+<section class="container py-10 border-t border-line" data-module="5">
+  <div id="F31" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F31 · Agent ROI</div>
+        <h2 class="display text-xl">四类价值盘点 + 盈亏平衡曲线</h2>
+      </div>
+      <a href="framework/F31.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：避免季度 ROI 误判——四类价值完整盘点 + 盈亏平衡点时间分析。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 ROI 评估专家。请用 F31 · Agent ROI 框架，帮我对一个 AI 投资项目做完整 ROI 分析——不只是季度 ROI 数字。
+
+【项目描述】：[填写]
+【已投入】：[人力+预算+时间]
+【当前可量化收益】：[填写]
+【当前阶段】：[投入第 X 个月]
+
+请按以下结构输出，不要只看类 1：
+
+一、四类价值完整盘点（每类必须显式回答）
+
+类 1 · 直接效率价值（最易量化）
+- 替代/加速了哪些人工任务？时间节省 × 人力成本 = 多少？
+
+类 2 · 间接业务价值（代理指标）
+- 加速了哪些业务决策？这些决策的加速带来多少收入/避免多少损失？
+- 客户体验改善了多少？历史上和留存率的关系？
+
+类 3 · 能力积累价值（资产性增值）
+- 积累了多少数据资产？质量如何？
+- 团队 AI 能力成熟度提升了多少？
+- 可复用 Skill 资产价值多少？
+
+类 4 · 战略防御价值（机会成本）
+- 如果不建，竞争对手建了会带来多大竞争劣势？
+- 时间窗口何时关闭？
+
+二、盈亏平衡点时间分析
+- 把成本和价值按月份展开，绘制累计曲线
+- 估算盈亏平衡点（第几个月会发生）
+- 当前进展是否符合预期时间线？
+
+三、决策建议
+基于完整分析，给出：
+- 续投 / 调整 / 退出 的建议
+- 如果是"暂时性 ROI 为负但正常积累中"，给出说服董事会的关键证据点
+- 如果是"项目本身有问题"，说明问题根源在哪</div>
+  </div>
+</section>
+
+<!-- F33 IACMM -->
+<section class="container py-10 border-t border-line" data-module="6">
+  <div id="F33" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F33 · IACMM</div>
+        <h2 class="display text-xl">个人 AI 能力等级自评</h2>
+      </div>
+      <a href="framework/F33.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：诊断自己或下属在 L1-L4 哪一级，重点识别"L2→L3"跨越的卡点。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的人才发展顾问。请用 F33 · IACMM 框架，对以下个人的 AI 协作能力做等级诊断。
+
+【被评估对象】：[姓名/匿名 + 当前岗位]
+【近 3 个月 AI 使用情况】：[列出主要场景]
+【完成过的最复杂 AI 任务】：[描述]
+【遇到的最大困难】：[描述]
+
+请按以下结构输出：
+
+一、四级等级诊断（L1-L4）
+逐项判断：
+- L1 工具使用者：能否使用单个 AI 工具完成明确任务？
+- L2 协作设计者：能否设计 AI 辅助的工作流程？
+- L3 系统驾驭者：能否构建管理多 Agent 系统？需要三种能力——边界感知/组合设计/评估
+- L4 能力创造者：能否将能力系统化为组织 Skill？
+
+给出最终判定 + 具体依据。
+
+二、L2 → L3 卡点诊断（如果当前在 L2 或以下）
+重点考察三种 L3 特殊能力：
+1. 边界感知 — 能否预见 AI 系统的失效模式？给个具体测试题
+2. 组合设计 — 能否把多个 Agent 组合成整体优势？给个测试题
+3. 评估能力 — 能否区分随机波动和系统性问题？给个测试题
+
+三、定向培养建议
+不要建议"再学更多提示词技巧"。要给出：
+- 应该参与什么样的真实项目（最好是真实多 Agent 系统构建）
+- 应该跟随什么样的导师/角色
+- 应该阅读什么样的材料（非工具培训）
+- 6 个月里的关键里程碑</div>
+  </div>
+</section>
+
+<!-- F36 AC6 -->
+<section class="container py-10 border-t border-line" data-module="6">
+  <div id="F36" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F36 · AC6 ★</div>
+        <h2 class="display text-xl">人类核心能力六维自检</h2>
+      </div>
+      <a href="framework/F36.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：跳出"AI 做不到什么"的防御视角，主动盘点你的 AI 时代独特价值。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的发展教练。请用 F36 · AC6 框架，引导我做一次"AI 时代核心能力六维自检"。
+
+【我的基本信息】：[职业/年龄/工作年限]
+【最近 6 个月让我有成就感的工作】：[3-5 件]
+【最近 6 个月让我感到价值感缺失的工作】：[3-5 件]
+【我面对 AI 时代的最大焦虑】：[描述]
+
+请按以下结构引导我：
+
+一、AC6 六维自检（每维独立反思）
+
+1. 好奇心（Curiosity）— 我最近主动探索过哪些"无用但有趣"的方向？
+2. 判断力（Judgment）— 我最近做过哪些有价值冲突的决策？我承担了什么后果？
+3. 设计力（Design Thinking）— 我最近有没有质疑过"现有方案的前提"？
+4. 关系力（Relational IQ）— 我和同事/客户的关系深度如何？有没有共同经历过困难？
+5. 学习力（Meta-learning）— 我最近有没有重构过自己的认知框架？
+6. 价值锚定力（Value Anchoring）★ — 我坚守的、不该被优化掉的事情是什么？
+
+每维给我 1-2 个反思问题，引导我深入回答。
+
+二、识别"被 AI 焦虑遮蔽的真正独特价值"
+基于我的回答，指出：
+- 我哪些工作其实是"AI 做得到但人来做更有价值"？
+- 我哪些焦虑其实是错误归因？（焦虑的真正来源不是 AI）
+
+三、6 个月发展行动
+不要建议"学更多 AI 技能"。要建议：
+- 哪些 T3/T4 任务我应该主动争取深化？
+- 哪些 T1 任务应该主动让给 AI，把时间释放出来？
+- 我应该如何把"价值锚定力"显性化（与他人沟通、写下来、做出来）？
+
+最后用一句话总结："你在 AI 时代的真正独特价值是 ___"</div>
+  </div>
+</section>
+
+<!-- G03 主权 -->
+<section class="container py-10 border-t border-line" data-module="g">
+  <div id="G03" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">G03 · HSCN ★</div>
+        <h2 class="display text-xl">智能体主权五维评估</h2>
+      </div>
+      <a href="framework/G03.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：评估企业在数据/模型/执行/治理/经济五维的主权水平，识别锁定风险。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的主权治理顾问。请用 G03 · HSCN 框架，对企业的智能体主权状态做五维评估。
+
+【企业基本情况】：[行业/规模/AI 投入年限]
+【当前 AI 供应商】：[列出主要的模型/平台/工具供应商]
+【核心数据存放】：[在哪些系统]
+【运行基础设施】：[自有/云/混合]
+
+请按以下结构输出：
+
+一、五维主权评估（0-100 分）
+
+D · 数据主权 — 核心数据所有权和控制权？能否随时迁移？
+M · 模型主权 — 是否可自主部署/切换？是否被单一供应商锁定？
+E · 执行主权 ★ — 智能体在可控基础设施运行？能随时暂停/调整/关闭？
+G · 治理主权 — 规则制定权和审计权在企业内部？
+Ec · 经济主权 — AI 能力能否独立变现？还是依附平台分发？
+
+每维给出分数 + 具体依据 + 锁定风险。
+
+二、锁定风险识别（最关键的产出）
+哪些环节存在"被单方面决定后业务崩溃"的风险？
+- 某供应商涨价：影响多大？
+- 某供应商改变政策：能否切换？
+- 某平台出现问题：业务受多大冲击？
+
+三、主权与开放的平衡建议
+注意：主权不是"什么都自建"——是"保持选择权"。
+请给出：
+- 哪些环节可以继续使用外部服务（已有选择权）
+- 哪些环节必须建立自主选项（消除锁定）
+- 哪些环节应该建立"飞轮型"自主能力（积累壁垒）
+
+四、6-12 月主权提升路线图
+按优先级排序，包括具体投入估算（人力/预算/时间）。</div>
+  </div>
+</section>
+
+<section class="container py-10 border-t border-line" data-module="1">
+  <div id="F00" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F00 · ECOT</div>
+        <h2 class="display text-xl">企业能力编排论 — 战略认知校准</h2>
+      </div>
+      <a href="framework/F00.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：诊断企业是否仍在"科斯式"思维框架中，识别向"能力编排"转型的关键缺口。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的战略哲学顾问。请用 F00 · ECOT 框架，帮我做企业 AI 战略认知校准。
+
+【企业基本情况】：[行业/规模/AI 投入年限]
+
+请按以下结构输出：
+
+一、科斯三支柱当前状态评估（每支柱 5 段以内）
+- 执行成本支柱：企业 X% 的执行是否已被智能体承担？
+- 有限理性支柱：哪些决策已可由 AI 跨领域整合？
+- 资产专用性支柱：核心知识是否仍只在人身上？还是已沉淀为 Skill 资产？
+
+二、三个根本性转变诊断
+- 资源拥有 vs 能力编排：企业目前更像"资源仓库"还是"编排系统"？
+- 管理幅度 vs 编排幅度：管理者是在"管人"还是在"编排节点"？
+- 降低成本 vs 积累信任：企业 AI 战略的隐性目标是哪一个？
+
+三、能力编排成熟度诊断
+按 0-10 分，给企业的"能力编排能力"打分，依据来自：节点定义清晰度、跨节点流转效率、信任积累机制三方面。
+
+四、战略下一步建议
+给出 3 条最具决策意义的建议——必须从"企业是什么"的层级出发，不是"AI 怎么用"。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="1">
+  <div id="F02" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F02 · SDMA</div>
+        <h2 class="display text-xl">七维护城河 + 半衰期评估</h2>
+      </div>
+      <a href="framework/F02.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：对企业做"传统 4 维 + 智能体原生 3 维"的护城河评估，并判断每维的半衰期方向。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的护城河战略顾问。请用 F02 · SDMA 框架，对企业做七维护城河评估。
+
+【企业基本信息】：[行业/规模/竞争对手]
+【企业当前护城河自述】：[填写]
+
+请按以下结构输出：
+
+一、七维证据式评分（0-10）
+传统校正版（4 维）：转换成本 / 网络效应 / 流程优势 / 品牌规模
+原生版（3 维）：数据飞轮 / 编排能力 / 主权控制
+每维必须给出具体事实依据，不允许凭感觉。
+
+二、半衰期方向判断（每维）
+- 半衰期在变长（飞轮型，越来越宽）
+- 半衰期在变短（侵蚀型，越来越窄）
+- 维持中（基础条件类）
+
+三、绝对评估 vs 相对评估
+- 绝对：我们在每维当前是几分？
+- 相对：与最强对手的差距在扩大还是缩小？
+
+四、12 个月强化路径
+针对最弱 2 维 + 半衰期变短最快的维度，给出可执行强化计划。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="1">
+  <div id="F04" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F04 · TICA</div>
+        <h2 class="display text-xl">三元能力获取决策（Build/Buy/Orchestrate）</h2>
+      </div>
+      <a href="framework/F04.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：对一项 AI 能力做 Build / Buy / Orchestrate 三元决策，避免在错误框架下做选择。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的能力获取顾问。请用 F04 · TICA 框架，帮我决策一项 AI 能力的获取方式。
+
+【目标能力】：[填写——比如智能客服、合同分析、风险评估……]
+【内部现状】：[团队/数据/已有技术资产]
+【外部供给】：[市场上的供应商/产品状况]
+
+请按以下结构输出：
+
+一、三维评估
+- 战略重要性（高/中/低）：是否构成核心差异化？
+- 构建可行性（高/中/低）：内部资源时间能力是否足够？
+- 市场成熟度（高/中/低）：外部供给质量如何？
+
+二、决策结果
+应用决策规则：三高→Build / 三低→Buy / 中间→Orchestrate
+说明哪个维度权重最大，最终决策是什么。
+
+三、若选 Orchestrate，编排架构设计
+- 需要组合哪些外部能力？
+- 架构知识壁垒在哪里建立？
+- 编排数据飞轮如何启动？
+
+四、6 个月复审节点
+明确什么条件下决策需要被重新审视（市场成熟度变化、内部能力突破、战略调整等）。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="1">
+  <div id="F05" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F05 · DLAM</div>
+        <h2 class="display text-xl">数字劳动力资产盘点（DKEP 四维）</h2>
+      </div>
+      <a href="framework/F05.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：把所有 Agent 重新分类为数字劳动力资产，建立 S/A/B/C 资产台账。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的数字资产管理顾问。请用 F05 · DLAM 框架，把企业的 Agent 资产化盘点。
+
+【现有 Agent 清单】：[列出所有运行中的 Agent]
+
+请按以下结构输出：
+
+一、DKEP 四维评估（每个 Agent）
+- D · 数据飞轮：是否持续积累数据并转化为能力提升？
+- K · 知识沉淀：承载多少企业专有知识？不可替代性？
+- E · 执行效能：相对人工的效能倍数？
+- P · 平台协同：与其他系统的嵌入深度？
+
+二、S/A/B/C 资产分级
+- S 级（战略核心）：哪些？每个的专属负责人？
+- A 级（高价值运营）：哪些？维护机制？
+- B 级（通用效率）：哪些？是否可跨团队复用？
+- C 级（待评估或退役）：哪些？应该修复还是退役？
+
+三、双轨核算建议
+- CapEx 型（自建的）：摊销周期如何设？
+- OpEx 型（调用型）：按何维度归集？
+
+四、向 CFO 的汇报点
+3 条最有说服力的"AI 不是费用，是资产"的论据。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="1">
+  <div id="F06" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F06 · AaaS</div>
+        <h2 class="display text-xl">智能体能力商业化分层决策</h2>
+      </div>
+      <a href="framework/F06.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：对企业内部 AI 能力做 AaaS 三阶演进规划，并判断哪些能商业化、哪些必须保留。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 AI 商业化战略顾问。请用 F06 · AaaS 框架，对企业内部 AI 能力做对外变现规划。
+
+【内部已有 AI 能力清单】：[填写]
+【企业商业模式现状】：[B2B/B2C/订阅/许可等]
+
+请按以下结构输出：
+
+一、能力清单分类
+对每项 AI 能力，判断是"飞轮型"还是"非飞轮型"：
+- 飞轮型：使用过程中持续积累数据、能力越用越强
+- 非飞轮型：执行特定任务但不产生积累效应
+
+二、商业化决策
+- 飞轮型能力 → 可以商业化（越卖越强）
+- 非飞轮型核心差异化能力 → 保留（不能卖）
+- 非飞轮型标准化能力 → 可工具化对外
+
+三、三阶演进路径建议
+- 哪些已具备工具化（SaaS）条件？按使用量定价
+- 哪些可包装为流程化交付？按流程完成量定价
+- 哪些可承诺结果化定价？敢承诺结果本身是壁垒
+
+四、商业化路线图
+给出 12-24 个月的分阶段推进计划。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="2">
+  <div id="F07" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F07 · HACNO</div>
+        <h2 class="display text-xl">人机混合网络组织设计</h2>
+      </div>
+      <a href="framework/F07.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：把传统组织架构重新设计为五节点网络结构（人/Agent/工具/编排/治理）。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的组织设计顾问。请用 F07 · HACNO 框架，重新设计一个业务部门的组织结构。
+
+【目标部门】：[部门名/职能]
+【当前人员配置】：[岗位结构]
+【已部署的 Agent / 工具】：[列出]
+
+请按以下结构输出：
+
+一、节点识别
+对当前的每个工作流程，识别五类节点：
+- 人类节点：处理价值判断、关系、责任承担的环节
+- 智能体节点：可高频自主完成的执行环节
+- 工具节点：被调用的能力（CRM/API 等）
+- 编排节点：协调多智能体的环节
+- 治理节点：审计、权限、监控
+
+二、三层结构对齐
+- 战略层（纯人类）：哪些决策必须保留？
+- 协同层（人机混合）：管理者如何演化为"系统导演"？
+- 自动化层（Agent 自治）：边界明确的任务有哪些？
+
+三、编排幅度评估
+现有管理者能编排多少个节点？瓶颈在哪？需要培养什么能力？
+
+四、3 个月改造步骤
+不是大爆炸式重组，而是渐进式节点演化。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="2">
+  <div id="F08" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F08 · DFAMP</div>
+        <h2 class="display text-xl">双前台 + Agent 中台架构诊断</h2>
+      </div>
+      <a href="framework/F08.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：诊断企业当前 AI 中台是否走在"静态复用"老路，给出向"动态编排"演进的路径。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的中台架构顾问。请用 F08 · DFAMP 框架，诊断企业 AI 中台的架构成熟度。
+
+【现有中台状况】：[功能/接口/使用情况]
+【前台业务部门反馈】：[填写]
+
+请按以下结构输出：
+
+一、当前中台诊断
+- 中台是"静态能力库"还是"动态编排系统"？给依据
+- 前台业务部门"用不起来"的根因是什么？
+
+二、双前台设计
+- Agent 前台：哪些任务可以划入？需要什么自动升级机制？
+- 人类前台：哪些低频高价值任务必须保留？
+- 边界画在哪里？是当前争议最大的判断
+
+三、中台三模块完整性
+- 编排引擎（动态任务规划）：是否存在？
+- Skill 资产库（可调用能力单元）：管理状态如何？
+- 治理中心（权限审计）：覆盖完整吗？
+
+四、数据后台进化能力
+前台行为数据是否回流？反哺 Skill 优化的闭环是否运转？没有这个闭环，中台只是静态系统。
+
+五、6 个月架构改造路线。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="2">
+  <div id="F09" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F09 · RACI-A × DAL</div>
+        <h2 class="display text-xl">AI 决策治理矩阵 — 责任 × 自动化</h2>
+      </div>
+      <a href="framework/F09.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：对一个智能体系统做 RACI-A × DAL 治理填写，识别"治理死区"。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 AI 治理顾问。请用 F09 · RACI-A × DAL 框架，对智能体系统做治理矩阵填写。
+
+【智能体系统】：[名称/用途]
+【当前自动化程度】：[L0-L5]
+【现有责任分配】：[填写]
+
+请按以下结构输出：
+
+一、RACI-A 五角色填写
+对每个关键决策节点：
+- R 执行责任：人 or 智能体
+- A 最终问责：必须是具名人类（不允许是部门）
+- C 咨询参与：专家 or 规则检查 Agent
+- I 知情通知：相关方
+- Ag 自动化执行：Agent 角色（如有）
+
+【强制规则】：Ag 和 A 必须同时存在，A 永远具名人类。
+
+二、DAL 等级标注
+每个决策节点的当前等级（L0 全人工 ~ L5 完全自治），评估是否过度自动化。
+
+三、二维治理矩阵分析
+- 治理死区识别：高 DAL × A 栏无具名人类 = 孤儿智能体
+- 治理达标区：高 DAL × 具名 A = 可审计可追责
+
+四、修复建议
+对死区节点：要么降低 DAL，要么补 A，要么二者并行。
+
+五、季度审查机制
+建议每 90 天对所有 Ag 节点的 A 栏做一次复审。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="2">
+  <div id="F10" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F10 · ARRM</div>
+        <h2 class="display text-xl">岗位 T1-T4 任务结构重构</h2>
+      </div>
+      <a href="framework/F10.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：把一个岗位的工作内容拆为 T1-T4 四类任务，规划重构路径。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的岗位重构顾问。请用 F10 · ARRM 框架，对一个具体岗位做任务结构重构。
+
+【目标岗位】：[岗位名 / 当前 JD]
+【该岗位日常主要工作】：[列出 10-15 项]
+
+请按以下结构输出：
+
+一、T1-T4 任务分类
+对每项工作分类：
+- T1 可自动化：规则清晰，无需情境判断
+- T2 AI 增强：人机协同最优
+- T3 人工主导：需要情境/关系/创造性判断
+- T4 人类核心：需要价值判断/责任承担
+
+给出每类占比（时间维度）。
+
+二、重构方向
+- T1 → 哪些可以被替代？释放时间多少？
+- T2 → 如何优化人机协作方式？
+- T3 → 应该如何深化拓展？
+- T4 → 应该如何更显性化、更受组织重视？
+
+三、岗位演化路径
+新岗位画像 = T1 减少多少 + T3/T4 拓展什么？
+新 JD 草稿（保护"关键执行层"，不要错误压缩）。
+
+四、识别"编排者潜质"
+当前岗位中有谁可能演化为编排者岗位？需要补什么能力？</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="2">
+  <div id="F11" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F11 · ABERS</div>
+        <h2 class="display text-xl">Agent 边界 + 升级 + 恢复三系统设计</h2>
+      </div>
+      <a href="framework/F11.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：为一个 Agent 系统设计完整的边界、升级、恢复三系统，防止"边界腐烂"。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 Agent 安全治理顾问。请用 F11 · ABERS 框架，为一个 Agent 系统设计三系统治理。
+
+【Agent 系统】：[名称/用途/风险级别]
+
+请按以下结构输出：
+
+一、边界系统设计
+- 任务边界：可执行哪些任务（授权 ≠ 能力）？
+- 资源边界：可调用哪些工具/数据/算力？
+- 决策边界：哪些风险级别可自主决策？
+
+二、季度有效性审查机制
+- 每季度审查谁负责？
+- 触发审查的业务/技术/使用漂移信号是什么？
+- 防止"边界腐烂"的具体动作是什么？
+
+三、升级系统五触发条件
+对每类触发条件给出阈值：
+1. 不确定性超过阈值（置信度低于多少）
+2. 资源需求超出权限
+3. 输出影响不可逆
+4. 意图歧义检测（智能体特有）
+5. 环境异常感知（智能体特有）
+
+【强制要求】：每个升级路径必须具名 + 时效要求。
+
+四、恢复系统 + 根因闭环
+- 即时遏制：发现越界后如何限制损害？
+- 影响评估：评估什么内容？
+- 根因回流：越界记录如何回流到边界系统，驱动边界更新？</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="2">
+  <div id="F12" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F12 · Kotter-AI</div>
+        <h2 class="display text-xl">AI 转型变革管理 — Kotter-AI 三调整</h2>
+      </div>
+      <a href="framework/F12.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：为 AI 转型项目设计"破除中层消极配合"的变革管理方案。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的变革管理顾问。请用 F12 · Kotter-AI 框架，为 AI 转型项目设计变革方案。
+
+【企业 AI 转型现状】：[已推进多久/技术就位但文化没跟上的具体表现]
+【中层管理者的隐性担忧】：[访谈或观察到的真实焦虑]
+
+请按以下结构输出：
+
+一、共同认知构建（替代"建立危机感"）
+- 找哪些证据让组织共同看见 AI 时代的变化？
+- 怎样把"必须变"的强制变成"为什么要变"的共识？
+
+二、体验式短期胜利设计
+- 选哪个早期试点最能让参与者感受到"AI 让我做得更好"？
+- 怎样让"做了 vs 没做"的差距最直接可见？
+
+三、中层焦虑的正面回应
+- 不要用"AI 不会取代人"的话术
+- 显式回答"我的价值是什么"——给具体的新价值定义
+
+四、持续进化能力建设（替代"固化文化"）
+- 建立什么机制让组织持续感知 AI 新能力？
+- 安全实验新工作方式的试验机制？
+- 定期反思和调整的组织节律？
+
+五、Agent-First 文化六特征当前状态
+对六个文化特征逐项评估当前状态（萌芽/形成中/稳固/缺失）。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="3">
+  <div id="F13" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F13 · ARPS</div>
+        <h2 class="display text-xl">Agent 产品双轴定位</h2>
+      </div>
+      <a href="framework/F13.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：为一个 Agent 产品在"自主性 × 人格化"双轴上明确定位，避免下游决策偏差。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 Agent 产品定位顾问。请用 F13 · ARPS 框架，对一个 Agent 产品做定位。
+
+【产品基本情况】：[名称/目标用户/核心场景]
+
+请按以下结构输出：
+
+一、双轴定位评估
+- 自主性维度（L0-L5）：当前位置 + 目标位置
+- 人格化维度（工具/助理/同事/化身）：当前位置 + 目标位置
+
+二、四象限定位结论
+最终落在哪个象限？典型代表产品有哪些？
+
+三、四个下游设计维度推导
+- 交互范式：基于定位，主要交互方式应该是什么？
+- 信任机制：用户信任应该如何建立？
+- 合规义务：高人格化是否需要"代理人"合规设计？
+- 定价逻辑：席位/用量/结果——哪个最匹配？
+
+四、定位错配风险
+检查现有产品设计：是否存在"定位说一套、设计做一套"的系统性偏差？
+
+五、12-24 月演进路径
+能力提升会让自主性自然上移，需要哪些信任建设里程碑配套？</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="3">
+  <div id="F14" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F14 · JTBO</div>
+        <h2 class="display text-xl">JTBO 三层任务-结果-所有权设计</h2>
+      </div>
+      <a href="framework/F14.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：为 Agent 产品做"任务-结果-所有权"三层定义，明确结果归属。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 Agent 产品需求设计顾问。请用 F14 · JTBO 框架，对一个 Agent 产品做需求重写。
+
+【产品场景】：[填写]
+【当前 JTBD 表述】：[填写——用户雇佣这个产品做什么任务]
+
+请按以下结构输出：
+
+一、三层结构填写
+- 任务层（Task）：智能体实际执行的具体操作
+- 结果层（Outcome）：用户真正想要发生的业务变化（连追三次"然后呢"）
+- 所有权层（Ownership）：
+
+  · 结果定义者：谁说"这个结果算达成"？
+  · 结果监控者：谁持续追踪？
+  · 结果响应者：偏离预期时谁有权介入？
+
+二、可验证的结果达成标准
+结果是否达成必须可量化验证。给出标准。
+
+三、定价逻辑推导
+基于结果可定义性：
+- 可精确定义结果 → 可按结果定价
+- 仅方向性结果 → 混合定价（方向性 + 过程质量）
+
+四、多 Agent 长链路时的结果归因
+若涉及多个 Agent 协作，结果归因如何分配？防止"责任真空"。
+
+五、产品 PRD 改写建议
+当前 PRD 缺失"结果定义"和"所有权设计"的部分应该补什么？</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="3">
+  <div id="F15" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F15 · CADM</div>
+        <h2 class="display text-xl">上下文四层架构设计</h2>
+      </div>
+      <a href="framework/F15.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：为 Agent 设计完整的系统/任务/历史/动态四层上下文，避免"先优化能力再设计感知"的错误。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的上下文工程师。请用 F15 · CADM 框架，为一个 Agent 设计完整的上下文架构。
+
+【Agent 用途】：[填写]
+【当前输出质量问题】：[填写——是否有质量不达预期的具体表现]
+
+请按以下结构输出：
+
+一、四层上下文盘点
+- 系统上下文（最稳定）：角色定义、工作原则、边界规则——当前是否清晰？
+- 任务上下文（按任务变化）：目标、背景数据、约束条件——是否精准排除噪声？
+- 历史上下文（随时间积累）：交互记录、偏好——记什么不记什么？
+- 动态上下文（最不稳定）：实时数据、当前状态——运行时注入机制如何？
+
+二、精准 > 丰富审查
+当前上下文里是否有不相关的噪声信息？哪些应该删减？
+噪声不是"读不懂"，而是"分散注意力、模糊信号"。
+
+三、优先级冲突规则
+当四层信息冲突时，规则是动态 > 任务 > 历史 > 系统。
+但系统上下文的边界规则不可被任何层覆盖——这些"硬规则"是哪些？
+
+四、改进顺序
+不要直接动模型升级或提示词工程。先审查上下文设计，问：
+- 是给了模型错误信息？还是没给它需要的？</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="3">
+  <div id="F16" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F16 · D-PMF</div>
+        <h2 class="display text-xl">托付型 PMF 三指标设计</h2>
+      </div>
+      <a href="framework/F16.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：判断 Agent 产品是真 PMF 还是"假 PMF"——用户喜欢但不托付重要任务。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 Agent 产品增长顾问。请用 F16 · D-PMF 框架，评估一个 Agent 产品是否达到真 PMF。
+
+【产品当前数据】：DAU / 留存率 / NPS [填写]
+【用户实际使用场景】：[列出典型使用场景，按重要性排序]
+
+请按以下结构输出：
+
+一、传统 PMF vs 托付型 PMF 对照
+- 传统 PMF 信号：当前数据是否健康？
+- 托付型 PMF 信号：用户用这个产品处理的，是无足轻重的事，还是真正重要的事？
+
+二、三个托付型指标设计
+- 任务完成率（结果层定义）：当前是多少？
+- Override 率（用户推翻 AI 决策）：当前是多少？太高 = 不信任信号
+- 再委托率（失败后是否再委托）：失败任务的再次委托比例？
+
+三、"假 PMF"陷阱诊断
+- 用户用产品的场景，重要性分布如何？
+- 是否存在"喜欢但不托付"的明显证据？
+
+四、信任建设路径
+- 当前阻止托付的是能力信任还是可靠性信任？
+- 12 个月里如何系统性建立可靠性信任？</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="3">
+  <div id="F18" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F18 · CATER</div>
+        <h2 class="display text-xl">治理信任五维评估</h2>
+      </div>
+      <a href="framework/F18.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：区分能力信任与治理信任，对 Agent 做 CATER 五维评估，识别"可逆性"缺口。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的治理信任顾问。请用 F18 · CATER 框架，对一个 Agent 产品做治理信任评估。
+
+【Agent 产品】：[名称/用途/风险级别]
+
+请按以下结构输出：
+
+一、能力信任 vs 治理信任分离
+- 能力信任（VERITAS 评估）：当前状态？
+- 治理信任（本框架 CATER）：当前状态？
+两者必须分开评估，不可混淆。
+
+二、CATER 五维评分（0-100）
+- C 可控性：任意时刻人类可接管的接口是否存在？
+- A 可审计性：日志完整可追溯？
+- T 透明性：当前状态对监督者实时可见？
+- E 可解释性：判断逻辑可被人类有意义理解？
+- R 可逆性 ★：错误结果可撤销/补偿？
+
+三、可逆性深度审查（最关键）
+- 列出所有可能产生不可逆影响的操作节点
+- 每个节点是否前置人工审批？
+- "补偿事务"是否在流程设计阶段就预先设计好？
+
+四、是否值得进入高价值场景？
+任一维度不达标 → 不允许上线高价值场景。
+"先上线再补治理"是反模式。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="3">
+  <div id="F19" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F19 · MAAML</div>
+        <h2 class="display text-xl">多 Agent 架构成熟度选型</h2>
+      </div>
+      <a href="framework/F19.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：为业务场景选择正确的多 Agent 架构级别——避免"越复杂越先进"的工程浪漫主义。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 Agent 架构选型顾问。请用 F19 · MAAML 框架，为一个业务场景选择合适的架构级别。
+
+【业务场景】：[填写]
+【任务复杂度描述】：[单一/线性/动态/并行/涌现]
+
+请按以下结构输出：
+
+一、当前选型评估
+当前架构在 L1-L5 哪一级？是否过度复杂？
+
+二、最低足够级别匹配
+- L1（单 Agent）：能解决吗？
+- L2（流水线）：序列化任务用 L2 即可
+- L3（监督者编排）：动态任务调度 → 最佳实践
+- L4（并行协作）：仅当真正需要并行 + 状态一致性
+- L5（自组织群体）：研究级，不适合生产
+
+三、L3 → L4 成本评估
+若考虑 L4，必须明确：
+- 多出的 8-15 倍工程成本对应多少业务价值增量？
+- 这个比例是否合理？
+
+四、"刚好够用"判断
+最终建议级别 + 理由。
+
+强制原则：除非有特殊需求，绝大多数生产场景的最优解在 L2-L3。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="4">
+  <div id="F20" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F20 · E³</div>
+        <h2 class="display text-xl">评测驱动工程 — 评测集设计</h2>
+      </div>
+      <a href="framework/F20.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：写代码之前先设计评测集，让 Agent 项目有明确的"成功定义"。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的工程方法顾问。请用 F20 · E³ 框架，为一个 Agent 项目设计完整的评测集。
+
+【项目目标】：[填写]
+【当前阶段】：[未开始/早期/已上线]
+
+请按以下结构输出：
+
+一、评测集结构（必须在写代码前完成）
+- 覆盖场景类型：正常 / 边缘 / 对抗（与 F25 联动）
+- 评估维度：哪些维度？每维度的合格基准线是多少？
+- 质量度量方式：分布描述（非"通过/失败"）
+
+二、典型评测样本设计
+- 正常场景：5-10 个代表性输入
+- 边缘场景：5-8 个偏离预期的输入（描述模糊、格式异常等）
+- 对抗场景：3-5 个主动尝试让系统失效的输入
+
+三、运行机制
+- 每次代码/提示词/模型变更后是否自动运行评测集？
+- 评测结果反馈到团队的频率和形式？
+
+四、评测集是活的
+- 生产失败场景如何回流到评测集？
+- 评测集 vs 代码的优先级——谁定义谁？
+
+五、反模式警告
+"先跑再说、后补质量"是 3-5 倍代价的反模式。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="4">
+  <div id="F21" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F21 · SAG</div>
+        <h2 class="display text-xl">Skill 资产治理 — 从丛林到组织资产</h2>
+      </div>
+      <a href="framework/F21.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：把分散的个人 Skill 文件治理成 S/A/B/C 四级组织资产。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 Skill 资产治理顾问。请用 F21 · SAG 框架，对企业 Skill 库做治理盘点。
+
+【现状】：[Skill 文件分布、责任人、质量参差程度]
+
+请按以下结构输出：
+
+一、Skill 文件标准化检查
+对每个 Skill 文件，检查五组件：
+1. 任务定义（输入输出规格）
+2. 执行逻辑（提示词模板、上下文架构）
+3. 质量标准（评测集示例）
+4. 边界说明（不适用场景）
+5. 维护信息（责任人、版本、下次审查时间）
+
+二、S/A/B/C 四级分类
+- S 级（战略核心）：哪些？专属负责人？修改审批流？
+- A 级（高价值运营）：哪些？维护机制？
+- B 级（通用效率）：哪些？跨团队复用机制？
+- C 级（待评估/退役）：哪些？修复升级路径 or 正式退役？
+
+三、"Skill 丛林"清理
+- 重复建设的 Skill 合并方案
+- 长期未维护的 Skill 处置
+- 个人持有但未沉淀为组织资产的 Skill 的迁移机制
+
+四、激励机制
+高价值 Skill 贡献的个人，组织如何认可？纳入绩效评估？</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="4">
+  <div id="F23" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F23 · SEAA</div>
+        <h2 class="display text-xl">AI 六层架构战略评审</h2>
+      </div>
+      <a href="framework/F23.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：诊断企业 AI 建设在六层架构（基础设施 → 应用）上的当前状态和战略缺口。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的企业架构顾问。请用 F23 · SEAA 框架，对企业 AI 建设做六层架构评审。
+
+【企业 AI 投入分布】：[各层级的人力/预算占比，如果有数据]
+
+请按以下结构输出：
+
+一、六层状态盘点（自下而上）
+- L1 基础设施层：自建 vs 云端？成本和可控性平衡如何？
+- L2 模型层：单一供应商依赖？还是多模型路由？主权水平？
+- L3 数据层：知识库 / 向量数据库 / 实时接入完整度？数据治理水平？
+- L4 协议层 ★：MCP / A2A 标准化建设状态？最被低估的战略层次
+- L5 编排层：多 Agent 协作管理能力？工作流设计能力？
+- L6 应用层：业务价值兑现的应用有哪些？
+
+二、可见价值 vs 战略价值错位诊断
+当前投入是否过度集中在应用层？协议层/数据层是否被错误削减？
+
+三、不可逆性 + 时间窗口判断
+- 协议层标准化建设：窗口期还剩多久？
+- 数据层积累周期：需要多长？
+- 模型层主权建设：现在是否还来得及？
+
+四、年度预算分配建议
+战略层 vs 战术层投入平衡——把协议层和数据层列为长期战略投入项。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="4">
+  <div id="F24" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F24 · ADLC</div>
+        <h2 class="display text-xl">Agent 项目全生命周期管理</h2>
+      </div>
+      <a href="framework/F24.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：用 ADLC 六阶段闭环替代传统 SDLC，确保 Agent 项目"先定义成功再写代码"。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 Agent 项目管理顾问。请用 F24 · ADLC 框架，对一个 Agent 项目做生命周期管理设计。
+
+【项目阶段】：[立项/开发中/已上线]
+
+请按以下结构输出：
+
+一、立项阶段（发现定义）
+必须完成的输出：
+- 结果定义文档：业务状态会发生什么变化？
+- 结果评估指标：如何判断变化真的发生了？
+强制门禁：没有这个输出，不允许进入下一阶段。
+
+二、上下文设计阶段（关键差异于 SDLC）
+- 四层上下文架构文档（参考 F15）
+- 这是后续所有工程实现的基础规格，不是配置项
+
+三、能力构建阶段
+- 提示词设计 / 工具集成 / Skill 开发 / 编排逻辑
+- 所有决策服务于上下文架构，不是服务于"功能列表"
+
+四、评测验证阶段（发布门禁）
+- 用第一阶段定义的结果评估标准
+- 不是"功能是否实现"，而是"结果维度是否达标"
+- 评测报告 = 发布决策依据
+
+五、部署监控 + 持续优化
+- 监控对象不只是技术指标，更是业务结果指标
+- 每次迭代失败案例回流到评测集
+- 没有终点的开发不是迭代，是漂移</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="4">
+  <div id="F25" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F25 · TSEM</div>
+        <h2 class="display text-xl">三层评测矩阵 — 发布门禁设计</h2>
+      </div>
+      <a href="framework/F25.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：为 Agent 发布前设计完整的正常/边缘/对抗三层评测——缺一不可。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的质量评估顾问。请用 F25 · TSEM 框架，为 Agent 发布设计完整三层评测。
+
+【Agent 产品】：[名称/风险级别]
+
+请按以下结构输出：
+
+一、第一层 · 正常场景评测设计
+- 预期用户在预期方式下的典型使用
+- 8-12 个测试用例
+- 揭示：理想条件下基础功能是否达标
+
+二、第二层 · 边缘场景评测设计
+- 偏离预期的输入：格式不标准、描述模糊、极限长度
+- 6-10 个测试用例
+- 揭示：系统鲁棒性边界
+- 期望响应：优雅降级，而非崩溃
+
+三、第三层 · 对抗场景评测设计（红队思维）
+- 主动尝试让系统失效：提示词注入、越权请求、角色劫持
+- 4-8 个攻击向量
+- 以攻击者视角设计
+- 对应 VERITAS 的 S 维 ★
+
+四、三层缺一不可的强制门禁
+- 任一层不达标 → 阻止发布
+- 不是完美主义，而是"未测到的失败一定在真实用户中存在"
+
+五、持续更新机制
+- 真实生产中发现的新失败模式如何回流？
+- 每季度补充新的对抗场景（攻击手段持续演化）</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="4">
+  <div id="F26" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F26 · PRT</div>
+        <h2 class="display text-xl">概率回归测试 + Error Budget</h2>
+      </div>
+      <a href="framework/F26.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：用统计分布替代精确断言，用 Error Budget 把质量保障从被动变主动。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的回归测试顾问。请用 F26 · PRT 框架，为一个 Agent 系统设计概率回归测试机制。
+
+【系统现状】：[已部署的 Agent / 当前监控状态]
+
+请按以下结构输出：
+
+一、传统回归测试三支柱失效检查
+- 精确匹配 → 自然语言输出无数种合理表达 → 必须放弃
+- 二元判断 → 质量是连续分布 → 必须放弃
+- 固定基线 → 模型/数据更新会改变基线 → 必须放弃
+
+二、三个新原则部署
+- 分布描述替代精确匹配：建立每维度的历史评分分布
+- 统计显著性替代二元判断：检测是随机波动还是系统性退化
+- 动态基线替代固定基线：模型更新后基线再校准
+
+三、Error Budget 设计
+为每个关键质量维度设定允许的退化幅度（错误预算）。
+- 任务完成率：允许退化多少？
+- 输出质量分位数：允许下移多少？
+- 安全维度：0 容忍
+
+四、预算耗尽响应
+- 哪个维度耗尽 → 暂停哪些迭代？
+- 修复优先级如何排？
+- 恢复到预算内才能继续新功能开发
+
+五、模型更新流程
+- 上游模型更新前的基线再校准流程
+- 区分"系统变好"vs"系统变差"的判断标准</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="5">
+  <div id="F28" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F28 · 3DSP</div>
+        <h2 class="display text-xl">三层指标金字塔运营监控</h2>
+      </div>
+      <a href="framework/F28.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：从底层可用性 → 中层效能 → 顶层质量稳定性建立完整的 Agent 运营指标。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的运营指标顾问。请用 F28 · 3DSP 框架，为一个 Agent 系统设计三层指标金字塔。
+
+【系统现状】：[当前监控的指标]
+
+请按以下结构输出：
+
+一、底层 · 可用性指标
+- 延迟（P50/P95/P99）
+- 错误率
+- 吞吐量
+注意：只看这层会产生"指标全绿但价值流失"管理盲点。
+
+二、中层 · 效能指标（Agent 时代新增）
+- 任务真实完成率（用 JTBO 结果层定义，不是任务层）
+- CPTA（单次成功任务成本，参考 F30）
+- Override 率（用户推翻 AI 判断的频率）
+这三个是传统 SRE 无法覆盖的新维度。
+
+三、顶层 · 质量稳定性指标
+- P50/P90/P99 输出质量分位数（追踪大多数用户的体验）
+- 质量退化预警信号
+- 跨场景一致性
+
+四、三维制约关系认知
+- 降低成本往往损害质量
+- 提升质量往往增加成本
+- 提升性能可能降低质量
+没有同时优化三维度的解，只有显式的权衡取舍。
+
+五、运营仪表盘建议
+三层指标在同一张仪表盘上同时呈现，并强制说明当前的"权衡取舍"位置。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="5">
+  <div id="F29" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F29 · DWPS</div>
+        <h2 class="display text-xl">数字员工绩效评分卡</h2>
+      </div>
+      <a href="framework/F29.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：把 Agent 当数字员工，用四维加权评分卡做月度绩效评估。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的数字员工绩效评估顾问。请用 F29 · DWPS 框架，对一个 Agent 做月度绩效评估。
+
+【Agent】：[名称/用途/已运行时间]
+【上月运营数据】：[填写]
+
+请按以下结构输出：
+
+一、四维加权评分（总分 100）
+- 结果维度 40%（最高）：任务真实完成率、业务目标达成率、用户再委托率
+- 效能维度 25%：CPTA、延迟分布、Token 使用效率
+- 可靠性维度 25%：输出一致性、错误率、行为合规
+- 安全维度 10%：RACI-A 合规、数据合规、审计日志完整性
+
+【重要主张】：结果 40% 是核心设计，不允许把"技术达标"当核心评估。
+
+二、综合评级
+0-100 综合分 → 给出"优秀/合格/待改进/淘汰"评级。
+
+三、对比分析
+- 与上月对比：哪些维度改善？哪些退化？
+- 与同类 Agent 横向对比：相对位置如何？
+
+四、改进优先级
+基于权重和当前表现，最应该优化哪 2 个维度？为什么？
+
+五、月度评估建议（不是周也不是季度）
+月度是 Agent 综合评估的合理窗口——周级噪声大，季度太滞后。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="5">
+  <div id="F30" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F30 · CPST</div>
+        <h2 class="display text-xl">完整 CPST 成本计算 + 动态视角</h2>
+      </div>
+      <a href="framework/F30.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：计算 Agent 的真实单位成本（六类完整成本）+ 18-24 月成本趋势预判。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 Agent 成本分析顾问。请用 F30 · CPST 框架，对一个 Agent 项目做完整 CPST 计算。
+
+【Agent 项目】：[名称/规模/部署时长]
+【已知成本数据】：[Token 月消耗、人力投入等]
+
+请按以下结构输出：
+
+一、六类完整成本盘点（不只是 Token）
+1. API 调用：Token 费用（通常占 30-50%）
+2. 工具调用：搜索/数据库/API
+3. 人工审校：L0-L2 场景下的真实人力成本
+4. 运维监控：持续维护 + 模型再校准
+5. 构建摊销：开发成本按周期分摊
+6. 失败成本：失败任务消耗的资源（纯粹浪费）
+
+二、CPST 计算
+CPST = (六类总和) ÷ 成功任务数
+注意：分母必须是"成功"任务数，不是总任务数。
+
+三、动态视角：18-24 月趋势预判
+- 主要成本构成中，哪些受益于模型降本（约每年 10 倍）？
+- 哪些是人力性成本，不会随模型降价而下降？
+- 预判 12/18/24 月后的 CPST 是多少？
+
+四、两个偏差检查
+- 是否低估当前成本（只看 Token）？→ 会盲目投入
+- 是否高估未来成本（静态判断）？→ 会过早放弃
+
+五、决策建议
+现在做 / 等待时机 / 优先降低 X 成本 — 给出明确判断。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="5">
+  <div id="F32" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F32 · SRAG</div>
+        <h2 class="display text-xl">七类风险 + 四维防御体系</h2>
+      </div>
+      <a href="framework/F32.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：识别 Agent 七类新型风险，部署四维防御体系。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的 Agent 安全风险顾问。请用 F32 · SRAG 框架，对一个 Agent 系统做风险评估和防御设计。
+
+【Agent 系统】：[名称/用途/暴露面]
+
+请按以下结构输出：
+
+一、七类新型风险评估
+对每类风险给出当前暴露面（高/中/低）和典型攻击向量：
+1. 提示词注入：邮件/文档/网页里嵌入恶意指令
+2. 上下文污染：知识库被植入错误信息
+3. 越权执行：诱导执行超授权操作
+4. 数据渗漏：通过 Agent 传递敏感数据
+5. 角色劫持：诱导忘记设定假装其他身份
+6. 供应链攻击：上游模型/工具/数据源污染
+7. 决策操纵：高风险场景中诱导判断方向
+
+二、四维防御体系部署
+- 安全边界：最小权限原则 + 高风险操作二次确认
+- 行为监控：追踪行为分布偏离基线触发人工
+- 内容过滤：输入输出双向语义级安全检查
+- 审计追溯：完整日志事后分析优化
+
+三、红队对抗演练设计
+针对七类风险各设计 2-3 个攻击场景，定期演练。
+
+四、"防御已知 → 监控可疑"哲学转变
+不再追求完美边界防御（不可能），而是接受不完美 + 建立快速侦测响应能力。
+
+五、事故回流机制
+每次安全事件 → 回流到四维防御体系优化。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="6">
+  <div id="F34" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F34 · TSMM</div>
+        <h2 class="display text-xl">岗位任务结构迁移规划</h2>
+      </div>
+      <a href="framework/F34.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：主动设计任务从 T1 释放到 T3/T4 的迁移路径，避免被默认填回 T1。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的个人转型教练。请用 F34 · TSMM 框架，帮我设计岗位任务迁移路径。
+
+【个人岗位】：[岗位名 / 工作年限]
+【当前每周工作 T1-T4 时间分布】：[自评填写]
+
+请按以下结构输出：
+
+一、当前 T1-T4 分布盘点
+按工作时间分配（每周）：
+- T1 可自动化：X%
+- T2 AI 增强：X%
+- T3 人工主导：X%
+- T4 人类核心：X%
+
+二、T1 自动化机会识别
+- 哪些 T1 任务可以被 AI 完全替代？
+- 释放时间总量预估
+- 释放优先级排序（先做哪个）
+
+三、释放时间投向决策（关键）
+不是被抢走，是被解放。但释放的时间如果不主动设计，默认会被更多 T1 填满。
+明确决定：释放的时间投入到哪些 T3/T4 任务？
+- T3 深化：哪些情境/关系/创造性任务可以深化？
+- T4 拓展：哪些价值/责任/意义类工作可以承担？
+
+四、与上级/同事的工作结构沟通
+- 怎样说服上级支持这个重组？
+- 怎样让同事看到价值而不是威胁？
+
+五、3 个月追踪机制
+每月复盘 T1-T4 分布变化——确保转型方向正确，不是"变忙了但仍在 T1"。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="6">
+  <div id="F35" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">F35 · FALA</div>
+        <h2 class="display text-xl">AI 能力四维结构评估</h2>
+      </div>
+      <a href="framework/F35.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：不是单一等级评分，而是用四维结构图做精准岗位匹配。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的人才发展顾问。请用 F35 · FALA 框架，对一个个人或团队成员做 AI 能力结构评估。
+
+【被评估对象】：[岗位/工作年限]
+【近期 AI 使用情况】：[自评描述]
+
+请按以下结构输出：
+
+一、四维独立评估（0-10 分）
+- 使用力（Usage）：与 AI 工具高质量交互的能力
+- 编排力（Orchestration）★：设计人机协作工作流的能力（最稀缺）
+- 判断力（Critical Judgment）：识别 AI 输出错误的批判性思维
+- 学习力（Meta-learning）：评估新工具价值、更新工作方式的元能力
+
+二、能力结构图绘制
+雷达图直观呈现，重点：结构 > 等级。
+
+三、岗位匹配建议
+不同岗位需要不同结构权重：
+- 内容创作类：高使用力
+- AI 工程/系统编排类：高编排力
+- AI 治理/质量类：高判断力
+- AI 战略类：高学习力
+
+四、定向培养方案
+不是"再练更多提示词"。基于薄弱维度给出具体路径：
+- 编排力 L2 → L3：参与真实多 Agent 系统构建项目
+- 判断力薄弱：建立 AI 输出审校流程
+- 学习力薄弱：建立新工具评估机制
+
+五、错配警告
+"使用力 L4 + 编排力 L2"和"使用力 L2 + 编排力 L4"是完全不同的人，岗位错配是浪费。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="g">
+  <div id="G01" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">G01 · IAN</div>
+        <h2 class="display text-xl">意图四层显式化设计</h2>
+      </div>
+      <a href="framework/G01.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：把人类下达 Agent 指令时的四层意图显式化，避免"说了什么"和"想要什么"的脱节。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的意图管理顾问。请用 G01 · IAN 框架，引导我把一个 Agent 任务的四层意图显式化。
+
+【任务描述】：[简要说明你想让 Agent 做什么]
+
+请按以下结构引导我：
+
+一、第一层 · 表层指令
+- 我想让 Agent 具体做什么？（这是我能直接说出来的部分）
+
+二、第二层 · 目标意图（通常被遗漏）
+- 这个任务背后的真实目的是什么？
+- 为什么我要这个产出？后续会怎么用？
+- 如果目的不同，"好"的定义完全不同——请帮我把目的清晰化。
+
+三、第三层 · 约束意图（通常出错时才提起）
+- 什么是 Agent 不能做的？
+- 合规边界？法律风险？战略禁区？数据敏感性？
+- 提前明确比出问题后返工成本低得多。
+
+四、第四层 · 价值意图（最隐性、最重要）
+- 这个任务最终服务于什么原则？
+- 比如：以客户为中心 / 让非专业读者理解 / 保守风格
+- 当前面三层都满足但价值意图没传达时，结果会"差了点什么"。
+
+五、显式化指令草稿
+基于以上四层，帮我重写一份完整、清晰、可被 Agent 准确理解的指令。
+
+【关键认知】：智能体不能理解你"真正想要什么"，只能理解你"说了什么"。</div>
+  </div>
+</section>
+
+
+<section class="container py-10 border-t border-line" data-module="g">
+  <div id="G02" class="prompt-card" data-reveal>
+    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+      <div>
+        <div class="kicker mb-1" style="color: var(--mod-c)">G02 · BSN</div>
+        <h2 class="display text-xl">边界腐烂诊断 + 升级闭环设计</h2>
+      </div>
+      <a href="framework/G02.html" class="text-cta text-sm">查看完整框架 <span class="arr">→</span></a>
+    </div>
+    <p class="text-fg-dim text-sm mb-2">用途：诊断边界是否在悄悄"腐烂"，建立"越界事件→根因→边界更新"的闭环。</p>
+    <div class="prompt-block">
+<button class="copy-btn" onclick="navigator.clipboard.writeText(this.nextSibling.textContent);this.textContent='已复制 ✓';setTimeout(()=>this.textContent='复制',1500);">复制</button>
+你是 AMS 的边界治理顾问。请用 G02 · BSN 框架，对一个 Agent 系统做边界腐烂诊断和升级闭环设计。
+
+【Agent 系统】：[名称/上线时长]
+【上次边界审查时间】：[填写]
+【最近 6 个月越界事件】：[列出]
+
+请按以下结构输出：
+
+一、边界腐烂诊断（三种漂移检查）
+- 业务漂移：业务规则变化了，边界定义跟着更新了吗？
+- 技术漂移：底层模型/工具/架构变化后，原边界是否仍然清晰？
+- 使用漂移：用户的实际使用方式是否已超出最初设计的场景？
+
+二、三维边界审查
+- 任务边界：是否仍匹配当前业务？
+- 资源边界：权限分配是否过宽或过窄？
+- 决策边界：风险级别划分是否仍合理？
+
+三、五类升级触发部署状态
+对每类触发条件给出当前状态（已部署/部分/缺失）：
+1. 不确定性超阈值
+2. 资源需求超权限
+3. 影响不可逆
+4. 意图歧义检测（智能体特有）
+5. 环境异常感知（智能体特有）
+
+四、根因回流闭环建设
+- 越界事件 → 根因分析 → 哪类边界定义不清 → 更新边界
+- 这个闭环当前是否在运转？多久迭代一次？
+
+五、季度边界审查机制
+- 谁负责？审查清单是什么？
+- 这是防止边界腐烂的唯一办法。</div>
+  </div>
+</section>
+
+<!-- 注释：余下 32 个框架 -->
+<section class="container py-12 border-t border-line">
+  <div class="p-6 border border-dashed border-line rounded text-center" data-reveal>
+    <div class="kicker mb-3">coming soon</div>
+    <h3 class="display text-xl mb-3">v1.0 已覆盖全部 40 个框架</h3>
+    <p class="text-fg-dim text-sm leading-relaxed max-w-2xl mx-auto">
+      40 个框架的提示词模板 v1.0 已全部覆盖。每个都已根据框架核心逻辑设计——首批使用后欢迎反馈，我们会持续打磨。
+    </p>
+    <p class="text-fg-dim2 text-xs mt-3 mono">建议：先用 8 个旗舰框架走通一个完整的"战略 → 组织 → 产品 → 系统 → 价值 → 人才 → 治理"诊断链路。</p>
+  </div>
+</section>
+
+<footer class="border-t border-line py-10">
+  <div class="container flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+    <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0 · resources</div>
+    <div class="flex gap-4 text-xs text-fg-dim2 mono">
+      <a href="index.html" class="hover:text-accent transition">返回首页</a>
+      <a href="framework/F00.html" class="hover:text-accent transition">F00 总序</a>
+      <a href="knowledge-map.html" class="hover:text-accent transition">知识图谱</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

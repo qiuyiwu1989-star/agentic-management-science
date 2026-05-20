@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F03 · 智能体组合矩阵 (APM) — 智能体管理学</title>
+<meta name="description" content="用"自主化成熟度 × 战略价值"双轴，把企业内分散的 Agent 项目转化为可配置战略资产组合——像管理投资组合一样管理 Agent。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="1">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块一 · 竞争重写 / F03</span>
+      <span class="type-tag">工具级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-1" class="hover:text-fg transition">所有竞争重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体组合矩阵
+      <span class="en">Agentic Portfolio Matrix</span>
+      <span class="abbr">APM</span>
+    </h1>
+    <p class="claim" data-reveal>
+      资源不是用来均分的，是用来押注的。
+      <br/><span class="text-fg-dim2">矩阵是动态工具，更新频率是周级，不是年级——不是静止的资产图，是带迁移箭头的战略追踪图。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">用<strong>"自主化成熟度 × 战略价值"</strong>双轴，把企业内分散的 Agent 项目转化为<strong>可配置战略资产组合</strong>——像管理投资组合一样管理 Agent。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F03 · APM 四象限矩阵</span></div>
+      <span class="viz-pattern">P3</span>
+    </div>
+    <div class="viz-matrix">
+      <div class="axis-y">战略价值 / Strategic Value</div>
+      <div class="quad">
+        <span class="quad-tag">高价值 · 低成熟</span>
+        <h4 class="quad-title">★ 明星智能体</h4>
+        <p class="quad-desc">战略上重要，但技术上还没准备好。未来竞争优势的来源。</p>
+        <div class="quad-action">→ 重点投入 · 攻关关键瓶颈</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">高价值 · 高成熟</span>
+        <h4 class="quad-title">$ 现金牛智能体</h4>
+        <p class="quad-desc">运行稳定，效率贡献明确——核心竞争资产，持续加深。</p>
+        <div class="quad-action">→ 推向数据飞轮 · 规模复制</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">低价值 · 低成熟</span>
+        <h4 class="quad-title">? 问题智能体</h4>
+        <p class="quad-desc">既没价值也不成熟，多为跟风项目。释放资源给真正的问题象限。</p>
+        <div class="quad-action">→ 快速验证 · 敢于砍掉</div>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">低价值 · 高成熟</span>
+        <h4 class="quad-title">⚙ 工具智能体</h4>
+        <p class="quad-desc">运行稳定但不构成差异化——效率资产，不是战略资产。</p>
+        <div class="quad-action">→ 标准化降本 · Skill 化复用</div>
+      </div>
+      <div class="corner"></div>
+      <div class="axis-x"><span>低</span>自主化成熟度 / Automation Maturity · L0 → L5<span>高</span></div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>四象限对应四种资源配置策略</span><span><i class="dot"></i>追踪迁移路径，不是拍静态截面</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">企业内这么多 Agent 项目，哪些该全力以赴，哪些重点投入，哪些控制，哪些退出？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第三层 · 负责回答<span class="text-fg">「资源该投到哪里」</span>，是战略判断落地为执行优先级的关键。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">BCG 增长-份额矩阵（1970）<span class="text-fg-dim2">→</span> 创新：以"自主化成熟度 × 战略价值"替代"市场份额 × 增长率"，引入迁移路径和周级更新频率。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>一家零售集团 CTO 的 40 个项目</h2>
+      <p>一家零售集团的 CTO 告诉我，他们公司有将近 40 个智能体相关项目在同时推进。有的是业务部门自发建的，有的是总部立项的，有的是采购了外部服务接进来的。每个项目都有自己的小团队，每个季度都在汇报进展，每个汇报都说"进展顺利"。</p>
+      <p>但当他试图回答一个简单的问题时，却卡住了：<em>这 40 个项目里，哪几个是公司应该全力以赴的？</em></p>
+      <p>没有人说得清。因为资源是按"谁先立项谁先拿到"的逻辑分配的，不是按"这件事对公司战略有多重要、智能体在这里能做到多好"来分配的。结果是：<strong>真正高价值的场景投入不足，低价值的场景过度自动化</strong>，整体推进看起来很热闹，但没有一个项目做到足够深。</p>
+      <h2><span class="num">02</span>波士顿矩阵的逻辑为什么可以迁移</h2>
+      <div class="theory-note"><strong>理论来源</strong>：BCG 增长-份额矩阵（波士顿咨询，1970）。<br/><strong>本框架创新</strong>：将 BCG 矩阵的双轴评估逻辑迁移至智能体资产管理场景，以"战略价值"替代"市场增长率"，以"自主化成熟度"替代"相对市场份额"，并增加"迁移路径"和"更新频率"两个运营维度。</div>
+      <p>1970 年代，波士顿咨询公司发明了增长-份额矩阵，帮助多元化企业管理旗下多个业务单元的资源分配：用"市场增长率"和"相对市场份额"两个轴，把业务分成明星、现金牛、问题儿童、瘦狗四类，据此决定每类业务应该投入、收割还是退出。</p>
+      <p>这套逻辑的核心洞察是：<strong>不同类型的资产，应该被给予不同类型的资源和期待。</strong>对一个现金牛业务做激进投入是浪费，对一个明星业务做保守投入是错失。</p>
+      <p>智能体项目组合面临完全类似的问题，但分类标准需要重新定义。<em>市场增长率和市场份额，对判断"要不要继续投入某个智能体项目"几乎没有指导意义。</em>真正需要同时评估的两个维度是：这个场景的<strong>战略价值有多高</strong>，以及智能体在这个场景里的<strong>自主化能力现在达到了什么水平</strong>。</p>
+      <h2><span class="num">03</span>两个轴，四个象限</h2>
+      <p>APM 的纵轴是<strong>战略价值</strong>——这个场景对公司核心竞争力的贡献度，包括收入影响、差异化程度、护城河贡献；横轴是<strong>自主化成熟度</strong>——智能体在这个场景里目前能做到什么程度，稳定性、准确率、边界清晰度。</p>
+      <h3>明星智能体（高价值 × 高成熟度）</h3>
+      <p>最核心的竞争资产。这类智能体应该持续加深，从"运行"进化到"飞轮"——让它产生的数据反哺自身能力的提升。<strong>资源投入的首要目的不是维持，而是把它推向数据飞轮阶段。</strong></p>
+      <h3>问题智能体（高价值 × 低成熟度）</h3>
+      <p>战略上重要，但技术上还没准备好。这里需要的不是放弃，而是<em>针对性攻关</em>——聚焦在限制它成熟度的那一个或两个关键瓶颈，可能是数据质量，可能是上下文设计，可能是工具调用的稳定性。大多数企业对这类智能体投入不足，因为它"暂时没有成果"，却忘了它是未来竞争优势的来源。</p>
+      <h3>现金牛智能体（低价值 × 高成熟度）</h3>
+      <p>运行稳定，效率贡献明确，但不构成差异化优势。这类应该标准化并降低维护成本——整理成可复用的 Skill 文件，建立轻量级的监控机制，不再做大规模的能力迭代投入。<strong>它是效率资产，不是战略资产。</strong></p>
+      <h3>淘汰智能体（低价值 × 低成熟度）</h3>
+      <p>既没有战略价值，智能体在这里也还做不好。这里的正确答案通常是：<em>停止继续投入，把资源释放给问题象限。</em>这类项目往往是最难砍掉的，因为总会有人说"再给三个月看看"，但它消耗的资源，是问题象限最需要的。</p>
+      <h2><span class="num">04</span>矩阵不是用来拍照的，是用来追踪迁移的</h2>
+      <p>APM 和大多数战略矩阵有一个关键区别：<strong>它的有效使用频率是周级，不是年级。</strong></p>
+      <p>BCG 矩阵分析一个业务单元的市场地位，数据来自季度财报，一年更新一两次是正常的。但智能体的自主化成熟度，可能在三周内从"不稳定"变成"可部署"；一个新竞争对手的进入，可能在一个月内改变某个场景的战略价值评估。</p>
+      <p>这意味着 APM 的核心使用方式，是<em>追踪每个智能体在矩阵里的迁移路径和迁移速度</em>。某个问题智能体的自主化成熟度是否在稳步提升？某个现金牛智能体的战略价值是否因为竞争对手的进入而发生了变化？某个明星智能体是否已经开始形成数据飞轮？</p>
+      <blockquote>一张静止的矩阵截图没有多大价值，一张带有迁移箭头的动态矩阵，才是真正的管理工具。</blockquote>
+      <h2><span class="num">05</span>最常见的两种资源错配</h2>
+      <p>在实际企业里，APM 最大的价值往往不是告诉你该做什么，而是<strong>让两种最常见的资源错配变得可见</strong>。</p>
+      <p><strong>第一种是把资源均分给所有在运行的智能体。</strong>40 个项目，每个都分到差不多的人力和预算，结果是没有一个项目做到足够深。APM 强迫你在矩阵里给每个项目找到位置，然后对照位置来分配资源——<em>明星和问题象限的项目，应该得到不成比例的重点投入。</em></p>
+      <p><strong>第二种是把注意力集中在已经成熟的项目上。</strong>成熟的智能体已经在稳定运行，管理起来轻松，汇报数据好看，但它们往往是现金牛，不是未来的竞争壁垒。真正需要管理层注意力的，是那些高价值但还没做好的问题象限项目——因为那里积压的，是<em>尚未被释放的战略资产</em>。</p>
+      <h2><span class="num">06</span>你的 40 个项目，真正值得全力押注的是哪几个</h2>
+      <p>回到开头那位 CTO。如果他用 APM 把 40 个项目重新过一遍，大概率会发现：<strong>明星象限里只有 3-5 个，问题象限里有 5-8 个需要聚焦攻关，现金牛象限里有十几个需要降本维护，淘汰象限里有一批该砍掉但没人敢提</strong>。</p>
+      <p>这个分布本身不是问题，问题是<em>在没有这张矩阵之前，这 40 个项目拿到的资源，和这个分布完全不匹配</em>。</p>
+      <blockquote>投资组合的逻辑，不是把资源分给所有项目，而是集中押注在那几个能真正改变竞争位置的地方。</blockquote>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>盘点所有 Agent。</strong>建立完整清单（运行 / 开发 / 规划），记录每个的目的、负责团队、当前状态。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>双轴打分定位。</strong>对每个 Agent 评估自主化成熟度（L0-L5）和战略价值（综合：收入贡献、成本节省、用户体验、风险控制），定位到矩阵。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>匹配差异化策略。</strong>按象限位置匹配资源配置策略（扩张/重点投入/标准化/淘汰），设定下个评估周期的目标位置。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>建立季度复盘机制。</strong>每季度（或月度）重新评估所有 Agent 的位置变化，识别从"问题"升级为"明星"的潜力，和从"现金牛"退化为"工具"的风险。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">企业未来不是在管理人，而是在<span class="not-italic" style="color:var(--fg)">管理一组智能体组合</span>——能否像管理投资组合一样管理 Agent，决定 AI 战略能否真正产生系统级效率优势。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">Agent 不应被视为一个个独立的技术项目，而应被视为一个需要主动管理的能力组合。组合管理的关键不只是评估单个 Agent，而是管理整个组合的结构。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>年度/季度 AI 战略规划会议</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>向董事会汇报 AI 投资优先级</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>识别哪些 Agent 项目应该加速或终止</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>管理多个业务单元的 Agent 协调</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>用一次性分析替代持续的动态管理</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>战略价值评估过于主观，缺乏量化依据</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>只关注技术成熟度而忽略战略价值轴</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把所有 Agent 推向高自主而不考虑风险和价值匹配</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F02.html" class="rel-item"><span class="rel-num">F02</span><span class="rel-name">护城河重估法 — 明确优势来源</span></a>
+          <a href="F04.html" class="rel-item"><span class="rel-num">F04</span><span class="rel-name">能力三元获取法 — 具体获取路径</span></a>
+          <a href="F05.html" class="rel-item"><span class="rel-num">F05</span><span class="rel-name">数字劳动力资产观 — 资产财务属性</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F03"><span>▸ APM 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ APM Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F02.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F02</span><span class="nav-title">智能体护城河重估法</span></div></a>
+    <a href="F04.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F04</span><span class="nav-title">智能体能力三元获取法</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

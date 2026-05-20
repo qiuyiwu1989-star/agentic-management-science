@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>G03 · 智能体主权模型 (HSCN) — 智能体管理学</title>
+<meta name="description" content="通过数据 / 模型 / 执行 / 治理 / 经济五维主权，确保最终责任、价值判断、关键决策权和不可逆操作的主权始终在人类一侧——主权不等于孤立，本质是"选择权"。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="g">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 治理神经 / G03</span>
+      <span class="type-tag">治理神经</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-g" class="hover:text-fg transition">所有治理神经框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体主权模型
+      <span class="en">Human Sovereignty Control Nerve</span>
+      <span class="abbr">HSCN</span>
+    </h1>
+    <p class="claim" data-reveal>
+      主权始终属于人类——这不是一个观点，而是整套体系的哲学底座。
+      <br/><span class="text-fg-dim2">智能体可以自主执行，但不能自主决定执行什么。这条线，是整套治理体系最根本的前提。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">通过<strong>数据 / 模型 / 执行 / 治理 / 经济</strong>五维主权，确保最终责任、价值判断、关键决策权和不可逆操作的主权始终在人类一侧——<strong>主权不等于孤立，本质是"选择权"</strong>。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">G03 · 智能体主权五维</span></div>
+      <span class="viz-pattern">P2</span>
+    </div>
+    <div class="viz-canvas">
+      <svg viewBox="0 0 480 480" class="viz-svg" style="max-width:480px" xmlns="http://www.w3.org/2000/svg">
+        <circle class="v-axis-grid" cx="240" cy="240" r="40"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="80"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="120"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="160"/>
+<line class="v-axis" x1="240" y1="240" x2="240.0" y2="80.0"/>
+<line class="v-axis" x1="240" y1="240" x2="392.2" y2="190.6"/>
+<line class="v-axis" x1="240" y1="240" x2="334.0" y2="369.4"/>
+<line class="v-axis" x1="240" y1="240" x2="146.0" y2="369.4"/>
+<line class="v-axis" x1="240" y1="240" x2="87.8" y2="190.6"/>
+<polygon class="v-polygon" points="240.0,128.0 331.3,210.3 319.9,350.0 169.5,337.1 171.5,217.8"/>
+        <circle class="v-dot" cx="240.0" cy="128.0" r="4"/>
+<circle class="v-dot" cx="331.3" cy="210.3" r="4"/>
+<circle class="v-dot special" cx="319.9" cy="350.0" r="6"/>
+<circle class="v-dot" cx="169.5" cy="337.1" r="4"/>
+<circle class="v-dot" cx="171.5" cy="217.8" r="4"/>
+<text class="v-axis-label" x="240.0" y="43.0" text-anchor="middle">D</text>
+<text class="v-axis-name" x="240.0" y="57.0" text-anchor="middle">数据主权</text>
+<text class="v-axis-label" x="420.7" y="174.3" text-anchor="middle">M</text>
+<text class="v-axis-name" x="420.7" y="188.3" text-anchor="middle">模型主权</text>
+<text class="v-axis-label" x="351.7" y="386.7" text-anchor="middle">E</text>
+<text class="v-axis-name" x="351.7" y="400.7" text-anchor="middle">执行主权 ★ ★</text>
+<text class="v-axis-label" x="128.3" y="386.7" text-anchor="middle">G</text>
+<text class="v-axis-name" x="128.3" y="400.7" text-anchor="middle">治理主权</text>
+<text class="v-axis-label" x="59.3" y="174.3" text-anchor="middle">Ec</text>
+<text class="v-axis-name" x="59.3" y="188.3" text-anchor="middle">经济主权</text>
+
+        <text class="v-node-mono" x="240" y="237" text-anchor="middle">HSCN · 5 dims</text>
+      </svg>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>五维主权 = 选择权 ≠ 什么都自建</span><span><i class="dot" style="background:transparent;outline:2px solid var(--mod-c);outline-offset:-1px;border-radius:50%"></i>★ 执行主权 — 最核心的不可让渡维度</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">人类对智能体系统应该保留哪些主权？主权和孤立主义的区别是什么？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">治理神经③ · 横切全体系（连接 F02 / F04 / F06 / F09 / F18 / F36）· 所有 37 篇框架的哲学前提与最终价值锚点。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">数据主权理论（GDPR）+ 平台权力理论（Srnicek，2017）+ 技术主权概念<span class="text-fg-dim2">→</span> 创新：从国家层面"数字主权"缩放为企业层面"智能体主权"五维 + "主权=选择权"立场。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>所有框架背后的共同假设</h2>
+      <p>当你把「智能体管理学」37 个框架放在一起看，会发现它们背后有一个<strong>从未被单独讨论但始终存在的共同假设</strong>：<em>在人机协作的所有情境下，人类对目标和价值的主权是不可让渡的。</em></p>
+      <p>这个假设在不同框架里以不同的形式体现：<em>在 F09 里，A（最终问责）永远是人类；在 F11 里，恢复系统的启动权在人类手中；在 F18 里，可控性要求人类在任意时刻可以接管；在 F36 里，价值锚定力被定义为人类不可让渡的核心能力……</em></p>
+      <p><strong>这些不是各自独立的设计选择，而是同一个哲学命题在不同维度上的实践表达：智能体主权属于人类，这是整个体系存在的哲学前提。</strong></p>
+      <h2><span class="num">02</span>主权的五个维度</h2>
+      <div class="theory-note"><strong>理论来源</strong>：数据主权理论（欧盟 GDPR 背景下的学术讨论）；平台权力理论（尼克·扎博斯基《平台资本主义》，2017）；技术主权概念（欧盟数字单一市场战略）。<br/><strong>本框架创新</strong>：将国家/区域层面的"数字主权"概念，缩放并转化为企业层面的"智能体主权"五维框架；提出主权主张不是"反对外部服务"而是"确保选择权"的平衡立场；将主权评估作为整个体系的哲学收官。</div>
+      <p>智能体主权模型把"主权属于人类"这个抽象命题，拆解为五个可以被具体实践的维度。</p>
+      <h3>数据主权（Data Sovereignty）</h3>
+      <p>企业和个人对用于训练和运行智能体系统的数据，拥有完整的所有权和控制权。<em>数据是智能体能力的基础资产，也是最重要的护城河</em>——但只有当数据的控制权在你手里，<strong>它才真正是你的资产</strong>。一旦核心数据存放在无法完全控制的外部系统里，数据主权实际上已经被部分让渡。</p>
+      <h3>模型主权（Model Sovereignty）</h3>
+      <p>企业是否拥有可以自主部署、自主调整、不依赖单一供应商的模型能力。<em>这不要求所有企业自建大模型，但要求企业在关键能力上有足够的选择权和切换能力</em>——当任何一个模型供应商改变策略、提高价格或停止服务，业务不会因此被中断或严重损害。</p>
+      <h3>执行主权（Execution Sovereignty）★ 核心</h3>
+      <p>智能体系统的运行，是否在企业可控的基础设施上，企业是否有随时暂停、调整或关闭任何智能体的能力。<strong>执行主权确保的是：企业不会因为基础设施供应商的单方面决定，而失去对已经在运行的智能体系统的控制。</strong></p>
+      <h3>治理主权（Governance Sovereignty）</h3>
+      <p>规则制定权和审计权。<em>谁决定智能体系统的行为规范？谁有权审查智能体系统的运行记录？谁决定哪些场景可以自动化、哪些不行？</em>治理主权确保这些决策权在企业内部，<strong>而不是由技术供应商或平台方单方面决定</strong>。</p>
+      <h3>经济主权（Economic Sovereignty）</h3>
+      <p>企业 AI 能力的定价权和变现权。当企业积累了有价值的 AI 能力，<em>是否有能力把它商业化（F06 AaaS 框架），而不是只能依附于平台方的分发体系？</em><strong>经济主权是五个维度里最容易被忽视的，但它决定了 AI 能力能否转化为可持续的竞争优势。</strong></p>
+      <h2><span class="num">03</span>主权不是孤立主义</h2>
+      <p>需要特别说清楚的是：<strong>主张智能体主权，不是主张企业应该把所有东西都自建，拒绝使用任何外部服务。</strong>那是一种把主权简单等同于"什么都自己做"的误解。</p>
+      <p><em>真正的主权，是保持选择权。</em>当你使用外部模型服务时，是因为它是当前最好的选择，而不是因为你无法选择其他；当你把数据存储在第三方平台时，是因为它符合你的需求，而且你随时可以迁移走，而不是因为你被锁定在那里。</p>
+      <blockquote>主权的反面不是孤立，而是锁定。主权低意味着：供应商涨价你没有选择，供应商改变政策你没有退路，平台方出现问题你的业务随之崩溃。保持足够的主权，是确保这些情况不会发生的前提条件。</blockquote>
+      <h2><span class="num">04</span>主权在每个框架里的体现</h2>
+      <p>智能体主权模型被称为治理神经，是因为<strong>主权的概念横切了整个体系的几乎所有框架</strong>。</p>
+      <p><strong>F02（护城河重估法）中的主权控制维度</strong>：七维护城河里，主权控制是独立的一个维度，<em>评估的是护城河是否建立在自己控制的地基上</em>。</p>
+      <p><strong>F04（三元获取法）中的自建判断</strong>：什么时候应该选择自建，核心考量之一是主权——<em>这个能力是否关键到不能依赖外部供应商</em>。</p>
+      <p><strong>F09（人机责任决策矩阵）中的人类问责</strong>：RACI-A 的核心规则——A 永远是具名人类——<em>是主权原则在责任层面的实践</em>。</p>
+      <p><strong>F18（可治理信任模型）中的可控性</strong>：可控性要求人类在任意时刻可以接管智能体，<em>这是执行主权的具体保障</em>。</p>
+      <p><strong>F36（AC6）中的价值锚定力</strong>：价值锚定力是<em>人类主权在能力层面的终极表达</em>——人类是"什么值得被追求"的最终判断者，这个判断权是不可让渡给任何智能体系统的。</p>
+      <h2><span class="num">05</span>整套体系的哲学底座——回到第零框架</h2>
+      <p>智能体主权模型揭示的，是整套体系的哲学底座：<strong>为什么要建立这么多框架，这些框架共同在保护什么？</strong></p>
+      <p>答案是：<strong>人类在人机协作时代的主体地位。</strong></p>
+      <p>这不是一个"AI 是威胁"的恐惧性主张，而是一个<em>"如何在 AI 能力快速提升的时代，保持人类作为有意义的行动主体"的建设性主张</em>。承认智能体可以比人类更快、更准确地处理很多任务，同时坚持"什么值得被追求"和"如何对结果负责"这两件事必须由人类来承担——<strong>这两者不矛盾，它们是互补的。</strong></p>
+      <p>当智能体帮助人类处理了越来越多的执行性工作，人类被解放出来的时间和精力，<em>应该被投入到真正需要人类主权的地方：定义目标、判断价值、承担责任、建立关系、创造意义。</em></p>
+      <blockquote>这套体系从第零框架出发——科斯的三根支柱被撼动，企业存在的旧理由需要被重新论证。37 篇走到最后，G03 给出了一个回答：企业未来存在的核心理由，在于它是人类主权的组织载体。它不只是一个把资源组合在一起产生效率的机构，而是一个让有共同价值观的人，能够在面对智能体时代的各种压力下，仍然保持主体地位，仍然能够追问"这值得吗"、仍然愿意对结果承担责任的社会结构。</blockquote>
+      <p><strong>科斯问的是：企业为什么存在。智能体管理学的答案是：在一个执行可以被智能体承担的世界里，企业存在是为了保护和发挥人类在机器面前的主权——追问意义、承担责任、创造信任。</strong></p>
+      <p>这不是终点，而是在回答完"企业应该怎么做"之后，回到了"企业应该是什么"这个更根本的问题。</p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>五维主权评估。</strong>对每个核心 Agent 系统逐维评估主权水平。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>识别锁定风险。</strong>哪些环节存在供应商/平台锁定？切换成本多高？</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>关键节点保留主权。</strong>核心数据/模型/执行/治理/经济至少有一种自主选项。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>纳入主权评估到战略复盘。</strong>季度评估主权状态变化。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">主权始终属于人类——<span class="not-italic" style="color:var(--fg)">这不是一个观点，而是整套体系成立的哲学前提</span>。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">智能体可以自主执行，但不能自主决定执行什么——这条线是不可让渡的。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>企业 AI 战略的底层评估</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>关键供应商依赖度审视</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>主权与开放的平衡决策</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>面向国家/区域合规的战略锚定</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>把主权等同于"什么都自建"</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>完全依赖单一供应商</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视经济主权（最易被忽视）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把"开放生态"等同于"放弃主权"</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F02.html" class="rel-item"><span class="rel-num">F02</span><span class="rel-name">SDMA — 主权控制是护城河维度</span></a>
+          <a href="F04.html" class="rel-item"><span class="rel-num">F04</span><span class="rel-name">TICA — 自建的判断</span></a>
+          <a href="F06.html" class="rel-item"><span class="rel-num">F06</span><span class="rel-name">AaaS — 经济主权变现</span></a>
+          <a href="F09.html" class="rel-item"><span class="rel-num">F09</span><span class="rel-name">RACI-A × DAL — 治理主权</span></a>
+          <a href="F18.html" class="rel-item"><span class="rel-num">F18</span><span class="rel-name">CATER — 可控性 = 执行主权</span></a>
+          <a href="F36.html" class="rel-item"><span class="rel-num">F36</span><span class="rel-name">AC6 — 价值锚定是主权根本</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#G03"><span>▸ HSCN 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ HSCN Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="G02.html"><div class="dir">← 上一篇</div><div><span class="nav-num">G02</span><span class="nav-title">边界与升级机制</span></div></a>
+    <a href="F00.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F00</span><span class="nav-title">企业能力编排论 · 回到起点</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

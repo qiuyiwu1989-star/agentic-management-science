@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>智能体管理学 · Agentic Management Science · 造物云思想底座</title>
+<meta name="description" content="40 个框架，6 个重写 + 治理神经。在执行可以被智能体承担的时代，企业管理学需要被重写一遍。造物云思想底座。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg">
+
+<!-- ============ NAV ============ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="framework/F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="https://www.zaowuyun.com/" target="_blank" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">造物云</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <a href="framework/F01.html" class="btn-bracket">进入体系<span>→</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative pt-36 pb-24 overflow-hidden noise">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="absolute inset-0 accent-glow pointer-events-none"></div>
+  <div class="orb orb-accent orb-drift" style="width:420px;height:420px;top:-60px;right:-80px;opacity:.18;"></div>
+
+  <div class="relative container">
+    <div class="kicker mb-6" data-reveal>
+      <span class="accent">▌</span> agentic management science · v1.0 · 造物云思想底座
+    </div>
+
+    <h1 class="display text-[clamp(44px,8vw,124px)] max-w-[1180px]" data-reveal>
+      智能体<span class="text-accent">管理学</span>
+    </h1>
+
+    <p class="mt-8 max-w-3xl text-fg-dim text-lg leading-relaxed" data-reveal>
+      当执行可以被智能体承担，企业管理学的所有基本假设——
+      <span class="text-fg">竞争结构、组织形态、产品逻辑、系统方法、价值评估、人类定位</span>——
+      都需要被重写一遍。
+    </p>
+
+    <p class="mt-4 max-w-3xl text-fg-dim2 text-base leading-relaxed" data-reveal>
+      这是一套由 <span class="text-fg">40 个框架</span> 构成的完整理论体系：
+      F00 总序章 · 6 个重写模块（F01–F36）· 治理神经 G01–G03。
+    </p>
+
+    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
+      <a href="framework/F00.html" class="btn-primary">进入 F00 · 企业能力编排论 <span class="arr">→</span></a>
+      <a href="#system" class="text-cta">浏览 40 框架 <span class="arr">↓</span></a>
+    </div>
+
+    <!-- key stats -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-line border border-line rounded" data-reveal>
+      <div class="bg-bg-1 p-5">
+        <div class="display text-[40px] text-accent leading-none">40</div>
+        <div class="mt-2 mono text-[11px] text-fg-dim2 uppercase tracking-wider">框架总数</div>
+      </div>
+      <div class="bg-bg-1 p-5">
+        <div class="display text-[40px] leading-none">6</div>
+        <div class="mt-2 mono text-[11px] text-fg-dim2 uppercase tracking-wider">重写模块</div>
+      </div>
+      <div class="bg-bg-1 p-5">
+        <div class="display text-[40px] leading-none">3</div>
+        <div class="mt-2 mono text-[11px] text-fg-dim2 uppercase tracking-wider">治理神经</div>
+      </div>
+      <div class="bg-bg-1 p-5">
+        <div class="display text-[40px] leading-none">1</div>
+        <div class="mt-2 mono text-[11px] text-fg-dim2 uppercase tracking-wider">企业能力编排</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY THIS MATTERS ============ -->
+<section id="why" class="py-24 border-t border-line">
+  <div class="container">
+    <div class="grid lg:grid-cols-[1fr_2fr] gap-12" data-reveal>
+      <div>
+        <div class="sec-label mb-5"><span class="num">01_</span>// why</div>
+        <h2 class="display text-[clamp(28px,3.8vw,46px)]">科斯的三根支柱，<br/>正在被同时撼动。</h2>
+      </div>
+      <div class="space-y-6 text-fg-dim text-[16.5px] leading-[1.8]">
+        <p>
+          1937 年，<span class="text-fg">罗纳德·科斯</span>用一篇 30 页的论文回答了一个被刻意回避的问题：既然市场是最有效的资源配置机制，企业为什么存在？
+        </p>
+        <p>
+          他的答案——<span class="text-fg">企业边界由交易成本与组织成本的比较决定</span>——加上西蒙的有限理性、威廉姆森的资产专用性，构成了支撑现代企业理论将近一个世纪的三根支柱。
+        </p>
+        <p>
+          智能体正在同时撼动这三根支柱：<span class="text-fg">执行成本崩溃</span>、<span class="text-fg">有限理性外部化</span>、<span class="text-fg">资产专用性从人迁移到系统</span>。
+        </p>
+        <p>
+          这不是工具的进步，而是<em class="text-fg-dim2 not-italic">"为什么以现在这种形态存在"</em>的回答失效。管理学所有核心命题——如何设计组织、分配任务、激励人才、建立竞争优势——都建立在这三根支柱的默默支撑上。
+        </p>
+        <p class="text-fg">
+          支柱松动，上层建筑的每一块砖，都需要被重新检视。
+        </p>
+        <p>
+          <a href="framework/F00.html" class="link-arrow">阅读 F00 · 企业能力编排论 <span class="arr">→</span></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SYSTEM AT A GLANCE ============ -->
+<section id="system" class="py-24 border-t border-line">
+  <div class="container">
+    <div class="mb-12" data-reveal>
+      <div class="sec-label"><span class="num">02_</span>// system overview</div>
+      <h2 class="mt-5 display text-[clamp(28px,3.8vw,46px)]">六个重写 + 治理神经</h2>
+      <p class="mt-4 max-w-2xl text-fg-dim text-base leading-relaxed">
+        每一个模块回答一个独立的根本问题。一起，它们重写了智能体时代的企业管理学。
+      </p>
+    </div>
+
+    <!-- system map strip -->
+    <div class="sysmap mb-10" data-reveal>
+      <a class="sysmap-cell" data-module="1" href="#mod-1">
+        <span class="sm-num">F01–F06</span>
+        <span class="sm-name">竞争重写</span>
+        <span class="sm-meta">6 篇</span>
+      </a>
+      <a class="sysmap-cell" data-module="2" href="#mod-2">
+        <span class="sm-num">F07–F12</span>
+        <span class="sm-name">组织重写</span>
+        <span class="sm-meta">6 篇</span>
+      </a>
+      <a class="sysmap-cell" data-module="3" href="#mod-3">
+        <span class="sm-num">F13–F19</span>
+        <span class="sm-name">产品重写</span>
+        <span class="sm-meta">7 篇</span>
+      </a>
+      <a class="sysmap-cell" data-module="4" href="#mod-4">
+        <span class="sm-num">F20–F26</span>
+        <span class="sm-name">系统重写</span>
+        <span class="sm-meta">7 篇</span>
+      </a>
+      <a class="sysmap-cell" data-module="5" href="#mod-5">
+        <span class="sm-num">F27–F32</span>
+        <span class="sm-name">价值重写</span>
+        <span class="sm-meta">6 篇</span>
+      </a>
+      <a class="sysmap-cell" data-module="6" href="#mod-6">
+        <span class="sm-num">F33–F36</span>
+        <span class="sm-name">人类重写</span>
+        <span class="sm-meta">4 篇</span>
+      </a>
+      <a class="sysmap-cell" data-module="g" href="#mod-g">
+        <span class="sm-num">G01–G03</span>
+        <span class="sm-name">治理神经</span>
+        <span class="sm-meta">3 篇</span>
+      </a>
+    </div>
+
+    <!-- module cards grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" data-reveal>
+
+      <a id="mod-1" href="#index-1" class="module-card" data-module="1">
+        <span class="mod-arrow">→</span>
+        <div class="mod-num">模块一</div>
+        <div class="mod-title">竞争重写</div>
+        <div class="mod-range">F01–F06 · 6 篇</div>
+        <div class="mod-claim">智能体时代行业竞争结构的根本变化——五力的前提失效后，护城河、组合、能力获取的重新定义。</div>
+      </a>
+
+      <a id="mod-2" href="#index-2" class="module-card" data-module="2">
+        <span class="mod-arrow">→</span>
+        <div class="mod-num">模块二</div>
+        <div class="mod-title">组织重写</div>
+        <div class="mod-range">F07–F12 · 6 篇</div>
+        <div class="mod-claim">层级制不是真理，只是工业时代的信息协议——人机混合网络、双前台中台、责任决策矩阵。</div>
+      </a>
+
+      <a id="mod-3" href="#index-3" class="module-card" data-module="3">
+        <span class="mod-arrow">→</span>
+        <div class="mod-num">模块三</div>
+        <div class="mod-title">产品重写</div>
+        <div class="mod-range">F13–F19 · 7 篇</div>
+        <div class="mod-claim">从角色定位到结果交付——智能体产品的定位光谱、结果导向任务、上下文优先设计、托付型 PMF。</div>
+      </a>
+
+      <a id="mod-4" href="#index-4" class="module-card" data-module="4">
+        <span class="mod-arrow">→</span>
+        <div class="mod-num">模块四</div>
+        <div class="mod-title">系统重写</div>
+        <div class="mod-range">F20–F26 · 7 篇</div>
+        <div class="mod-claim">确定性变概率性后，工程方法需要重写——评测驱动、Skill 资产治理、链路诊断、概率回归。</div>
+      </a>
+
+      <a id="mod-5" href="#index-5" class="module-card" data-module="5">
+        <span class="mod-arrow">→</span>
+        <div class="mod-num">模块五</div>
+        <div class="mod-title">价值重写</div>
+        <div class="mod-range">F27–F32 · 6 篇</div>
+        <div class="mod-claim">运营、成本、ROI 与风险——AgentOps 成熟度、指标金字塔、CPTA、Agent ROI、全域风险治理。</div>
+      </a>
+
+      <a id="mod-6" href="#index-6" class="module-card" data-module="6">
+        <span class="mod-arrow">→</span>
+        <div class="mod-num">模块六</div>
+        <div class="mod-title">人类重写</div>
+        <div class="mod-range">F33–F36 · 4 篇</div>
+        <div class="mod-claim">当执行能力不再稀缺，人类的独特贡献究竟在哪里——能力成熟度、角色迁移、能力结构、AC6 核心能力。</div>
+      </a>
+
+      <a id="mod-g" href="#index-g" class="module-card" data-module="g">
+        <span class="mod-arrow">→</span>
+        <div class="mod-num">治理神经</div>
+        <div class="mod-title">G01–G03</div>
+        <div class="mod-range">横切全体系 · 3 篇</div>
+        <div class="mod-claim">横切整个体系的三条神经线——意图管理、边界与升级机制、智能体主权模型。</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FRAMEWORK INDEX (40 篇全索引) ============ -->
+<section id="index" class="py-24 border-t border-line">
+  <div class="container">
+    <div class="mb-12" data-reveal>
+      <div class="sec-label"><span class="num">03_</span>// framework index</div>
+      <h2 class="mt-5 display text-[clamp(28px,3.8vw,46px)]">40 框架全索引</h2>
+    </div>
+
+    <!-- F00 -->
+    <div class="mb-16" data-reveal>
+      <div class="kicker mb-4">F00 · 总序章</div>
+      <a href="framework/F00.html" class="fw-card" data-module="1">
+        <span class="fw-num">F00</span>
+        <span class="fw-body">
+          <span class="fw-title">企业能力编排论 (ECOT)</span>
+          <span class="fw-sub">破立合一——破科斯三支柱，立企业能力编排，重答智能体时代的"企业的本质"</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- 模块一 -->
+    <div id="index-1" class="mb-14" data-module="1" data-reveal>
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="kicker">模块一 · 竞争重写 · F01–F06</div>
+        <span class="mod-badge"><span class="dot"></span>6 篇</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <a href="framework/F01.html" class="fw-card" data-module="1"><span class="fw-num">F01</span><span class="fw-body"><span class="fw-title">智能体五力重构法 (AFFR)</span><span class="fw-sub">波特没有错——但他的五力框架，建立在一个正在失效的前提上</span></span></a>
+        <a href="framework/F02.html" class="fw-card" data-module="1"><span class="fw-num">F02</span><span class="fw-body"><span class="fw-title">智能体护城河重估法 (SDMA)</span><span class="fw-sub">护城河不只是高不高的问题——它还有半衰期，而那个半衰期正在缩短</span></span></a>
+        <a href="framework/F03.html" class="fw-card" data-module="1"><span class="fw-num">F03</span><span class="fw-body"><span class="fw-title">智能体组合矩阵 (APM)</span><span class="fw-sub">管理几十个智能体项目，你需要的不是任务清单——是投资组合视角</span></span></a>
+        <a href="framework/F04.html" class="fw-card" data-module="1"><span class="fw-num">F04</span><span class="fw-body"><span class="fw-title">智能体能力三元获取法 (TICA)</span><span class="fw-sub">自建还是采购，这道选择题本身就是错的——第三条路才是真正的战略主线</span></span></a>
+        <a href="framework/F05.html" class="fw-card" data-module="1"><span class="fw-num">F05</span><span class="fw-body"><span class="fw-title">数字劳动力资产观 (DLAM)</span><span class="fw-sub">把智能体当费用记账——这个误判，正在扭曲你所有的 AI 投资决策</span></span></a>
+        <a href="framework/F06.html" class="fw-card" data-module="1"><span class="fw-num">F06</span><span class="fw-body"><span class="fw-title">智能体即服务商业模型 (AaaS)</span><span class="fw-sub">内部能力对外变现，不是出卖护城河——前提是你搞清楚卖的是哪一层</span></span></a>
+      </div>
+    </div>
+
+    <!-- 模块二 -->
+    <div id="index-2" class="mb-14" data-module="2" data-reveal>
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="kicker">模块二 · 组织重写 · F07–F12</div>
+        <span class="mod-badge"><span class="dot"></span>6 篇</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <a href="framework/F07.html" class="fw-card" data-module="2"><span class="fw-num">F07</span><span class="fw-body"><span class="fw-title">人机混合网络组织 (HACNO)</span><span class="fw-sub">层级制不是管理的真理——它只是工业时代信息传递的一种协议</span></span></a>
+        <a href="framework/F08.html" class="fw-card" data-module="2"><span class="fw-num">F08</span><span class="fw-body"><span class="fw-title">双前台智能体中台架构 (DFAMP)</span><span class="fw-sub">互联网中台和智能体中台，解决的根本不是同一个问题</span></span></a>
+        <a href="framework/F09.html" class="fw-card" data-module="2"><span class="fw-num">F09</span><span class="fw-body"><span class="fw-title">人机责任决策矩阵 (RACI-A × DAL)</span><span class="fw-sub">责任，不会因为是 AI 做的决定就自动消失</span></span></a>
+        <a href="framework/F10.html" class="fw-card" data-module="2"><span class="fw-num">F10</span><span class="fw-body"><span class="fw-title">智能体时代企业岗位体系 (ARRM)</span><span class="fw-sub">你在招的那个人，可能是一个已经不存在的岗位</span></span></a>
+        <a href="framework/F11.html" class="fw-card" data-module="2"><span class="fw-num">F11</span><span class="fw-body"><span class="fw-title">智能体安全三系统架构 (ABERS)</span><span class="fw-sub">智能体的边界不是设定一次就永久有效的——它会腐烂</span></span></a>
+        <a href="framework/F12.html" class="fw-card" data-module="2"><span class="fw-num">F12</span><span class="fw-body"><span class="fw-title">组织变革与文化范式 (Kotter-AI)</span><span class="fw-sub">AI 转型卡住的地方，几乎从来不是技术——而是那些没说出口的恐惧</span></span></a>
+      </div>
+    </div>
+
+    <!-- 模块三 -->
+    <div id="index-3" class="mb-14" data-module="3" data-reveal>
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="kicker">模块三 · 产品重写 · F13–F19</div>
+        <span class="mod-badge"><span class="dot"></span>7 篇</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <a href="framework/F13.html" class="fw-card" data-module="3"><span class="fw-num">F13</span><span class="fw-body"><span class="fw-title">智能体角色定位光谱 (ARPS)</span><span class="fw-sub">你的智能体是什么角色——大多数产品团队从来没有认真回答过</span></span></a>
+        <a href="framework/F14.html" class="fw-card" data-module="3"><span class="fw-num">F14</span><span class="fw-body"><span class="fw-title">结果导向任务框架 (JTBO)</span><span class="fw-sub">任务完成率100%，结果达成率0%——这不是悖论，是产品设计的深层漏洞</span></span></a>
+        <a href="framework/F15.html" class="fw-card" data-module="3"><span class="fw-num">F15</span><span class="fw-body"><span class="fw-title">上下文优先设计 (CADM)</span><span class="fw-sub">上下文不是配置参数——它是智能体感知世界的唯一方式</span></span></a>
+        <a href="framework/F16.html" class="fw-card" data-module="3"><span class="fw-num">F16</span><span class="fw-body"><span class="fw-title">托付型产品市场匹配法 (D-PMF)</span><span class="fw-sub">高留存、高好评，但用户从不把重要的事交给它——这是成功还是失败？</span></span></a>
+        <a href="framework/F17.html" class="fw-card" data-module="3"><span class="fw-num">F17</span><span class="fw-body"><span class="fw-title">可信智能体七维评估法 (VERITAS)</span><span class="fw-sub">99%准确率的智能体，为什么照样可以造成灾难</span></span></a>
+        <a href="framework/F18.html" class="fw-card" data-module="3"><span class="fw-num">F18</span><span class="fw-body"><span class="fw-title">可治理信任模型 (CATER)</span><span class="fw-sub">用户相信这个 AI 很聪明——但他们不知道出了问题有没有人管</span></span></a>
+        <a href="framework/F19.html" class="fw-card" data-module="3"><span class="fw-num">F19</span><span class="fw-body"><span class="fw-title">多智能体架构成熟度阶梯 (MAAML)</span><span class="fw-sub">越复杂不等于越成熟——盲目追求高级别是工程浪漫主义</span></span></a>
+      </div>
+    </div>
+
+    <!-- 模块四 -->
+    <div id="index-4" class="mb-14" data-module="4" data-reveal>
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="kicker">模块四 · 系统重写 · F20–F26</div>
+        <span class="mod-badge"><span class="dot"></span>7 篇</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <a href="framework/F20.html" class="fw-card" data-module="4"><span class="fw-num">F20</span><span class="fw-body"><span class="fw-title">评测驱动工程法 (E³)</span><span class="fw-sub">先跑再说、后补质量——这是智能体开发最危险的反模式</span></span></a>
+        <a href="framework/F21.html" class="fw-card" data-module="4"><span class="fw-num">F21</span><span class="fw-body"><span class="fw-title">智能体 Skill 资产治理 (SAG)</span><span class="fw-sub">那个人离职了，他写的智能体也死了——这是企业 AI 最普遍的技术债</span></span></a>
+        <a href="framework/F22.html" class="fw-card" data-module="4"><span class="fw-num">F22</span><span class="fw-body"><span class="fw-title">执行链路四环诊断法 (PRTD)</span><span class="fw-sub">智能体调试不是猜谜——它是沿着四条链路逐节点定位根因</span></span></a>
+        <a href="framework/F23.html" class="fw-card" data-module="4"><span class="fw-num">F23</span><span class="fw-body"><span class="fw-title">企业智能体六层架构 (SEAA)</span><span class="fw-sub">技术团队和管理层谈 AI 建设，说的往往不是同一件事</span></span></a>
+        <a href="framework/F24.html" class="fw-card" data-module="4"><span class="fw-num">F24</span><span class="fw-body"><span class="fw-title">智能体全生命周期开发法 (ADLC)</span><span class="fw-sub">先定义"什么叫成功"，再写代码——这个顺序的改变最重要</span></span></a>
+        <a href="framework/F25.html" class="fw-card" data-module="4"><span class="fw-num">F25</span><span class="fw-body"><span class="fw-title">正常—边缘—对抗三层评测矩阵 (TSEM)</span><span class="fw-sub">只在正常场景测过的智能体，是一个还没遇到真实世界的智能体</span></span></a>
+        <a href="framework/F26.html" class="fw-card" data-module="4"><span class="fw-num">F26</span><span class="fw-body"><span class="fw-title">概率回归测试法 (PRT)</span><span class="fw-sub">传统回归测试的三根支柱，在智能体场景全部倒塌</span></span></a>
+      </div>
+    </div>
+
+    <!-- 模块五 -->
+    <div id="index-5" class="mb-14" data-module="5" data-reveal>
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="kicker">模块五 · 价值重写 · F27–F32</div>
+        <span class="mod-badge"><span class="dot"></span>6 篇</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <a href="framework/F27.html" class="fw-card" data-module="5"><span class="fw-num">F27</span><span class="fw-body"><span class="fw-title">智能体运营五级成熟度模型 (AOMM)</span><span class="fw-sub">你的智能体运营，停在哪一级——大多数企业不知道，也不知道自己不知道</span></span></a>
+        <a href="framework/F28.html" class="fw-card" data-module="5"><span class="fw-num">F28</span><span class="fw-body"><span class="fw-title">智能体运营指标金字塔 (3DSP)</span><span class="fw-sub">传统运维指标正常，但智能体的核心价值正在悄悄流失</span></span></a>
+        <a href="framework/F29.html" class="fw-card" data-module="5"><span class="fw-num">F29</span><span class="fw-body"><span class="fw-title">数字员工绩效评分卡 (DWPS)</span><span class="fw-sub">管理层问"这个智能体干得怎么样"，技术团队给一串数字</span></span></a>
+        <a href="framework/F30.html" class="fw-card" data-module="5"><span class="fw-num">F30</span><span class="fw-body"><span class="fw-title">单次成功任务成本法 (CPST)</span><span class="fw-sub">只算 Token 成本，你严重低估了智能体的真实成本</span></span></a>
+        <a href="framework/F31.html" class="fw-card" data-module="5"><span class="fw-num">F31</span><span class="fw-body"><span class="fw-title">智能体价值回报核算法 (Agent ROI)</span><span class="fw-sub">"3 个月看不到 ROI 就放弃"——往往发生在恰好跨越盈亏平衡点之前</span></span></a>
+        <a href="framework/F32.html" class="fw-card" data-module="5"><span class="fw-num">F32</span><span class="fw-body"><span class="fw-title">智能体全域风险治理法 (SRAG)</span><span class="fw-sub">传统防火墙防不住提示词注入——风险来自最独特的能力本身</span></span></a>
+      </div>
+    </div>
+
+    <!-- 模块六 -->
+    <div id="index-6" class="mb-14" data-module="6" data-reveal>
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="kicker">模块六 · 人类重写 · F33–F36</div>
+        <span class="mod-badge"><span class="dot"></span>4 篇</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-3">
+        <a href="framework/F33.html" class="fw-card" data-module="6"><span class="fw-num">F33</span><span class="fw-body"><span class="fw-title">智能体能力成熟度模型 (IACMM)</span><span class="fw-sub">使用工具和驾驭系统，是两种本质不同的能力</span></span></a>
+        <a href="framework/F34.html" class="fw-card" data-module="6"><span class="fw-num">F34</span><span class="fw-body"><span class="fw-title">角色转型地图 (TSMM)</span><span class="fw-sub">"这个岗位会不会消失"是错误的问题——分析单元从岗位降到任务</span></span></a>
+        <a href="framework/F35.html" class="fw-card" data-module="6"><span class="fw-num">F35</span><span class="fw-body"><span class="fw-title">智能体能力结构评估法 (FALA)</span><span class="fw-sub">Prompt 技巧被严重过度强调了——真正的智能体能力和它几乎没有关系</span></span></a>
+        <a href="framework/F36.html" class="fw-card" data-module="6"><span class="fw-num">F36</span><span class="fw-body"><span class="fw-title">人类核心能力六维模型 (AC6)</span><span class="fw-sub">当执行能力不再稀缺，人类的独特贡献究竟在哪里</span></span></a>
+      </div>
+    </div>
+
+    <!-- 治理神经 -->
+    <div id="index-g" class="mb-6" data-module="g" data-reveal>
+      <div class="flex items-baseline justify-between mb-5">
+        <div class="kicker">治理神经 · G01–G03 · 横切整个体系</div>
+        <span class="mod-badge"><span class="dot"></span>3 篇</span>
+      </div>
+      <div class="grid md:grid-cols-3 gap-3">
+        <a href="framework/G01.html" class="fw-card" data-module="g"><span class="fw-num">G01</span><span class="fw-body"><span class="fw-title">意图管理模型 (IAN)</span><span class="fw-sub">不是写好提示词，是管理好意图——人机协作最根本的能力</span></span></a>
+        <a href="framework/G02.html" class="fw-card" data-module="g"><span class="fw-num">G02</span><span class="fw-body"><span class="fw-title">边界与升级机制 (BSN)</span><span class="fw-sub">边界定义了智能体不能越过的线——但更大问题是如何保证线真的有效</span></span></a>
+        <a href="framework/G03.html" class="fw-card" data-module="g"><span class="fw-num">G03</span><span class="fw-body"><span class="fw-title">智能体主权模型 (HSCN)</span><span class="fw-sub">主权始终属于人类——这不是观点，而是整套体系的哲学底座</span></span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="grid md:grid-cols-3 gap-8 mb-10">
+      <div>
+        <div class="mono text-sm mb-4"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></div>
+        <p class="text-fg-dim text-sm leading-relaxed max-w-xs">
+          智能体管理学是<a href="https://www.zaowuyun.com/" class="text-fg hover:text-accent transition">造物云</a>的思想底座。
+          一套面向智能体时代企业管理者的完整理论体系。
+        </p>
+      </div>
+      <div>
+        <div class="kicker mb-4">体系</div>
+        <ul class="space-y-2 text-sm text-fg-dim">
+          <li><a href="framework/F00.html" class="hover:text-accent transition">F00 · 总序章</a></li>
+          <li><a href="#system" class="hover:text-accent transition">六个重写</a></li>
+          <li><a href="#index-g" class="hover:text-accent transition">治理神经 G01–G03</a></li>
+          <li><a href="#index" class="hover:text-accent transition">40 框架索引</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="kicker mb-4">关于</div>
+        <ul class="space-y-2 text-sm text-fg-dim">
+          <li><a href="https://www.zaowuyun.com/" target="_blank" class="hover:text-accent transition">造物云母站 ↗</a></li>
+          <li><span class="text-fg-dim3">案例库（即将上线）</span></li>
+          <li><span class="text-fg-dim3">提示词与 Skill 下载（即将上线）</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-6 border-t border-line flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="mono text-xs text-fg-dim2">version: agentic-mgmt.v1.0</div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/ams.js"></script>
+</body>
+</html>

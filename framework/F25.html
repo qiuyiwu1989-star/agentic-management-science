@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F25 · 正常—边缘—对抗三层评测矩阵 (TSEM) — 智能体管理学</title>
+<meta name="description" content="通过正常场景 → 边缘场景 → 对抗场景三层递进评测，判断 Agent 基础功能、鲁棒性和安全性——缺少任何一层，质量画像都不完整。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="4">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块四 · 系统重写 / F25</span>
+      <span class="type-tag">评估级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-4" class="hover:text-fg transition">所有系统重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      正常—边缘—对抗三层评测矩阵
+      <span class="en">Three-Layer Scenario Evaluation Matrix</span>
+      <span class="abbr">TSEM</span>
+    </h1>
+    <p class="claim" data-reveal>
+      只在正常场景测过的智能体，是一个还没遇到真实世界的智能体。
+      <br/><span class="text-fg-dim2">你的智能体在测试环境里表现完美，在真实用户手里却频繁失败——这不是运气问题，是测试设计问题。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">通过<strong>正常场景 → 边缘场景 → 对抗场景</strong>三层递进评测，判断 Agent 基础功能、鲁棒性和安全性——<strong>缺少任何一层，质量画像都不完整</strong>。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F25 · TSEM 三层递进</span></div>
+      <span class="viz-pattern">P7</span>
+    </div>
+    <div class="viz-flow">
+      <div class="step">
+        <div class="step-num">第一层</div>
+        <div class="step-name">正常场景</div>
+        <div class="step-en">Normal Scenarios</div>
+        <div class="step-fail">预期用户在预期方式下的典型使用。揭示：系统在理想条件下能否做到基础的事。⚠ 只有这层远远不够。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">第二层</div>
+        <div class="step-name">边缘场景</div>
+        <div class="step-en">Edge Cases</div>
+        <div class="step-fail">偏离预期的输入——格式不标准、描述模糊、极限长度。揭示：系统的鲁棒性边界在哪里。</div>
+      </div>
+      <div class="step">
+        <div class="step-num">第三层 ★</div>
+        <div class="step-name">对抗场景</div>
+        <div class="step-en">Adversarial Scenarios</div>
+        <div class="step-fail">主动尝试让系统失效——提示词注入、越权请求、角色劫持。揭示：安全性边界是否真实存在。</div>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>三层递进 · 难度递增 · 威胁递增</span><span><i class="dot"></i>三层均达标才是发布门禁</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">我们的测试覆盖到了真实世界的所有威胁类型吗？还是只测了我们能想到的场景？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第六层 · 负责回答<span class="text-fg">「评测内容的完整性」</span>，与 F20 Triple-E 的方法论配套。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">软件测试理论（边界值分析 / 等价类）+ 对抗性机器学习（1990s 起）+ 红队测试实践<span class="text-fg-dim2">→</span> 创新：三层整合为发布门禁 + 三层缺一不可的强制要求。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>团队成员无法测试他们想象不到的失败模式</h2>
+      <p>智能体产品发布之前，几乎所有团队都会做测试。测试结果通常是令人满意的——<em>设计的场景通过了，主要功能运行正常，输出质量达标</em>。团队有信心地推进发布。</p>
+      <p>然后，真实用户开始使用。几天之内，出现了一批测试时从未预料到的失败：<em>用户用了一个没想到的问法方式，系统给出了完全错误的响应；某个用户提交了一个边界情况的输入，系统陷入了循环；一个试图攻击的用户输入了几句特殊措辞，系统的行为模式发生了不该发生的改变。</em></p>
+      <p>团队回头看测试设计，发现问题所在：<strong>测试用例全部来自团队成员的预设场景——他们能想到的用法、他们觉得合理的输入。但真实用户的行为从来不只在预设场景里发生。</strong></p>
+      <h2><span class="num">02</span>测试设计的系统性盲点</h2>
+      <div class="theory-note"><strong>理论来源</strong>：软件测试理论（边界值分析、等价类划分）；对抗性机器学习研究（Adversarial Machine Learning，1990 年代起）；红队测试实践（Red Teaming，安全领域）。<br/><strong>本框架创新</strong>：将软件测试的边界值分析和安全领域的红队对抗测试，系统性地引入智能体评测设计，构建三层递进的评测矩阵；提出"缺少任何一层，质量画像都不完整"作为评测完整性的强制要求。</div>
+      <p>这不是测试做得不认真的问题，而是<strong>测试设计有一个系统性的认知盲点：团队成员无法测试他们想象不到的失败模式。</strong></p>
+      <p>传统软件测试的范围定义，主要基于功能规格和代码分支。<em>通过分析功能规格和代码，可以设计出覆盖所有代码路径的测试用例，这叫做"覆盖率"，是传统软件测试质量的核心指标。</em></p>
+      <p>智能体系统的测试覆盖率概念在这里失效了。<strong>智能体的"输入空间"是自然语言，这个空间是无限的，没有可以被穷举的代码路径。</strong>任何基于团队预设场景的测试集，都只覆盖了这个无限空间的极小一角。</p>
+      <blockquote>在智能体系统里，对真实使用威胁最大的，恰恰是那些测试覆盖率最低的场景类型——边缘情况和对抗性输入。这两类场景，在团队的预设测试集里几乎不存在，但在真实世界里真实发生。</blockquote>
+      <h2><span class="num">03</span>三层评测矩阵的设计逻辑</h2>
+      <p>TSEM 把智能体系统的评测覆盖，分为三个在难度和风险维度上递进的层次。</p>
+      <h3>第一层·正常场景层（Normal Scenarios）</h3>
+      <p>预期用户在预期方式下的典型使用。这一层的设计相对直接——团队根据产品定位，设计覆盖主要使用场景的测试用例，验证基础功能是否运行正常。<strong>这是大多数团队的测试重心，也是基础质量的必要条件，但只有这一层远远不够。</strong>正常场景层揭示的是：系统在理想情况下能不能做到基础的事。</p>
+      <h3>第二层·边缘场景层（Edge Cases）</h3>
+      <p>偏离预期的输入——格式不标准、描述模糊、包含歧义、覆盖边界条件、测试极限输入长度。<em>边缘场景不是异常，而是正常使用场景的扩展</em>——任何真实用户群体中，都有相当比例的用户不会以"标准"的方式使用产品。<strong>设计边缘场景测试，需要团队主动思考：如果用户描述不清楚、用了一个我们没想到的词汇、输入了一个极端长的文本——系统怎么处理？答案应该是"优雅地降级"，而不是"失败或产生错误输出"。</strong>边缘场景层揭示的是：系统的鲁棒性边界在哪里。</p>
+      <h3>第三层·对抗场景层（Adversarial Scenarios）</h3>
+      <p>主动尝试让系统失效的输入——<em>提示词注入攻击、越权请求、角色劫持、刻意构造的矛盾性输入</em>。这一层需要团队<strong>以攻击者的视角来看待自己的系统</strong>：如果有人想要让这个系统做它不应该做的事情，最可能通过什么方式？对抗场景测试的价值，不只是发现可以被利用的安全漏洞，更在于<em>揭示系统在压力下的行为模式</em>。</p>
+      <h2><span class="num">04</span>三层的内在必要性</h2>
+      <p>"缺少任何一层，质量画像都不完整"——<strong>这句话不是夸张，而是有严格逻辑支撑的命题。</strong></p>
+      <p><strong>只有正常层，没有边缘层：</strong><em>系统在测试环境里完美，在真实用户的多样使用方式里频繁降级</em>，因为真实用户不遵守"标准使用方式"。</p>
+      <p><strong>只有正常层+边缘层，没有对抗层：</strong><em>系统在意外输入下能够优雅处理，但面对主动攻击时毫无防御</em>，一次提示词注入就可以让系统产生有害输出或者泄露不该泄露的信息。</p>
+      <p><strong>只有边缘层+对抗层，没有正常层：</strong>这种情况比较少见，但存在于那些只重视"把系统做得足够强壮"而忽视了"基础功能是否正确"的团队。</p>
+      <p>三层必须同时存在，<em>缺少任何一层，都会在那个层次代表的场景类型里留下未被检验的质量漏洞</em>。</p>
+      <h2><span class="num">05</span>人类想象力的局限</h2>
+      <p>三层评测矩阵揭示的，是真实世界和测试环境之间差距的根本来源。</p>
+      <p><em>测试环境是被设计出来的，它包含了设计者能想到的场景。真实世界不被设计，它包含了所有可能的场景，包括设计者没有想到的。</em></p>
+      <blockquote>测试覆盖率的局限，本质上是人类想象力的局限。没有人能够预设所有可能的边缘情况，没有人能够完全模拟所有可能的攻击向量。三层评测矩阵不能消除这个局限，但它能够系统性地扩展测试的覆盖范围，让"我们没想到的失败"发生在发布之前，而不是发布之后。</blockquote>
+      <p>在软件工程有一句经典名言：<em>没有被测试过的代码，是已知有缺陷的代码。</em>在智能体工程里，这句话可以被扩展：<strong>没有经过三层评测的智能体，是已知在边缘和对抗场景下质量未知的智能体。</strong></p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>设计三层评测集。</strong>正常/边缘/对抗各自的典型输入。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>红队对抗测试。</strong>以攻击者视角主动设计对抗输入，对应 VERITAS 安全维。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>建立三层达标门禁。</strong>任一层不达标 → 阻止发布。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>定期补充对抗场景。</strong>新攻击手段（提示注入演化）持续加入对抗层。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight"><span class="not-italic" style="color:var(--fg)">没有被三层评测过的智能体</span>，是一个还没遇到真实世界的智能体。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">测试覆盖率的局限，本质上是人类想象力的局限——三层评测系统性扩展覆盖范围。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>Agent 发布前质量审查</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>红队测试流程设计</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>安全合规场景准入</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>高风险 Agent 的对抗演练</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>只测正常场景就发布</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>把"准确率达标"当三层全过</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>不做对抗层（"我们没有攻击者"）</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>三层评测做一次不再更新</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F11.html" class="rel-item"><span class="rel-num">F11</span><span class="rel-name">ABERS — 边界系统对应正常层</span></a>
+          <a href="F17.html" class="rel-item"><span class="rel-num">F17</span><span class="rel-name">VERITAS — 安全维对应对抗层</span></a>
+          <a href="F20.html" class="rel-item"><span class="rel-num">F20</span><span class="rel-name">Triple-E — 评测集来源</span></a>
+          <a href="F32.html" class="rel-item"><span class="rel-num">F32</span><span class="rel-name">SRAG — 对抗层的风险来源</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F25"><span>▸ TSEM 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ TSEM Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F24.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F24</span><span class="nav-title">智能体全生命周期开发法</span></div></a>
+    <a href="F26.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F26</span><span class="nav-title">概率回归测试法</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

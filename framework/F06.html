@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>F06 · 智能体即服务商业模型 (AaaS) — 智能体管理学</title>
+<meta name="description" content="将企业内部沉淀的 Agent 能力产品化、封装化、服务化对外输出——通过工具化 → 流程化 → 结果化三阶演进形成新收入来源；核心边界是飞轮型可商业化、非飞轮型需保留。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+</head>
+<body class="bg-bg text-fg" data-module="1">
+
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span></a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
+      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="../index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <button id="theme-toggle" class="toggle" type="button">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="fw-hero">
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="relative container">
+    <div class="fw-eyebrow flex flex-wrap items-center gap-3" data-reveal>
+      <span><span class="num">▌</span> 模块一 · 竞争重写 / F06</span>
+      <span class="type-tag">模型级</span>
+      <span class="text-fg-dim3">·</span>
+      <a href="../index.html#index-1" class="hover:text-fg transition">所有竞争重写框架 →</a>
+    </div>
+    <h1 data-reveal>
+      智能体即服务商业模型
+      <span class="en">Agent as a Service</span>
+      <span class="abbr">AaaS</span>
+    </h1>
+    <p class="claim" data-reveal>
+      AI 越强，公司越便宜——这是成本中心思维的终点。AaaS 打开的是另一条线。
+      <br/><span class="text-fg-dim2">内部智能体能力对外变现，不是出卖护城河——前提是你搞清楚卖的是哪一层。</span>
+    </p>
+  </div>
+</section>
+
+<section class="container">
+  <div class="core-def-block" data-reveal>
+    <span class="label">核心定义 · Core Definition</span>
+    <div class="text">将企业内部沉淀的 Agent 能力<strong>产品化、封装化、服务化</strong>对外输出——通过<strong>工具化 → 流程化 → 结果化</strong>三阶演进形成新收入来源；核心边界是<strong>飞轮型可商业化、非飞轮型需保留</strong>。</div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="fw-viz" data-reveal>
+    <div class="viz-header">
+      <div class="left"><span class="viz-label">F06 · AaaS 三阶演进</span></div>
+      <span class="viz-pattern">custom</span>
+    </div>
+    <div class="viz-matrix" style="grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto; min-height:auto;">
+      <div class="quad">
+        <span class="quad-tag">第一阶段</span>
+        <h4 class="quad-title">🔧 工具化 · 能力 SaaS 化</h4>
+        <p class="quad-desc">把稳定成熟的智能体能力，封装为标准接口对外，按使用量收费。风险最低 · 适合标准化能力。</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">第二阶段</span>
+        <h4 class="quad-title">⚙️ 流程化 · 完整工作流交付</h4>
+        <p class="quad-desc">打包完整业务流程，包含多智能体协同编排，按流程完成量收费。核心判断：卖的是流程还是智慧？</p>
+      </div>
+      <div class="quad">
+        <span class="quad-tag">第三阶段 ★</span>
+        <h4 class="quad-title">🎯 结果化 · 按业务结果收费</h4>
+        <p class="quad-desc">承诺业务结果，结果达成才收取服务费。定价权最强 · 信任壁垒最高。"敢承诺结果"本身是稀缺信号。</p>
+      </div>
+    </div>
+    <div class="viz-legend"><span><i class="dot"></i>三阶递进 · 商业化深度逐级提升</span><span><i class="dot"></i>飞轮型能力：可商业化（越卖越强）/ 非飞轮型：需保留</span></div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="glance" data-reveal>
+    <div class="glance-cell">
+      <div class="glance-label">核心问题</div>
+      <div class="glance-value">当产品变成"数字劳动者"后，企业到底该怎么收费？定价单位应该是什么？</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">体系定位</div>
+      <div class="glance-value">第六层 · 负责回答<span class="text-fg">「如何把智能体能力转化为商业收入」</span>，是战略重构体系的商业化收口。</div>
+    </div>
+    <div class="glance-cell">
+      <div class="glance-label">理论来源</div>
+      <div class="glance-value">SaaS 商业模式理论 + 制造业服务化"结果导向服务"（2000s）<span class="text-fg-dim2">→</span> 创新：三阶演进路径 + 飞轮保护边界。</div>
+    </div>
+  </div>
+</section>
+
+<section id="article" class="container">
+  <div class="fw-layout">
+
+    <article class="fw-article">
+      
+      <h2><span class="num">01</span>物流企业的两难——是该卖还是保</h2>
+      <p>一家物流企业，花了两年时间建立了一套基于智能体的运营调度系统。从货物分拣到路线优化到异常处理，整个系统每年为公司节省了数千万元的运营成本，效率提升也在业内形成了口碑。</p>
+      <p>这时有一家同行提出，愿意购买这套系统的服务能力。内部出现了两种声音：<em>一种说，这是我们的核心竞争力，卖掉就是把护城河送给竞争对手；另一种说，这是一个变现机会，为什么要放弃？</em></p>
+      <p>两种声音都有道理，但都回答的是错误版本的问题。真正需要回答的是：<strong>这个系统的哪一层，变现之后会强化我们的优势，哪一层变现之后会稀释我们的护城河？</strong></p>
+      <h2><span class="num">02</span>把 AI 锁在成本中心，是战略选择的缺位</h2>
+      <div class="theory-note"><strong>理论来源</strong>：SaaS（软件即服务）商业模式理论；制造业服务化中的"结果导向服务"（Outcome-Based Service）概念（学界研究始于 2000 年代）。<br/><strong>本框架创新</strong>：将制造业服务化的结果导向逻辑引入智能体能力变现设计，提出三阶段演进路径，并增加"护城河保护边界"作为商业化决策的核心约束条件。</div>
+      <p>大多数企业对 AI 的定位是<strong>成本中心</strong>：AI 的价值体现为降低运营成本、提升人效。这是一种合理的价值主张，也是大多数企业 AI 战略的起点。</p>
+      <p>但成本中心思维有一个隐性的上限：<em>AI 越强，贡献的只是越多的成本节约。</em>它永远不会成为增长来源，永远不会出现在收入这一侧。</p>
+      <p>更重要的是，它会导致一种战略上的浪费——<strong>辛苦建立的智能体能力，只在企业内部使用，没有通过外部市场的检验，也没有通过商业化来加速能力的进化</strong>。</p>
+      <p>AaaS 解决的问题，是如何在"保护护城河"和"能力变现"之间找到那条线——而这条线的关键，不在于变现与否，<strong>在于商业化的是哪一层</strong>。</p>
+      <h2><span class="num">03</span>AaaS 的三阶演进</h2>
+      <p>商业化不是一个开关，而是一个有阶段的演进过程。AaaS 框架把智能体能力的商业化分为三个阶段，每个阶段有不同的能力要求、收益结构和护城河风险。</p>
+      <h3>第一阶段：工具化（能力 SaaS 化）</h3>
+      <p>把稳定运行、已经成熟的智能体能力，封装成标准化的服务接口，对外按使用量收费。<em>这是最轻量的商业化形式，风险也最低</em>——因为标准化的能力本身通常不构成核心差异化。一个标准的文档分析智能体、一个通用的数据清洗流程，对外开放不会稀释护城河，因为护城河从来不在这里。</p>
+      <h3>第二阶段：流程化（完整工作流交付）</h3>
+      <p>把一段完整的业务流程——包括其中多个智能体的协同编排——打包成可交付的服务，按流程完成量收费。这里开始有真正的竞争壁垒：<em>能够稳定交付复杂工作流的能力，不是采购几个智能体就能复制的</em>，它需要编排架构、行业知识和大量调试经验。</p>
+      <h3>第三阶段：结果化（按业务结果收费）</h3>
+      <p>不再销售工具或流程，而是承诺一个业务结果，按结果收费。<strong>这是最高形式的商业化，也要求最强的能力</strong>——你需要对整个结果链路拥有足够的控制力，才敢对结果负责。这一阶段的护城河最强，因为"敢承诺结果"本身就是一种稀缺的市场信号。</p>
+      <h2><span class="num">04</span>护城河保护边界：飞轮型能力是越卖越强的</h2>
+      <p>回到开头那家物流企业面临的困境。答案其实在<strong>"飞轮型能力"和"非飞轮型能力"</strong>的区分里。</p>
+      <p><strong>飞轮型能力</strong>，是指那种在使用过程中会持续产生数据、而这些数据会持续强化能力本身的智能体系统。对于这类能力，<em>对外商业化不是稀释护城河，而是加速飞轮</em>——每一个新客户的使用数据，都在强化系统，让核心能力更强。开放得越多，内部使用者得到的系统反而越好。</p>
+      <p><strong>非飞轮型能力</strong>，是指那种执行特定任务但不产生积累效应的智能体。这类能力对外商业化的代价更高——因为竞争对手通过购买，可以直接获得与你等价的执行能力。<strong>这才是真正需要保护的部分。</strong></p>
+      <blockquote>护城河保护边界的判断规则因此变得清晰：飞轮型能力，商业化只会让飞轮转得更快，可以开放；非飞轮型的核心差异化能力，商业化会直接稀释壁垒，需要保留。真正的战略错误，不是"要不要商业化"，而是把这两类搞混了。</blockquote>
+      <h2><span class="num">05</span>AI 越强，公司可以越赚钱</h2>
+      <p>这是一个认知框架的根本转变。<strong>成本中心思维下，AI 的终点是"把成本降到极限"；AaaS 思维下，AI 的能力可以成为一条独立的收入线</strong>，而且这条收入线的增长逻辑，和传统产品收入完全不同——它受益于飞轮效应，越用越强；它没有边际成本的线性增长；它的定价权随着能力的深化和结果承诺的强化，会逐渐从客户侧转移到服务提供方侧。</p>
+      <p>那家物流企业最后的决策是：<em>把通用的路线优化算法开放给同行（工具化阶段），收入用于支持核心调度系统的持续研发；核心的异常处理编排逻辑和多年积累的货物行为数据模型，严格保留在内部。</em></p>
+      <p><strong>这不是一个非此即彼的选择。护城河的保护，不是拒绝商业化，而是清楚地知道哪一层才是真正的护城河。</strong></p>
+    </article>
+
+    <aside class="fw-side">
+      <div class="side-card">
+        <div class="side-title">操作四步法</div>
+        
+        <div class="op-step"><div class="op-num">S1</div><div class="op-text"><strong>确定 Agent 角色定位。</strong>基于 APS 框架，明确是 Tool / Copilot / Colleague 还是 Workforce——这决定了定价逻辑的出发点。</div></div>
+        <div class="op-step"><div class="op-num">S2</div><div class="op-text"><strong>选择主导计费单位。</strong>越接近 Workforce 的 Agent，越应该走向 Outcome 定价。</div></div>
+        <div class="op-step"><div class="op-num">S3</div><div class="op-text"><strong>建立价值锚点。</strong>量化 Agent 对客户带来的具体价值（节省多少时间/成本/风险）——这是定价可持续的基础。</div></div>
+        <div class="op-step"><div class="op-num">S4</div><div class="op-text"><strong>设计混合机制与敏捷调整。</strong>定价敏捷性本身是 Agent 时代的战略能力。</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关键洞见</div>
+        <p class="side-insight">谁定义计费单位，谁就<span class="not-italic" style="color:var(--fg)">定义了行业规则</span>。在 Agent 时代，定价不是商务决策，而是战略声明。</p>
+        <p class="mt-3 text-fg-dim text-[14px] leading-relaxed not-italic">Copilot 按席位收费，因为它陪人工作；Agent 按结果收费，因为它替人工作。定价敏捷性正在成为新的战略能力。</p>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">适用场景 / 典型误区</div>
+        <div class="pros-cons">
+          <div class="pc-item pro"><span class="pc-mark">✓</span>新 Agent 产品的定价策略制定</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>评估从席位制迁移到结果制的时机</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>设计企业级 Agent 服务的合同结构</div>
+          <div class="pc-item pro"><span class="pc-mark">✓</span>与客户谈判 Agent 服务的价值证明</div></div>
+        <div class="pros-cons mt-4 pt-4" style="border-top: 1px dashed var(--line);">
+          <div class="pc-item con"><span class="pc-mark">✕</span>在 Agent 已可替代人工时仍坚持席位制定价</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>过早跳到结果定价而 Agent 可靠性尚不支撑</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>忽视价值锚点建设，导致定价缺乏客观依据</div>
+          <div class="pc-item con"><span class="pc-mark">✕</span>定价策略一成不变，未能随 Agent 能力进化调整</div></div>
+      </div>
+
+      <div class="side-card">
+        <div class="side-title">关联框架</div>
+        <div class="rel-list">
+          <a href="F05.html" class="rel-item"><span class="rel-num">F05</span><span class="rel-name">数字劳动力资产观 — 资产侧配套</span></a>
+          <a href="F13.html" class="rel-item"><span class="rel-num">F13</span><span class="rel-name">APS — 定位决定定价</span></a>
+          <a href="F14.html" class="rel-item"><span class="rel-num">F14</span><span class="rel-name">JTBO — 结果导向</span></a>
+          <a href="F30.html" class="rel-item"><span class="rel-num">F30</span><span class="rel-name">CPST — 成本结构基础</span></a></div>
+      </div>
+
+      <div id="resources" class="side-card">
+        <div class="side-title">资源</div>
+        <a class="res-link" href="../resources.html#F06"><span>▸ AaaS 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
+        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ AaaS Skill 文件</span><span class="soon">即将上线</span></a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="container">
+  <nav class="fw-nav">
+    <a href="F05.html"><div class="dir">← 上一篇</div><div><span class="nav-num">F05</span><span class="nav-title">数字劳动力资产观</span></div></a>
+    <a href="F07.html" class="right"><div class="dir">下一篇 →</div><div><span class="nav-num">F07</span><span class="nav-title">人机混合网络组织</span></div></a>
+  </nav>
+</section>
+
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
+      <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0</div>
+      <div class="flex gap-4 text-xs text-fg-dim2 mono">
+        <a href="../index.html" class="hover:text-accent transition">返回首页</a>
+        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/ams.js"></script>
+
+<button id="back-to-top" class="back-to-top" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  var threshold = 400;
+  function update(){
+    if (window.scrollY > threshold) btn.classList.add('is-visible');
+    else btn.classList.remove('is-visible');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>
