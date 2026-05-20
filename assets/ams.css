@@ -1971,3 +1971,209 @@ a { color: inherit; }
 @media (max-width: 640px) {
   .back-to-top { right: 1rem; bottom: 1rem; width: 40px; height: 40px; }
 }
+
+/* ================================================================
+   FRAMEWORK PAGE TABS  ·  long-form / method / theory  three views
+   ================================================================ */
+.fw-tabs {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 36px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg-1) 92%, transparent);
+  position: sticky;
+  top: 76px;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.fw-tab {
+  flex: 1;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px;
+  font-size: 14.5px;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  color: var(--fg-dim);
+  cursor: pointer;
+  transition: color .18s ease, background .18s ease, transform .18s ease;
+  border-radius: 8px;
+  letter-spacing: 0.01em;
+  font-family: inherit;
+}
+.fw-tab:hover { color: var(--fg); background: var(--bg-2); }
+.fw-tab .tab-icon { font-size: 16px; line-height: 1; transform: translateY(1px); }
+.fw-tab .tab-label { font-weight: 500; }
+.fw-tab .tab-sub {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 10.5px;
+  color: var(--fg-dim2);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.fw-tab.is-active {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+.fw-tab.is-active .tab-sub { color: rgba(255,255,255,0.65); }
+.fw-tab:focus-visible {
+  outline: 2px solid var(--accent-hi);
+  outline-offset: 2px;
+}
+
+.tab-panel { animation: tab-fade-in .35s ease both; }
+.tab-panel[hidden] { display: none !important; }
+@keyframes tab-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.tab-intro {
+  margin: 0 0 26px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: color-mix(in srgb, var(--bg-1) 60%, transparent);
+}
+.tab-intro-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.tab-intro p {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--fg-dim);
+}
+.tab-intro strong { color: var(--fg); font-weight: 500; }
+
+/* method panel ---------------------------------------------------- */
+.method-steps,
+.method-caveats,
+.method-checks {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 1.6rem;
+}
+.method-steps li {
+  padding: 14px 0;
+  border-top: 1px dashed var(--line);
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--fg-dim);
+}
+.method-steps li:first-child { border-top: 0; padding-top: 4px; }
+.method-steps li strong {
+  color: var(--accent);
+  font-weight: 600;
+  margin-right: 6px;
+}
+.method-caveats li {
+  padding: 14px 18px;
+  background: color-mix(in srgb, var(--bg-1) 75%, transparent);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--fg-dim);
+}
+.method-caveats li strong {
+  color: var(--accent-hi);
+  font-weight: 500;
+}
+.method-checks li {
+  padding: 10px 0;
+  font-size: 15px;
+  color: var(--fg-dim);
+  line-height: 1.7;
+}
+
+/* theory panel ---------------------------------------------------- */
+.theory-citations {
+  display: grid;
+  gap: 14px;
+  margin: 1.4rem 0 1.8rem;
+}
+.cit-item {
+  padding: 20px 22px;
+  background: color-mix(in srgb, var(--bg-1) 80%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  transition: border-color .18s ease;
+}
+.cit-item:hover { border-color: var(--line-2); }
+.cit-item .cit-author {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+.cit-item .cit-work {
+  font-size: 12.5px;
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  color: var(--fg-dim2);
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+.cit-item .cit-work em { font-style: italic; color: var(--fg-dim); }
+.cit-item .cit-concept {
+  font-size: 14px;
+  color: var(--fg-dim);
+  margin-bottom: 10px;
+}
+.cit-item .cit-concept strong {
+  color: var(--accent-hi);
+  font-weight: 500;
+}
+.cit-item p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--fg-dim);
+}
+
+.theory-shifts,
+.theory-rels,
+.theory-reading {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 1.6rem;
+}
+.theory-shifts li,
+.theory-rels li,
+.theory-reading li {
+  padding: 13px 0;
+  border-top: 1px dashed var(--line);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--fg-dim);
+}
+.theory-shifts li:first-child,
+.theory-rels li:first-child,
+.theory-reading li:first-child { border-top: 0; padding-top: 4px; }
+.theory-shifts li strong,
+.theory-rels li strong { color: var(--fg); font-weight: 500; margin-right: 6px; }
+.theory-reading li em { color: var(--fg-dim); font-style: italic; }
+
+/* responsive: tighter tabs on mobile */
+@media (max-width: 640px) {
+  .fw-tabs { gap: 2px; padding: 4px; }
+  .fw-tab { padding: 9px 8px; font-size: 13px; gap: 5px; }
+  .fw-tab .tab-sub { display: none; }
+  .tab-intro { padding: 14px 16px; }
+  .cit-item { padding: 16px 18px; }
+}

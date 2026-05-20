@@ -98,4 +98,50 @@
       lBtn.textContent = next === 'zh-CN' ? 'EN' : '中';
     });
   }
+
+  // ----- Framework Page Tabs (article / method / theory) -----
+  const tablist = document.querySelector('.fw-tabs');
+  if (tablist) {
+    const tabs = Array.from(tablist.querySelectorAll('.fw-tab'));
+    const panels = Array.from(document.querySelectorAll('.tab-panel'));
+    const validNames = tabs.map(t => t.dataset.tab);
+
+    function activate(name) {
+      if (!validNames.includes(name)) name = validNames[0];
+      tabs.forEach(t => {
+        const on = t.dataset.tab === name;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      panels.forEach(p => {
+        const on = p.dataset.panel === name;
+        p.classList.toggle('is-active', on);
+        if (on) p.removeAttribute('hidden'); else p.setAttribute('hidden', '');
+      });
+      try { sessionStorage.setItem('ams-tab', name); } catch(e) {}
+      // sync URL hash without scrolling
+      if (window.history && history.replaceState) {
+        const anchor = name === 'article' ? 'article' : name;
+        history.replaceState(null, '', '#' + anchor);
+      }
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        activate(t.dataset.tab);
+      });
+    });
+
+    // Init from hash → sessionStorage → default
+    let initial = (location.hash || '').replace('#', '').toLowerCase();
+    if (!validNames.includes(initial)) {
+      try {
+        const saved = sessionStorage.getItem('ams-tab');
+        if (validNames.includes(saved)) initial = saved;
+      } catch(e) {}
+    }
+    if (!validNames.includes(initial)) initial = validNames[0];
+    activate(initial);
+  }
 })();
