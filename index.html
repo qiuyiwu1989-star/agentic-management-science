@@ -19,13 +19,14 @@
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
   <div class="container h-16 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-2">
-      <span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span>
+      <span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span>
     </a>
     <nav class="hidden lg:flex items-center gap-1">
       <a href="index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
       <a href="index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
       <a href="framework/F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
       <a href="knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill 库</a>
       <a href="resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
       <a href="patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
     </nav>
@@ -49,12 +50,15 @@
 
   <div class="relative container">
     <div class="kicker mb-6" data-reveal>
-      <span class="accent">▌</span> agentic management science · v1.0 · 造物云思想底座
+      <span class="accent">▌</span> v1.0 · 造物云思想底座
     </div>
 
     <h1 class="display text-[clamp(44px,8vw,124px)] max-w-[1180px]" data-reveal>
       智能体<span class="text-accent">管理学</span>
     </h1>
+    <div class="mt-5 mono text-fg-dim text-base sm:text-lg tracking-[0.18em] uppercase" data-reveal>
+      Agentic Management Science <span class="text-fg-dim2">·</span> <span class="text-accent">AMS</span>
+    </div>
 
     <p class="mt-8 max-w-3xl text-fg-dim text-lg leading-relaxed" data-reveal>
       当执行可以被智能体承担，企业管理学的所有基本假设——
@@ -62,35 +66,317 @@
       都需要被重写一遍。
     </p>
 
-    <p class="mt-4 max-w-3xl text-fg-dim2 text-base leading-relaxed" data-reveal>
-      这是一套由 <span class="text-fg">40 个框架</span> 构成的完整理论体系：
-      F00 总序章 · 6 个重写模块（F01–F36）· 治理神经 G01–G03。
-    </p>
-
     <div class="mt-10 flex flex-wrap gap-3" data-reveal>
       <a href="framework/F00.html" class="btn-primary">进入 F00 · 企业能力编排论 <span class="arr">→</span></a>
       <a href="#system" class="text-cta">浏览 40 框架 <span class="arr">↓</span></a>
     </div>
 
-    <!-- key stats -->
-    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-line border border-line rounded" data-reveal>
-      <div class="bg-bg-1 p-5">
-        <div class="display text-[40px] text-accent leading-none">40</div>
-        <div class="mt-2 mono text-[11px] text-fg-dim2 uppercase tracking-wider">框架总数</div>
+    <!-- (compact blueprint preview removed — full blueprint lives in #blueprint section below) -->
+    <div class="hidden" hidden>
+      <div class="bp-header">
+        <div>
+          <div class="bp-eyebrow"><span class="accent">▌</span> 体系蓝图</div>
+          <div class="bp-title">六大重写 <span class="text-fg-dim2">×</span> 五阶段转型路径</div>
+          <div class="bp-subtitle">从工具辅助到自进化组织，构建人机协同的能力系统</div>
+        </div>
+        <a href="blueprint.html" class="bp-cta">查看完整蓝图 <span class="arr">→</span></a>
       </div>
-      <div class="bg-bg-1 p-5">
-        <div class="display text-[40px] leading-none">6</div>
-        <div class="mt-2 mono text-[11px] text-fg-dim2 uppercase tracking-wider">重写模块</div>
+
+      <div class="bp-grid" role="table" aria-label="六大模块 × 五阶段矩阵">
+        <!-- column header row -->
+        <div class="bp-row bp-row-head" role="row">
+          <div class="bp-rowlabel bp-corner">六大模块 \ 五阶段</div>
+          <div class="bp-cell-head" role="columnheader"><span class="stage-tag">L1</span><span class="stage-name">工具辅助</span></div>
+          <div class="bp-cell-head" role="columnheader"><span class="stage-tag">L2</span><span class="stage-name">流程嵌入</span></div>
+          <div class="bp-cell-head" role="columnheader"><span class="stage-tag">L3</span><span class="stage-name">系统协同</span></div>
+          <div class="bp-cell-head" role="columnheader"><span class="stage-tag">L4</span><span class="stage-name">能力网络</span></div>
+          <div class="bp-cell-head" role="columnheader"><span class="stage-tag">L5</span><span class="stage-name">自进化</span></div>
+        </div>
+
+        <!-- 6 module rows · multi-stage colors · with sub-descriptions -->
+        <a href="framework/F01.html" class="bp-row bp-row-link" role="row" data-mod="1">
+          <div class="bp-rowlabel"><span class="bp-mod-num">①</span><span class="bp-mod-name">竞争重写</span><span class="bp-mod-range">F01–F06</span></div>
+          <div class="bp-cell bp-st-1" title="L1 · 效率工具 · 降本增效"><span class="bp-cell-title">效率工具</span><span class="bp-cell-sub">降本增效</span></div>
+          <div class="bp-cell bp-st-2" title="L2 · 局部效率优势 · 流程自动化"><span class="bp-cell-title">局部优化</span><span class="bp-cell-sub">流程自动化</span></div>
+          <div class="bp-cell bp-st-3" title="L3 · 数据驱动竞争 · 数据+模型洞察"><span class="bp-cell-title">数据驱动</span><span class="bp-cell-sub">模型洞察</span></div>
+          <div class="bp-cell bp-st-4" title="L4 · 能力系统竞争 · 模块化与编排"><span class="bp-cell-title">能力系统</span><span class="bp-cell-sub">模块化编排</span></div>
+          <div class="bp-cell bp-st-5" title="L5 · 进化速度竞争 · 持续学习与自我优化"><span class="bp-cell-title">进化速度</span><span class="bp-cell-sub">持续学习</span></div>
+        </a>
+        <a href="framework/F07.html" class="bp-row bp-row-link" role="row" data-mod="2">
+          <div class="bp-rowlabel"><span class="bp-mod-num">②</span><span class="bp-mod-name">组织重写</span><span class="bp-mod-range">F07–F12</span></div>
+          <div class="bp-cell bp-st-1" title="L1 · 传统岗位组织 · 层级式管理"><span class="bp-cell-title">传统岗位</span><span class="bp-cell-sub">层级管理</span></div>
+          <div class="bp-cell bp-st-2" title="L2 · 岗位 + AI 助手 · AI 嵌入工作流"><span class="bp-cell-title">岗位 + AI</span><span class="bp-cell-sub">AI 嵌入工作流</span></div>
+          <div class="bp-cell bp-st-3" title="L3 · 人机协同小队 · 跨职能协同组"><span class="bp-cell-title">协同小队</span><span class="bp-cell-sub">跨职能组队</span></div>
+          <div class="bp-cell bp-st-4" title="L4 · Agent 团队 · 以 Agent 为生产单元"><span class="bp-cell-title">Agent 团队</span><span class="bp-cell-sub">扁平项目制</span></div>
+          <div class="bp-cell bp-st-5" title="L5 · 网络化组织 · 去中心化、自组织"><span class="bp-cell-title">网络化</span><span class="bp-cell-sub">自组织组网</span></div>
+        </a>
+        <a href="framework/F13.html" class="bp-row bp-row-link" role="row" data-mod="3">
+          <div class="bp-rowlabel"><span class="bp-mod-num">③</span><span class="bp-mod-name">产品重写</span><span class="bp-mod-range">F13–F19</span></div>
+          <div class="bp-cell bp-st-1" title="L1 · 功能型产品 · 标准化交付"><span class="bp-cell-title">功能产品</span><span class="bp-cell-sub">标准化交付</span></div>
+          <div class="bp-cell bp-st-2" title="L2 · AI 增强功能 · 卖增强功能"><span class="bp-cell-title">AI 增强</span><span class="bp-cell-sub">卖增强功能</span></div>
+          <div class="bp-cell bp-st-3" title="L3 · 任务化产品 · 交付任务结果"><span class="bp-cell-title">任务化</span><span class="bp-cell-sub">交付任务结果</span></div>
+          <div class="bp-cell bp-st-4" title="L4 · 结果 / 服务化产品 · AaaS 能力即服务"><span class="bp-cell-title">结果 / AaaS</span><span class="bp-cell-sub">能力即服务</span></div>
+          <div class="bp-cell bp-st-5" title="L5 · 自适应产品 · 个性化、实时优化"><span class="bp-cell-title">自适应</span><span class="bp-cell-sub">实时优化</span></div>
+        </a>
+        <a href="framework/F20.html" class="bp-row bp-row-link" role="row" data-mod="4">
+          <div class="bp-rowlabel"><span class="bp-mod-num">④</span><span class="bp-mod-name">系统重写</span><span class="bp-mod-range">F20–F26</span></div>
+          <div class="bp-cell bp-st-1" title="L1 · 零散工具 · 多工具拼凑、数据孤岛"><span class="bp-cell-title">零散工具</span><span class="bp-cell-sub">数据孤岛</span></div>
+          <div class="bp-cell bp-st-2" title="L2 · 流程自动化 · 规则 + RPA + AI"><span class="bp-cell-title">流程自动</span><span class="bp-cell-sub">规则+RPA+AI</span></div>
+          <div class="bp-cell bp-st-3" title="L3 · 中台 + 双前台 · 业务中台 + 人机协同前台"><span class="bp-cell-title">中台架构</span><span class="bp-cell-sub">业务 + 前台</span></div>
+          <div class="bp-cell bp-st-4" title="L4 · 能力平台化（Skills）· 模块化、编排为核心"><span class="bp-cell-title">能力平台</span><span class="bp-cell-sub">模块化复用</span></div>
+          <div class="bp-cell bp-st-5" title="L5 · Agentic OS · 自进化、可扩展"><span class="bp-cell-title">Agentic OS</span><span class="bp-cell-sub">自进化扩展</span></div>
+        </a>
+        <a href="framework/F27.html" class="bp-row bp-row-link" role="row" data-mod="5">
+          <div class="bp-rowlabel"><span class="bp-mod-num">⑤</span><span class="bp-mod-name">价值重写</span><span class="bp-mod-range">F27–F32</span></div>
+          <div class="bp-cell bp-st-1" title="L1 · 按人 / 席位收费 · 线性定价"><span class="bp-cell-title">席位收费</span><span class="bp-cell-sub">线性定价</span></div>
+          <div class="bp-cell bp-st-2" title="L2 · 效率溢价 · 提效带来溢价"><span class="bp-cell-title">效率溢价</span><span class="bp-cell-sub">提效溢价</span></div>
+          <div class="bp-cell bp-st-3" title="L3 · 任务计费 · 按任务/单次计费"><span class="bp-cell-title">任务计费</span><span class="bp-cell-sub">效率挂钩</span></div>
+          <div class="bp-cell bp-st-4" title="L4 · 结果计费（AaaS）· 订阅/按量/分成"><span class="bp-cell-title">结果计费</span><span class="bp-cell-sub">订阅 / 分成</span></div>
+          <div class="bp-cell bp-st-5" title="L5 · 动态定价 / 价值分成 · 生态分成"><span class="bp-cell-title">动态定价</span><span class="bp-cell-sub">生态分成</span></div>
+        </a>
+        <a href="framework/F33.html" class="bp-row bp-row-link" role="row" data-mod="6">
+          <div class="bp-rowlabel"><span class="bp-mod-num">⑥</span><span class="bp-mod-name">人类重写</span><span class="bp-mod-range">F33–F36</span></div>
+          <div class="bp-cell bp-st-1" title="L1 · 执行者 · 按指令重复执行"><span class="bp-cell-title">执行者</span><span class="bp-cell-sub">重复劳动</span></div>
+          <div class="bp-cell bp-st-2" title="L2 · 使用者 · 使用 AI 工具提效"><span class="bp-cell-title">使用者</span><span class="bp-cell-sub">个人提效</span></div>
+          <div class="bp-cell bp-st-3" title="L3 · 协同者 · 与 AI 协同 + 判断监管"><span class="bp-cell-title">协同者</span><span class="bp-cell-sub">判断 + 监管</span></div>
+          <div class="bp-cell bp-st-4" title="L4 · 编排者（Orchestrator）· 管理 AI 团队"><span class="bp-cell-title">编排者</span><span class="bp-cell-sub">管理 AI 团队</span></div>
+          <div class="bp-cell bp-st-5" title="L5 · 设定者（Intent Owner）· 设意图与方向"><span class="bp-cell-title">设定者</span><span class="bp-cell-sub">定意图方向</span></div>
+        </a>
       </div>
-      <div class="bg-bg-1 p-5">
-        <div class="display text-[40px] leading-none">3</div>
-        <div class="mt-2 mono text-[11px] text-fg-dim2 uppercase tracking-wider">治理神经</div>
-      </div>
-      <div class="bg-bg-1 p-5">
-        <div class="display text-[40px] leading-none">1</div>
-        <div class="mt-2 mono text-[11px] text-fg-dim2 uppercase tracking-wider">企业能力编排</div>
+
+      <!-- governance neurons -->
+      <div class="bp-governance">
+        <div class="bp-gov-label"><span class="accent">▌</span> 治理神经 · 贯穿五阶段</div>
+        <div class="bp-gov-list">
+          <a href="framework/G01.html" class="bp-gov-item"><span class="bp-gov-icon">◎</span><span class="bp-gov-name">意图管理</span><span class="bp-gov-en">Intent · G01</span></a>
+          <a href="framework/G02.html" class="bp-gov-item"><span class="bp-gov-icon">◇</span><span class="bp-gov-name">边界与升级</span><span class="bp-gov-en">Boundary · G02</span></a>
+          <a href="framework/G03.html" class="bp-gov-item"><span class="bp-gov-icon">◆</span><span class="bp-gov-name">主权控制</span><span class="bp-gov-en">Sovereignty · G03</span></a>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ BLUEPRINT · MASTER METHODOLOGY MATRIX ============ -->
+<section id="blueprint" class="py-24 border-t border-line">
+  <div class="container">
+
+    <div class="mb-12 max-w-4xl" data-reveal>
+      <div class="sec-label mb-5"><span class="num">01_</span>// blueprint · 体系蓝图</div>
+      <h2 class="display text-[clamp(28px,4vw,52px)] leading-[1.1]">
+        智能体时代企业重构<span class="text-accent">方法论模型</span>
+      </h2>
+      <div class="mt-4 mono text-fg-dim text-base sm:text-lg tracking-[0.08em]">
+        六大模块 <span class="text-accent">×</span> 五阶段转型路径 <span class="text-fg-dim2">+</span> 三治理神经
+      </div>
+      <p class="mt-6 text-fg-dim text-[16.5px] leading-[1.8]">
+        从工具辅助到自进化组织，<span class="text-fg">六大模块定义"重写什么"，五阶段标定"演进到哪里"，三治理神经守护"在边界内进化"。</span>
+        点击任意单元格，进入对应框架的详情页。
+      </p>
+    </div>
+
+    <!-- 5 stage legend cards -->
+    <div class="bp-stage-legend mb-10" data-reveal>
+      <div class="bp-legend-label"><span class="accent">▌</span> 五阶段定义 · Five Stages</div>
+      <div class="bp-stage-cards">
+        <div class="bp-stage-card bp-st-1">
+          <div class="bp-st-num">L1</div>
+          <div class="bp-st-name">工具辅助</div>
+          <div class="bp-st-en">AI as Tool</div>
+          <div class="bp-st-desc">点状工具使用 · 局部提效 · 未形成体系</div>
+        </div>
+        <div class="bp-stage-card bp-st-2">
+          <div class="bp-st-num">L2</div>
+          <div class="bp-st-name">流程嵌入</div>
+          <div class="bp-st-en">AI in Workflow</div>
+          <div class="bp-st-desc">流程局部自动化 · 效率提升 · 孤岛存在</div>
+        </div>
+        <div class="bp-stage-card bp-st-3">
+          <div class="bp-st-num">L3</div>
+          <div class="bp-st-name">系统协同</div>
+          <div class="bp-st-en">Human-AI System</div>
+          <div class="bp-st-desc">人机协同成常态 · 系统化 · 开始规模化</div>
+        </div>
+        <div class="bp-stage-card bp-st-4">
+          <div class="bp-st-num">L4</div>
+          <div class="bp-st-name">能力网络</div>
+          <div class="bp-st-en">Agent Network</div>
+          <div class="bp-st-desc">能力网络化 · 可复用、可编排、可扩展</div>
+        </div>
+        <div class="bp-stage-card bp-st-5">
+          <div class="bp-st-num">L5</div>
+          <div class="bp-st-name">自进化组织</div>
+          <div class="bp-st-en">Agentic Organization</div>
+          <div class="bp-st-desc">持续进化 · 指数级增长 · 体系自我优化</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full 6×5 matrix · each cell links to its most-relevant framework -->
+    <div class="bp-full-matrix" data-reveal>
+
+      <div class="bpf-row bpf-row-head">
+        <div class="bpf-cell-side">
+          <div class="bpf-side-title">六大模块 \ 五阶段</div>
+          <div class="bpf-side-sub">Six Modules × Five Stages</div>
+        </div>
+        <div class="bpf-cell-head bp-st-1"><div class="bpf-head-tag">L1</div><div class="bpf-head-name">工具辅助</div><div class="bpf-head-en">AI as Tool</div></div>
+        <div class="bpf-cell-head bp-st-2"><div class="bpf-head-tag">L2</div><div class="bpf-head-name">流程嵌入</div><div class="bpf-head-en">AI in Workflow</div></div>
+        <div class="bpf-cell-head bp-st-3"><div class="bpf-head-tag">L3</div><div class="bpf-head-name">系统协同</div><div class="bpf-head-en">Human-AI System</div></div>
+        <div class="bpf-cell-head bp-st-4"><div class="bpf-head-tag">L4</div><div class="bpf-head-name">能力网络</div><div class="bpf-head-en">Agent Network</div></div>
+        <div class="bpf-cell-head bp-st-5"><div class="bpf-head-tag">L5</div><div class="bpf-head-name">自进化组织</div><div class="bpf-head-en">Agentic Org</div></div>
+      </div>
+
+      <!-- Module 1 · 竞争重写 -->
+      <div class="bpf-row" data-mod="1">
+        <a href="framework/F01.html" class="bpf-cell-side">
+          <div class="bpf-mod-num">①</div>
+          <div class="bpf-mod-name">竞争逻辑重构</div>
+          <div class="bpf-mod-q">Why · 如何取胜</div>
+          <div class="bpf-mod-range">F01–F06</div>
+        </a>
+        <a href="framework/F01.html" class="bpf-cell bp-st-1" title="F01 · 智能体五力重构法"><div class="bpf-cell-title">效率工具</div><div class="bpf-cell-line">降本增效为主</div><div class="bpf-cell-line">资源 / 规模优势</div><span class="bpf-cell-fw">F01</span></a>
+        <a href="framework/F02.html" class="bpf-cell bp-st-2" title="F02 · 智能体护城河重估法"><div class="bpf-cell-title">局部效率优势</div><div class="bpf-cell-line">流程自动化提效</div><div class="bpf-cell-line">单点效率提升</div><span class="bpf-cell-fw">F02</span></a>
+        <a href="framework/F03.html" class="bpf-cell bp-st-3" title="F03 · 智能体组合矩阵"><div class="bpf-cell-title">数据驱动竞争</div><div class="bpf-cell-line">数据 + 模型洞察</div><div class="bpf-cell-line">局部竞争优势</div><span class="bpf-cell-fw">F03</span></a>
+        <a href="framework/F04.html" class="bpf-cell bp-st-4" title="F04 · 智能体能力三元获取法"><div class="bpf-cell-title">能力系统竞争</div><div class="bpf-cell-line">能力模块化与编排</div><div class="bpf-cell-line">形成体系优势</div><span class="bpf-cell-fw">F04</span></a>
+        <a href="framework/F06.html" class="bpf-cell bp-st-5" title="F06 · 智能体即服务商业模型 (AaaS)"><div class="bpf-cell-title">进化速度竞争</div><div class="bpf-cell-line">持续学习与自我优化</div><div class="bpf-cell-line">进化速度成为壁垒</div><span class="bpf-cell-fw">F06</span></a>
+      </div>
+
+      <!-- Module 2 · 组织重写 -->
+      <div class="bpf-row" data-mod="2">
+        <a href="framework/F07.html" class="bpf-cell-side">
+          <div class="bpf-mod-num">②</div>
+          <div class="bpf-mod-name">组织形态重构</div>
+          <div class="bpf-mod-q">Who · 谁来做</div>
+          <div class="bpf-mod-range">F07–F12</div>
+        </a>
+        <a href="framework/F10.html" class="bpf-cell bp-st-1" title="F10 · 智能体时代企业岗位体系"><div class="bpf-cell-title">传统岗位组织</div><div class="bpf-cell-line">AI 辅助岗位组织</div><div class="bpf-cell-line">层级式管理</div><span class="bpf-cell-fw">F10</span></a>
+        <a href="framework/F07.html" class="bpf-cell bp-st-2" title="F07 · 人机混合网络组织"><div class="bpf-cell-title">岗位 + AI 助手</div><div class="bpf-cell-line">AI 嵌入岗位工作流</div><div class="bpf-cell-line">人主导，AI 辅助</div><span class="bpf-cell-fw">F07</span></a>
+        <a href="framework/F09.html" class="bpf-cell bp-st-3" title="F09 · 人机责任决策矩阵 (RACI-A × DAL)"><div class="bpf-cell-title">人机协同小队</div><div class="bpf-cell-line">跨职能协同组</div><div class="bpf-cell-line">人机共同完成任务</div><span class="bpf-cell-fw">F09</span></a>
+        <a href="framework/F08.html" class="bpf-cell bp-st-4" title="F08 · 双前台智能体中台架构"><div class="bpf-cell-title">Agent 团队</div><div class="bpf-cell-line">以 Agent 为生产单元</div><div class="bpf-cell-line">扁平化、项目制</div><span class="bpf-cell-fw">F08</span></a>
+        <a href="framework/F12.html" class="bpf-cell bp-st-5" title="F12 · 组织变革与文化范式 (Kotter-AI)"><div class="bpf-cell-title">网络化组织</div><div class="bpf-cell-line">去中心化组网</div><div class="bpf-cell-line">动态组网，自组织</div><span class="bpf-cell-fw">F12</span></a>
+      </div>
+
+      <!-- Module 3 · 产品重写 -->
+      <div class="bpf-row" data-mod="3">
+        <a href="framework/F13.html" class="bpf-cell-side">
+          <div class="bpf-mod-num">③</div>
+          <div class="bpf-mod-name">产品形态重构</div>
+          <div class="bpf-mod-q">What · 卖什么</div>
+          <div class="bpf-mod-range">F13–F19</div>
+        </a>
+        <a href="framework/F13.html" class="bpf-cell bp-st-1" title="F13 · 智能体角色定位光谱"><div class="bpf-cell-title">功能型产品</div><div class="bpf-cell-line">标准化功能</div><div class="bpf-cell-line">交付物为主</div><span class="bpf-cell-fw">F13</span></a>
+        <a href="framework/F14.html" class="bpf-cell bp-st-2" title="F14 · 结果导向任务框架 (JTBO)"><div class="bpf-cell-title">AI 增强功能</div><div class="bpf-cell-line">功能增强，更好用</div><div class="bpf-cell-line">卖增强功能</div><span class="bpf-cell-fw">F14</span></a>
+        <a href="framework/F15.html" class="bpf-cell bp-st-3" title="F15 · 上下文优先设计"><div class="bpf-cell-title">任务化产品</div><div class="bpf-cell-line">围绕任务设计</div><div class="bpf-cell-line">交付任务结果</div><span class="bpf-cell-fw">F15</span></a>
+        <a href="framework/F16.html" class="bpf-cell bp-st-4" title="F16 · 托付型产品市场匹配 (D-PMF)"><div class="bpf-cell-title">结果 / 服务化产品</div><div class="bpf-cell-line">按结果或效果交付</div><div class="bpf-cell-line">AaaS（能力即服务）</div><span class="bpf-cell-fw">F16</span></a>
+        <a href="framework/F19.html" class="bpf-cell bp-st-5" title="F19 · 多智能体架构成熟度阶梯"><div class="bpf-cell-title">自适应产品</div><div class="bpf-cell-line">个性化、实时优化</div><div class="bpf-cell-line">持续创造价值</div><span class="bpf-cell-fw">F19</span></a>
+      </div>
+
+      <!-- Module 4 · 系统重写 -->
+      <div class="bpf-row" data-mod="4">
+        <a href="framework/F20.html" class="bpf-cell-side">
+          <div class="bpf-mod-num">④</div>
+          <div class="bpf-mod-name">系统能力重构</div>
+          <div class="bpf-mod-q">How · 怎么做</div>
+          <div class="bpf-mod-range">F20–F26</div>
+        </a>
+        <a href="framework/F20.html" class="bpf-cell bp-st-1" title="F20 · 评测驱动工程法 (Triple-E)"><div class="bpf-cell-title">零散工具</div><div class="bpf-cell-line">多工具拼凑</div><div class="bpf-cell-line">数据孤岛</div><span class="bpf-cell-fw">F20</span></a>
+        <a href="framework/F24.html" class="bpf-cell bp-st-2" title="F24 · 智能体全生命周期开发法 (ADLC)"><div class="bpf-cell-title">流程自动化</div><div class="bpf-cell-line">自动化工作流</div><div class="bpf-cell-line">规则 + RPA + AI</div><span class="bpf-cell-fw">F24</span></a>
+        <a href="framework/F23.html" class="bpf-cell bp-st-3" title="F23 · 企业智能体六层架构 (SEAA)"><div class="bpf-cell-title">中台 + 双前台</div><div class="bpf-cell-line">业务中台支撑</div><div class="bpf-cell-line">人机协同前台</div><span class="bpf-cell-fw">F23</span></a>
+        <a href="framework/F21.html" class="bpf-cell bp-st-4" title="F21 · 智能体 Skill 资产治理 (SAG)"><div class="bpf-cell-title">能力平台化（Skills）</div><div class="bpf-cell-line">能力模块化与复用</div><div class="bpf-cell-line">编排成为核心</div><span class="bpf-cell-fw">F21</span></a>
+        <a href="framework/F25.html" class="bpf-cell bp-st-5" title="F25 · 三层场景评测矩阵 (TSEM)"><div class="bpf-cell-title">能力操作系统</div><div class="bpf-cell-line">Agentic OS</div><div class="bpf-cell-line">自进化、可扩展</div><span class="bpf-cell-fw">F25</span></a>
+      </div>
+
+      <!-- Module 5 · 价值重写 -->
+      <div class="bpf-row" data-mod="5">
+        <a href="framework/F27.html" class="bpf-cell-side">
+          <div class="bpf-mod-num">⑤</div>
+          <div class="bpf-mod-name">价值逻辑重构</div>
+          <div class="bpf-mod-q">Value · 怎么赚钱</div>
+          <div class="bpf-mod-range">F27–F32</div>
+        </a>
+        <a href="framework/F30.html" class="bpf-cell bp-st-1" title="F30 · 单次成功任务成本法 (CPST)"><div class="bpf-cell-title">按人 / 席位收费</div><div class="bpf-cell-line">人力成本为主</div><div class="bpf-cell-line">线性定价</div><span class="bpf-cell-fw">F30</span></a>
+        <a href="framework/F31.html" class="bpf-cell bp-st-2" title="F31 · 智能体价值回报核算法 (Agent ROI)"><div class="bpf-cell-title">效率溢价</div><div class="bpf-cell-line">提效带来溢价</div><div class="bpf-cell-line">仍以人力为定价基准</div><span class="bpf-cell-fw">F31</span></a>
+        <a href="framework/F28.html" class="bpf-cell bp-st-3" title="F28 · 智能体运营指标金字塔 (3DSP)"><div class="bpf-cell-title">任务计费</div><div class="bpf-cell-line">按任务 / 单次计费</div><div class="bpf-cell-line">效率与价值挂钩</div><span class="bpf-cell-fw">F28</span></a>
+        <a href="framework/F27.html" class="bpf-cell bp-st-4" title="F27 · 智能体运营五级成熟度模型 (AOMM)"><div class="bpf-cell-title">结果计费（AaaS）</div><div class="bpf-cell-line">按结果或效果付费</div><div class="bpf-cell-line">订阅 / 按量 / 分成</div><span class="bpf-cell-fw">F27</span></a>
+        <a href="framework/F32.html" class="bpf-cell bp-st-5" title="F32 · 智能体全域风险治理法 (SRAG)"><div class="bpf-cell-title">动态定价 / 价值分成</div><div class="bpf-cell-line">按实时价值动态定价</div><div class="bpf-cell-line">生态分成</div><span class="bpf-cell-fw">F32</span></a>
+      </div>
+
+      <!-- Module 6 · 人类重写 -->
+      <div class="bpf-row" data-mod="6">
+        <a href="framework/F33.html" class="bpf-cell-side">
+          <div class="bpf-mod-num">⑥</div>
+          <div class="bpf-mod-name">人类角色重构</div>
+          <div class="bpf-mod-q">Human · 人做什么</div>
+          <div class="bpf-mod-range">F33–F36</div>
+        </a>
+        <a href="framework/F33.html" class="bpf-cell bp-st-1" title="F33 · 智能体能力成熟度模型 (IACMM)"><div class="bpf-cell-title">执行者</div><div class="bpf-cell-line">按指令执行</div><div class="bpf-cell-line">重复性劳动为主</div><span class="bpf-cell-fw">F33</span></a>
+        <a href="framework/F35.html" class="bpf-cell bp-st-2" title="F35 · 智能体能力结构评估法 (FALA)"><div class="bpf-cell-title">使用者</div><div class="bpf-cell-line">使用 AI 工具</div><div class="bpf-cell-line">提升个人效率</div><span class="bpf-cell-fw">F35</span></a>
+        <a href="framework/F34.html" class="bpf-cell bp-st-3" title="F34 · 角色转型地图 (TSMM)"><div class="bpf-cell-title">协同者</div><div class="bpf-cell-line">与 AI 协同完成任务</div><div class="bpf-cell-line">判断 + 监管</div><span class="bpf-cell-fw">F34</span></a>
+        <a href="framework/F36.html" class="bpf-cell bp-st-4" title="F36 · 人类核心能力六维模型 (AC6)"><div class="bpf-cell-title">编排者（Orchestrator）</div><div class="bpf-cell-line">设计流程与编排 Agent</div><div class="bpf-cell-line">管理 AI 团队</div><span class="bpf-cell-fw">F36</span></a>
+        <a href="framework/F36.html" class="bpf-cell bp-st-5" title="F36 · 人类核心能力六维模型 (AC6) — 设定者层"><div class="bpf-cell-title">设定者（Intent Owner）</div><div class="bpf-cell-line">设定意图与方向</div><div class="bpf-cell-line">生态价值与方向</div><span class="bpf-cell-fw">F36</span></a>
+      </div>
+
+      <!-- Stage feature row (bottom) -->
+      <div class="bpf-row bpf-row-feature">
+        <div class="bpf-cell-side bpf-side-feature">
+          <div class="bpf-side-title">阶段特征</div>
+          <div class="bpf-side-sub">Stage Trait</div>
+        </div>
+        <div class="bpf-feature bp-st-1"><div class="bpf-feature-title">点状工具使用</div><div class="bpf-feature-line">局部提效 · 未形成体系</div></div>
+        <div class="bpf-feature bp-st-2"><div class="bpf-feature-title">流程局部自动化</div><div class="bpf-feature-line">效率提升 · 孤岛存在</div></div>
+        <div class="bpf-feature bp-st-3"><div class="bpf-feature-title">人机协同成常态</div><div class="bpf-feature-line">系统化 · 开始规模化</div></div>
+        <div class="bpf-feature bp-st-4"><div class="bpf-feature-title">能力网络化</div><div class="bpf-feature-line">可复用、可编排、可扩展</div></div>
+        <div class="bpf-feature bp-st-5"><div class="bpf-feature-title">自进化组织</div><div class="bpf-feature-line">持续进化 · 指数级增长</div></div>
+      </div>
+
+    </div>
+
+    <!-- Governance neurons (simplified to 3 inline cards matching site card style) -->
+    <div class="mt-10" data-reveal>
+      <div class="bp-legend-label mb-4"><span class="accent">▌</span> 三治理神经 · 贯穿五阶段</div>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="framework/G01.html" class="bpf-gov-card">
+          <div class="bpf-gov-icon">◎</div>
+          <div class="bpf-gov-title">意图管理</div>
+          <div class="bpf-gov-en">Intent · G01 · IAN</div>
+          <div class="bpf-gov-sub">确保 AI 做对的事</div>
+          <ul class="bpf-gov-points">
+            <li>目标对齐</li><li>任务定义</li><li>上下文管理</li>
+          </ul>
+        </a>
+        <a href="framework/G02.html" class="bpf-gov-card">
+          <div class="bpf-gov-icon">◇</div>
+          <div class="bpf-gov-title">边界与升级</div>
+          <div class="bpf-gov-en">Boundary · G02 · BSN</div>
+          <div class="bpf-gov-sub">确保 AI 在可控范围内</div>
+          <ul class="bpf-gov-points">
+            <li>权限控制</li><li>升级机制</li><li>人机切换</li>
+          </ul>
+        </a>
+        <a href="framework/G03.html" class="bpf-gov-card">
+          <div class="bpf-gov-icon">◆</div>
+          <div class="bpf-gov-title">主权控制</div>
+          <div class="bpf-gov-en">Sovereignty · G03 · HSCN</div>
+          <div class="bpf-gov-sub">确保企业掌控核心能力</div>
+          <ul class="bpf-gov-points">
+            <li>数据主权</li><li>模型主权</li><li>执行主权</li>
+          </ul>
+        </a>
+      </div>
+    </div>
+
+    <!-- Goal -->
+    <div class="bpf-goal mt-10" data-reveal>
+      <div class="bpf-goal-icon">◎</div>
+      <div>
+        <div class="bpf-goal-label">目标 · Goal</div>
+        <div class="bpf-goal-text">
+          从工具使用到能力系统，从人机协同到自进化组织，<span class="text-fg">构建可持续竞争力</span>。
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -104,19 +390,20 @@
       </div>
       <div class="space-y-6 text-fg-dim text-[16.5px] leading-[1.8]">
         <p>
-          1937 年，<span class="text-fg">罗纳德·科斯</span>用一篇 30 页的论文回答了一个被刻意回避的问题：既然市场是最有效的资源配置机制，企业为什么存在？
+          1937 年，<strong class="text-fg">罗纳德·科斯</strong>用一篇 30 页的论文回答了一个被刻意回避的问题：<strong class="text-fg">既然市场是最有效的资源配置机制，企业为什么存在？</strong>
         </p>
         <p>
-          他的答案——<span class="text-fg">企业边界由交易成本与组织成本的比较决定</span>——加上西蒙的有限理性、威廉姆森的资产专用性，构成了支撑现代企业理论将近一个世纪的三根支柱。
+          他的答案——<strong class="text-fg">企业边界由交易成本与组织成本的比较决定</strong>——加上<strong class="text-fg">西蒙的有限理性</strong>、<strong class="text-fg">威廉姆森的资产专用性</strong>，构成了支撑现代企业理论将近一个世纪的<strong class="text-fg">三根支柱</strong>。
         </p>
         <p>
-          智能体正在同时撼动这三根支柱：<span class="text-fg">执行成本崩溃</span>、<span class="text-fg">有限理性外部化</span>、<span class="text-fg">资产专用性从人迁移到系统</span>。
+          智能体正在同时撼动这三根支柱：<br/>
+          <strong class="text-accent">执行成本崩溃</strong> · <strong class="text-accent">有限理性外部化</strong> · <strong class="text-accent">资产专用性从人迁移到系统</strong>。
         </p>
         <p>
-          这不是工具的进步，而是<em class="text-fg-dim2 not-italic">"为什么以现在这种形态存在"</em>的回答失效。管理学所有核心命题——如何设计组织、分配任务、激励人才、建立竞争优势——都建立在这三根支柱的默默支撑上。
+          这<strong class="text-fg">不是工具的进步</strong>，而是<em class="text-fg-dim2 not-italic">"为什么以现在这种形态存在"</em>的回答失效。管理学所有核心命题——<strong class="text-fg">如何设计组织、分配任务、激励人才、建立竞争优势</strong>——都建立在这三根支柱的默默支撑上。
         </p>
-        <p class="text-fg">
-          支柱松动，上层建筑的每一块砖，都需要被重新检视。
+        <p class="text-fg text-[18px] font-medium">
+          支柱松动，<span class="text-accent">上层建筑的每一块砖，都需要被重新检视</span>。
         </p>
         <p>
           <a href="framework/F00.html" class="link-arrow">阅读 F00 · 企业能力编排论 <span class="arr">→</span></a>
@@ -129,112 +416,155 @@
 <!-- ============ SYSTEM AT A GLANCE ============ -->
 <section id="system" class="py-24 border-t border-line">
   <div class="container">
-    <div class="mb-12" data-reveal>
-      <div class="sec-label"><span class="num">02_</span>// system overview</div>
-      <h2 class="mt-5 display text-[clamp(28px,3.8vw,46px)]">六个重写 + 治理神经</h2>
-      <p class="mt-4 max-w-2xl text-fg-dim text-base leading-relaxed">
-        每一个模块回答一个独立的根本问题。一起，它们重写了智能体时代的企业管理学。
+
+    <div class="mb-10 max-w-4xl" data-reveal>
+      <div class="sec-label mb-5"><span class="num">02_</span>// system · 六个重写 + 治理神经</div>
+      <h2 class="display text-[clamp(28px,3.8vw,46px)] leading-[1.1]">
+        六个重写模块，<span class="text-accent">一条共同问题链</span>。
+      </h2>
+      <p class="mt-5 text-fg-dim text-[16.5px] leading-[1.8]">
+        每一个模块回答一个独立的根本问题，<strong class="text-fg">它们组合在一起，重写了智能体时代的企业管理学。</strong>
+        下面一段是每个模块的"问题流"（顺序读一遍 = 该模块的完整逻辑链），再往下是按模块展开的 40 篇全索引。
       </p>
     </div>
 
-    <!-- system map strip -->
-    <div class="sysmap mb-10" data-reveal>
-      <a class="sysmap-cell" data-module="1" href="#mod-1">
-        <span class="sm-num">F01–F06</span>
-        <span class="sm-name">竞争重写</span>
-        <span class="sm-meta">6 篇</span>
-      </a>
-      <a class="sysmap-cell" data-module="2" href="#mod-2">
-        <span class="sm-num">F07–F12</span>
-        <span class="sm-name">组织重写</span>
-        <span class="sm-meta">6 篇</span>
-      </a>
-      <a class="sysmap-cell" data-module="3" href="#mod-3">
-        <span class="sm-num">F13–F19</span>
-        <span class="sm-name">产品重写</span>
-        <span class="sm-meta">7 篇</span>
-      </a>
-      <a class="sysmap-cell" data-module="4" href="#mod-4">
-        <span class="sm-num">F20–F26</span>
-        <span class="sm-name">系统重写</span>
-        <span class="sm-meta">7 篇</span>
-      </a>
-      <a class="sysmap-cell" data-module="5" href="#mod-5">
-        <span class="sm-num">F27–F32</span>
-        <span class="sm-name">价值重写</span>
-        <span class="sm-meta">6 篇</span>
-      </a>
-      <a class="sysmap-cell" data-module="6" href="#mod-6">
-        <span class="sm-num">F33–F36</span>
-        <span class="sm-name">人类重写</span>
-        <span class="sm-meta">4 篇</span>
-      </a>
-      <a class="sysmap-cell" data-module="g" href="#mod-g">
-        <span class="sm-num">G01–G03</span>
-        <span class="sm-name">治理神经</span>
-        <span class="sm-meta">3 篇</span>
-      </a>
+    <!-- km-stream: 6 module flow lines -->
+    <div class="km-stream mb-10" data-reveal>
+      <div class="km-stream-row" style="--mod-c: #8B5CFF;">
+        <span class="km-stream-tag">模块一</span>
+        <span class="km-stream-text"><strong>竞争重写</strong> · 看世界 → 看优势 → 做选择 → 定路径 → 重估值 → 变收入</span>
+      </div>
+      <div class="km-stream-row" style="--mod-c: #5BE5A0;">
+        <span class="km-stream-tag">模块二</span>
+        <span class="km-stream-text"><strong>组织重写</strong> · 形态 → 架构 → 权责 → 岗位 → 安全 → 文化</span>
+      </div>
+      <div class="km-stream-row" style="--mod-c: #FFB85B;">
+        <span class="km-stream-tag">模块三</span>
+        <span class="km-stream-text"><strong>产品重写</strong> · 定位 → 需求 → 设计 → 验证 → 评估 → 信任 → 架构</span>
+      </div>
+      <div class="km-stream-row" style="--mod-c: #5BB5FF;">
+        <span class="km-stream-tag">模块四</span>
+        <span class="km-stream-text"><strong>系统重写</strong> · 评测 → Skill → 调试 → 架构 → 生命周期 → 评测层 → 回归</span>
+      </div>
+      <div class="km-stream-row" style="--mod-c: #FF6B8A;">
+        <span class="km-stream-tag">模块五</span>
+        <span class="km-stream-text"><strong>价值重写</strong> · 运营成熟度 → 指标 → 绩效 → 成本 → ROI → 风险</span>
+      </div>
+      <div class="km-stream-row" style="--mod-c: #FFD45B;">
+        <span class="km-stream-tag">模块六</span>
+        <span class="km-stream-text"><strong>人类重写</strong> · 能力等级 → 角色迁移 → 能力结构 → 核心能力 AC6</span>
+      </div>
     </div>
 
-    <!-- module cards grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" data-reveal>
+    <!-- km-grid: 6 module columns with all 36 framework nodes -->
+    <div class="km-grid" data-reveal>
 
-      <a id="mod-1" href="#index-1" class="module-card" data-module="1">
-        <span class="mod-arrow">→</span>
-        <div class="mod-num">模块一</div>
-        <div class="mod-title">竞争重写</div>
-        <div class="mod-range">F01–F06 · 6 篇</div>
-        <div class="mod-claim">智能体时代行业竞争结构的根本变化——五力的前提失效后，护城河、组合、能力获取的重新定义。</div>
-      </a>
+      <div class="km-col" data-module="1" style="--mod-c: #8B5CFF;">
+        <div class="km-col-head">
+          <div class="km-col-num">MODULE 一</div>
+          <div class="km-col-name">竞争重写</div>
+          <div class="km-col-count">F01–F06 · 6 篇</div>
+        </div>
+        <a class="km-node" href="framework/F01.html"><div class="km-node-num">F01</div><div class="km-node-name">智能体五力重构法</div><div class="km-node-abbr">AFFR</div></a>
+        <a class="km-node" href="framework/F02.html"><div class="km-node-num">F02</div><div class="km-node-name">智能体护城河重估法</div><div class="km-node-abbr">SDMA</div></a>
+        <a class="km-node" href="framework/F03.html"><div class="km-node-num">F03</div><div class="km-node-name">智能体组合矩阵</div><div class="km-node-abbr">APM</div></a>
+        <a class="km-node" href="framework/F04.html"><div class="km-node-num">F04</div><div class="km-node-name">智能体能力三元获取法</div><div class="km-node-abbr">TICA</div></a>
+        <a class="km-node" href="framework/F05.html"><div class="km-node-num">F05</div><div class="km-node-name">数字劳动力资产观</div><div class="km-node-abbr">DLAM</div></a>
+        <a class="km-node" href="framework/F06.html"><div class="km-node-num">F06</div><div class="km-node-name">智能体即服务商业模型</div><div class="km-node-abbr">AaaS</div></a>
+      </div>
 
-      <a id="mod-2" href="#index-2" class="module-card" data-module="2">
-        <span class="mod-arrow">→</span>
-        <div class="mod-num">模块二</div>
-        <div class="mod-title">组织重写</div>
-        <div class="mod-range">F07–F12 · 6 篇</div>
-        <div class="mod-claim">层级制不是真理，只是工业时代的信息协议——人机混合网络、双前台中台、责任决策矩阵。</div>
-      </a>
+      <div class="km-col" data-module="2" style="--mod-c: #5BE5A0;">
+        <div class="km-col-head">
+          <div class="km-col-num">MODULE 二</div>
+          <div class="km-col-name">组织重写</div>
+          <div class="km-col-count">F07–F12 · 6 篇</div>
+        </div>
+        <a class="km-node" href="framework/F07.html"><div class="km-node-num">F07</div><div class="km-node-name">人机混合网络组织</div><div class="km-node-abbr">HACNO</div></a>
+        <a class="km-node" href="framework/F08.html"><div class="km-node-num">F08</div><div class="km-node-name">双前台智能体中台架构</div><div class="km-node-abbr">DFAMP</div></a>
+        <a class="km-node" href="framework/F09.html"><div class="km-node-num">F09</div><div class="km-node-name">人机责任决策矩阵</div><div class="km-node-abbr">RACI-A × DAL</div></a>
+        <a class="km-node" href="framework/F10.html"><div class="km-node-num">F10</div><div class="km-node-name">智能体时代企业岗位体系</div><div class="km-node-abbr">ARRM</div></a>
+        <a class="km-node" href="framework/F11.html"><div class="km-node-num">F11</div><div class="km-node-name">智能体安全三系统架构</div><div class="km-node-abbr">ABERS</div></a>
+        <a class="km-node" href="framework/F12.html"><div class="km-node-num">F12</div><div class="km-node-name">组织变革与文化范式</div><div class="km-node-abbr">Kotter-AI</div></a>
+      </div>
 
-      <a id="mod-3" href="#index-3" class="module-card" data-module="3">
-        <span class="mod-arrow">→</span>
-        <div class="mod-num">模块三</div>
-        <div class="mod-title">产品重写</div>
-        <div class="mod-range">F13–F19 · 7 篇</div>
-        <div class="mod-claim">从角色定位到结果交付——智能体产品的定位光谱、结果导向任务、上下文优先设计、托付型 PMF。</div>
-      </a>
+      <div class="km-col" data-module="3" style="--mod-c: #FFB85B;">
+        <div class="km-col-head">
+          <div class="km-col-num">MODULE 三</div>
+          <div class="km-col-name">产品重写</div>
+          <div class="km-col-count">F13–F19 · 7 篇</div>
+        </div>
+        <a class="km-node" href="framework/F13.html"><div class="km-node-num">F13</div><div class="km-node-name">智能体角色定位光谱</div><div class="km-node-abbr">ARPS</div></a>
+        <a class="km-node" href="framework/F14.html"><div class="km-node-num">F14</div><div class="km-node-name">结果导向任务框架</div><div class="km-node-abbr">JTBO</div></a>
+        <a class="km-node" href="framework/F15.html"><div class="km-node-num">F15</div><div class="km-node-name">上下文优先设计</div><div class="km-node-abbr">CADM</div></a>
+        <a class="km-node" href="framework/F16.html"><div class="km-node-num">F16</div><div class="km-node-name">托付型产品市场匹配法</div><div class="km-node-abbr">D-PMF</div></a>
+        <a class="km-node" href="framework/F17.html"><div class="km-node-num">F17</div><div class="km-node-name">可信智能体七维评估法</div><div class="km-node-abbr">VERITAS ★</div></a>
+        <a class="km-node" href="framework/F18.html"><div class="km-node-num">F18</div><div class="km-node-name">可治理信任模型</div><div class="km-node-abbr">CATER ★</div></a>
+        <a class="km-node" href="framework/F19.html"><div class="km-node-num">F19</div><div class="km-node-name">多智能体架构成熟度阶梯</div><div class="km-node-abbr">MAAML</div></a>
+      </div>
 
-      <a id="mod-4" href="#index-4" class="module-card" data-module="4">
-        <span class="mod-arrow">→</span>
-        <div class="mod-num">模块四</div>
-        <div class="mod-title">系统重写</div>
-        <div class="mod-range">F20–F26 · 7 篇</div>
-        <div class="mod-claim">确定性变概率性后，工程方法需要重写——评测驱动、Skill 资产治理、链路诊断、概率回归。</div>
-      </a>
+      <div class="km-col" data-module="4" style="--mod-c: #5BB5FF;">
+        <div class="km-col-head">
+          <div class="km-col-num">MODULE 四</div>
+          <div class="km-col-name">系统重写</div>
+          <div class="km-col-count">F20–F26 · 7 篇</div>
+        </div>
+        <a class="km-node" href="framework/F20.html"><div class="km-node-num">F20</div><div class="km-node-name">评测驱动工程法</div><div class="km-node-abbr">E³</div></a>
+        <a class="km-node" href="framework/F21.html"><div class="km-node-num">F21</div><div class="km-node-name">智能体 Skill 资产治理</div><div class="km-node-abbr">SAG</div></a>
+        <a class="km-node" href="framework/F22.html"><div class="km-node-num">F22</div><div class="km-node-name">执行链路四环诊断法</div><div class="km-node-abbr">PRTD</div></a>
+        <a class="km-node" href="framework/F23.html"><div class="km-node-num">F23</div><div class="km-node-name">企业智能体六层架构</div><div class="km-node-abbr">SEAA</div></a>
+        <a class="km-node" href="framework/F24.html"><div class="km-node-num">F24</div><div class="km-node-name">智能体全生命周期开发法</div><div class="km-node-abbr">ADLC</div></a>
+        <a class="km-node" href="framework/F25.html"><div class="km-node-num">F25</div><div class="km-node-name">三层评测矩阵</div><div class="km-node-abbr">TSEM</div></a>
+        <a class="km-node" href="framework/F26.html"><div class="km-node-num">F26</div><div class="km-node-name">概率回归测试法</div><div class="km-node-abbr">PRT</div></a>
+      </div>
 
-      <a id="mod-5" href="#index-5" class="module-card" data-module="5">
-        <span class="mod-arrow">→</span>
-        <div class="mod-num">模块五</div>
-        <div class="mod-title">价值重写</div>
-        <div class="mod-range">F27–F32 · 6 篇</div>
-        <div class="mod-claim">运营、成本、ROI 与风险——AgentOps 成熟度、指标金字塔、CPTA、Agent ROI、全域风险治理。</div>
-      </a>
+      <div class="km-col" data-module="5" style="--mod-c: #FF6B8A;">
+        <div class="km-col-head">
+          <div class="km-col-num">MODULE 五</div>
+          <div class="km-col-name">价值重写</div>
+          <div class="km-col-count">F27–F32 · 6 篇</div>
+        </div>
+        <a class="km-node" href="framework/F27.html"><div class="km-node-num">F27</div><div class="km-node-name">智能体运营五级成熟度模型</div><div class="km-node-abbr">AOMM</div></a>
+        <a class="km-node" href="framework/F28.html"><div class="km-node-num">F28</div><div class="km-node-name">智能体运营指标金字塔</div><div class="km-node-abbr">3DSP</div></a>
+        <a class="km-node" href="framework/F29.html"><div class="km-node-num">F29</div><div class="km-node-name">数字员工绩效评分卡</div><div class="km-node-abbr">DWPS</div></a>
+        <a class="km-node" href="framework/F30.html"><div class="km-node-num">F30</div><div class="km-node-name">单次成功任务成本法</div><div class="km-node-abbr">CPST</div></a>
+        <a class="km-node" href="framework/F31.html"><div class="km-node-num">F31</div><div class="km-node-name">智能体价值回报核算法</div><div class="km-node-abbr">Agent ROI</div></a>
+        <a class="km-node" href="framework/F32.html"><div class="km-node-num">F32</div><div class="km-node-name">智能体全域风险治理法</div><div class="km-node-abbr">SRAG</div></a>
+      </div>
 
-      <a id="mod-6" href="#index-6" class="module-card" data-module="6">
-        <span class="mod-arrow">→</span>
-        <div class="mod-num">模块六</div>
-        <div class="mod-title">人类重写</div>
-        <div class="mod-range">F33–F36 · 4 篇</div>
-        <div class="mod-claim">当执行能力不再稀缺，人类的独特贡献究竟在哪里——能力成熟度、角色迁移、能力结构、AC6 核心能力。</div>
-      </a>
+      <div class="km-col" data-module="6" style="--mod-c: #FFD45B;">
+        <div class="km-col-head">
+          <div class="km-col-num">MODULE 六</div>
+          <div class="km-col-name">人类重写</div>
+          <div class="km-col-count">F33–F36 · 4 篇</div>
+        </div>
+        <a class="km-node" href="framework/F33.html"><div class="km-node-num">F33</div><div class="km-node-name">智能体能力成熟度模型</div><div class="km-node-abbr">IACMM</div></a>
+        <a class="km-node" href="framework/F34.html"><div class="km-node-num">F34</div><div class="km-node-name">角色转型地图</div><div class="km-node-abbr">TSMM</div></a>
+        <a class="km-node" href="framework/F35.html"><div class="km-node-num">F35</div><div class="km-node-name">智能体能力结构评估法</div><div class="km-node-abbr">FALA</div></a>
+        <a class="km-node" href="framework/F36.html"><div class="km-node-num">F36</div><div class="km-node-name">人类核心能力六维模型</div><div class="km-node-abbr">AC6 ★</div></a>
+      </div>
 
-      <a id="mod-g" href="#index-g" class="module-card" data-module="g">
-        <span class="mod-arrow">→</span>
-        <div class="mod-num">治理神经</div>
-        <div class="mod-title">G01–G03</div>
-        <div class="mod-range">横切全体系 · 3 篇</div>
-        <div class="mod-claim">横切整个体系的三条神经线——意图管理、边界与升级机制、智能体主权模型。</div>
-      </a>
     </div>
+
+    <!-- 治理神经横切层 -->
+    <div class="km-governance-wrap" data-reveal>
+      <div class="km-cross-label">
+        <div class="tag">治理神经 · cross-cutting nerves</div>
+        <div class="name">G01–G03 · 横切全体系</div>
+        <div class="desc">这三条神经线不属于任何单一模块——它们贯穿 L1→L5 全程，是企业在能力跃迁过程中守住边界的安全网。</div>
+      </div>
+      <div class="km-cross-nodes">
+        <a class="km-node" href="framework/G01.html"><div class="km-node-num">G01</div><div class="km-node-name">意图管理模型</div><div class="km-node-abbr">IAN · Intent</div></a>
+        <a class="km-node" href="framework/G02.html"><div class="km-node-num">G02</div><div class="km-node-name">边界与升级机制</div><div class="km-node-abbr">BSN · Boundary</div></a>
+        <a class="km-node" href="framework/G03.html"><div class="km-node-num">G03</div><div class="km-node-name">智能体主权模型</div><div class="km-node-abbr">HSCN · Sovereignty</div></a>
+      </div>
+    </div>
+
+    <!-- CTA: 完整知识图谱 -->
+    <div class="mt-10 flex flex-wrap gap-3 items-center" data-reveal>
+      <a href="knowledge-map.html" class="text-cta">完整知识图谱 · 引用链路 + 可视化模式 <span class="arr">→</span></a>
+      <span class="mono text-xs text-fg-dim2">知识图谱页含 36 框架的内部引用关系图、可视化模式索引</span>
+    </div>
+
   </div>
 </section>
 

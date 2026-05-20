@@ -1,0 +1,62 @@
+# 智能体管理学 · Skill 库 · 36 Agent-ready Methodologies
+
+> 36 个对应 F01–F36 的可执行 Skill 文件。每个 .md 含 YAML frontmatter（name / version / type / description / triggers）+ 标准 INPUT → S1–S4 步骤 → 治理神经检查 → 结构化 OUTPUT。可直接被 Claude / GPT / 自建 Agent 调用。
+
+## 资源索引
+
+- [manifest.json](manifest.json): 机器可读的全 Skill 元数据（含 module / type / description / triggers）
+- [_STANDARD.md](_STANDARD.md): 全 Skill 的统一 IO 规范文档
+
+## 模块 1 · 竞争重写 · Competition · F01–F06
+
+- [F01 · 智能体五力重构法](F01.md): Agentic Five Forces Reconstruction (AFFR) — 分析型 — 触发词: 竞争格局分析 / 行业分析 / 五力分析
+- [F02 · 智能体护城河重估法](F02.md): Seven-Dimensional Moat Assessment (SDMA) — 分析型（含评分） — 触发词: 护城河分析 / 竞争优势评估 / 壁垒分析
+- [F03 · 智能体组合矩阵](F03.md): Agentic Portfolio Matrix (APM) — 决策型 — 触发词: Agent投资优先级 / 哪些AI项目值得做 / AI项目太多不知道怎么选
+- [F04 · 智能体能力三元获取法](F04.md): Triadic Intelligence Capability Acquisition (TICA) — 决策型
+- [F05 · 数字劳动力资产观](F05.md): Digital Labor Assetization Method (DLAM) — 混合型
+- [F06 · 智能体即服务商业模型](F06.md): Agent as a Service (AaaS) — 混合型
+
+## 模块 2 · 组织重写 · Organization · F07–F12
+
+- [F07 · 人机混合网络组织](F07.md): Human-Agent Capability Network Organization (HACNO) — 分析型
+- [F08 · 双前台智能体中台架构](F08.md): Dual-Front Agent Middle Platform (DFAMP) — 分析型
+- [F09 · 人机责任决策矩阵](F09.md): Human-Agent Responsibility Decision Matrix (RACI-A × DAL) — 决策型
+- [F10 · 智能体时代企业岗位体系](F10.md): Agentic Role Redesign Method (ARRM) — 决策型
+- [F11 · 智能体安全三系统架构](F11.md): Agent Boundary-Escalation-Recovery System (ABERS) — 混合型
+- [F12 · 组织变革与文化范式](F12.md): Kotter-AI Transformation Framework (Kotter-AI) — 诊断型
+
+## 模块 3 · 产品重写 · Product · F13–F19
+
+- [F13 · 智能体角色定位光谱](F13.md): Agent Role Positioning Spectrum (ARPS) — 分析型
+- [F14 · 结果导向任务框架](F14.md): Job-to-Be-Outcome-Owned (JTBO) — 决策型
+- [F15 · 上下文优先设计](F15.md): Context-Aware Design Method (CADM) — 设计型
+- [F16 · 托付型产品市场匹配法](F16.md): Delegation Product-Market Fit (D-PMF) — 诊断型
+- [F17 · 可信智能体七维评估法](F17.md): VERITAS — Seven-Dimensional Trustworthy Agent Evaluation (VERITAS) — 评估型
+- [F18 · 可治理信任模型](F18.md): CATER — Governable Trust Five-Dimension Model (CATER) — 评估型
+- [F19 · 多智能体架构成熟度阶梯](F19.md): Multi-Agent Architecture Maturity Ladder (MAAML) — 决策型
+
+## 模块 4 · 系统重写 · System · F20–F26
+
+- [F20 · 评测驱动工程法](F20.md): Triple-E Evaluation-Driven Engineering (E³) — 决策型
+- [F21 · 智能体 Skill 资产治理](F21.md): Skill Asset Governance Method (SAG) — 决策型
+- [F22 · 执行链路四环诊断法](F22.md): Prompt-Retrieval-Tool-Decision Diagnostic Method (PRTD) — 分析型
+- [F23 · 企业智能体六层架构](F23.md): Six-Layer Enterprise Agent Architecture (SEAA) — 分析型
+- [F24 · 智能体全生命周期开发法](F24.md): Agent Development Lifecycle Method (ADLC) — 决策型
+- [F25 · 正常—边缘—对抗三层评测矩阵](F25.md): Three-Layer Scenario Evaluation Matrix (TSEM) — 决策型
+- [F26 · 概率回归测试法](F26.md): Probabilistic Regression Testing (PRT) — 决策型
+
+## 模块 5 · 价值重写 · Value · F27–F32
+
+- [F27 · 智能体运营五级成熟度模型](F27.md): AgentOps Five-Level Maturity Model (AOMM) — 评估型
+- [F28 · 智能体运营指标金字塔](F28.md): Three-Dimensional SLI/SLO Pyramid (3DSP) — 决策型
+- [F29 · 数字员工绩效评分卡](F29.md): Digital Worker Performance Scorecard (DWPS) — 评估型
+- [F30 · 单次成功任务成本法](F30.md): Cost per Successful Task (CPST) — 分析型
+- [F31 · 智能体价值回报核算法](F31.md): Agent ROI Accounting Method (Agent ROI) — 决策型
+- [F32 · 智能体全域风险治理法](F32.md): Seven-Risk Agent Governance Method (SRAG) — 决策型
+
+## 模块 6 · 人类重写 · Human · F33–F36
+
+- [F33 · 智能体能力成熟度模型](F33.md): Individual Agentic Capability Maturity Model (IACMM) — 评估型
+- [F34 · 角色转型地图](F34.md): Task Structure Migration Map (TSMM) — 分析型
+- [F35 · 智能体能力结构评估法](F35.md): Four-Dimensional Agentic Literacy Assessment (FALA) — 评估型
+- [F36 · 人类核心能力六维模型](F36.md): AC6 — Agentic Core 6 Capability Model (AC6) — 评估型
