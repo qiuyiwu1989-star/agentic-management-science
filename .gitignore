@@ -20,8 +20,10 @@ dist/
 build/
 .cache/
 
-# Local Claude config (keep launch.json out — environment specific)
+# Local Claude config (machine-specific, absolute paths)
 .claude/launch.json
+.claude/serve.py
+.claude/settings.local.json
 
 # Temp
 *.tmp
