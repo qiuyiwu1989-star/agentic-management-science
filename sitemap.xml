@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url>
+    <loc>https://qiuyiwu.com/ams/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://qiuyiwu.com/ams/knowledge-map.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qiuyiwu.com/ams/patterns.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qiuyiwu.com/ams/resources.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qiuyiwu.com/ams/skills/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://qiuyiwu.com/ams/design-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Framework pages -->
+  <url><loc>https://qiuyiwu.com/ams/framework/F00.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F01.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F02.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F03.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F04.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F05.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F06.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F07.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F08.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F09.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F10.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F11.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F12.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F13.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F14.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F15.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F16.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F17.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F18.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F19.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F20.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F21.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F22.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F23.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F24.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F25.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F26.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F27.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F28.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F29.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F30.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F31.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F32.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F33.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F34.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F35.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/F36.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/G01.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/G02.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://qiuyiwu.com/ams/framework/G03.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+</urlset>

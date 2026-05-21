@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qiuyiwu.com/ams/sitemap.xml

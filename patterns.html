@@ -14,6 +14,8 @@
 <script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
 </head>
 <body class="bg-bg text-fg">
+<a href="#main-content" class="skip-link">跳至主内容</a>
+
 
 <!-- ============ NAV ============ -->
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
@@ -31,7 +33,7 @@
       <a href="patterns.html" class="px-4 py-2 mono text-[13px] text-accent transition">模式库</a>
     </nav>
     <div class="flex items-center gap-2">
-      <a href="https://qiuyiwu.com/" target="_blank" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
+      <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
       <a href="index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
       <button id="theme-toggle" class="toggle" type="button">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
@@ -42,7 +44,7 @@
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="relative pt-32 pb-16 overflow-hidden noise">
+<section id="main-content" class="relative pt-32 pb-16 overflow-hidden noise">
   <div class="absolute inset-0 grid-bg pointer-events-none"></div>
   <div class="absolute inset-0 accent-glow pointer-events-none"></div>
   <div class="relative container">
@@ -197,7 +199,7 @@
   <div class="mb-6">
     <div class="section-lbl-a mb-4"><span class="sl-line"></span>P2 · 雷达 / 多维图</div>
     <h2 class="dg-h">N 轴星形评估</h2>
-    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F17 可信智能体七维评估法 (VERITAS)</a> · 模块三 · SVG</p>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="framework/F17.html" class="text-accent hover:underline">F17 可信智能体七维评估法 (VERITAS)</a> · 模块三 · SVG</p>
     <p class="text-fg-dim2 text-sm mt-1">适用范围：F02 七维 · F17 VERITAS · F18 CATER · F29 DWPS · F35 FALA · F36 AC6（共 6 个）</p>
   </div>
 
@@ -276,7 +278,7 @@
   <div class="mb-6">
     <div class="section-lbl-a mb-4"><span class="sl-line"></span>P3 · 双轴矩阵</div>
     <h2 class="dg-h">2×2 象限决策图</h2>
-    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F03 智能体组合矩阵 (APM)</a> · 模块一 · HTML/CSS</p>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="framework/F03.html" class="text-accent hover:underline">F03 智能体组合矩阵 (APM)</a> · 模块一 · HTML/CSS</p>
     <p class="text-fg-dim2 text-sm mt-1">适用范围：F03 APM · F09 RACI×DAL · F10 T1–T4 · F13 APS · F34 任务迁移（共 5 个）</p>
   </div>
 
@@ -335,7 +337,7 @@
   <div class="mb-6">
     <div class="section-lbl-a mb-4"><span class="sl-line"></span>P4 · 层级栈</div>
     <h2 class="dg-h">横/竖叠层架构</h2>
-    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F23 企业智能体六层架构 (SEAA)</a> · 模块四 · HTML/CSS</p>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="framework/F23.html" class="text-accent hover:underline">F23 企业智能体六层架构 (SEAA)</a> · 模块四 · HTML/CSS</p>
     <p class="text-fg-dim2 text-sm mt-1">适用范围：F08 双前台中台 · F14 JTBO 三层 · F15 上下文四层 · F23 SEAA · F28 3DSP · G01 意图四层（共 6 个）</p>
   </div>
 
@@ -392,7 +394,7 @@
   <div class="mb-6">
     <div class="section-lbl-a mb-4"><span class="sl-line"></span>P5 · 成熟度阶梯</div>
     <h2 class="dg-h">N 级上升评估</h2>
-    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F27 智能体运营五级成熟度模型 (AOMM)</a> · 模块五 · HTML/CSS</p>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="framework/F27.html" class="text-accent hover:underline">F27 智能体运营五级成熟度模型 (AOMM)</a> · 模块五 · HTML/CSS</p>
     <p class="text-fg-dim2 text-sm mt-1">适用范围：F19 MAAML · F21 SAG · F27 AOMM · F33 IACMM（共 4 个）</p>
   </div>
 
@@ -449,7 +451,7 @@
   <div class="mb-6">
     <div class="section-lbl-a mb-4"><span class="sl-line"></span>P6 · 闭环 / 循环</div>
     <h2 class="dg-h">圆形流程</h2>
-    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F24 智能体全生命周期开发法 (ADLC)</a> · 模块四 · SVG</p>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="framework/F24.html" class="text-accent hover:underline">F24 智能体全生命周期开发法 (ADLC)</a> · 模块四 · SVG</p>
     <p class="text-fg-dim2 text-sm mt-1">适用范围：F20 Triple-E · F24 ADLC（共 2 个）</p>
   </div>
 
@@ -527,7 +529,7 @@
   <div class="mb-6">
     <div class="section-lbl-a mb-4"><span class="sl-line"></span>P7 · 链路流程</div>
     <h2 class="dg-h">左 → 右步骤流</h2>
-    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F22 执行链路四环诊断法 (PRTD)</a> · 模块四 · HTML/CSS</p>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="framework/F22.html" class="text-accent hover:underline">F22 执行链路四环诊断法 (PRTD)</a> · 模块四 · HTML/CSS</p>
     <p class="text-fg-dim2 text-sm mt-1">适用范围：F12 Kotter-AI · F22 PRTD · F25 TSEM 三层（共 3 个）</p>
   </div>
 
@@ -578,7 +580,7 @@
   <div class="mb-6">
     <div class="section-lbl-a mb-4"><span class="sl-line"></span>P8 · 同心圆 / 嵌套</div>
     <h2 class="dg-h">由内而外的纵深防御</h2>
-    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="#" class="text-accent hover:underline">F11 智能体安全三系统架构 (ABERS)</a> · 模块二 · SVG</p>
+    <p class="text-fg-dim text-sm mt-2">参考实现：<a href="framework/F11.html" class="text-accent hover:underline">F11 智能体安全三系统架构 (ABERS)</a> · 模块二 · SVG</p>
     <p class="text-fg-dim2 text-sm mt-1">适用范围：F11 ABERS · F25 TSEM · F32 SRAG · G02 BSN（共 4 个）</p>
   </div>
 
@@ -660,7 +662,7 @@
   <div class="container flex flex-col sm:flex-row gap-3 justify-between items-start sm:items-center">
     <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0 · pattern library</div>
     <div class="flex gap-4 text-xs text-fg-dim2 mono">
-      <a href="https://qiuyiwu.com/" target="_blank" class="hover:text-accent transition">邱懿武 ↗</a>
+      <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">邱懿武 ↗</a>
       <a href="index.html" class="hover:text-accent transition">返回首页</a>
       <a href="framework/F01.html" class="hover:text-accent transition">F01 模板页</a>
       <a href="design-guide.html" class="hover:text-accent transition">设计规范</a>

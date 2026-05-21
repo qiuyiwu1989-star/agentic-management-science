@@ -586,7 +586,7 @@ a { color: inherit; }
 
 /* ============= THEME TOGGLE & LANG SWITCH ============= */
 .toggle {
-  width: 36px; height: 36px;
+  width: 44px; height: 44px;
   display: inline-flex; align-items:center; justify-content:center;
   border: 1px solid var(--line-2);
   border-radius: 2px;
@@ -3834,3 +3834,56 @@ a { color: inherit; }
   background: var(--accent);
   flex-shrink: 0;
 }
+
+/* ================================================================
+   ACCESSIBILITY — FOCUS VISIBLE & SKIP LINK
+   ================================================================ */
+
+/* Skip-to-main link (hidden until focused) */
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1.25rem;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--accent-hi);
+  outline-offset: 2px;
+}
+
+/* Enhanced focus-visible for all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Nav links */
+header nav a:focus-visible,
+header .flex a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Buttons */
+button:focus-visible,
+.pill-btn:focus-visible,
+.toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* (toggle size already set to 44×44px in the base rule above) */

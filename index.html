@@ -14,6 +14,8 @@
 <script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
 </head>
 <body class="bg-bg text-fg">
+<a href="#main-content" class="skip-link">跳至主内容</a>
+
 
 <!-- ============ NAV ============ -->
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
@@ -31,8 +33,8 @@
       <a href="patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
     </nav>
     <div class="flex items-center gap-2">
-      <a href="https://qiuyiwu.com/" target="_blank" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
-      <a href="https://www.zaowuyun.com/" target="_blank" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">造物云</a>
+      <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
+      <a href="https://www.zaowuyun.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">造物云</a>
       <button id="theme-toggle" class="toggle" type="button">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -43,7 +45,7 @@
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="relative pt-36 pb-24 overflow-hidden noise">
+<section id="main-content" class="relative pt-36 pb-24 overflow-hidden noise">
   <div class="absolute inset-0 grid-bg pointer-events-none"></div>
   <div class="absolute inset-0 accent-glow pointer-events-none"></div>
   <div class="orb orb-accent orb-drift" style="width:420px;height:420px;top:-60px;right:-80px;opacity:.18;"></div>
@@ -742,8 +744,8 @@
       <div>
         <div class="kicker mb-4">关于</div>
         <ul class="space-y-2 text-sm text-fg-dim">
-          <li><a href="https://qiuyiwu.com/" target="_blank" class="hover:text-accent transition">邱懿武主页 ↗</a></li>
-          <li><a href="https://www.zaowuyun.com/" target="_blank" class="hover:text-accent transition">造物云母站 ↗</a></li>
+          <li><a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">邱懿武主页 ↗</a></li>
+          <li><a href="https://www.zaowuyun.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">造物云母站 ↗</a></li>
           <li><span class="text-fg-dim3">案例库（即将上线）</span></li>
           <li><span class="text-fg-dim3">提示词与 Skill 下载（即将上线）</span></li>
         </ul>

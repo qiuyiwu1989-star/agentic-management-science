@@ -541,6 +541,8 @@
 </style>
 </head>
 <body class="bg-bg text-fg">
+<a href="#main-content" class="skip-link">跳至主内容</a>
+
 
 <!-- ============ NAV ============ -->
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
@@ -561,8 +563,8 @@
       <a href="design-guide.html" class="px-4 py-2 mono text-[13px] text-accent">设计规范</a>
     </nav>
     <div class="flex items-center gap-2">
-      <a href="https://qiuyiwu.com/" target="_blank" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
-      <a href="https://www.zaowuyun.com/" target="_blank" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">造物云</a>
+      <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
+      <a href="https://www.zaowuyun.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">造物云</a>
       <button id="theme-toggle" class="toggle" type="button" aria-label="Toggle theme">
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -586,7 +588,7 @@
 </nav>
 
 <!-- ============ HERO ============ -->
-<section id="hero" class="relative pt-36 pb-28 overflow-hidden noise min-h-[90vh] flex items-center">
+<section id="main-content" id="hero" class="relative pt-36 pb-28 overflow-hidden noise min-h-[90vh] flex items-center">
   <!-- Background layers -->
   <div class="absolute inset-0 grid-bg pointer-events-none"></div>
   <div class="absolute inset-0 accent-glow pointer-events-none"></div>
@@ -635,7 +637,7 @@
     <div class="mt-10 flex flex-wrap gap-3 items-center" data-reveal style="transition-delay:.3s">
       <a href="#colors" class="pill pill-primary">查看颜色系统 <span class="arr">↓</span></a>
       <a href="#buttons" class="pill pill-secondary">按钮规范 <span class="arr">→</span></a>
-      <a href="assets/ams.css" target="_blank" class="text-link">ams.css <span>↗</span></a>
+      <a href="assets/ams.css" target="_blank" rel="noopener noreferrer" class="text-link">ams.css <span>↗</span></a>
     </div>
 
     <!-- Quick stats -->
@@ -1525,8 +1527,8 @@
       </div>
       <div class="flex items-center gap-6">
         <a href="index.html" class="mono text-[12px] text-fg-dim2 hover:text-fg transition">← 返回首页</a>
-        <a href="assets/ams.css" target="_blank" class="mono text-[12px] text-fg-dim2 hover:text-accent transition">ams.css ↗</a>
-        <a href="https://www.zaowuyun.com" target="_blank" class="mono text-[12px] text-fg-dim2 hover:text-fg transition">造物云</a>
+        <a href="assets/ams.css" target="_blank" rel="noopener noreferrer" class="mono text-[12px] text-fg-dim2 hover:text-accent transition">ams.css ↗</a>
+        <a href="https://www.zaowuyun.com" target="_blank" rel="noopener noreferrer" class="mono text-[12px] text-fg-dim2 hover:text-fg transition">造物云</a>
       </div>
     </div>
   </div>
