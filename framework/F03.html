@@ -27,13 +27,10 @@
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
     <nav class="hidden lg:flex items-center gap-1">
-      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
-      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
-      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
-      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
-      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill 库</a>
+      <a href="../system.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">框架</a>
+      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill</a>
       <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
-      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
     </nav>
     <div class="flex items-center gap-2">
       <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
@@ -51,13 +48,12 @@
 </header>
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
   <div class="container py-2">
-      <a href="../index.html#system" class="mm-link">体系全景</a>
-      <a href="../index.html#index" class="mm-link">40 框架索引</a>
-      <a href="F00.html" class="mm-link">F00 总序</a>
-      <a href="../knowledge-map.html" class="mm-link">知识图谱</a>
-      <a href="../skills/index.html" class="mm-link">Skill 库</a>
-      <a href="../resources.html" class="mm-link">资源</a>
-      <a href="../patterns.html" class="mm-link">模式库</a>
+    <a href="../system.html" class="mm-link">体系</a>
+    <a href="../knowledge-map.html" class="mm-link">框架</a>
+    <a href="../skills/index.html" class="mm-link">Skill</a>
+    <a href="../resources.html" class="mm-link">资源</a>
+    <a href="https://qiuyiwu.com/" class="mm-link">邱懿武</a>
+    <a href="https://www.zaowuyun.com/" class="mm-link">造物云</a>
   </div>
 </div>
 
@@ -68,7 +64,7 @@
       <span><span class="num">▌</span> 模块一 · 竞争重写 / F03</span>
       <span class="type-tag">工具级</span>
       <span class="text-fg-dim3">·</span>
-      <a href="../index.html#index-1" class="hover:text-fg transition">所有竞争重写框架 →</a>
+      <a href="../knowledge-map.html-1" class="hover:text-fg transition">所有竞争重写框架 →</a>
     </div>
     <h1 data-reveal>
       智能体组合矩阵
@@ -149,6 +145,43 @@
   <div class="fw-layout">
 
     <article class="fw-article">
+
+      <div class="fw-tabs" role="tablist" aria-label="阅读层次">
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="article" id="tab-article">
+          <span class="tab-icon">📖</span>
+          <span class="tab-label">长文</span>
+          <span class="tab-sub">叙事</span>
+        </button>
+        <button class="fw-tab is-active" role="tab" aria-selected="true" data-tab="method" id="tab-method">
+          <span class="tab-icon">📐</span>
+          <span class="tab-label">方法论</span>
+          <span class="tab-sub">操作</span>
+        </button>
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="theory" id="tab-theory">
+          <span class="tab-icon">🔬</span>
+          <span class="tab-label">理论</span>
+          <span class="tab-sub">学术</span>
+        </button>
+      </div>
+
+      <div class="tab-panel" data-panel="article" role="tabpanel" aria-labelledby="tab-article" hidden>
+
+      <div class="theory-note mb-8">
+        <strong>叙事版本说明</strong>：本框架的叙事长文（场景案例版）正在撰写中。以下为 Skill 文件的框架定位说明，用于展示该框架的核心价值主张。
+      </div>
+
+      <h2><span class="num">01</span>框架定位</h2>
+<p class="text-fg-dim text-[16px] leading-[1.8]">这个 SKILL 将「智能体组合矩阵」转化为可执行的 Agent 资产组合决策引擎。</p>
+<p class="text-fg-dim text-[16px] leading-[1.8]">它不评估单个 Agent 好不好，而是解决一个组合层面的管理问题：<strong>当企业同时运行多个 Agent 项目时，资源应该如何在它们之间分配？</strong></p>
+<p class="text-fg-dim text-[16px] leading-[1.8]">核心判断：<strong>Agent 数量不等于 AI 能力。关键是组合结构是否合理——明星和现金的比例是否健康，问题 Agent 是否被及时清理，有限资源是否集中在了战略最重要的方向上。</strong></p>
+
+      <div class="theory-note mt-8">
+        <strong>完整叙事</strong>：本框架叙事版本（含真实案例与决策场景）将在近期更新。欢迎访问 <a href="https://qiuyiwu.com/management/" target="_blank" rel="noopener noreferrer" class="text-accent">造物云博客</a> 查看相关内容。
+      </div>
+      </div><!-- /.tab-panel[article] -->
+
+      <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+
       
       <h2><span class="num">01</span>一家零售集团 CTO 的 40 个项目</h2>
       <p>一家零售集团的 CTO 告诉我，他们公司有将近 40 个智能体相关项目在同时推进。有的是业务部门自发建的，有的是总部立项的，有的是采购了外部服务接进来的。每个项目都有自己的小团队，每个季度都在汇报进展，每个汇报都说"进展顺利"。</p>
@@ -182,6 +215,19 @@
       <p>回到开头那位 CTO。如果他用 APM 把 40 个项目重新过一遍，大概率会发现：<strong>明星象限里只有 3-5 个，问题象限里有 5-8 个需要聚焦攻关，现金牛象限里有十几个需要降本维护，淘汰象限里有一批该砍掉但没人敢提</strong>。</p>
       <p>这个分布本身不是问题，问题是<em>在没有这张矩阵之前，这 40 个项目拿到的资源，和这个分布完全不匹配</em>。</p>
       <blockquote>投资组合的逻辑，不是把资源分给所有项目，而是集中押注在那几个能真正改变竞争位置的地方。</blockquote>
+    
+      </div><!-- /.tab-panel[method] -->
+
+      <div class="tab-panel" data-panel="theory" role="tabpanel" aria-labelledby="tab-theory" hidden>
+
+      <h2><span class="num">T1</span>理论来源与学术引证</h2>
+      <p class="text-fg-dim text-[16px] leading-[1.8] mb-6">以下为本框架的理论基础说明，提炼自正文中的理论注释块。</p>
+<div class="theory-note"><strong>理论来源</strong>：BCG 增长-份额矩阵（波士顿咨询，1970）。<br/><strong>本框架创新</strong>：将 BCG 矩阵的双轴评估逻辑迁移至智能体资产管理场景，以"战略价值"替代"市场增长率"，以"自主化成熟度"替代"相对市场份额"，并增加"迁移路径"和"更新频率"两个运营维度。</div>
+      <div class="theory-note mt-8">
+        <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
+      </div>
+      </div><!-- /.tab-panel[theory] -->
+
     </article>
 
     <aside class="fw-side">
@@ -226,7 +272,6 @@
         <div class="side-title">资源</div>
         <a class="res-link" href="../skills/F03.md" download><span>📦 F03 Skill · 可执行 .md</span><span class="soon" style="color:var(--accent);">↓ 下载</span></a>
         <a class="res-link" href="../resources.html#F03"><span>▸ APM 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
-        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ APM Skill 文件</span><span class="soon">即将上线</span></a>
       </div>
     </aside>
   </div>
@@ -246,7 +291,7 @@
       <div class="flex gap-4 text-xs text-fg-dim2 mono">
         <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">邱懿武 ↗</a>
         <a href="../index.html" class="hover:text-accent transition">返回首页</a>
-        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../knowledge-map.html" class="hover:text-accent transition">40 框架索引</a>
         <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
         <a href="../design-guide.html" class="hover:text-accent transition">设计规范</a>
       </div>

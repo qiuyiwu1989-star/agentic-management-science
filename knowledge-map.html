@@ -47,17 +47,14 @@
   <div class="container h-16 flex items-center justify-between">
     <a href="index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
     <nav class="hidden lg:flex items-center gap-1">
-      <a href="index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
-      <a href="index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
-      <a href="framework/F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
-      <a href="knowledge-map.html" class="px-4 py-2 mono text-[13px] text-accent transition">知识图谱</a>
-      <a href="skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill 库</a>
+      <a href="system.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系</a>
+      <a href="knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg hover:text-fg transition">框架</a>
+      <a href="skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill</a>
       <a href="resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
-      <a href="patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
     </nav>
     <div class="flex items-center gap-2">
       <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
-      <a href="index.html" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">返回首页</a>
+      <a href="https://www.zaowuyun.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">造物云</a>
       <button id="mobile-menu-btn" class="lg:hidden toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobile-menu">
         <svg class="icon-menu" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><line x1="2" y1="5" x2="16" y2="5"/><line x1="2" y1="9" x2="16" y2="9"/><line x1="2" y1="13" x2="16" y2="13"/></svg>
         <svg class="icon-close" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><line x1="3" y1="3" x2="15" y2="15"/><line x1="15" y1="3" x2="3" y2="15"/></svg>
@@ -66,18 +63,18 @@
         <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
         <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
       </button>
+      <a href="framework/F00.html" class="btn-bracket">读懂体系<span>→</span></a>
     </div>
   </div>
 </header>
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
   <div class="container py-2">
-      <a href="index.html#system" class="mm-link">体系全景</a>
-      <a href="index.html#index" class="mm-link">40 框架索引</a>
-      <a href="framework/F00.html" class="mm-link">F00 总序</a>
-      <a href="knowledge-map.html" class="mm-link">知识图谱</a>
-      <a href="skills/index.html" class="mm-link">Skill 库</a>
-      <a href="resources.html" class="mm-link">资源</a>
-      <a href="patterns.html" class="mm-link">模式库</a>
+    <a href="system.html" class="mm-link">体系</a>
+    <a href="knowledge-map.html" class="mm-link">框架</a>
+    <a href="skills/index.html" class="mm-link">Skill</a>
+    <a href="resources.html" class="mm-link">资源</a>
+    <a href="https://qiuyiwu.com/" class="mm-link">邱懿武</a>
+    <a href="https://www.zaowuyun.com/" class="mm-link">造物云</a>
   </div>
 </div>
 
@@ -93,6 +90,10 @@
       整套体系从 F00 出发，沿六个重写模块展开，由治理神经横切贯通。
       一张图看清<span class="text-fg">框架之间的逻辑链路 + 哪些框架彼此强依赖</span>。
     </p>
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="system.html" class="pill-btn pill-secondary">查看体系全景（蓝图 + KM）<span class="arr">↗</span></a>
+      <a href="framework/F00.html" class="pill-btn pill-accent">读懂体系 · F00 总序 <span class="arr">→</span></a>
+    </div>
   </div>
 </section>
 
@@ -400,10 +401,10 @@
     <div class="mono text-xs text-fg-dim2">© 2026 浙江大学 · 造物云 · 智能体管理学 v1.0 · knowledge map</div>
     <div class="flex gap-4 text-xs text-fg-dim2 mono">
       <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">邱懿武 ↗</a>
-      <a href="index.html" class="hover:text-accent transition">返回首页</a>
+      <a href="index.html" class="hover:text-accent transition">首页</a>
+      <a href="system.html" class="hover:text-accent transition">体系全景</a>
       <a href="framework/F00.html" class="hover:text-accent transition">F00 总序</a>
-      <a href="patterns.html" class="hover:text-accent transition">模式库</a>
-      <a href="design-guide.html" class="hover:text-accent transition">设计规范</a>
+      <a href="skills/index.html" class="hover:text-accent transition">Skill 库</a>
     </div>
   </div>
 </footer>

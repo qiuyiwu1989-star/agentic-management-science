@@ -27,13 +27,10 @@
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
     <nav class="hidden lg:flex items-center gap-1">
-      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
-      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
-      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
-      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
-      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill 库</a>
+      <a href="../system.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">框架</a>
+      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill</a>
       <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
-      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
     </nav>
     <div class="flex items-center gap-2">
       <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
@@ -51,13 +48,12 @@
 </header>
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
   <div class="container py-2">
-      <a href="../index.html#system" class="mm-link">体系全景</a>
-      <a href="../index.html#index" class="mm-link">40 框架索引</a>
-      <a href="F00.html" class="mm-link">F00 总序</a>
-      <a href="../knowledge-map.html" class="mm-link">知识图谱</a>
-      <a href="../skills/index.html" class="mm-link">Skill 库</a>
-      <a href="../resources.html" class="mm-link">资源</a>
-      <a href="../patterns.html" class="mm-link">模式库</a>
+    <a href="../system.html" class="mm-link">体系</a>
+    <a href="../knowledge-map.html" class="mm-link">框架</a>
+    <a href="../skills/index.html" class="mm-link">Skill</a>
+    <a href="../resources.html" class="mm-link">资源</a>
+    <a href="https://qiuyiwu.com/" class="mm-link">邱懿武</a>
+    <a href="https://www.zaowuyun.com/" class="mm-link">造物云</a>
   </div>
 </div>
 
@@ -68,7 +64,7 @@
       <span><span class="num">▌</span> 模块六 · 人类重写 / F34</span>
       <span class="type-tag">工具级</span>
       <span class="text-fg-dim3">·</span>
-      <a href="../index.html#index-6" class="hover:text-fg transition">所有人类重写框架 →</a>
+      <a href="../knowledge-map.html-6" class="hover:text-fg transition">所有人类重写框架 →</a>
     </div>
     <h1 data-reveal>
       角色转型地图
@@ -149,6 +145,43 @@
   <div class="fw-layout">
 
     <article class="fw-article">
+
+      <div class="fw-tabs" role="tablist" aria-label="阅读层次">
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="article" id="tab-article">
+          <span class="tab-icon">📖</span>
+          <span class="tab-label">长文</span>
+          <span class="tab-sub">叙事</span>
+        </button>
+        <button class="fw-tab is-active" role="tab" aria-selected="true" data-tab="method" id="tab-method">
+          <span class="tab-icon">📐</span>
+          <span class="tab-label">方法论</span>
+          <span class="tab-sub">操作</span>
+        </button>
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="theory" id="tab-theory">
+          <span class="tab-icon">🔬</span>
+          <span class="tab-label">理论</span>
+          <span class="tab-sub">学术</span>
+        </button>
+      </div>
+
+      <div class="tab-panel" data-panel="article" role="tabpanel" aria-labelledby="tab-article" hidden>
+
+      <div class="theory-note mb-8">
+        <strong>叙事版本说明</strong>：本框架的叙事长文（场景案例版）正在撰写中。以下为 Skill 文件的框架定位说明，用于展示该框架的核心价值主张。
+      </div>
+
+      <h2><span class="num">01</span>框架定位</h2>
+<p class="text-fg-dim text-[16px] leading-[1.8]">这个 SKILL 将「角色转型地图」从方法论文档转化为可执行的岗位影响分析与迁移路径设计引擎。</p>
+<p class="text-fg-dim text-[16px] leading-[1.8]">它不做"这个岗位会不会消失"的预测，也不做 AI 替代率的粗暴估算。它做一件特定的事：<strong>将岗位拆解为 T1/T2/T3/T4 四类任务，分析任务结构的变化趋势，设计 T1 产能向 T2/T4 主动迁移的路径。</strong></p>
+<p class="text-fg-dim text-[16px] leading-[1.8]">核心判断：AI 改变的是任务不是岗位。正确分析单元是任务结构而非岗位存亡。T1→T2/T4 迁移不是自然发生的，需要主动设计。最重要的跃迁是 T1 释放产能投入 T4——T1 占比越高的岗位，如果任职者能主动完成 T2/T4 迁移，其价值反而可能上升。</p>
+
+      <div class="theory-note mt-8">
+        <strong>完整叙事</strong>：本框架叙事版本（含真实案例与决策场景）将在近期更新。欢迎访问 <a href="https://qiuyiwu.com/management/" target="_blank" rel="noopener noreferrer" class="text-accent">造物云博客</a> 查看相关内容。
+      </div>
+      </div><!-- /.tab-panel[article] -->
+
+      <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+
       
       <h2><span class="num">01</span>"哪些职业将被 AI 取代"——这个问题问错了</h2>
       <p>每隔一段时间，市场上就会出现一批关于"哪些职业将被 AI 取代"的研究报告和预测文章。<em>程序员、会计师、法律助理、内容创作者……</em>不同的研究给出不同的"消失风险"排名，引发一轮又一轮关于职业未来的焦虑讨论。</p>
@@ -181,6 +214,19 @@
       <ul style="padding-left:1.5em;margin:1rem 0;color:var(--fg-dim);"><li><strong>跨领域的综合判断</strong>（T3）</li><li><strong>高价值的关系能力</strong>（T3/T4）</li><li><strong>在人机系统中设计和管理协作方式的编排能力</strong>（F33 中的 L3 能力）</li></ul>
       <p>这三个方向，<em>恰好是今天的教育和职业发展体系最不擅长培养的能力</em>。</p>
       <blockquote>问题本身的改变，导向了完全不同的行动。前者的行动是"去学更多 AI 工具"，后者的行动是"重新设计我的工作内容，确保我的时间流向最不可替代的方向"。</blockquote>
+    
+      </div><!-- /.tab-panel[method] -->
+
+      <div class="tab-panel" data-panel="theory" role="tabpanel" aria-labelledby="tab-theory" hidden>
+
+      <h2><span class="num">T1</span>理论来源与学术引证</h2>
+      <p class="text-fg-dim text-[16px] leading-[1.8] mb-6">以下为本框架的理论基础说明，提炼自正文中的理论注释块。</p>
+<div class="theory-note"><strong>理论来源</strong>：沙因职业锚理论（<em>Career Anchors</em>，1978）；超级生涯发展理论（Super's Career Development Theory，1957）。<br/><strong>本框架创新</strong>：以"任务结构分析"替代"岗位存亡判断"作为 AI 时代职业评估的基础分析框架；提出 T1-T4 四类任务分类，将岗位重构从"被动应对 AI 冲击"转变为"主动设计任务迁移路径"。</div>
+      <div class="theory-note mt-8">
+        <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
+      </div>
+      </div><!-- /.tab-panel[theory] -->
+
     </article>
 
     <aside class="fw-side">
@@ -226,7 +272,6 @@
         <div class="side-title">资源</div>
         <a class="res-link" href="../skills/F34.md" download><span>📦 F34 Skill · 可执行 .md</span><span class="soon" style="color:var(--accent);">↓ 下载</span></a>
         <a class="res-link" href="../resources.html#F34"><span>▸ TSMM 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
-        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ TSMM Skill 文件</span><span class="soon">即将上线</span></a>
       </div>
     </aside>
   </div>
@@ -246,7 +291,7 @@
       <div class="flex gap-4 text-xs text-fg-dim2 mono">
         <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">邱懿武 ↗</a>
         <a href="../index.html" class="hover:text-accent transition">返回首页</a>
-        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../knowledge-map.html" class="hover:text-accent transition">40 框架索引</a>
         <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
         <a href="../design-guide.html" class="hover:text-accent transition">设计规范</a>
       </div>

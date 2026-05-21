@@ -27,13 +27,10 @@
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
     <nav class="hidden lg:flex items-center gap-1">
-      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
-      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
-      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
-      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
-      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill 库</a>
+      <a href="../system.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">框架</a>
+      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill</a>
       <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
-      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
     </nav>
     <div class="flex items-center gap-2">
       <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
@@ -51,13 +48,12 @@
 </header>
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
   <div class="container py-2">
-      <a href="../index.html#system" class="mm-link">体系全景</a>
-      <a href="../index.html#index" class="mm-link">40 框架索引</a>
-      <a href="F00.html" class="mm-link">F00 总序</a>
-      <a href="../knowledge-map.html" class="mm-link">知识图谱</a>
-      <a href="../skills/index.html" class="mm-link">Skill 库</a>
-      <a href="../resources.html" class="mm-link">资源</a>
-      <a href="../patterns.html" class="mm-link">模式库</a>
+    <a href="../system.html" class="mm-link">体系</a>
+    <a href="../knowledge-map.html" class="mm-link">框架</a>
+    <a href="../skills/index.html" class="mm-link">Skill</a>
+    <a href="../resources.html" class="mm-link">资源</a>
+    <a href="https://qiuyiwu.com/" class="mm-link">邱懿武</a>
+    <a href="https://www.zaowuyun.com/" class="mm-link">造物云</a>
   </div>
 </div>
 
@@ -68,7 +64,7 @@
       <span><span class="num">▌</span> 模块五 · 价值重写 / F32</span>
       <span class="type-tag">治理级</span>
       <span class="text-fg-dim3">·</span>
-      <a href="../index.html#index-5" class="hover:text-fg transition">所有价值重写框架 →</a>
+      <a href="../knowledge-map.html-5" class="hover:text-fg transition">所有价值重写框架 →</a>
     </div>
     <h1 data-reveal>
       智能体全域风险治理法
@@ -134,6 +130,35 @@
   <div class="fw-layout">
 
     <article class="fw-article">
+
+      <div class="fw-tabs" role="tablist" aria-label="阅读层次">
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="article" id="tab-article">
+          <span class="tab-icon">📖</span>
+          <span class="tab-label">长文</span>
+          <span class="tab-sub">叙事</span>
+        </button>
+        <button class="fw-tab is-active" role="tab" aria-selected="true" data-tab="method" id="tab-method">
+          <span class="tab-icon">📐</span>
+          <span class="tab-label">方法论</span>
+          <span class="tab-sub">操作</span>
+        </button>
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="theory" id="tab-theory">
+          <span class="tab-icon">🔬</span>
+          <span class="tab-label">理论</span>
+          <span class="tab-sub">学术</span>
+        </button>
+      </div>
+
+      <div class="tab-panel" data-panel="article" role="tabpanel" aria-labelledby="tab-article" hidden>
+
+      <div class="theory-note">
+        <strong>叙事版本</strong>：本框架叙事版（含实际案例和决策场景）正在撰写中，敬请期待。
+      </div>
+      <p class="text-fg-dim text-[16px] leading-[1.8] mt-6">请切换至「方法论」标签查看完整的方法论内容与执行步骤。</p>
+      </div><!-- /.tab-panel[article] -->
+
+      <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+
       
       <h2><span class="num">01</span>攻击者不需要任何传统技术能力——只需要会说话</h2>
       <p>2024 年，多起真实的安全事件开始在 AI 行业引起关注：<em>一个企业客服智能体被用户通过特殊措辞诱导，泄露了本不该透露的系统提示词；一个自动化邮件处理系统被攻击者植入恶意指令，自动向内部联系人发送了钓鱼邮件；一个代码生成智能体被诱导产生了包含安全漏洞的代码片段，而开发者并没有察觉。</em></p>
@@ -175,6 +200,19 @@
       <p><em>传统安全思维是防御导向的</em>——把已知的坏东西阻挡在外。这在面对有限的已知攻击类型时是有效的。</p>
       <p><strong>智能体安全思维需要是侦测导向的</strong>——假设某种形式的攻击总会成功渗入，<em>持续监控系统内部的行为是否偏离正常状态，在异常积累成损害之前识别并响应。</em></p>
       <blockquote>这个转变的背后，是一个关于风险认知的成熟：完美的边界防御是不可能的，尤其是当攻击向量和系统的核心能力共享同一个接口（自然语言）时。接受这个不完美，并在此基础上建立快速侦测和响应能力，是比追求完美边界更现实、也更有效的安全策略。</blockquote>
+    
+      </div><!-- /.tab-panel[method] -->
+
+      <div class="tab-panel" data-panel="theory" role="tabpanel" aria-labelledby="tab-theory" hidden>
+
+      <h2><span class="num">T1</span>理论来源与学术引证</h2>
+      <p class="text-fg-dim text-[16px] leading-[1.8] mb-6">以下为本框架的理论基础说明，提炼自正文中的理论注释块。</p>
+<div class="theory-note"><strong>理论来源</strong>：信息安全纵深防御理论（NIST 网络安全框架）；OWASP TOP 10（开放式 Web 应用安全项目）；提示词注入 CVE 研究（2023 年起系统化）。<br/><strong>本框架创新</strong>：系统性识别并定义智能体七类新型风险，构建专属的四维防御体系；提出从"防御已知威胁"到"监控可疑行为模式"的安全哲学转变。</div>
+      <div class="theory-note mt-8">
+        <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
+      </div>
+      </div><!-- /.tab-panel[theory] -->
+
     </article>
 
     <aside class="fw-side">
@@ -220,7 +258,6 @@
         <div class="side-title">资源</div>
         <a class="res-link" href="../skills/F32.md" download><span>📦 F32 Skill · 可执行 .md</span><span class="soon" style="color:var(--accent);">↓ 下载</span></a>
         <a class="res-link" href="../resources.html#F32"><span>▸ SRAG 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
-        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ SRAG Skill 文件</span><span class="soon">即将上线</span></a>
       </div>
     </aside>
   </div>
@@ -240,7 +277,7 @@
       <div class="flex gap-4 text-xs text-fg-dim2 mono">
         <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">邱懿武 ↗</a>
         <a href="../index.html" class="hover:text-accent transition">返回首页</a>
-        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../knowledge-map.html" class="hover:text-accent transition">40 框架索引</a>
         <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
         <a href="../design-guide.html" class="hover:text-accent transition">设计规范</a>
       </div>

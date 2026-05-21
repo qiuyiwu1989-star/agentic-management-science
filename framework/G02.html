@@ -27,13 +27,10 @@
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
     <nav class="hidden lg:flex items-center gap-1">
-      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
-      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
-      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
-      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
-      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill 库</a>
+      <a href="../system.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">框架</a>
+      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill</a>
       <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
-      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
     </nav>
     <div class="flex items-center gap-2">
       <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
@@ -51,13 +48,12 @@
 </header>
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
   <div class="container py-2">
-      <a href="../index.html#system" class="mm-link">体系全景</a>
-      <a href="../index.html#index" class="mm-link">40 框架索引</a>
-      <a href="F00.html" class="mm-link">F00 总序</a>
-      <a href="../knowledge-map.html" class="mm-link">知识图谱</a>
-      <a href="../skills/index.html" class="mm-link">Skill 库</a>
-      <a href="../resources.html" class="mm-link">资源</a>
-      <a href="../patterns.html" class="mm-link">模式库</a>
+    <a href="../system.html" class="mm-link">体系</a>
+    <a href="../knowledge-map.html" class="mm-link">框架</a>
+    <a href="../skills/index.html" class="mm-link">Skill</a>
+    <a href="../resources.html" class="mm-link">资源</a>
+    <a href="https://qiuyiwu.com/" class="mm-link">邱懿武</a>
+    <a href="https://www.zaowuyun.com/" class="mm-link">造物云</a>
   </div>
 </div>
 
@@ -68,7 +64,7 @@
       <span><span class="num">▌</span> 治理神经 / G02</span>
       <span class="type-tag">治理神经</span>
       <span class="text-fg-dim3">·</span>
-      <a href="../index.html#index-g" class="hover:text-fg transition">所有治理神经框架 →</a>
+      <a href="../knowledge-map.html-g" class="hover:text-fg transition">所有治理神经框架 →</a>
     </div>
     <h1 data-reveal>
       边界与升级机制
@@ -153,6 +149,35 @@
   <div class="fw-layout">
 
     <article class="fw-article">
+
+      <div class="fw-tabs" role="tablist" aria-label="阅读层次">
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="article" id="tab-article">
+          <span class="tab-icon">📖</span>
+          <span class="tab-label">长文</span>
+          <span class="tab-sub">叙事</span>
+        </button>
+        <button class="fw-tab is-active" role="tab" aria-selected="true" data-tab="method" id="tab-method">
+          <span class="tab-icon">📐</span>
+          <span class="tab-label">方法论</span>
+          <span class="tab-sub">操作</span>
+        </button>
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="theory" id="tab-theory">
+          <span class="tab-icon">🔬</span>
+          <span class="tab-label">理论</span>
+          <span class="tab-sub">学术</span>
+        </button>
+      </div>
+
+      <div class="tab-panel" data-panel="article" role="tabpanel" aria-labelledby="tab-article" hidden>
+
+      <div class="theory-note">
+        <strong>叙事版本</strong>：本框架叙事版（含实际案例和决策场景）正在撰写中，敬请期待。
+      </div>
+      <p class="text-fg-dim text-[16px] leading-[1.8] mt-6">请切换至「方法论」标签查看完整的方法论内容与执行步骤。</p>
+      </div><!-- /.tab-panel[article] -->
+
+      <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+
       
       <h2><span class="num">01</span>横切整个体系的安全命题</h2>
       <p>在「智能体管理学」的 37 个框架里，"边界"这个概念在多处以不同的形式出现：<em>F11 定义了边界系统、升级系统和恢复系统；F09 中的 DAL 阶梯隐含了自动化程度的边界；F12 中的 Agent-First 文化需要有清晰的行为边界……</em></p>
@@ -186,6 +211,19 @@
       <p>每一次升级事件，都包含了重要的信息：<em>这次越界发生的场景是什么，触发的是哪个条件，处理的结果是什么，从这次事件中可以学到什么——是边界的某个地方定义得不够清楚，是某个触发条件的阈值需要调整，还是业务变化导致某类操作需要重新授权？</em></p>
       <p><strong>这个"升级记录→根因分析→边界更新"的闭环，是边界系统保持长期有效性的关键机制。</strong>没有这个闭环，边界系统只是在管理已知的问题；有了这个闭环，每一次越界事件都让系统变得更完善。</p>
       <blockquote>边界与升级机制是智能体生态的神经系统——没有它，智能体的能力越强，风险就越大；有了它，能力和安全可以同步增长。</blockquote>
+    
+      </div><!-- /.tab-panel[method] -->
+
+      <div class="tab-panel" data-panel="theory" role="tabpanel" aria-labelledby="tab-theory" hidden>
+
+      <h2><span class="num">T1</span>理论来源与学术引证</h2>
+      <p class="text-fg-dim text-[16px] leading-[1.8] mb-6">以下为本框架的理论基础说明，提炼自正文中的理论注释块。</p>
+<div class="theory-note"><strong>理论来源</strong>：信息安全边界理论（Zero Trust Architecture，NIST）；软件系统监控实践（Observability，Google SRE）；ITIL 服务管理中的变更管理和事件管理流程。<br/><strong>本框架创新</strong>：提出"边界腐烂"概念并建立防腐烂的定期审查机制；将升级机制从"出问题才启动"重构为"实时监控+预警触发"。</div>
+      <div class="theory-note mt-8">
+        <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
+      </div>
+      </div><!-- /.tab-panel[theory] -->
+
     </article>
 
     <aside class="fw-side">
@@ -249,7 +287,7 @@
       <div class="flex gap-4 text-xs text-fg-dim2 mono">
         <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">邱懿武 ↗</a>
         <a href="../index.html" class="hover:text-accent transition">返回首页</a>
-        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../knowledge-map.html" class="hover:text-accent transition">40 框架索引</a>
         <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
         <a href="../design-guide.html" class="hover:text-accent transition">设计规范</a>
       </div>

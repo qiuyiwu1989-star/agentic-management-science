@@ -27,13 +27,10 @@
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
     <nav class="hidden lg:flex items-center gap-1">
-      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
-      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
-      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
-      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
-      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill 库</a>
+      <a href="../system.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">框架</a>
+      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill</a>
       <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
-      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
     </nav>
     <div class="flex items-center gap-2">
       <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
@@ -51,13 +48,12 @@
 </header>
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
   <div class="container py-2">
-      <a href="../index.html#system" class="mm-link">体系全景</a>
-      <a href="../index.html#index" class="mm-link">40 框架索引</a>
-      <a href="F00.html" class="mm-link">F00 总序</a>
-      <a href="../knowledge-map.html" class="mm-link">知识图谱</a>
-      <a href="../skills/index.html" class="mm-link">Skill 库</a>
-      <a href="../resources.html" class="mm-link">资源</a>
-      <a href="../patterns.html" class="mm-link">模式库</a>
+    <a href="../system.html" class="mm-link">体系</a>
+    <a href="../knowledge-map.html" class="mm-link">框架</a>
+    <a href="../skills/index.html" class="mm-link">Skill</a>
+    <a href="../resources.html" class="mm-link">资源</a>
+    <a href="https://qiuyiwu.com/" class="mm-link">邱懿武</a>
+    <a href="https://www.zaowuyun.com/" class="mm-link">造物云</a>
   </div>
 </div>
 
@@ -68,7 +64,7 @@
       <span><span class="num">▌</span> 模块六 · 人类重写 / F33</span>
       <span class="type-tag">评估级</span>
       <span class="text-fg-dim3">·</span>
-      <a href="../index.html#index-6" class="hover:text-fg transition">所有人类重写框架 →</a>
+      <a href="../knowledge-map.html-6" class="hover:text-fg transition">所有人类重写框架 →</a>
     </div>
     <h1 data-reveal>
       智能体能力成熟度模型
@@ -146,6 +142,43 @@
   <div class="fw-layout">
 
     <article class="fw-article">
+
+      <div class="fw-tabs" role="tablist" aria-label="阅读层次">
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="article" id="tab-article">
+          <span class="tab-icon">📖</span>
+          <span class="tab-label">长文</span>
+          <span class="tab-sub">叙事</span>
+        </button>
+        <button class="fw-tab is-active" role="tab" aria-selected="true" data-tab="method" id="tab-method">
+          <span class="tab-icon">📐</span>
+          <span class="tab-label">方法论</span>
+          <span class="tab-sub">操作</span>
+        </button>
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="theory" id="tab-theory">
+          <span class="tab-icon">🔬</span>
+          <span class="tab-label">理论</span>
+          <span class="tab-sub">学术</span>
+        </button>
+      </div>
+
+      <div class="tab-panel" data-panel="article" role="tabpanel" aria-labelledby="tab-article" hidden>
+
+      <div class="theory-note mb-8">
+        <strong>叙事版本说明</strong>：本框架的叙事长文（场景案例版）正在撰写中。以下为 Skill 文件的框架定位说明，用于展示该框架的核心价值主张。
+      </div>
+
+      <h2><span class="num">01</span>框架定位</h2>
+<p class="text-fg-dim text-[16px] leading-[1.8]">这个 SKILL 将「智能体能力成熟度模型（ACMM）」从方法论文档转化为可执行的能力诊断引擎。</p>
+<p class="text-fg-dim text-[16px] leading-[1.8]">它不做通用的 AI 技能测评，也不做工具使用熟练度的打分。它做一件特定的事：<strong>诊断一个人的工作方式处于 L1-L4 的哪个层级，识别当前层级的核心特征和跃迁障碍，设计从当前层级到下一层级的跃迁路径。</strong></p>
+<p class="text-fg-dim text-[16px] leading-[1.8]">核心判断：大多数人对 AI 能力停留在平面认知——会不会用 ChatGPT。但使用工具与驾驭系统是本质不同的能力结构。L1→L2 是协作意识觉醒，L2→L3 是工作方式根本重构（从"和 AI 一起做事"到"让 AI 替自己做事"），L3→L4 是从"使用系统"到"构建系统"。L2→L3 是最关键的跃迁，也是当前市场人才最稀缺的能力边界。</p>
+
+      <div class="theory-note mt-8">
+        <strong>完整叙事</strong>：本框架叙事版本（含真实案例与决策场景）将在近期更新。欢迎访问 <a href="https://qiuyiwu.com/management/" target="_blank" rel="noopener noreferrer" class="text-accent">造物云博客</a> 查看相关内容。
+      </div>
+      </div><!-- /.tab-panel[article] -->
+
+      <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+
       
       <h2><span class="num">01</span>"AI 工具用户"和"AI 系统构建者"之间的鸿沟</h2>
       <p>企业在推进 AI 能力建设时，通常会发现两类人之间存在一道奇怪的鸿沟：<em>一类是 AI 工具的积极用户，他们掌握了大量工具的使用技巧，能够熟练地用 AI 完成各种日常任务；另一类是 AI 系统的构建者，他们能够设计和实现复杂的智能体工作流。</em></p>
@@ -182,6 +215,19 @@
       <p>大量 AI 培训项目的设计目标是"让更多人会用 AI 工具"——这对应 L1 的能力。一些更进阶的培训覆盖了工作流设计——这对应 L2 的能力。<em>但 L3 所需要的"系统驾驭"能力，几乎没有对应的系统性培养路径</em>，因为它需要的不是知识传授，而是<strong>在构建和运维真实系统的过程中积累的直觉和经验</strong>。</p>
       <p>这个错配的后果是：<em>企业的 AI 能力瓶颈不在"会不会用工具"上，而在"有没有能设计和管理 AI 系统的人"上。</em></p>
       <blockquote>把大量培训资源投入 L1/L2 的能力建设，而 L3 的人才缺口持续扩大，是一种系统性的资源错配。</blockquote>
+    
+      </div><!-- /.tab-panel[method] -->
+
+      <div class="tab-panel" data-panel="theory" role="tabpanel" aria-labelledby="tab-theory" hidden>
+
+      <h2><span class="num">T1</span>理论来源与学术引证</h2>
+      <p class="text-fg-dim text-[16px] leading-[1.8] mb-6">以下为本框架的理论基础说明，提炼自正文中的理论注释块。</p>
+<div class="theory-note"><strong>理论来源</strong>：德雷福斯技能习得模型（Dreyfus Model of Skill Acquisition，1980）；布鲁姆教育目标分类学（Bloom's Taxonomy，1956）。<br/><strong>本框架创新</strong>：将德雷福斯模型应用于 AI 协作能力领域，重新定义四级成熟度，以"调用思维→编排思维"的认知转变替代"初学者→专家"的单维度进阶。</div>
+      <div class="theory-note mt-8">
+        <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
+      </div>
+      </div><!-- /.tab-panel[theory] -->
+
     </article>
 
     <aside class="fw-side">
@@ -227,7 +273,6 @@
         <div class="side-title">资源</div>
         <a class="res-link" href="../skills/F33.md" download><span>📦 F33 Skill · 可执行 .md</span><span class="soon" style="color:var(--accent);">↓ 下载</span></a>
         <a class="res-link" href="../resources.html#F33"><span>▸ IACMM 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
-        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ IACMM Skill 文件</span><span class="soon">即将上线</span></a>
       </div>
     </aside>
   </div>
@@ -247,7 +292,7 @@
       <div class="flex gap-4 text-xs text-fg-dim2 mono">
         <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">邱懿武 ↗</a>
         <a href="../index.html" class="hover:text-accent transition">返回首页</a>
-        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../knowledge-map.html" class="hover:text-accent transition">40 框架索引</a>
         <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
         <a href="../design-guide.html" class="hover:text-accent transition">设计规范</a>
       </div>

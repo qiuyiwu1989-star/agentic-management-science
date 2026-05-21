@@ -27,13 +27,10 @@
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
     <nav class="hidden lg:flex items-center gap-1">
-      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
-      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
-      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
-      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
-      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill 库</a>
+      <a href="../system.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">框架</a>
+      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill</a>
       <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
-      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
     </nav>
     <div class="flex items-center gap-2">
       <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
@@ -51,13 +48,12 @@
 </header>
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
   <div class="container py-2">
-      <a href="../index.html#system" class="mm-link">体系全景</a>
-      <a href="../index.html#index" class="mm-link">40 框架索引</a>
-      <a href="F00.html" class="mm-link">F00 总序</a>
-      <a href="../knowledge-map.html" class="mm-link">知识图谱</a>
-      <a href="../skills/index.html" class="mm-link">Skill 库</a>
-      <a href="../resources.html" class="mm-link">资源</a>
-      <a href="../patterns.html" class="mm-link">模式库</a>
+    <a href="../system.html" class="mm-link">体系</a>
+    <a href="../knowledge-map.html" class="mm-link">框架</a>
+    <a href="../skills/index.html" class="mm-link">Skill</a>
+    <a href="../resources.html" class="mm-link">资源</a>
+    <a href="https://qiuyiwu.com/" class="mm-link">邱懿武</a>
+    <a href="https://www.zaowuyun.com/" class="mm-link">造物云</a>
   </div>
 </div>
 
@@ -68,7 +64,7 @@
       <span><span class="num">▌</span> 模块四 · 系统重写 / F20</span>
       <span class="type-tag">工程级</span>
       <span class="text-fg-dim3">·</span>
-      <a href="../index.html#index-4" class="hover:text-fg transition">所有系统重写框架 →</a>
+      <a href="../knowledge-map.html-4" class="hover:text-fg transition">所有系统重写框架 →</a>
     </div>
     <h1 data-reveal>
       评测驱动工程法
@@ -141,6 +137,35 @@
   <div class="fw-layout">
 
     <article class="fw-article">
+
+      <div class="fw-tabs" role="tablist" aria-label="阅读层次">
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="article" id="tab-article">
+          <span class="tab-icon">📖</span>
+          <span class="tab-label">长文</span>
+          <span class="tab-sub">叙事</span>
+        </button>
+        <button class="fw-tab is-active" role="tab" aria-selected="true" data-tab="method" id="tab-method">
+          <span class="tab-icon">📐</span>
+          <span class="tab-label">方法论</span>
+          <span class="tab-sub">操作</span>
+        </button>
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="theory" id="tab-theory">
+          <span class="tab-icon">🔬</span>
+          <span class="tab-label">理论</span>
+          <span class="tab-sub">学术</span>
+        </button>
+      </div>
+
+      <div class="tab-panel" data-panel="article" role="tabpanel" aria-labelledby="tab-article" hidden>
+
+      <div class="theory-note">
+        <strong>叙事版本</strong>：本框架叙事版（含实际案例和决策场景）正在撰写中，敬请期待。
+      </div>
+      <p class="text-fg-dim text-[16px] leading-[1.8] mt-6">请切换至「方法论」标签查看完整的方法论内容与执行步骤。</p>
+      </div><!-- /.tab-panel[article] -->
+
+      <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+
       
       <h2><span class="num">01</span>"先实现功能，再写测试"——错误顺序的代价</h2>
       <p>大多数团队在开发智能体系统时，遵循的是一套从传统软件开发继承来的工作习惯：<em>先实现功能，再写测试，最后在发布前做一轮质量检查。</em>这个顺序在软件工程里运行了几十年，看起来没什么问题。</p>
@@ -172,6 +197,19 @@
       <p>传统软件质量可以被"检验"——产品在发布前经过质量检查，检查通过意味着达到了质量标准。<em>这种检验模式建立在确定性输出的假设上。</em></p>
       <p>智能体质量只能被<strong>"追踪"</strong>——在各个评测维度上，系统的表现分布是否在向好的方向演化？新功能的加入是否造成了某些维度的退化？这种追踪，需要评测集和统计分析，不是一次性的发布前检查。</p>
       <blockquote>一个没有评测集的智能体系统，就像一个没有仪表盘的飞机。它可能在飞，但你不知道飞向哪里，也不知道什么时候会出问题。</blockquote>
+    
+      </div><!-- /.tab-panel[method] -->
+
+      <div class="tab-panel" data-panel="theory" role="tabpanel" aria-labelledby="tab-theory" hidden>
+
+      <h2><span class="num">T1</span>理论来源与学术引证</h2>
+      <p class="text-fg-dim text-[16px] leading-[1.8] mb-6">以下为本框架的理论基础说明，提炼自正文中的理论注释块。</p>
+<div class="theory-note"><strong>理论来源</strong>：传统敏捷开发方法（敏捷宣言，2001）；测试驱动开发（TDD，肯特·贝克，<em>Test-Driven Development</em>，2002）。<br/><strong>本框架创新</strong>：针对概率性输出系统的特性，将传统 TDD 的"测试先行"扩展为 Triple-E 三层工程方法论：评测驱动、工程实现、持续演化；提出"评测集（Eval Set）"作为智能体质量的核心度量工具，以统计分布替代二元通过/失败作为质量标准。</div>
+      <div class="theory-note mt-8">
+        <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
+      </div>
+      </div><!-- /.tab-panel[theory] -->
+
     </article>
 
     <aside class="fw-side">
@@ -217,7 +255,6 @@
         <div class="side-title">资源</div>
         <a class="res-link" href="../skills/F20.md" download><span>📦 F20 Skill · 可执行 .md</span><span class="soon" style="color:var(--accent);">↓ 下载</span></a>
         <a class="res-link" href="../resources.html#F20"><span>▸ E³ 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
-        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ E³ Skill 文件</span><span class="soon">即将上线</span></a>
       </div>
     </aside>
   </div>
@@ -237,7 +274,7 @@
       <div class="flex gap-4 text-xs text-fg-dim2 mono">
         <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">邱懿武 ↗</a>
         <a href="../index.html" class="hover:text-accent transition">返回首页</a>
-        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../knowledge-map.html" class="hover:text-accent transition">40 框架索引</a>
         <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
         <a href="../design-guide.html" class="hover:text-accent transition">设计规范</a>
       </div>

@@ -162,7 +162,7 @@
       });
     });
 
-    // Init from hash → sessionStorage → default
+    // Init from hash → sessionStorage → HTML default (is-active) → first tab
     let initial = (location.hash || '').replace('#', '').toLowerCase();
     if (!validNames.includes(initial)) {
       try {
@@ -170,7 +170,11 @@
         if (validNames.includes(saved)) initial = saved;
       } catch(e) {}
     }
-    if (!validNames.includes(initial)) initial = validNames[0];
+    if (!validNames.includes(initial)) {
+      // Fall back to whichever tab has is-active in HTML markup, else first
+      const htmlActive = tabs.find(t => t.classList.contains('is-active'));
+      initial = htmlActive ? htmlActive.dataset.tab : validNames[0];
+    }
     activate(initial);
   }
 })();

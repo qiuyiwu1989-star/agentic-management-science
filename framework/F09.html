@@ -27,13 +27,10 @@
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
     <nav class="hidden lg:flex items-center gap-1">
-      <a href="../index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
-      <a href="../index.html#index" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
-      <a href="F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
-      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
-      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill 库</a>
+      <a href="../system.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系</a>
+      <a href="../knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">框架</a>
+      <a href="../skills/index.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">Skill</a>
       <a href="../resources.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">资源</a>
-      <a href="../patterns.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">模式库</a>
     </nav>
     <div class="flex items-center gap-2">
       <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
@@ -51,13 +48,12 @@
 </header>
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
   <div class="container py-2">
-      <a href="../index.html#system" class="mm-link">体系全景</a>
-      <a href="../index.html#index" class="mm-link">40 框架索引</a>
-      <a href="F00.html" class="mm-link">F00 总序</a>
-      <a href="../knowledge-map.html" class="mm-link">知识图谱</a>
-      <a href="../skills/index.html" class="mm-link">Skill 库</a>
-      <a href="../resources.html" class="mm-link">资源</a>
-      <a href="../patterns.html" class="mm-link">模式库</a>
+    <a href="../system.html" class="mm-link">体系</a>
+    <a href="../knowledge-map.html" class="mm-link">框架</a>
+    <a href="../skills/index.html" class="mm-link">Skill</a>
+    <a href="../resources.html" class="mm-link">资源</a>
+    <a href="https://qiuyiwu.com/" class="mm-link">邱懿武</a>
+    <a href="https://www.zaowuyun.com/" class="mm-link">造物云</a>
   </div>
 </div>
 
@@ -68,7 +64,7 @@
       <span><span class="num">▌</span> 模块二 · 组织重写 / F09</span>
       <span class="type-tag">工具级</span>
       <span class="text-fg-dim3">·</span>
-      <a href="../index.html#index-2" class="hover:text-fg transition">所有组织重写框架 →</a>
+      <a href="../knowledge-map.html-2" class="hover:text-fg transition">所有组织重写框架 →</a>
     </div>
     <h1 data-reveal>
       人机责任决策矩阵
@@ -149,6 +145,43 @@
   <div class="fw-layout">
 
     <article class="fw-article">
+
+      <div class="fw-tabs" role="tablist" aria-label="阅读层次">
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="article" id="tab-article">
+          <span class="tab-icon">📖</span>
+          <span class="tab-label">长文</span>
+          <span class="tab-sub">叙事</span>
+        </button>
+        <button class="fw-tab is-active" role="tab" aria-selected="true" data-tab="method" id="tab-method">
+          <span class="tab-icon">📐</span>
+          <span class="tab-label">方法论</span>
+          <span class="tab-sub">操作</span>
+        </button>
+        <button class="fw-tab" role="tab" aria-selected="false" data-tab="theory" id="tab-theory">
+          <span class="tab-icon">🔬</span>
+          <span class="tab-label">理论</span>
+          <span class="tab-sub">学术</span>
+        </button>
+      </div>
+
+      <div class="tab-panel" data-panel="article" role="tabpanel" aria-labelledby="tab-article" hidden>
+
+      <div class="theory-note mb-8">
+        <strong>叙事版本说明</strong>：本框架的叙事长文（场景案例版）正在撰写中。以下为 Skill 文件的框架定位说明，用于展示该框架的核心价值主张。
+      </div>
+
+      <h2><span class="num">01</span>框架定位</h2>
+<p class="text-fg-dim text-[16px] leading-[1.8]"><strong>做什么</strong>：为每个Agent参与的任务标注RACI-A五维责任结构和DAL决策等级，在治理矩阵中定位风险状态，设计Agent行为边界和异常升级机制。</p>
+<p class="text-fg-dim text-[16px] leading-[1.8]"><strong>不做什么</strong>：不替代框架11（升级机制的系统性设计），不做Agent技术开发，不替代法律合规审查。</p>
+<p class="text-fg-dim text-[16px] leading-[1.8]"><strong>核心判断</strong>：自动化程度越高，责任归属越需要被显式化——两者不可脱钩。RACI-A × DAL治理矩阵里最危险的区域是「高自动化 × 无责任归属」，大多数企业已经在这里积累了大量孤儿Agent。</p>
+
+      <div class="theory-note mt-8">
+        <strong>完整叙事</strong>：本框架叙事版本（含真实案例与决策场景）将在近期更新。欢迎访问 <a href="https://qiuyiwu.com/management/" target="_blank" rel="noopener noreferrer" class="text-accent">造物云博客</a> 查看相关内容。
+      </div>
+      </div><!-- /.tab-panel[article] -->
+
+      <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+
       
       <h2><span class="num">01</span>"这件事应该由谁负责？"——一个找不到答案的问题</h2>
       <p>在部署了大量智能体的企业里，有一类问题在以越来越高的频率出现：<strong>智能体做了一个有问题的决定，但没有人能够清楚地说出——这件事，应该由谁来承担责任？</strong></p>
@@ -178,6 +211,19 @@
       <p>这个框架在两个节点上最直接改变管理行为。</p>
       <p><strong>第一是智能体系统上线之前的治理设计。</strong>用 RACI-A × DAL 矩阵逐节点填写，当你试图在 A 栏写下一个人名时，那些"没有人愿意写"的节点立刻可见——<em>它们就是治理盲点，也是潜在的事故点</em>。上线之前发现，远比上线之后处理的代价小。</p>
       <p><strong>第二是 AI 事故发生之后的根因分析。</strong>几乎每一次，用这个矩阵重审出问题的节点，都会发现同样的模式之一：<em>A 栏为空、A 是一个部门而不是一个人、Ag 被错误标注为 A</em>。三种模式对应三种不同的制度缺陷，修复方式各不相同，但根源都是同一件事——责任归属没有被显式建立。</p>
+    
+      </div><!-- /.tab-panel[method] -->
+
+      <div class="tab-panel" data-panel="theory" role="tabpanel" aria-labelledby="tab-theory" hidden>
+
+      <h2><span class="num">T1</span>理论来源与学术引证</h2>
+      <p class="text-fg-dim text-[16px] leading-[1.8] mb-6">以下为本框架的理论基础说明，提炼自正文中的理论注释块。</p>
+<div class="theory-note"><strong>理论来源</strong>：RACI 责任分配矩阵（项目管理标准实践，1950 年代）；SAE 自动驾驶分级标准（L0-L5，2014）。<br/><strong>本框架创新</strong>：在 RACI 基础上增加第五个角色类别"自动化执行（Ag·Automated）"，并建立强制规则——凡有 Ag 参与的任务，必须配套具名人类担任 A（最终问责）；将 SAE 自动驾驶分级逻辑迁移至管理决策场景，构建 DAL（决策自动化阶梯），两框架整合为二维治理矩阵。</div>
+      <div class="theory-note mt-8">
+        <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
+      </div>
+      </div><!-- /.tab-panel[theory] -->
+
     </article>
 
     <aside class="fw-side">
@@ -223,7 +269,6 @@
         <div class="side-title">资源</div>
         <a class="res-link" href="../skills/F09.md" download><span>📦 F09 Skill · 可执行 .md</span><span class="soon" style="color:var(--accent);">↓ 下载</span></a>
         <a class="res-link" href="../resources.html#F09"><span>▸ RACI-A × DAL 提示词模板</span><span class="soon" style="color:var(--mod-c);">→ 立即使用</span></a>
-        <a class="res-link disabled" href="#" onclick="return false;"><span>▸ RACI-A × DAL Skill 文件</span><span class="soon">即将上线</span></a>
       </div>
     </aside>
   </div>
@@ -243,7 +288,7 @@
       <div class="flex gap-4 text-xs text-fg-dim2 mono">
         <a href="https://qiuyiwu.com/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">邱懿武 ↗</a>
         <a href="../index.html" class="hover:text-accent transition">返回首页</a>
-        <a href="../index.html#index" class="hover:text-accent transition">40 框架索引</a>
+        <a href="../knowledge-map.html" class="hover:text-accent transition">40 框架索引</a>
         <a href="../patterns.html" class="hover:text-accent transition">模式库</a>
         <a href="../design-guide.html" class="hover:text-accent transition">设计规范</a>
       </div>
