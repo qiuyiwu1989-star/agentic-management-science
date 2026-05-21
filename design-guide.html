@@ -1,0 +1,1648 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AMS 设计规范 · Design System v1.0 · 智能体管理学</title>
+<meta name="description" content="智能体管理学视觉语言规范 — 颜色、字体、组件、交互、动效的完整设计系统。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/ams.css" />
+<script>(function(){try{var t=localStorage.getItem('zwy-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{bg:'var(--bg)','bg-1':'var(--bg-1)','bg-2':'var(--bg-2)','bg-3':'var(--bg-3)',line:'var(--line)','line-2':'var(--line-2)',fg:'var(--fg)','fg-dim':'var(--fg-dim)','fg-dim2':'var(--fg-dim2)','fg-dim3':'var(--fg-dim3)',accent:'var(--accent)','accent-hi':'var(--accent-hi)','accent-soft':'var(--accent-soft)','accent-fg':'var(--accent-fg)'},fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','Inter','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}};</script>
+
+<style>
+/* =================================================================
+   AMS DESIGN GUIDE — Canonical Component Definitions
+   These styles extend ams.css and document the full design system.
+   Migrate verified patterns back to ams.css as needed.
+   ================================================================= */
+
+/* ---- CONTAINER ---- */
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ---- NAV BAR ---- */
+.nav-bar {
+  background: linear-gradient(to bottom, rgba(10,10,12,0.85) 0%, transparent 100%);
+}
+[data-theme="light"] .nav-bar {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, transparent 100%);
+}
+
+/* ---- TOGGLE BUTTON ---- */
+.toggle {
+  width: 32px; height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; color: var(--fg-dim); cursor: pointer;
+  transition: all .18s ease;
+}
+.toggle:hover { border-color: var(--line-2); color: var(--fg); transform: rotate(15deg); }
+.icon-sun { display: block; }
+.icon-moon { display: none; }
+[data-theme="light"] .icon-sun { display: none; }
+[data-theme="light"] .icon-moon { display: block; }
+
+/* ---- SECTION LABEL (avenia style) ---- */
+.section-lbl {
+  display: flex; gap: 12px; align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.18em;
+  color: var(--fg-dim2); text-transform: uppercase;
+}
+.section-lbl .line { width: 60px; height: 1px; background: var(--line); }
+
+/* ---- DISPLAY TYPOGRAPHY ---- */
+.h-display {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: clamp(48px, 9vw, 144px);
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  text-transform: lowercase;
+}
+.h-display .acc { color: var(--accent); }
+
+.h-1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: clamp(36px, 5.5vw, 88px);
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  text-transform: lowercase;
+}
+
+.h-2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.6vw, 56px);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-transform: lowercase;
+}
+
+.h-3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: clamp(20px, 1.8vw, 28px);
+  text-transform: lowercase;
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-dim2);
+}
+
+/* ---- PILL BUTTONS (avenia style) ---- */
+.pill {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; letter-spacing: 0.02em; line-height: 1;
+  transition: all .2s ease;
+  cursor: pointer; text-decoration: none;
+}
+.pill .arr { display: inline-block; transition: transform .2s ease; }
+.pill:hover .arr { transform: translateX(4px); }
+
+.pill-primary {
+  border: 1px solid var(--fg);
+  color: var(--fg);
+  background: transparent;
+}
+.pill-primary:hover {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.pill-secondary {
+  border: 1px solid var(--line);
+  color: var(--fg-dim);
+  background: transparent;
+}
+.pill-secondary:hover {
+  border-color: var(--fg);
+  color: var(--fg);
+}
+
+.pill-accent {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+}
+.pill-accent:hover { background: var(--accent-hi); }
+
+/* ---- TEXT LINK (avenia style) ---- */
+.text-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 4px;
+  transition: gap .2s ease, opacity .15s ease;
+}
+.text-link:hover { gap: 8px; opacity: 0.85; }
+
+/* ---- ICON BUTTON (avenia style) ---- */
+.icon-btn {
+  width: 32px; height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; color: var(--fg-dim); cursor: pointer;
+  transition: all .2s ease;
+}
+.icon-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: rotate(15deg);
+}
+
+/* ---- KICKER / STATUS ---- */
+.kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 0.1em;
+  color: var(--fg-dim2); text-transform: uppercase;
+}
+.kicker .accent { color: var(--accent); }
+
+.status-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.08em;
+  color: #22c55e;
+  padding: 4px 10px;
+  border: 1px solid rgba(34,197,94,0.3);
+  border-radius: 999px;
+  background: rgba(34,197,94,0.08);
+}
+.status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #22c55e;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
+}
+
+/* ---- FRAMEWORK BADGE ---- */
+.fw-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid rgba(139,92,255,0.2);
+}
+
+/* ---- STAGE TAG ---- */
+.stage-tag {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.06em;
+  width: 28px; height: 20px;
+  border-radius: 3px;
+  background: var(--bg-3);
+  color: var(--fg-dim);
+  border: 1px solid var(--line);
+}
+.stage-tag.l1 { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.2); }
+.stage-tag.l2 { background: rgba(16,185,129,0.1); color: #34d399; border-color: rgba(16,185,129,0.2); }
+.stage-tag.l3 { background: rgba(245,158,11,0.1); color: #fbbf24; border-color: rgba(245,158,11,0.2); }
+.stage-tag.l4 { background: rgba(139,92,255,0.1); color: #a78bff; border-color: rgba(139,92,255,0.2); }
+.stage-tag.l5 { background: rgba(236,72,153,0.1); color: #f472b6; border-color: rgba(236,72,153,0.2); }
+
+/* ---- CARDS ---- */
+.card-default {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  transition: background .22s ease, border-color .22s ease;
+}
+.card-default:hover { background: var(--bg-3); }
+
+.card-feature {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: background .22s ease;
+}
+.card-feature::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hi));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s cubic-bezier(.2,.7,0,1);
+}
+.card-feature:hover::after { transform: scaleX(1); }
+.card-feature:hover { background: var(--bg-3); }
+
+.card-stat {
+  background: var(--bg-2);
+  border-top: 2px solid var(--accent);
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: 0 0 8px 8px;
+  padding: 24px;
+}
+.stat-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--fg);
+}
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-dim2);
+  margin-top: 8px;
+}
+
+.card-code {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+.card-code-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+}
+.traffic-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+}
+.td-red { background: #ff5f57; }
+.td-yellow { background: #febc2e; }
+.td-green { background: #28c840; }
+.card-code-body {
+  padding: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--code-fg);
+}
+.code-kw { color: #c084fc; }
+.code-str { color: #86efac; }
+.code-num { color: #fbbf24; }
+.code-cmt { color: var(--fg-dim3); font-style: italic; }
+.code-fn  { color: #67e8f9; }
+
+.card-framework {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex; flex-direction: column; gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all .22s ease;
+}
+.card-framework:hover { background: var(--bg-3); border-color: var(--line-2); }
+.card-framework .f-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px; font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+.card-framework .f-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px; font-weight: 500;
+  color: var(--fg);
+}
+.card-framework .f-desc {
+  font-size: 13px; line-height: 1.6;
+  color: var(--fg-dim);
+}
+
+/* ---- GOVERNANCE RAIL ---- */
+.gov-rail {
+  display: flex; align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+.gov-rail-item {
+  flex: 1; padding: 16px 20px;
+  border-right: 1px solid var(--line);
+  transition: background .18s ease;
+}
+.gov-rail-item:last-child { border-right: none; }
+.gov-rail-item:hover { background: var(--bg-3); }
+.gov-icon { font-size: 18px; margin-bottom: 8px; }
+.gov-name { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; }
+.gov-en { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--fg-dim2); margin-top: 2px; }
+
+/* ---- USE-CASE ROW ---- */
+.uc-row {
+  border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 16px;
+  padding: 16px 20px;
+  transition: all .18s ease;
+  cursor: pointer;
+}
+.uc-row:last-child { border-bottom: 1px solid var(--line); }
+.uc-row:hover {
+  background: var(--bg-1);
+  padding-left: 28px;
+}
+.uc-row .uc-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px; font-weight: 500;
+}
+.uc-row .uc-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--fg-dim2);
+}
+.uc-row .uc-arr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px; color: var(--fg-dim3);
+  transition: color .18s ease, transform .18s ease;
+}
+.uc-row:hover .uc-arr { color: var(--accent); transform: translateX(4px); }
+
+/* ---- WHY-CARD GRID ---- */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.why-card {
+  background: var(--bg-2);
+  padding: 24px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: background .22s ease;
+}
+.why-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hi));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s cubic-bezier(.2,.7,0,1);
+}
+.why-card:hover::after { transform: scaleX(1); }
+.why-card:hover { background: var(--bg-3); }
+.why-icon { font-size: 22px; margin-bottom: 12px; }
+.why-title { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+.why-desc { font-size: 12px; line-height: 1.6; color: var(--fg-dim); }
+
+/* ---- MARQUEE TEXT ---- */
+.text-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.text-marquee-track {
+  display: flex; align-items: center; gap: 3rem;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.text-marquee:hover .text-marquee-track { animation-play-state: paused; }
+.marquee-sep { color: var(--accent); font-size: 14px; }
+
+/* ---- MOTION DEMO ---- */
+.reveal-demo {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity .9s cubic-bezier(.2,.7,0,1), transform .9s cubic-bezier(.2,.7,0,1);
+}
+.reveal-demo.in { opacity: 1; transform: none; }
+
+.aurora-demo {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 200px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  mix-blend-mode: screen;
+  animation: orb-float 8s ease-in-out infinite;
+}
+@keyframes orb-float {
+  0%,100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(20px,-15px) scale(1.1); }
+  66% { transform: translate(-15px,20px) scale(0.9); }
+}
+.aurora-orb.o1 { width: 180px; height: 180px; background: var(--accent); opacity: 0.3; top: -40px; left: 10%; animation-delay: 0s; }
+.aurora-orb.o2 { width: 140px; height: 140px; background: #5b8def; opacity: 0.25; top: 20px; right: 15%; animation-delay: -3s; }
+.aurora-orb.o3 { width: 100px; height: 100px; background: #ff5b9c; opacity: 0.2; bottom: -20px; left: 40%; animation-delay: -6s; }
+
+/* ---- SPACING SCALE ---- */
+.space-bar {
+  height: 4px; background: var(--accent);
+  border-radius: 2px;
+  transition: width .3s ease;
+}
+
+/* ---- COLOR CHIP ---- */
+.color-chip {
+  border-radius: 6px;
+  height: 52px;
+  border: 1px solid rgba(128,128,128,0.15);
+}
+.color-chip-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--fg-dim2);
+  margin-top: 6px;
+}
+.color-chip-hex {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--fg-dim3);
+  margin-top: 2px;
+}
+
+/* ---- DEMO SECTION WRAPPER ---- */
+.demo-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--line);
+}
+.demo-section:last-of-type { border-bottom: none; }
+
+/* ---- PREVIEW LABEL ---- */
+.preview-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-dim3);
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+/* ---- TOKEN TABLE ---- */
+.token-row {
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.token-row:last-child { border-bottom: none; }
+.token-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: var(--accent);
+}
+.token-desc { font-size: 13px; color: var(--fg-dim); }
+.token-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--fg-dim2);
+}
+
+/* ---- SCROLL TOC ---- */
+.toc-sidebar {
+  position: fixed; right: 24px; top: 50%;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 8px;
+  z-index: 40;
+}
+@media (max-width: 1400px) { .toc-sidebar { display: none; } }
+.toc-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--line-2);
+  cursor: pointer; transition: all .2s ease;
+  position: relative;
+}
+.toc-dot::before {
+  content: attr(data-label);
+  position: absolute; right: 16px; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.08em;
+  color: var(--fg-dim2);
+  white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s ease;
+}
+.toc-dot:hover::before { opacity: 1; }
+.toc-dot:hover,
+.toc-dot.active { background: var(--accent); }
+
+/* ---- GRID DEMO ---- */
+.grid-col-demo {
+  height: 40px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(139,92,255,0.3);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--accent);
+}
+
+/* transition reference list */
+.transition-ref li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; line-height: 2;
+  color: var(--fg-dim);
+  padding-left: 16px;
+  border-left: 2px solid var(--line);
+}
+.transition-ref li span { color: var(--accent); }
+</style>
+</head>
+<body class="bg-bg text-fg">
+
+<!-- ============ NAV ============ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
+  <div class="container h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span>
+      <span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span>
+      <span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="index.html#system" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">体系全景</a>
+      <a href="index.html#index"  class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">40 框架索引</a>
+      <a href="framework/F00.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">F00 总序</a>
+      <a href="knowledge-map.html" class="px-4 py-2 mono text-[13px] text-fg-dim hover:text-fg transition">知识图谱</a>
+      <a href="design-guide.html" class="px-4 py-2 mono text-[13px] text-accent">设计规范</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="https://qiuyiwu.com/" target="_blank" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">邱懿武</a>
+      <a href="https://www.zaowuyun.com/" target="_blank" class="hidden sm:inline mono text-[13px] text-fg-dim hover:text-fg">造物云</a>
+      <button id="theme-toggle" class="toggle" type="button" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="framework/F01.html" class="btn-bracket">进入体系<span>→</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SCROLLING TOC DOTS ============ -->
+<nav class="toc-sidebar" aria-label="Sections">
+  <div class="toc-dot active" data-section="hero"    data-label="Hero"></div>
+  <div class="toc-dot" data-section="colors"  data-label="颜色系统"></div>
+  <div class="toc-dot" data-section="type"    data-label="字体排版"></div>
+  <div class="toc-dot" data-section="buttons" data-label="按钮"></div>
+  <div class="toc-dot" data-section="cards"   data-label="卡片"></div>
+  <div class="toc-dot" data-section="labels"  data-label="标签徽章"></div>
+  <div class="toc-dot" data-section="patterns" data-label="交互模式"></div>
+  <div class="toc-dot" data-section="motion"  data-label="动效规范"></div>
+  <div class="toc-dot" data-section="layout"  data-label="布局规范"></div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section id="hero" class="relative pt-36 pb-28 overflow-hidden noise min-h-[90vh] flex items-center">
+  <!-- Background layers -->
+  <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+  <div class="absolute inset-0 accent-glow pointer-events-none"></div>
+
+  <!-- Aurora orbs -->
+  <div class="orb orb-accent orb-drift" style="width:500px;height:500px;top:-100px;right:-120px;opacity:.15;"></div>
+  <div class="orb orb-blue" style="width:300px;height:300px;bottom:-60px;left:-60px;opacity:.12;animation:orb-drift 22s ease-in-out infinite reverse;"></div>
+  <div class="orb orb-pink" style="width:200px;height:200px;top:40%;left:30%;opacity:.08;animation:orb-drift 16s ease-in-out infinite;"></div>
+
+  <!-- Particles -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <span style="position:absolute;width:3px;height:3px;border-radius:50%;background:var(--accent);top:20%;left:15%;animation:float-up 7s ease-in-out infinite;opacity:0.4;"></span>
+    <span style="position:absolute;width:2px;height:2px;border-radius:50%;background:var(--accent-hi);top:60%;left:70%;animation:float-up 9s ease-in-out infinite 2s;opacity:0.3;"></span>
+    <span style="position:absolute;width:2px;height:2px;border-radius:50%;background:#5b8def;top:35%;left:85%;animation:float-up 11s ease-in-out infinite 4s;opacity:0.3;"></span>
+    <span style="position:absolute;width:4px;height:4px;border-radius:50%;background:var(--accent);top:75%;left:25%;animation:float-up 8s ease-in-out infinite 1s;opacity:0.25;"></span>
+  </div>
+
+  <div class="relative container">
+    <!-- Kicker -->
+    <div class="kicker mb-8" data-reveal>
+      <span class="line" style="width:40px;height:1px;background:var(--line);display:inline-block;"></span>
+      <span class="accent">▌</span>
+      <span>设计规范 · Design System</span>
+    </div>
+
+    <!-- Display heading -->
+    <h1 class="h-display" data-reveal>
+      ams 视觉语言<span class="acc">_</span>
+    </h1>
+
+    <!-- Subtitle row -->
+    <div class="mt-5 eyebrow text-fg-dim2" data-reveal style="transition-delay:.1s">
+      智能体管理学 · Design Language · <span class="text-accent">v1.0</span>
+    </div>
+
+    <!-- Body text -->
+    <p class="mt-8 max-w-2xl text-fg-dim text-[17px] leading-[1.65]" data-reveal style="transition-delay:.2s">
+      AMS 视觉系统基于 <span class="text-fg">Space Grotesk</span> 显示字体、
+      <span class="text-fg">JetBrains Mono</span> 代码/元信息字体与
+      <span class="text-fg">Inter</span> 正文字体构建。
+      深色优先，以 <span class="text-accent">#8B5CFF</span> 紫色为主调，
+      所有组件遵循统一的动效节奏与间距体系。
+    </p>
+
+    <!-- CTA row -->
+    <div class="mt-10 flex flex-wrap gap-3 items-center" data-reveal style="transition-delay:.3s">
+      <a href="#colors" class="pill pill-primary">查看颜色系统 <span class="arr">↓</span></a>
+      <a href="#buttons" class="pill pill-secondary">按钮规范 <span class="arr">→</span></a>
+      <a href="assets/ams.css" target="_blank" class="text-link">ams.css <span>↗</span></a>
+    </div>
+
+    <!-- Quick stats -->
+    <div class="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-px bg-line border border-line rounded-lg overflow-hidden" data-reveal style="transition-delay:.4s">
+      <div class="bg-bg-2 px-6 py-5">
+        <div class="stat-number text-[clamp(28px,3vw,44px)]">9</div>
+        <div class="stat-label">颜色 Tokens</div>
+      </div>
+      <div class="bg-bg-2 px-6 py-5">
+        <div class="stat-number text-[clamp(28px,3vw,44px)]">3</div>
+        <div class="stat-label">字体家族</div>
+      </div>
+      <div class="bg-bg-2 px-6 py-5">
+        <div class="stat-number text-[clamp(28px,3vw,44px)]">12+</div>
+        <div class="stat-label">组件类型</div>
+      </div>
+      <div class="bg-bg-2 px-6 py-5">
+        <div class="stat-number text-[clamp(28px,3vw,44px)]">2</div>
+        <div class="stat-label">主题模式</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ §1 · 颜色系统 ============ -->
+<section id="colors" class="demo-section">
+  <div class="container">
+
+    <div class="section-lbl mb-4"><span class="line"></span><span>01</span><span>颜色系统 · Color Tokens</span></div>
+    <h2 class="h-2 mb-3" data-reveal>色彩架构</h2>
+    <p class="text-fg-dim text-[15px] mb-12 max-w-2xl" data-reveal>
+      双主题 CSS 变量体系。深色模式主体，浅色模式备用。通过 <code class="mono text-[13px] bg-bg-2 px-1.5 py-0.5 rounded text-accent">data-theme</code> 属性切换。
+    </p>
+
+    <!-- Dark theme palette -->
+    <div class="mb-10">
+      <div class="preview-lbl">Dark Theme</div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+        <div>
+          <div class="color-chip" style="background:#0A0A0C;"></div>
+          <div class="color-chip-label">--bg</div>
+          <div class="color-chip-hex">#0A0A0C</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:#16161A;"></div>
+          <div class="color-chip-label">--bg-1</div>
+          <div class="color-chip-hex">#16161A</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:#1C1C22;"></div>
+          <div class="color-chip-label">--bg-2</div>
+          <div class="color-chip-hex">#1C1C22</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:#22222B;"></div>
+          <div class="color-chip-label">--bg-3</div>
+          <div class="color-chip-hex">#22222B</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:#2A2A35;"></div>
+          <div class="color-chip-label">--line</div>
+          <div class="color-chip-hex">#2A2A35</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:#393948;"></div>
+          <div class="color-chip-label">--line-2</div>
+          <div class="color-chip-hex">#393948</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accent palette -->
+    <div class="mb-10">
+      <div class="preview-lbl">Accent Palette</div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div>
+          <div class="color-chip" style="background:#8B5CFF;"></div>
+          <div class="color-chip-label">--accent (dark)</div>
+          <div class="color-chip-hex">#8B5CFF</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:#A78BFF;"></div>
+          <div class="color-chip-label">--accent-hi</div>
+          <div class="color-chip-hex">#A78BFF</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:rgba(139,92,255,0.14);"></div>
+          <div class="color-chip-label">--accent-soft</div>
+          <div class="color-chip-hex">rgba(139,92,255,0.14)</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:#6102FF;"></div>
+          <div class="color-chip-label">--accent (light)</div>
+          <div class="color-chip-hex">#6102FF</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text colors -->
+    <div class="mb-10">
+      <div class="preview-lbl">Text Colors</div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div>
+          <div class="color-chip" style="background:#FFFFFF;"></div>
+          <div class="color-chip-label">--fg</div>
+          <div class="color-chip-hex">#FFFFFF · Primary</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:#A1A1AA;"></div>
+          <div class="color-chip-label">--fg-dim</div>
+          <div class="color-chip-hex">#A1A1AA · Muted</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:#71717A;"></div>
+          <div class="color-chip-label">--fg-dim2</div>
+          <div class="color-chip-hex">#71717A · Faint</div>
+        </div>
+        <div>
+          <div class="color-chip" style="background:#52525B;"></div>
+          <div class="color-chip-label">--fg-dim3</div>
+          <div class="color-chip-hex">#52525B · Ghost</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Token reference table -->
+    <div class="preview-lbl">Full Token Reference</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6">
+      <div class="token-row"><span class="token-name">--bg</span><span class="token-desc">Page background</span><span class="token-val">#0A0A0C / #FFF</span></div>
+      <div class="token-row"><span class="token-name">--bg-1</span><span class="token-desc">Soft surface (hover, nav)</span><span class="token-val">#16161A / #FAFAFA</span></div>
+      <div class="token-row"><span class="token-name">--bg-2</span><span class="token-desc">Card background</span><span class="token-val">#1C1C22 / #F4F4F5</span></div>
+      <div class="token-row"><span class="token-name">--bg-3</span><span class="token-desc">Card hover, input fill</span><span class="token-val">#22222B / #E9E9EC</span></div>
+      <div class="token-row"><span class="token-name">--line</span><span class="token-desc">Hairline borders, dividers</span><span class="token-val">#2A2A35 / #E5E5EA</span></div>
+      <div class="token-row"><span class="token-name">--line-2</span><span class="token-desc">Stronger border on hover</span><span class="token-val">#393948 / #D4D4D8</span></div>
+      <div class="token-row"><span class="token-name">--fg</span><span class="token-desc">Primary text</span><span class="token-val">#FFF / #0A0A0C</span></div>
+      <div class="token-row"><span class="token-name">--fg-dim</span><span class="token-desc">Muted body text</span><span class="token-val">#A1A1AA / #52525B</span></div>
+      <div class="token-row"><span class="token-name">--fg-dim2</span><span class="token-desc">Labels, meta, eyebrows</span><span class="token-val">#71717A</span></div>
+      <div class="token-row"><span class="token-name">--fg-dim3</span><span class="token-desc">Ghost text, placeholders</span><span class="token-val">#52525B / #A1A1AA</span></div>
+      <div class="token-row"><span class="token-name">--accent</span><span class="token-desc">Primary brand color</span><span class="token-val">#8B5CFF / #6102FF</span></div>
+      <div class="token-row"><span class="token-name">--accent-hi</span><span class="token-desc">Accent hover / highlight</span><span class="token-val">#A78BFF / #4E02CC</span></div>
+      <div class="token-row"><span class="token-name">--accent-soft</span><span class="token-desc">Accent tinted background</span><span class="token-val">rgba(139,92,255,.14)</span></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ §2 · 字体排版 ============ -->
+<section id="type" class="demo-section">
+  <div class="container">
+
+    <div class="section-lbl mb-4"><span class="line"></span><span>02</span><span>字体排版 · Typography</span></div>
+    <h2 class="h-2 mb-3" data-reveal>字体系统</h2>
+    <p class="text-fg-dim text-[15px] mb-12 max-w-2xl" data-reveal>
+      三字族分工明确：<span class="text-fg">Space Grotesk</span> 显示级标题（lowercase），
+      <span class="text-fg">JetBrains Mono</span> 代码与元信息，
+      <span class="text-fg">Inter</span> 正文与 UI。
+    </p>
+
+    <!-- Display -->
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-4 overflow-hidden">
+      <div class="preview-lbl">h-display — Space Grotesk 500 · clamp(48px,9vw,144px)</div>
+      <div class="h-display" style="font-size:clamp(48px,7vw,96px);">ams<span style="color:var(--accent)">_</span></div>
+      <div class="mt-4 eyebrow">智能体管理学 · Agentic Management Science</div>
+    </div>
+
+    <!-- h-1 -->
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-4 overflow-hidden">
+      <div class="preview-lbl">h-1 — Space Grotesk 500 · clamp(36px,5.5vw,88px) · lh 0.98</div>
+      <div class="h-1">六大重写 × 五阶段跃迁</div>
+    </div>
+
+    <!-- h-2 -->
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-4 overflow-hidden">
+      <div class="preview-lbl">h-2 — Space Grotesk 500 · clamp(28px,3.6vw,56px) · lh 1.08</div>
+      <div class="h-2">竞争逻辑重构 · 组织形态演化</div>
+    </div>
+
+    <!-- h-3 -->
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-4 overflow-hidden">
+      <div class="preview-lbl">h-3 — Space Grotesk 500 · clamp(20px,1.8vw,28px)</div>
+      <div class="h-3">能力网络 · 自进化组织架构</div>
+    </div>
+
+    <!-- Eyebrow -->
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-4">
+      <div class="preview-lbl">Eyebrow — JetBrains Mono · 11px · ls 0.18em · UPPERCASE</div>
+      <div class="eyebrow">Framework · F01 · 智能体五力重构法</div>
+    </div>
+
+    <!-- Body -->
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-4">
+      <div class="preview-lbl">Body — Inter · 16px · lh 1.5 · ls -0.005em</div>
+      <p style="font-size:16px;line-height:1.5;color:var(--fg-dim);">
+        当执行可以被智能体承担，企业管理学的所有基本假设——竞争结构、组织形态、产品逻辑、系统方法、价值评估、人类定位——都需要被重写一遍。AMS 提供了一套系统性框架，帮助企业在智能体时代重构管理基础。
+      </p>
+    </div>
+
+    <!-- Mono -->
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-4">
+      <div class="preview-lbl">Mono — JetBrains Mono · 13px · UI/meta text</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;color:var(--fg-dim);">
+        const agent = new AgentOrchestrator({ intent: "rewrite.competition", stage: "L4" });<br/>
+        await agent.execute({ frameworks: ["F01","F02","F03"] });
+      </div>
+    </div>
+
+    <!-- Font weights -->
+    <div class="preview-lbl mt-8">Font Weight Showcase</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6 grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div>
+        <div class="eyebrow mb-3">Space Grotesk</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:500;letter-spacing:-0.025em;">重构 500</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;letter-spacing:-0.025em;">重构 600</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.025em;">重构 700</div>
+      </div>
+      <div>
+        <div class="eyebrow mb-3">JetBrains Mono</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:400;line-height:2;">agent_v1 · 400</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;line-height:2;">agent_v1 · 500</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:400;line-height:2;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg-dim2);">EYEBROW · 0.18em</div>
+      </div>
+      <div>
+        <div class="eyebrow mb-3">Inter</div>
+        <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:400;line-height:2;">正文 Regular · 400</div>
+        <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:500;line-height:2;">正文 Medium · 500</div>
+        <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:600;line-height:2;">正文 Semi · 600</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ §3 · 按钮 ============ -->
+<section id="buttons" class="demo-section">
+  <div class="container">
+
+    <div class="section-lbl mb-4"><span class="line"></span><span>03</span><span>按钮 · Buttons</span></div>
+    <h2 class="h-2 mb-3" data-reveal>按钮体系</h2>
+    <p class="text-fg-dim text-[15px] mb-12 max-w-2xl" data-reveal>
+      四种 Pill 按钮 + 文本链接 + 图标按钮 + 遗留 Bracket 按钮。所有按钮使用 JetBrains Mono，悬停时箭头右移 4px。
+    </p>
+
+    <!-- Pill buttons -->
+    <div class="preview-lbl">Pill Buttons — border-radius: 999px</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-6">
+      <div class="flex flex-wrap gap-4 items-center mb-6">
+        <a href="#" class="pill pill-primary">Primary Pill <span class="arr">→</span></a>
+        <a href="#" class="pill pill-secondary">Secondary Pill <span class="arr">→</span></a>
+        <a href="#" class="pill pill-accent">Accent Pill <span class="arr">→</span></a>
+      </div>
+      <div class="border-t border-line pt-6">
+        <div class="eyebrow mb-4">Usage Rules</div>
+        <ul class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-[13px]">
+          <li class="flex gap-3"><span class="fw-badge flex-shrink-0">pill-primary</span><span class="text-fg-dim">white border → filled on hover. Primary CTA.</span></li>
+          <li class="flex gap-3"><span class="fw-badge flex-shrink-0">pill-secondary</span><span class="text-fg-dim">line border, muted. Secondary CTA.</span></li>
+          <li class="flex gap-3"><span class="fw-badge flex-shrink-0">pill-accent</span><span class="text-fg-dim">purple fill. Prominent action.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Legacy buttons (from ams.css) -->
+    <div class="preview-lbl">Legacy Buttons (ams.css) — retained for compatibility</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-6">
+      <div class="flex flex-wrap gap-4 items-center">
+        <a href="#" class="btn-primary">btn-primary <span class="arr">→</span></a>
+        <a href="#" class="btn-bracket">btn-bracket <span>→</span></a>
+        <a href="#" class="btn-pill">btn-pill</a>
+        <a href="#" class="btn-pill is-active">btn-pill.is-active</a>
+        <a href="#" class="text-cta">text-cta <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <!-- Text link -->
+    <div class="preview-lbl">Text Link</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-6">
+      <div class="flex flex-wrap gap-6 items-center">
+        <a href="#" class="text-link">查看框架全集 <span>→</span></a>
+        <a href="#" class="link-arrow">link-arrow <span class="arr">→</span></a>
+      </div>
+    </div>
+
+    <!-- Icon buttons -->
+    <div class="preview-lbl">Icon Buttons — 32px circle</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-6">
+      <div class="flex flex-wrap gap-4 items-center">
+        <button class="icon-btn" title="Theme toggle">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2"/></svg>
+        </button>
+        <button class="icon-btn" title="Share">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </button>
+        <button class="icon-btn" title="Copy">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+        <button class="toggle" title="Toggle">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+      <div class="mt-4 text-[12px] text-fg-dim mono">hover → 15° rotate + accent border color</div>
+    </div>
+
+    <!-- All transition specs -->
+    <div class="preview-lbl">Button Transition Specs</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[12px] mono">
+        <div class="text-fg-dim"><span class="text-accent">default</span> → all .2s ease</div>
+        <div class="text-fg-dim"><span class="text-accent">.arr</span> → transform .2s ease · translateX(4px)</div>
+        <div class="text-fg-dim"><span class="text-accent">icon-btn</span> → rotate(15deg) on hover</div>
+        <div class="text-fg-dim"><span class="text-accent">text-link gap</span> → 4px → 8px on hover</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ §4 · 卡片 ============ -->
+<section id="cards" class="demo-section">
+  <div class="container">
+
+    <div class="section-lbl mb-4"><span class="line"></span><span>04</span><span>卡片 · Cards</span></div>
+    <h2 class="h-2 mb-3" data-reveal>卡片体系</h2>
+    <p class="text-fg-dim text-[15px] mb-12 max-w-2xl" data-reveal>
+      七种卡片变体，统一 8px 圆角（code card 用 10px），基础 padding 24px，细边框体系。
+    </p>
+
+    <!-- Default + Feature -->
+    <div class="preview-lbl">Default Card · Feature Card (accent hover-line)</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+      <div class="card-default">
+        <div class="eyebrow mb-3">Default Card</div>
+        <div class="h-3 mb-2">bg-2 · border-line · hover bg-3</div>
+        <p class="text-fg-dim text-[13px] leading-relaxed">卡片内容示例。悬停时背景色从 bg-2 过渡到 bg-3，无其他装饰效果。</p>
+      </div>
+      <div class="card-feature">
+        <div class="eyebrow mb-3">Feature Card</div>
+        <div class="h-3 mb-2">底部渐变线 · scaleX 动画</div>
+        <p class="text-fg-dim text-[13px] leading-relaxed">悬停时底部呈现 2px 紫色渐变线条，从左向右展开，强调特性卡片。</p>
+      </div>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="preview-lbl">Stat Card — tabular-nums number</div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+      <div class="card-stat">
+        <div class="stat-number">40</div>
+        <div class="stat-label">管理框架</div>
+      </div>
+      <div class="card-stat">
+        <div class="stat-number">6</div>
+        <div class="stat-label">模块重写</div>
+      </div>
+      <div class="card-stat">
+        <div class="stat-number">5</div>
+        <div class="stat-label">成熟度阶段</div>
+      </div>
+      <div class="card-stat">
+        <div class="stat-number">3</div>
+        <div class="stat-label">治理神经</div>
+      </div>
+    </div>
+
+    <!-- Framework card -->
+    <div class="preview-lbl">Framework Card (F-badge style)</div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <a href="framework/F01.html" class="card-framework">
+        <div class="f-badge">F01</div>
+        <div class="f-title">智能体五力重构法</div>
+        <div class="f-desc">重新审视波特五力，在 AI Agent 时代重构竞争优势的来源与护城河评估。</div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="stage-tag l4">L4</span>
+          <span class="text-fg-dim3 mono text-[11px]">竞争重写 →</span>
+        </div>
+      </a>
+      <div class="card-framework">
+        <div class="f-badge">G01</div>
+        <div class="f-title">意图管理框架</div>
+        <div class="f-desc">确保人类意图在 Agent 执行链中不被稀释、不被扭曲的系统性方法论。</div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="fw-badge">治理神经</span>
+          <span class="text-fg-dim3 mono text-[11px]">Intent →</span>
+        </div>
+      </div>
+      <div class="card-framework">
+        <div class="f-badge text-[var(--fg-dim2)]">F07</div>
+        <div class="f-title">人机角色重定义</div>
+        <div class="f-desc">当 Agent 承担执行，人的定位从执行者演变为编排者、设定者。</div>
+        <div class="flex items-center justify-between mt-2">
+          <span class="stage-tag l3">L3</span>
+          <span class="text-fg-dim3 mono text-[11px]">组织重写 →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Governance rail -->
+    <div class="preview-lbl">Governance Rail — horizontal</div>
+    <div class="gov-rail mb-6">
+      <div class="gov-rail-item">
+        <div class="gov-icon">◎</div>
+        <div class="gov-name">意图管理</div>
+        <div class="gov-en">Intent · G01</div>
+      </div>
+      <div class="gov-rail-item">
+        <div class="gov-icon">◇</div>
+        <div class="gov-name">边界与升级</div>
+        <div class="gov-en">Boundary · G02</div>
+      </div>
+      <div class="gov-rail-item">
+        <div class="gov-icon">◆</div>
+        <div class="gov-name">主权控制</div>
+        <div class="gov-en">Sovereignty · G03</div>
+      </div>
+    </div>
+
+    <!-- Code card -->
+    <div class="preview-lbl">Code Card — traffic-light header · mono body</div>
+    <div class="card-code max-w-2xl mb-6">
+      <div class="card-code-header">
+        <div class="traffic-dot td-red"></div>
+        <div class="traffic-dot td-yellow"></div>
+        <div class="traffic-dot td-green"></div>
+        <span class="mono text-[11px] text-fg-dim3 ml-2">ams.config.ts</span>
+      </div>
+      <div class="card-code-body">
+        <span class="code-cmt">// AMS Agent Orchestration Config</span><br/>
+        <span class="code-kw">const</span> <span class="code-fn">config</span> = {<br/>
+        &nbsp;&nbsp;frameworks: [<span class="code-str">"F01"</span>, <span class="code-str">"F07"</span>, <span class="code-str">"G01"</span>],<br/>
+        &nbsp;&nbsp;stage: <span class="code-str">"L4"</span>,<br/>
+        &nbsp;&nbsp;accent: <span class="code-str">"#8B5CFF"</span>,<br/>
+        &nbsp;&nbsp;rewrite: <span class="code-num">6</span>,<br/>
+        };<br/>
+        <span class="code-kw">export default</span> <span class="code-fn">config</span>;
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ §5 · 标签与徽章 ============ -->
+<section id="labels" class="demo-section">
+  <div class="container">
+
+    <div class="section-lbl mb-4"><span class="line"></span><span>05</span><span>标签与徽章 · Labels & Badges</span></div>
+    <h2 class="h-2 mb-3" data-reveal>标记系统</h2>
+    <p class="text-fg-dim text-[15px] mb-12 max-w-2xl" data-reveal>
+      七类标记元素，均使用 JetBrains Mono，以统一的视觉密度呈现分类信息。
+    </p>
+
+    <!-- Section label -->
+    <div class="preview-lbl">Section Label (avenia-style)</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6 mb-6 space-y-4">
+      <div class="section-lbl"><span class="line"></span><span>01</span><span>颜色系统 · Color Tokens</span></div>
+      <div class="section-lbl"><span class="line"></span><span>Framework · F01</span></div>
+      <div class="code-cmt mono text-[11px] mt-2">display:flex · gap:12px · JetBrains Mono 11px · ls 0.18em · UPPERCASE</div>
+    </div>
+
+    <!-- Eyebrow / kicker -->
+    <div class="preview-lbl">Eyebrow / Kicker</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6 mb-6 space-y-4">
+      <div class="eyebrow">竞争重写 · Competition Rewrite · F01–F06</div>
+      <div class="kicker"><span class="accent">▌</span> v1.0 · 造物云思想底座</div>
+      <div class="kicker"><span class="line" style="width:40px;height:1px;background:var(--line);display:inline-block;"></span><span class="accent">▌</span><span>设计规范 · Design System</span></div>
+    </div>
+
+    <!-- Status badges -->
+    <div class="preview-lbl">Status Badge · Framework Badge</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6 mb-6">
+      <div class="flex flex-wrap gap-4 items-center">
+        <div class="status-badge"><span class="status-dot"></span>实时 · Live</div>
+        <div class="status-badge" style="color:var(--accent);border-color:rgba(139,92,255,.3);background:var(--accent-soft);"><span style="width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse-dot 2s ease-in-out infinite;"></span>Agent 运行中</div>
+        <span class="fw-badge">F01</span>
+        <span class="fw-badge">G01</span>
+        <span class="fw-badge" style="background:rgba(59,130,246,.1);color:#60a5fa;border-color:rgba(59,130,246,.2);">F07–F12</span>
+      </div>
+    </div>
+
+    <!-- Stage tags -->
+    <div class="preview-lbl">Stage Tags (L1–L5)</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6 mb-6">
+      <div class="flex flex-wrap gap-3 items-center mb-4">
+        <span class="stage-tag l1">L1</span>
+        <span class="stage-tag l2">L2</span>
+        <span class="stage-tag l3">L3</span>
+        <span class="stage-tag l4">L4</span>
+        <span class="stage-tag l5">L5</span>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-5 gap-3">
+        <div class="text-center"><span class="stage-tag l1 block mx-auto mb-1" style="width:auto;display:inline-block;">L1</span><div class="mono text-[10px] text-fg-dim2">工具辅助</div></div>
+        <div class="text-center"><span class="stage-tag l2 block mx-auto mb-1" style="width:auto;display:inline-block;">L2</span><div class="mono text-[10px] text-fg-dim2">流程嵌入</div></div>
+        <div class="text-center"><span class="stage-tag l3 block mx-auto mb-1" style="width:auto;display:inline-block;">L3</span><div class="mono text-[10px] text-fg-dim2">系统协同</div></div>
+        <div class="text-center"><span class="stage-tag l4 block mx-auto mb-1" style="width:auto;display:inline-block;">L4</span><div class="mono text-[10px] text-fg-dim2">能力网络</div></div>
+        <div class="text-center"><span class="stage-tag l5 block mx-auto mb-1" style="width:auto;display:inline-block;">L5</span><div class="mono text-[10px] text-fg-dim2">自进化</div></div>
+      </div>
+    </div>
+
+    <!-- Module tags -->
+    <div class="preview-lbl">Module / Category Tags</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6">
+      <div class="flex flex-wrap gap-3">
+        <span class="mono text-[11px] px-3 py-1 rounded border border-line text-fg-dim2">① 竞争重写</span>
+        <span class="mono text-[11px] px-3 py-1 rounded border border-line text-fg-dim2">② 组织重写</span>
+        <span class="mono text-[11px] px-3 py-1 rounded border border-line text-fg-dim2">③ 产品重写</span>
+        <span class="mono text-[11px] px-3 py-1 rounded border border-line text-fg-dim2">④ 系统重写</span>
+        <span class="mono text-[11px] px-3 py-1 rounded border border-line text-fg-dim2">⑤ 价值重写</span>
+        <span class="mono text-[11px] px-3 py-1 rounded border border-line text-fg-dim2">⑥ 人类重写</span>
+        <span class="mono text-[11px] px-3 py-1 rounded border border-line bg-accent-soft text-accent" style="border-color:rgba(139,92,255,.2)">治理神经</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ §6 · 交互模式 ============ -->
+<section id="patterns" class="demo-section">
+  <div class="container">
+
+    <div class="section-lbl mb-4"><span class="line"></span><span>06</span><span>交互模式 · Interaction Patterns</span></div>
+    <h2 class="h-2 mb-3" data-reveal>交互组件</h2>
+    <p class="text-fg-dim text-[15px] mb-12 max-w-2xl" data-reveal>
+      列表行、四列 Why 网格、文字走马灯。悬停交互均有过渡动效。
+    </p>
+
+    <!-- Use-case rows -->
+    <div class="preview-lbl mb-3">Use-Case Row — hover shifts padding + bg</div>
+    <div class="mb-8">
+      <div class="uc-row">
+        <div>
+          <div class="uc-title">竞争逻辑重构 · F01–F06</div>
+          <div class="uc-meta mt-1">智能体五力 · 护城河重估 · 能力组合矩阵</div>
+        </div>
+        <div class="uc-arr">→</div>
+      </div>
+      <div class="uc-row">
+        <div>
+          <div class="uc-title">组织形态演化 · F07–F12</div>
+          <div class="uc-meta mt-1">角色重定义 · 人机协同 · 扁平化编排</div>
+        </div>
+        <div class="uc-arr">→</div>
+      </div>
+      <div class="uc-row">
+        <div>
+          <div class="uc-title">产品逻辑重写 · F13–F19</div>
+          <div class="uc-meta mt-1">任务化产品 · AaaS · 自适应交付</div>
+        </div>
+        <div class="uc-arr">→</div>
+      </div>
+      <div class="uc-row">
+        <div>
+          <div class="uc-title">治理神经贯穿 · G01–G03</div>
+          <div class="uc-meta mt-1">意图管理 · 边界控制 · 主权保障</div>
+        </div>
+        <div class="uc-arr">→</div>
+      </div>
+    </div>
+
+    <!-- Why-card grid -->
+    <div class="preview-lbl mb-3">Why-Card Grid — 4-col · 1px gap dividers · accent bottom-line</div>
+    <div class="why-grid mb-8">
+      <div class="why-card">
+        <div class="why-icon">◎</div>
+        <div class="why-title">系统性</div>
+        <div class="why-desc">40 个框架构成完整方法论体系，而非零散工具集合。</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">◇</div>
+        <div class="why-title">阶段性</div>
+        <div class="why-desc">五阶段成熟度模型，精确定位企业当前位置与跃迁路径。</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">△</div>
+        <div class="why-title">可操作</div>
+        <div class="why-desc">每个框架均有诊断矩阵、执行清单，可直接落地实施。</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✦</div>
+        <div class="why-title">前瞻性</div>
+        <div class="why-desc">基于 Agent 时代底层逻辑重构，而非修补工业时代框架。</div>
+      </div>
+    </div>
+
+    <!-- Marquee -->
+    <div class="preview-lbl mb-3">Marquee / Rotator — continuous scroll · accent ✦ separators</div>
+    <div class="text-marquee py-4 border-t border-b border-line mb-8">
+      <div class="text-marquee-track">
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">竞争重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">组织重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">产品重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">系统重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">价值重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">人类重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">治理神经</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">五阶段跃迁</span>
+        <span class="marquee-sep">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">竞争重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">组织重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">产品重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">系统重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">价值重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">人类重写</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">治理神经</span>
+        <span class="marquee-sep">✦</span>
+        <span class="mono text-[13px] text-fg-dim whitespace-nowrap">五阶段跃迁</span>
+        <span class="marquee-sep">✦</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ §7 · 动效规范 ============ -->
+<section id="motion" class="demo-section">
+  <div class="container">
+
+    <div class="section-lbl mb-4"><span class="line"></span><span>07</span><span>动效规范 · Motion</span></div>
+    <h2 class="h-2 mb-3" data-reveal>动效体系</h2>
+    <p class="text-fg-dim text-[15px] mb-12 max-w-2xl" data-reveal>
+      所有动效遵循统一的缓动曲线与时长规范。Reveal 使用 cubic-bezier(.2,.7,0,1) 获得有机感。
+    </p>
+
+    <!-- Reveal demo -->
+    <div class="preview-lbl mb-3">Reveal Animation — scroll-triggered · data-reveal</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-6">
+      <div class="reveal-demo" id="reveal-demo-1">
+        <div class="h-3 mb-2">opacity: 0 → 1 · translateY(24px) → 0</div>
+        <p class="text-fg-dim text-[13px]">transition: .9s cubic-bezier(.2,.7,0,1) · 触发：滚动进入视口</p>
+      </div>
+      <button onclick="resetReveal()" class="mt-4 pill pill-secondary" style="padding:8px 16px;font-size:11px;">重播动画</button>
+    </div>
+
+    <!-- Aurora demo -->
+    <div class="preview-lbl mb-3">Aurora Orbs — blur(60px) · mix-blend-mode screen · orb-float 8s</div>
+    <div class="aurora-demo mb-6">
+      <div class="aurora-orb o1"></div>
+      <div class="aurora-orb o2"></div>
+      <div class="aurora-orb o3"></div>
+      <div class="absolute inset-0 grid-bg opacity-50"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="mono text-[11px] text-fg-dim2 tracking-widest uppercase">aurora · bounded preview</div>
+      </div>
+    </div>
+
+    <!-- Pulse + float -->
+    <div class="preview-lbl mb-3">Pulse · Float · Shimmer · Marquee</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-8 mb-6">
+      <div class="flex flex-wrap gap-8 items-center">
+        <!-- pulse-ring -->
+        <div class="text-center">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--accent);margin:0 auto 12px;" class="pulse-ring"></div>
+          <div class="mono text-[10px] text-fg-dim2">pulse-ring · 2.4s</div>
+        </div>
+        <!-- status dot -->
+        <div class="text-center">
+          <div style="width:12px;height:12px;border-radius:50%;background:#22c55e;margin:0 auto 12px;" class="pulse-ring" style=""></div>
+          <div class="mono text-[10px] text-fg-dim2">status-dot · 2s</div>
+        </div>
+        <!-- float-up -->
+        <div class="text-center">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--accent-soft);border:1px solid rgba(139,92,255,.3);margin:0 auto 12px;" class="float-up"></div>
+          <div class="mono text-[10px] text-fg-dim2">float-up · 5s</div>
+        </div>
+        <!-- shimmer -->
+        <div class="text-center">
+          <div style="width:100px;height:16px;border-radius:4px;margin:0 auto 12px;" class="shimmer-bg"></div>
+          <div class="mono text-[10px] text-fg-dim2">shimmer · 2.4s</div>
+        </div>
+        <!-- cursor blink -->
+        <div class="text-center">
+          <div style="font-family:'Space Grotesk';font-size:28px;font-weight:500;margin-bottom:12px;">ams<span class="cursor"></span></div>
+          <div class="mono text-[10px] text-fg-dim2">cursor blink · 1.05s</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transition reference -->
+    <div class="preview-lbl mb-3">Transition Token Reference</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6">
+      <ul class="transition-ref space-y-0">
+        <li><span>UI fast</span>: all .15s ease — 按钮颜色、透明度</li>
+        <li><span>UI default</span>: all .18s ease — 边框、背景色</li>
+        <li><span>UI medium</span>: all .22s ease — 卡片 hover</li>
+        <li><span>UI slow</span>: all .25s ease — 主题切换</li>
+        <li><span>Arrow slide</span>: transform .2s ease — .arr → translateX(4px)</li>
+        <li><span>Reveal</span>: opacity+transform .9s cubic-bezier(.2,.7,0,1)</li>
+        <li><span>Reveal slow</span>: 1s ease — data-reveal-slow</li>
+        <li><span>Clip reveal</span>: clip-path 1.1s cubic-bezier(.7,0,.3,1)</li>
+        <li><span>Word reveal</span>: .7s cubic-bezier(.2,.7,.2,1) · stagger 60ms</li>
+        <li><span>Card accent-line</span>: scaleX .35s cubic-bezier(.2,.7,0,1)</li>
+        <li><span>Orb drift</span>: 18s ease-in-out infinite</li>
+        <li><span>Marquee</span>: 40–50s linear infinite</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ §8 · 布局规范 ============ -->
+<section id="layout" class="demo-section">
+  <div class="container">
+
+    <div class="section-lbl mb-4"><span class="line"></span><span>08</span><span>布局规范 · Layout</span></div>
+    <h2 class="h-2 mb-3" data-reveal>布局系统</h2>
+    <p class="text-fg-dim text-[15px] mb-12 max-w-2xl" data-reveal>
+      1200px max-width 容器，24px 水平 padding，72px 网格背景，8-step 间距比例，响应式网格系统。
+    </p>
+
+    <!-- Container spec -->
+    <div class="preview-lbl mb-3">Container · max-width: 1200px · padding: 0 24px</div>
+    <div class="mb-6 border border-line rounded-lg overflow-hidden">
+      <div class="bg-accent-soft border-b border-line px-6 py-3 mono text-[12px] text-accent">.container · max-width: 1200px · margin: 0 auto · padding: 0 24px</div>
+      <div class="px-6 py-4 bg-bg-2">
+        <div class="w-full bg-bg-3 rounded" style="height:40px;display:flex;align-items:center;justify-content:center;">
+          <span class="mono text-[11px] text-fg-dim2">content area · scales with viewport · max 1200px</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spacing scale -->
+    <div class="preview-lbl mb-3">Spacing Scale (8px base)</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6 mb-6">
+      <div class="space-y-3">
+        <div class="flex items-center gap-4">
+          <span class="mono text-[11px] text-fg-dim2 w-16">4px</span>
+          <div class="space-bar" style="width:4px;"></div>
+          <span class="mono text-[10px] text-fg-dim3">micro · gap, inline spacing</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="mono text-[11px] text-fg-dim2 w-16">8px</span>
+          <div class="space-bar" style="width:8px;"></div>
+          <span class="mono text-[10px] text-fg-dim3">xs · badge padding, icon gap</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="mono text-[11px] text-fg-dim2 w-16">12px</span>
+          <div class="space-bar" style="width:12px;"></div>
+          <span class="mono text-[10px] text-fg-dim3">sm · nav item padding</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="mono text-[11px] text-fg-dim2 w-16">16px</span>
+          <div class="space-bar" style="width:16px;"></div>
+          <span class="mono text-[10px] text-fg-dim3">md · base unit, card inner</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="mono text-[11px] text-fg-dim2 w-16">24px</span>
+          <div class="space-bar" style="width:24px;"></div>
+          <span class="mono text-[10px] text-fg-dim3">lg · card padding, section gap</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="mono text-[11px] text-fg-dim2 w-16">32px</span>
+          <div class="space-bar" style="width:32px;"></div>
+          <span class="mono text-[10px] text-fg-dim3">xl · component spacing</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="mono text-[11px] text-fg-dim2 w-16">48px</span>
+          <div class="space-bar" style="width:48px;"></div>
+          <span class="mono text-[10px] text-fg-dim3">2xl · section internal</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="mono text-[11px] text-fg-dim2 w-16">80px</span>
+          <div class="space-bar" style="width:80px;"></div>
+          <span class="mono text-[10px] text-fg-dim3">3xl · section py</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="mono text-[11px] text-fg-dim2 w-16">96px</span>
+          <div class="space-bar" style="width:96px;"></div>
+          <span class="mono text-[10px] text-fg-dim3">4xl · hero pt</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid patterns -->
+    <div class="preview-lbl mb-3">Grid Patterns</div>
+    <div class="space-y-4 mb-6">
+      <div>
+        <div class="mono text-[10px] text-fg-dim3 mb-2">2-col</div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="grid-col-demo">1</div>
+          <div class="grid-col-demo">2</div>
+        </div>
+      </div>
+      <div>
+        <div class="mono text-[10px] text-fg-dim3 mb-2">3-col</div>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="grid-col-demo">1</div>
+          <div class="grid-col-demo">2</div>
+          <div class="grid-col-demo">3</div>
+        </div>
+      </div>
+      <div>
+        <div class="mono text-[10px] text-fg-dim3 mb-2">4-col</div>
+        <div class="grid grid-cols-4 gap-3">
+          <div class="grid-col-demo">1</div>
+          <div class="grid-col-demo">2</div>
+          <div class="grid-col-demo">3</div>
+          <div class="grid-col-demo">4</div>
+        </div>
+      </div>
+      <div>
+        <div class="mono text-[10px] text-fg-dim3 mb-2">why-grid pattern · gap: 1px · bg: var(--line)</div>
+        <div class="grid grid-cols-4 gap-px bg-line border border-line rounded-lg overflow-hidden">
+          <div class="bg-bg-2 p-4 mono text-[11px] text-fg-dim2 text-center">1</div>
+          <div class="bg-bg-2 p-4 mono text-[11px] text-fg-dim2 text-center">2</div>
+          <div class="bg-bg-2 p-4 mono text-[11px] text-fg-dim2 text-center">3</div>
+          <div class="bg-bg-2 p-4 mono text-[11px] text-fg-dim2 text-center">4</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Border radius scale -->
+    <div class="preview-lbl mb-3">Border Radius Scale</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6 mb-6">
+      <div class="flex flex-wrap gap-6 items-end">
+        <div class="text-center">
+          <div style="width:48px;height:48px;background:var(--accent-soft);border:1px solid rgba(139,92,255,.3);border-radius:2px;margin:0 auto 8px;"></div>
+          <div class="mono text-[10px] text-fg-dim3">2px<br/>btn-bracket</div>
+        </div>
+        <div class="text-center">
+          <div style="width:48px;height:48px;background:var(--accent-soft);border:1px solid rgba(139,92,255,.3);border-radius:4px;margin:0 auto 8px;"></div>
+          <div class="mono text-[10px] text-fg-dim3">4px<br/>legacy card</div>
+        </div>
+        <div class="text-center">
+          <div style="width:48px;height:48px;background:var(--accent-soft);border:1px solid rgba(139,92,255,.3);border-radius:8px;margin:0 auto 8px;"></div>
+          <div class="mono text-[10px] text-fg-dim3">8px<br/>card-default</div>
+        </div>
+        <div class="text-center">
+          <div style="width:48px;height:48px;background:var(--accent-soft);border:1px solid rgba(139,92,255,.3);border-radius:10px;margin:0 auto 8px;"></div>
+          <div class="mono text-[10px] text-fg-dim3">10px<br/>code card</div>
+        </div>
+        <div class="text-center">
+          <div style="width:48px;height:48px;background:var(--accent-soft);border:1px solid rgba(139,92,255,.3);border-radius:999px;margin:0 auto 8px;"></div>
+          <div class="mono text-[10px] text-fg-dim3">999px<br/>pill btn</div>
+        </div>
+        <div class="text-center">
+          <div style="width:32px;height:32px;background:var(--accent-soft);border:1px solid rgba(139,92,255,.3);border-radius:50%;margin:0 auto 8px;"></div>
+          <div class="mono text-[10px] text-fg-dim3">50%<br/>icon btn</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav spec -->
+    <div class="preview-lbl mb-3">Navigation Bar Spec</div>
+    <div class="bg-bg-2 border border-line rounded-lg p-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mono text-[12px]">
+        <div class="text-fg-dim"><span class="text-accent">position</span>: fixed · inset-x: 0 · top: 0</div>
+        <div class="text-fg-dim"><span class="text-accent">height</span>: 64px (h-16)</div>
+        <div class="text-fg-dim"><span class="text-accent">backdrop-filter</span>: blur(12px)</div>
+        <div class="text-fg-dim"><span class="text-accent">border-bottom</span>: 1px solid var(--line)</div>
+        <div class="text-fg-dim"><span class="text-accent">brand</span>: Space Grotesk 14px → mono 14px</div>
+        <div class="text-fg-dim"><span class="text-accent">links</span>: JetBrains Mono 13px · fg-dim → fg</div>
+        <div class="text-fg-dim"><span class="text-accent">cta</span>: btn-bracket · 2px radius</div>
+        <div class="text-fg-dim"><span class="text-accent">bg</span>: gradient → transparent (fade-out)</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-line py-12">
+  <div class="container">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <div class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></div>
+        <div class="mono text-[11px] text-fg-dim3 mt-1">Design System v1.0 · 智能体管理学视觉规范</div>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="mono text-[12px] text-fg-dim2 hover:text-fg transition">← 返回首页</a>
+        <a href="assets/ams.css" target="_blank" class="mono text-[12px] text-fg-dim2 hover:text-accent transition">ams.css ↗</a>
+        <a href="https://www.zaowuyun.com" target="_blank" class="mono text-[12px] text-fg-dim2 hover:text-fg transition">造物云</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+// Theme toggle
+const btn = document.getElementById('theme-toggle');
+btn.addEventListener('click', () => {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('zwy-theme', next); } catch(e) {}
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('[data-reveal], [data-reveal-slow], [data-reveal-zoom]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// Initial reveal for above-fold elements
+setTimeout(() => {
+  document.querySelectorAll('#hero [data-reveal]').forEach(el => el.classList.add('in'));
+}, 80);
+
+// Reveal demo button
+function resetReveal() {
+  const el = document.getElementById('reveal-demo-1');
+  el.classList.remove('in');
+  void el.offsetWidth; // reflow
+  setTimeout(() => el.classList.add('in'), 50);
+}
+// Trigger reveal demo on scroll
+const revealDemoObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('in');
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.reveal-demo').forEach(el => revealDemoObs.observe(el));
+
+// TOC scrollspy
+const sections = ['hero','colors','type','buttons','cards','labels','patterns','motion','layout'];
+const dots = document.querySelectorAll('.toc-dot');
+const sectionEls = sections.map(id => document.getElementById(id)).filter(Boolean);
+
+const tocObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      dots.forEach(d => d.classList.remove('active'));
+      const activeDot = document.querySelector(`.toc-dot[data-section="${id}"]`);
+      if (activeDot) activeDot.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+sectionEls.forEach(el => tocObserver.observe(el));
+
+// TOC click navigation
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    const id = dot.getAttribute('data-section');
+    const target = document.getElementById(id);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
