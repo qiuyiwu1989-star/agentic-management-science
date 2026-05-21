@@ -3887,3 +3887,54 @@ button:focus-visible,
 }
 
 /* (toggle size already set to 44×44px in the base rule above) */
+
+/* ================================================================
+   MOBILE NAVIGATION MENU
+   ================================================================ */
+
+/* Hamburger / Close icon swap */
+#mobile-menu-btn .icon-close { display: none; }
+#mobile-menu-btn.menu-is-open .icon-menu  { display: none; }
+#mobile-menu-btn.menu-is-open .icon-close { display: flex; }
+
+/* Mobile menu drawer */
+.mobile-menu {
+  position: fixed;
+  top: 64px;            /* matches h-16 nav bar */
+  inset-x: 0;
+  z-index: 48;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.28s ease, border-color 0.2s;
+}
+.mobile-menu.is-open {
+  max-height: 480px;
+}
+
+/* Always hidden on desktop */
+@media (min-width: 1024px) {
+  .mobile-menu       { display: none !important; }
+  #mobile-menu-btn   { display: none !important; }
+}
+
+/* Mobile menu link rows */
+.mm-link {
+  display: block;
+  padding: 0.875rem 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--fg-dim);
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+.mm-link:last-child {
+  border-bottom: none;
+}
+.mm-link:hover, .mm-link:focus-visible {
+  color: var(--fg);
+  padding-left: 0.875rem;
+}

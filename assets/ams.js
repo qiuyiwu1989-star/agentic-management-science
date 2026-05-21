@@ -99,6 +99,35 @@
     });
   }
 
+  // ----- Mobile Menu Toggle -----
+  const mBtn = document.getElementById('mobile-menu-btn');
+  const mMenu = document.getElementById('mobile-menu');
+  if (mBtn && mMenu) {
+    function closeMobileMenu() {
+      mMenu.classList.remove('is-open');
+      mBtn.setAttribute('aria-expanded', 'false');
+      mMenu.setAttribute('aria-hidden', 'true');
+      mBtn.classList.remove('menu-is-open');
+    }
+    function openMobileMenu() {
+      mMenu.classList.add('is-open');
+      mBtn.setAttribute('aria-expanded', 'true');
+      mMenu.setAttribute('aria-hidden', 'false');
+      mBtn.classList.add('menu-is-open');
+    }
+    mBtn.addEventListener('click', () => {
+      mMenu.classList.contains('is-open') ? closeMobileMenu() : openMobileMenu();
+    });
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+    // Close when clicking a link inside the menu
+    mMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeMobileMenu);
+    });
+  }
+
   // ----- Framework Page Tabs (article / method / theory) -----
   const tablist = document.querySelector('.fw-tabs');
   if (tablist) {
