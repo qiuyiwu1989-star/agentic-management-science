@@ -3637,3 +3637,200 @@ a { color: inherit; }
   .bpf-head-tag { font-size: 11px; padding: 1px 6px; }
   .bp-stage-cards { grid-template-columns: 1fr; }
 }
+
+/* =============================================================
+   AVENIA DESIGN LANGUAGE EXTENSIONS — v2.0
+   规范类来自 avenia.io 设计 DNA，适配 AMS 紫色主题。
+   这些是全站的 canonical 类，design-guide.html 展示它们。
+   ============================================================= */
+
+/* ── Type Scale ── */
+.h-display {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: clamp(48px, 9vw, 120px);
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  text-transform: lowercase;
+}
+.h-display .acc { color: var(--accent); }
+.h-1 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: clamp(36px, 5.5vw, 88px);
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  text-transform: lowercase;
+}
+.h-2 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.6vw, 56px);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  text-transform: lowercase;
+}
+.h-3 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: clamp(20px, 1.8vw, 28px);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  text-transform: lowercase;
+}
+/* Chinese doesn't have case — safe to apply text-transform:lowercase */
+
+/* ── Section Label (avenia style, different from .sec-label) ── */
+.section-lbl-a {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-dim2);
+  margin-bottom: clamp(20px, 3vw, 36px);
+}
+.section-lbl-a .sl-line {
+  flex: 0 0 60px;
+  height: 1px;
+  background: var(--line);
+}
+
+/* ── Pill Buttons (avenia style) ── */
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 13px 22px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  transition: all .2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.pill-btn .arr { display: inline-block; transition: transform .2s ease; }
+.pill-btn:hover .arr { transform: translateX(4px); }
+
+.pill-btn.pill-primary {
+  border: 1px solid var(--fg);
+  color: var(--fg);
+  background: transparent;
+}
+.pill-btn.pill-primary:hover { background: var(--fg); color: var(--bg); }
+
+.pill-btn.pill-secondary {
+  border: 1px solid var(--line-2);
+  color: var(--fg-dim);
+  background: transparent;
+}
+.pill-btn.pill-secondary:hover { border-color: var(--fg-dim2); color: var(--fg); }
+
+.pill-btn.pill-accent {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+}
+.pill-btn.pill-accent:hover { background: var(--accent-hi); }
+
+.pill-btn.pill-sm { padding: 8px 14px; font-size: 11px; }
+
+/* ── Text Link (avenia style) ── */
+.text-link-a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: max-content;
+  transition: gap .2s ease;
+}
+.text-link-a:hover { gap: 12px; }
+
+/* ── Why-Grid (avenia 4-col, 1px gap) ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+@media (max-width: 980px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .why-grid { grid-template-columns: 1fr; } }
+.why-card-a {
+  background: var(--bg-1);
+  padding: 28px 24px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: background .22s ease;
+}
+.why-card-a:hover { background: var(--bg-2); }
+.why-card-a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hi));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s cubic-bezier(.2,.7,0,1);
+}
+.why-card-a:hover::after { transform: scaleX(1); }
+.why-card-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.1em; }
+.why-card-title {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(17px, 1.5vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--fg);
+  margin-top: auto;
+}
+.why-card-desc { font-size: 13.5px; line-height: 1.6; color: var(--fg-dim); }
+
+/* ── Design Guide FAB ── */
+.design-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  background: color-mix(in srgb, var(--bg-2) 90%, transparent);
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--fg-dim2);
+  text-decoration: none;
+  transition: all .2s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.design-fab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.design-fab .fab-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
