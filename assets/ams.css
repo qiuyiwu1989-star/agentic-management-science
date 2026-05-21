@@ -3460,6 +3460,148 @@ a { color: inherit; }
   line-height: 1.7;
 }
 
+/* ── AMS 核心公式 ── */
+.ams-formula {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg-1));
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: var(--fg-dim);
+}
+.ams-formula .f-lhs {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 17px;
+  white-space: nowrap;
+}
+.ams-formula .f-eq { color: var(--fg-dim2); }
+.ams-formula .f-term { color: var(--fg); font-weight: 500; white-space: nowrap; }
+.ams-formula .f-x  { color: var(--fg-dim2); }
+
+/* ── 治理轨道（横贯三条线）── */
+.gov-rails {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--bg-1) 60%, transparent);
+}
+.gov-rail {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 0;
+  padding: 18px 22px;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+  transition: background .18s;
+  position: relative;
+}
+.gov-rail:first-child { border-top: 0; }
+.gov-rail:hover { background: color-mix(in srgb, var(--accent) 7%, var(--bg)); }
+.gov-rail::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  opacity: 0.5;
+  transition: opacity .18s;
+}
+.gov-rail:hover::before { opacity: 1; }
+.gov-rail-icon {
+  font-size: 22px;
+  color: var(--accent);
+  line-height: 1;
+  width: 28px;
+  text-align: center;
+}
+.gov-rail-body {
+  padding: 0 20px;
+}
+.gov-rail-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 2px;
+}
+.gov-rail-sub {
+  font-size: 13.5px;
+  color: var(--fg-dim);
+}
+.gov-rail-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.gov-rail-id {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 4px;
+}
+.gov-rail-span {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 10px;
+  color: var(--fg-dim2);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.gov-rails-label {
+  padding: 14px 22px 12px;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg-1));
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gov-rails-tagline {
+  font-size: 12px;
+  color: var(--fg-dim2);
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+/* ── L4 分水岭高亮 ── */
+.bpf-head-key {
+  position: relative;
+}
+.bpf-head-key::after {
+  content: '分水岭';
+  position: absolute;
+  bottom: -1px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  white-space: nowrap;
+  opacity: 0.85;
+}
+.bpf-cell-head.bpf-head-key {
+  border-bottom: 2px solid var(--accent) !important;
+  padding-bottom: 18px;
+}
+
 /* responsive: stack matrix on small screens */
 @media (max-width: 1080px) {
   .bpf-row { grid-template-columns: 160px repeat(5, 1fr); }
