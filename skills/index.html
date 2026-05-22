@@ -626,7 +626,7 @@
   </div>
 </div>
 
-<section id="main-content" class="relative pt-36 pb-12 noise">
+<section id="main-content" class="relative pt-36 pb-12 noise grad-drift">
   <div class="absolute inset-0 grid-bg pointer-events-none"></div>
   <div class="orb orb-accent orb-drift" style="width:360px;height:360px;top:-60px;right:-80px;opacity:.16;"></div>
   <div class="relative container">
@@ -653,6 +653,62 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- Agent 直采 Manifest -->
+<section class="container py-8 border-t border-line">
+  <details class="agent-manifest" id="agent-manifest-block">
+    <summary class="agent-manifest-header" style="cursor:pointer;list-style:none;-webkit-appearance:none;">
+      <div class="flex items-center gap-3">
+        <span class="agent-manifest-tag">AGENT · MACHINE READABLE</span>
+        <span class="text-fg-dim text-sm">Agent 直采接口 · 点击展开</span>
+      </div>
+      <span class="text-fg-dim2 text-xs mono ml-auto">▶ expand</span>
+    </summary>
+    <div class="mt-4 grid md:grid-cols-2 gap-4">
+      <div>
+        <div class="text-fg-dim3 mono text-[10px] mb-2 uppercase tracking-wider">// fetch endpoints</div>
+        <pre><span class="key">base_url</span>: <span class="val">https://qiuyiwu.com/ams/skills/</span>
+<span class="key">manifest</span>: <span class="val">manifest.json</span>     <span class="comment"># full index, 36 skills</span>
+<span class="key">llms_txt</span>: <span class="val">llms.txt</span>          <span class="comment"># plaintext for LLM context</span>
+<span class="key">skill_file</span>: <span class="val">F{id}.md</span>        <span class="comment"># e.g. F01.md … F36.md</span>
+
+<span class="comment"># To fetch a single skill:</span>
+<span class="key">GET</span> <span class="val">https://qiuyiwu.com/ams/skills/F01.md</span>
+
+<span class="comment"># To fetch all metadata:</span>
+<span class="key">GET</span> <span class="val">https://qiuyiwu.com/ams/skills/manifest.json</span></pre>
+      </div>
+      <div>
+        <div class="text-fg-dim3 mono text-[10px] mb-2 uppercase tracking-wider">// manifest schema (excerpt)</div>
+        <pre><span class="key">version</span>: <span class="val">"1.1"</span>
+<span class="key">total</span>: <span class="val">36</span>
+<span class="key">skills</span><span class="comment">[]</span>:
+  <span class="key">id</span>: <span class="val">"F01"</span>
+  <span class="key">title_zh</span>: <span class="val">"智能体五力重构法"</span>
+  <span class="key">title_en</span>: <span class="val">"Agentic Five Forces Reconstruction"</span>
+  <span class="key">abbr</span>: <span class="val">"AFFR"</span>
+  <span class="key">module</span>: <span class="val">"M1"</span>  <span class="comment"># M1–M6</span>
+  <span class="key">type</span>: <span class="val">"分析型"</span>
+  <span class="key">url</span>: <span class="val">"https://qiuyiwu.com/ams/skills/F01.md"</span>
+  <span class="key">framework_url</span>: <span class="val">"https://qiuyiwu.com/ams/framework/F01.html"</span></pre>
+      </div>
+    </div>
+    <div class="mt-3 pt-3 border-t border-line">
+      <div class="text-fg-dim3 mono text-[10px] mb-2 uppercase tracking-wider">// agent usage instruction</div>
+      <pre><span class="comment"># For Claude / LLM agents: to load all 36 skills at once,</span>
+<span class="comment"># fetch manifest.json, then batch-fetch each skill by id:</span>
+<span class="key">for</span> skill <span class="key">in</span> manifest[<span class="val">"skills"</span>]:
+    content = fetch(skill[<span class="val">"url"</span>])
+    <span class="comment"># Each .md has a structured header: SKILL 定位 / SKILL 框架 / etc.</span>
+<span class="comment"># Or use llms.txt for a single-file summary of all 36 skills.</span></pre>
+    </div>
+    <div class="mt-3 flex flex-wrap gap-3 items-center">
+      <a href="manifest.json" class="tts-btn" style="text-decoration:none" target="_blank">⬇ manifest.json</a>
+      <a href="llms.txt" class="tts-btn" style="text-decoration:none" target="_blank">⬇ llms.txt</a>
+      <span class="text-fg-dim3 text-xs mono">No auth required · CORS open · Static files</span>
+    </div>
+  </details>
 </section>
 
 <section class="pt-2 pb-24">

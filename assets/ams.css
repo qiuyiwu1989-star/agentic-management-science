@@ -3938,3 +3938,253 @@ button:focus-visible,
   color: var(--fg);
   padding-left: 0.875rem;
 }
+
+/* ============================================================
+   V2 · VISUAL ENHANCEMENTS  (glassmorphism · gradient · TTS)
+   ============================================================ */
+
+/* ── Glassmorphism card ── */
+.glass-card {
+  background: rgba(255,255,255,0.035);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+[data-theme="light"] .glass-card {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.07);
+}
+
+/* ── Animated gradient drift for hero backgrounds ── */
+@keyframes gradientDrift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+.grad-drift {
+  background: linear-gradient(-45deg,
+    var(--bg) 0%,
+    color-mix(in srgb, var(--accent) 9%, var(--bg)) 30%,
+    var(--bg-1) 60%,
+    color-mix(in srgb, var(--accent) 5%, var(--bg)) 85%,
+    var(--bg) 100%
+  );
+  background-size: 320% 320%;
+  animation: gradientDrift 18s ease infinite;
+}
+@media (prefers-reduced-motion: reduce) { .grad-drift { animation: none; } }
+
+/* ── Subtle particle / orb pulse ── */
+@keyframes orbPulse {
+  0%,100% { transform: scale(1) translate(0,0); opacity: .12; }
+  33%     { transform: scale(1.08) translate(12px,-8px); opacity: .18; }
+  66%     { transform: scale(0.95) translate(-8px,10px); opacity: .10; }
+}
+.orb-pulse { animation: orbPulse 14s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .orb-pulse { animation: none; } }
+
+/* ── Nav frosted glass ── */
+.nav-bar {
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+}
+
+/* ── TTS audio tour button ── */
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px 4px 8px;
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg-1));
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
+  border-radius: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--fg-dim);
+  cursor: pointer;
+  transition: all .15s ease;
+  user-select: none;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.tts-btn:hover { background: color-mix(in srgb, var(--accent) 18%, var(--bg-1)); color: var(--fg); border-color: var(--accent); }
+.tts-btn.is-playing,
+.tts-btn.is-speaking {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 15%, var(--bg-1));
+  animation: ttsPulse 1.4s ease-in-out infinite;
+}
+@keyframes ttsPulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 35%, transparent); }
+  50%       { box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 0%, transparent); }
+}
+.tts-btn svg { flex-shrink:0; }
+
+/* ── Chain flow (关键引用链路) ── */
+.km-chains { display: flex; flex-direction: column; gap: 12px; }
+.km-chain {
+  padding: 18px 22px 16px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--chain-c, var(--accent));
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--chain-c, var(--accent)) 3.5%, var(--bg-1));
+  transition: background .18s ease, border-color .18s ease;
+}
+.km-chain:hover { background: color-mix(in srgb, var(--chain-c, var(--accent)) 6%, var(--bg-1)); }
+.km-chain-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.chain-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--chain-c, var(--accent));
+}
+.chain-desc {
+  font-size: 11.5px;
+  color: var(--fg-dim2);
+  margin-left: auto;
+}
+.chain-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+.chain-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px 4px 8px;
+  background: color-mix(in srgb, var(--chain-c, var(--accent)) 7%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--chain-c, var(--accent)) 22%, var(--line-2));
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--fg);
+  transition: all .14s ease;
+  white-space: nowrap;
+}
+.chain-pill:hover {
+  background: color-mix(in srgb, var(--chain-c, var(--accent)) 16%, var(--bg));
+  border-color: var(--chain-c, var(--accent));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--chain-c, var(--accent)) 20%, transparent);
+}
+.chain-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--chain-c, var(--accent));
+  letter-spacing: 0.04em;
+}
+.chain-name {
+  font-size: 11.5px;
+  color: var(--fg-dim);
+  transition: color .14s ease;
+}
+.chain-pill:hover .chain-name { color: var(--fg); }
+.chain-abbr {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--fg-dim3);
+}
+.chain-arrow {
+  color: var(--fg-dim3);
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  flex-shrink: 0;
+  user-select: none;
+}
+.chain-split {
+  width: 100%;
+  height: 1px;
+  background: color-mix(in srgb, var(--chain-c, var(--accent)) 15%, transparent);
+  margin: 10px 0 6px;
+}
+
+/* ── Visual pattern cards (知识图谱 pattern section) ── */
+.pattern-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+.pattern-card {
+  padding: 14px 16px 12px;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--pat-c, var(--accent));
+  border-radius: 7px;
+  background: var(--bg-1);
+  transition: border-color .15s ease, background .15s ease;
+}
+.pattern-card:hover { border-color: var(--pat-c, var(--accent)); background: var(--bg-2); }
+.pattern-card.full { grid-column: 1/-1; }
+.pat-id { font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; color: var(--pat-c, var(--accent)); text-transform: uppercase; margin-bottom: 4px; }
+.pat-name { font-size: 13.5px; font-weight: 600; color: var(--fg); margin-bottom: 8px; }
+.pat-count { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--fg-dim3); margin-bottom: 8px; }
+.pat-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.pat-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--pat-c, var(--accent));
+  border: 1px solid color-mix(in srgb, var(--pat-c, var(--accent)) 25%, var(--line-2));
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--pat-c, var(--accent)) 8%, var(--bg));
+  text-decoration: none;
+  transition: background .12s ease, border-color .12s ease;
+}
+.pat-tag:hover { background: color-mix(in srgb, var(--pat-c, var(--accent)) 18%, var(--bg)); border-color: var(--pat-c, var(--accent)); }
+
+/* ── Enhanced bpf-cell-fw badge ── */
+.bpf-cell-fw {
+  opacity: 0.85 !important;
+  font-size: 10px !important;
+  letter-spacing: 0.08em !important;
+}
+.bpf-cell:hover .bpf-cell-fw {
+  opacity: 1 !important;
+  background: color-mix(in srgb, var(--accent) 15%, var(--bg)) !important;
+}
+
+/* ── Agent-readable section (Skill pages) ── */
+.agent-manifest {
+  border: 1px dashed var(--accent);
+  border-radius: 8px;
+  padding: 20px 24px;
+  background: color-mix(in srgb, var(--accent) 4%, var(--bg-1));
+  margin-top: 2rem;
+}
+.agent-manifest-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.agent-manifest-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg));
+  padding: 3px 8px;
+  border-radius: 3px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.agent-manifest pre {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--fg-dim);
+  overflow-x: auto;
+  margin: 0;
+}
+.agent-manifest pre .key { color: var(--accent); }
+.agent-manifest pre .val { color: var(--fg); }
+.agent-manifest pre .comment { color: var(--fg-dim3); }

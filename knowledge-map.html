@@ -79,7 +79,7 @@
 </div>
 
 <!-- HERO -->
-<section class="relative pt-32 pb-12 overflow-hidden noise">
+<section class="relative pt-32 pb-12 overflow-hidden noise grad-drift">
   <div class="absolute inset-0 grid-bg pointer-events-none"></div>
   <div class="relative container">
     <div class="section-lbl-a mb-8" data-reveal><span class="sl-line"></span>knowledge map · v1.0</div>
@@ -268,81 +268,145 @@
     </p>
   </div>
 
-  <div class="grid lg:grid-cols-2 gap-4" data-reveal>
-    <div class="p-5 border border-line rounded" style="border-left:3px solid #8B5CFF">
-      <div class="kicker mb-2" style="color:#8B5CFF">链路一 · 战略闭环</div>
-      <div class="text-sm text-fg leading-relaxed">
-        <a href="framework/F00.html" class="text-accent hover:underline">F00</a> ECOT 提出"能力编排" →
-        <a href="framework/F01.html" class="text-accent hover:underline">F01</a> 五力重构定位外部世界 →
-        <a href="framework/F02.html" class="text-accent hover:underline">F02</a> 护城河评估自身优势 →
-        <a href="framework/F03.html" class="text-accent hover:underline">F03</a> APM 资源配置 →
-        <a href="framework/F04.html" class="text-accent hover:underline">F04</a> TICA 获取路径
+  <div class="km-chains" data-reveal>
+
+    <!-- 链路一 · 战略闭环 -->
+    <div class="km-chain" style="--chain-c:#8B5CFF">
+      <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <span class="kicker" style="color:#8B5CFF">链路一 · 战略闭环</span>
+        <button class="tts-btn" data-tts="战略闭环链路：F00总序提出能力编排概念，F01五力重构定位外部世界，F02护城河评估自身优势，F03 APM资源配置，F04 TICA获取路径，形成完整战略闭环。">▶ 导览</button>
+      </div>
+      <div class="chain-flow">
+        <a href="framework/F00.html" class="chain-pill"><span class="chain-num">F00</span><span class="chain-name">ECOT 能力编排</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F01.html" class="chain-pill"><span class="chain-num">F01</span><span class="chain-name">五力重构</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F02.html" class="chain-pill"><span class="chain-num">F02</span><span class="chain-name">护城河评估</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F03.html" class="chain-pill"><span class="chain-num">F03</span><span class="chain-name">APM 资源配置</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F04.html" class="chain-pill"><span class="chain-num">F04</span><span class="chain-name">TICA 获取路径</span></a>
       </div>
     </div>
 
-    <div class="p-5 border border-line rounded" style="border-left:3px solid #5BE5A0">
-      <div class="kicker mb-2" style="color:#5BE5A0">链路二 · 组织闭环</div>
-      <div class="text-sm text-fg leading-relaxed">
-        <a href="framework/F07.html" class="text-accent hover:underline">F07</a> 网络组织（形态）→
-        <a href="framework/F08.html" class="text-accent hover:underline">F08</a> 双前台中台（架构）→
-        <a href="framework/F10.html" class="text-accent hover:underline">F10</a> 岗位体系（人才）→
-        <a href="framework/F12.html" class="text-accent hover:underline">F12</a> Kotter-AI（文化）
+    <!-- 链路二 · 组织闭环 -->
+    <div class="km-chain" style="--chain-c:#5BE5A0">
+      <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <span class="kicker" style="color:#5BE5A0">链路二 · 组织闭环</span>
+        <button class="tts-btn" data-tts="组织闭环链路：F07网络组织定义形态，F08双前台中台设计架构，F10岗位体系定义人才结构，F12 Kotter-AI变革塑造文化。">▶ 导览</button>
+      </div>
+      <div class="chain-flow">
+        <a href="framework/F07.html" class="chain-pill"><span class="chain-num">F07</span><span class="chain-name">网络组织</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F08.html" class="chain-pill"><span class="chain-num">F08</span><span class="chain-name">双前台中台</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F10.html" class="chain-pill"><span class="chain-num">F10</span><span class="chain-name">岗位体系</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F12.html" class="chain-pill"><span class="chain-num">F12</span><span class="chain-name">Kotter-AI 文化</span></a>
       </div>
     </div>
 
-    <div class="p-5 border border-line rounded" style="border-left:3px solid #FFB85B">
-      <div class="kicker mb-2" style="color:#FFB85B">链路三 · 产品闭环</div>
-      <div class="text-sm text-fg leading-relaxed">
-        <a href="framework/F13.html" class="text-accent hover:underline">F13</a> 定位 →
-        <a href="framework/F14.html" class="text-accent hover:underline">F14</a> JTBO 结果 →
-        <a href="framework/F15.html" class="text-accent hover:underline">F15</a> CADM 上下文 →
-        <a href="framework/F16.html" class="text-accent hover:underline">F16</a> D-PMF 验证 →
-        <a href="framework/F17.html" class="text-accent hover:underline">F17</a> VERITAS / <a href="framework/F18.html" class="text-accent hover:underline">F18</a> CATER（评估）
+    <!-- 链路三 · 产品闭环 -->
+    <div class="km-chain" style="--chain-c:#FFB85B">
+      <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <span class="kicker" style="color:#FFB85B">链路三 · 产品闭环</span>
+        <button class="tts-btn" data-tts="产品闭环链路：F13产品定位，F14 JTBO确定结果导向，F15 CADM管理上下文，F16 D-PMF验证产品市场匹配，F17 VERITAS和F18 CATER完成评估。">▶ 导览</button>
+      </div>
+      <div class="chain-flow">
+        <a href="framework/F13.html" class="chain-pill"><span class="chain-num">F13</span><span class="chain-name">定位</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F14.html" class="chain-pill"><span class="chain-num">F14</span><span class="chain-name">JTBO 结果</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F15.html" class="chain-pill"><span class="chain-num">F15</span><span class="chain-name">CADM 上下文</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F16.html" class="chain-pill"><span class="chain-num">F16</span><span class="chain-name">D-PMF 验证</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F17.html" class="chain-pill"><span class="chain-num">F17</span><span class="chain-name">VERITAS</span></a>
+        <span class="chain-arrow">/</span>
+        <a href="framework/F18.html" class="chain-pill"><span class="chain-num">F18</span><span class="chain-name">CATER 评估</span></a>
       </div>
     </div>
 
-    <div class="p-5 border border-line rounded" style="border-left:3px solid #5BB5FF">
-      <div class="kicker mb-2" style="color:#5BB5FF">链路四 · 系统工程闭环</div>
-      <div class="text-sm text-fg leading-relaxed">
-        <a href="framework/F24.html" class="text-accent hover:underline">F24</a> ADLC 生命周期 →
-        <a href="framework/F20.html" class="text-accent hover:underline">F20</a> E³ 评测驱动 →
-        <a href="framework/F25.html" class="text-accent hover:underline">F25</a> TSEM 三层评测 →
-        <a href="framework/F22.html" class="text-accent hover:underline">F22</a> PRTD 调试 →
-        <a href="framework/F26.html" class="text-accent hover:underline">F26</a> PRT 回归
+    <!-- 链路四 · 系统工程闭环 -->
+    <div class="km-chain" style="--chain-c:#5BB5FF">
+      <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <span class="kicker" style="color:#5BB5FF">链路四 · 系统工程闭环</span>
+        <button class="tts-btn" data-tts="系统工程闭环：F24 ADLC定义生命周期，F20 E³评测驱动开发，F25 TSEM三层评测体系，F22 PRTD调试溯源，F26 PRT回归测试保障质量。">▶ 导览</button>
+      </div>
+      <div class="chain-flow">
+        <a href="framework/F24.html" class="chain-pill"><span class="chain-num">F24</span><span class="chain-name">ADLC 生命周期</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F20.html" class="chain-pill"><span class="chain-num">F20</span><span class="chain-name">E³ 评测驱动</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F25.html" class="chain-pill"><span class="chain-num">F25</span><span class="chain-name">TSEM 三层评测</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F22.html" class="chain-pill"><span class="chain-num">F22</span><span class="chain-name">PRTD 调试</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F26.html" class="chain-pill"><span class="chain-num">F26</span><span class="chain-name">PRT 回归</span></a>
       </div>
     </div>
 
-    <div class="p-5 border border-line rounded" style="border-left:3px solid #FF6B8A">
-      <div class="kicker mb-2" style="color:#FF6B8A">链路五 · 价值/运营闭环</div>
-      <div class="text-sm text-fg leading-relaxed">
-        <a href="framework/F27.html" class="text-accent hover:underline">F27</a> AOMM 成熟度 →
-        <a href="framework/F28.html" class="text-accent hover:underline">F28</a> 3DSP 指标 →
-        <a href="framework/F29.html" class="text-accent hover:underline">F29</a> DWPS 绩效 →
-        <a href="framework/F30.html" class="text-accent hover:underline">F30</a> CPST 成本 →
-        <a href="framework/F31.html" class="text-accent hover:underline">F31</a> Agent ROI →
-        <a href="framework/F32.html" class="text-accent hover:underline">F32</a> SRAG 风险
+    <!-- 链路五 · 价值/运营闭环 -->
+    <div class="km-chain" style="--chain-c:#FF6B8A">
+      <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <span class="kicker" style="color:#FF6B8A">链路五 · 价值/运营闭环</span>
+        <button class="tts-btn" data-tts="价值运营闭环：F27 AOMM评估成熟度，F28 3DSP定义指标，F29 DWPS绩效管理，F30 CPST核算成本，F31计算Agent ROI，F32 SRAG管理风险。">▶ 导览</button>
+      </div>
+      <div class="chain-flow">
+        <a href="framework/F27.html" class="chain-pill"><span class="chain-num">F27</span><span class="chain-name">AOMM 成熟度</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F28.html" class="chain-pill"><span class="chain-num">F28</span><span class="chain-name">3DSP 指标</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F29.html" class="chain-pill"><span class="chain-num">F29</span><span class="chain-name">DWPS 绩效</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F30.html" class="chain-pill"><span class="chain-num">F30</span><span class="chain-name">CPST 成本</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F31.html" class="chain-pill"><span class="chain-num">F31</span><span class="chain-name">Agent ROI</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F32.html" class="chain-pill"><span class="chain-num">F32</span><span class="chain-name">SRAG 风险</span></a>
       </div>
     </div>
 
-    <div class="p-5 border border-line rounded" style="border-left:3px solid #FFD45B">
-      <div class="kicker mb-2" style="color:#FFD45B">链路六 · 人才闭环</div>
-      <div class="text-sm text-fg leading-relaxed">
-        <a href="framework/F33.html" class="text-accent hover:underline">F33</a> IACMM 等级 →
-        <a href="framework/F34.html" class="text-accent hover:underline">F34</a> TSMM 任务迁移 →
-        <a href="framework/F35.html" class="text-accent hover:underline">F35</a> FALA 能力结构 →
-        <a href="framework/F36.html" class="text-accent hover:underline">F36</a> AC6 人类核心
+    <!-- 链路六 · 人才闭环 -->
+    <div class="km-chain" style="--chain-c:#FFD45B">
+      <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <span class="kicker" style="color:#FFD45B">链路六 · 人才闭环</span>
+        <button class="tts-btn" data-tts="人才闭环：F33 IACMM定义智能体协作等级，F34 TSMM任务迁移模型，F35 FALA能力结构分析，F36 AC6确立人类核心价值。">▶ 导览</button>
+      </div>
+      <div class="chain-flow">
+        <a href="framework/F33.html" class="chain-pill"><span class="chain-num">F33</span><span class="chain-name">IACMM 等级</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F34.html" class="chain-pill"><span class="chain-num">F34</span><span class="chain-name">TSMM 任务迁移</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F35.html" class="chain-pill"><span class="chain-num">F35</span><span class="chain-name">FALA 能力结构</span></a>
+        <span class="chain-arrow">→</span>
+        <a href="framework/F36.html" class="chain-pill"><span class="chain-num">F36</span><span class="chain-name">AC6 人类核心</span></a>
       </div>
     </div>
 
-    <div class="p-5 border border-line rounded lg:col-span-2" style="border-left:3px solid var(--accent);background:rgba(var(--surface-rgb),0.025)">
-      <div class="kicker mb-2"><span class="accent">★ 链路七 · 治理神经横切</span></div>
-      <div class="text-sm text-fg leading-relaxed">
-        <strong>G01 意图管理</strong> 横切 F10（编排者）/ F14（JTBO）/ F15（上下文）·
-        <strong>G02 边界升级</strong> 横切 F09（RACI×DAL）/ F11（安全三系统）/ F29（DWPS 安全维）·
-        <strong>G03 主权模型</strong> 横切 F02（护城河主权维）/ F04（TICA 自建判断）/ F06（AaaS）/ F09（RACI A 具名）/ F18（CATER 可控）/ F36（价值锚定）
+    <!-- 链路七 · 治理神经横切 -->
+    <div class="km-chain" style="--chain-c:var(--accent);background:color-mix(in srgb, var(--accent) 4%, var(--bg-1))">
+      <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <span class="kicker" style="color:var(--accent)">★ 链路七 · 治理神经横切</span>
+        <button class="tts-btn" data-tts="治理神经横切：G01意图管理横切F10编排者、F14 JTBO、F15上下文三个框架。G02边界升级横切F09 RACI与DAL、F11安全三系统、F29 DWPS安全维度。G03主权模型横切F02护城河主权维、F04 TICA自建判断、F06 AaaS、F09 RACI、F18 CATER可控性、F36价值锚定。三条治理神经共同构成整套体系的哲学骨架。">▶ 导览</button>
       </div>
-      <div class="mt-3 text-fg-dim text-xs">三条治理神经各自横切多个模块，形成整套体系的<strong style="color:var(--accent)">"哲学骨架"</strong>。</div>
+      <div class="chain-flow mb-3">
+        <a href="framework/G01.html" class="chain-pill"><span class="chain-num">G01</span><span class="chain-name">意图管理</span></a>
+        <span class="chain-arrow">×</span>
+        <a href="framework/G02.html" class="chain-pill"><span class="chain-num">G02</span><span class="chain-name">边界升级</span></a>
+        <span class="chain-arrow">×</span>
+        <a href="framework/G03.html" class="chain-pill"><span class="chain-num">G03</span><span class="chain-name">主权模型</span></a>
+        <span class="chain-arrow ml-2 opacity-50">↓ 横切多模块</span>
+      </div>
+      <div class="chain-split"></div>
+      <div class="text-fg-dim2 text-xs leading-relaxed mt-2">
+        <span style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;">G01</span> 横切 F10（编排者）/ F14（JTBO）/ F15（上下文）·
+        <span style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;">G02</span> 横切 F09（RACI×DAL）/ F11（安全三系统）/ F29（DWPS 安全维）·
+        <span style="color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;">G03</span> 横切 F02（护城河主权维）/ F04（TICA 自建判断）/ F06（AaaS）/ F09（RACI A 具名）/ F18（CATER 可控）/ F36（价值锚定）
+      </div>
+      <div class="mt-2 text-fg-dim3 text-xs">三条治理神经各自横切多个模块，形成整套体系的<strong style="color:var(--accent)">"哲学骨架"</strong>。</div>
     </div>
+
   </div>
 </section>
 
@@ -356,43 +420,119 @@
     </p>
   </div>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-3" data-reveal>
-    <div class="p-4 border border-line rounded">
-      <div class="kicker mb-2"><span class="accent">P1</span> 五力放射</div>
-      <div class="text-sm text-fg">F01 (1 个)</div>
+  <div class="pattern-grid" data-reveal>
+
+    <div class="pattern-card" style="--pat-c:#8B5CFF">
+      <div class="pat-id">P1</div>
+      <div class="pat-name">五力放射</div>
+      <div class="pat-count">1 个框架</div>
+      <div class="pat-tags">
+        <a href="framework/F01.html" class="pat-tag">F01</a>
+      </div>
     </div>
-    <div class="p-4 border border-line rounded">
-      <div class="kicker mb-2"><span class="accent">P2</span> 雷达/多维</div>
-      <div class="text-sm text-fg">F02 · F17 · F18 · F29 · F35 · F36 · G03 (7 个)</div>
+
+    <div class="pattern-card" style="--pat-c:#5BB5FF">
+      <div class="pat-id">P2</div>
+      <div class="pat-name">雷达 / 多维</div>
+      <div class="pat-count">7 个框架</div>
+      <div class="pat-tags">
+        <a href="framework/F02.html" class="pat-tag">F02</a>
+        <a href="framework/F17.html" class="pat-tag">F17</a>
+        <a href="framework/F18.html" class="pat-tag">F18</a>
+        <a href="framework/F29.html" class="pat-tag">F29</a>
+        <a href="framework/F35.html" class="pat-tag">F35</a>
+        <a href="framework/F36.html" class="pat-tag">F36</a>
+        <a href="framework/G03.html" class="pat-tag">G03</a>
+      </div>
     </div>
-    <div class="p-4 border border-line rounded">
-      <div class="kicker mb-2"><span class="accent">P3</span> 双轴矩阵</div>
-      <div class="text-sm text-fg">F03 · F09 · F10 · F13 · F34 (5 个)</div>
+
+    <div class="pattern-card" style="--pat-c:#5BE5A0">
+      <div class="pat-id">P3</div>
+      <div class="pat-name">双轴矩阵</div>
+      <div class="pat-count">5 个框架</div>
+      <div class="pat-tags">
+        <a href="framework/F03.html" class="pat-tag">F03</a>
+        <a href="framework/F09.html" class="pat-tag">F09</a>
+        <a href="framework/F10.html" class="pat-tag">F10</a>
+        <a href="framework/F13.html" class="pat-tag">F13</a>
+        <a href="framework/F34.html" class="pat-tag">F34</a>
+      </div>
     </div>
-    <div class="p-4 border border-line rounded">
-      <div class="kicker mb-2"><span class="accent">P4</span> 层级栈</div>
-      <div class="text-sm text-fg">F08 · F14 · F15 · F23 · F28 · G01 (6 个)</div>
+
+    <div class="pattern-card" style="--pat-c:#FFB85B">
+      <div class="pat-id">P4</div>
+      <div class="pat-name">层级栈</div>
+      <div class="pat-count">6 个框架</div>
+      <div class="pat-tags">
+        <a href="framework/F08.html" class="pat-tag">F08</a>
+        <a href="framework/F14.html" class="pat-tag">F14</a>
+        <a href="framework/F15.html" class="pat-tag">F15</a>
+        <a href="framework/F23.html" class="pat-tag">F23</a>
+        <a href="framework/F28.html" class="pat-tag">F28</a>
+        <a href="framework/G01.html" class="pat-tag">G01</a>
+      </div>
     </div>
-    <div class="p-4 border border-line rounded">
-      <div class="kicker mb-2"><span class="accent">P5</span> 成熟度阶梯</div>
-      <div class="text-sm text-fg">F19 · F21 · F27 · F33 (4 个)</div>
+
+    <div class="pattern-card" style="--pat-c:#FF6B8A">
+      <div class="pat-id">P5</div>
+      <div class="pat-name">成熟度阶梯</div>
+      <div class="pat-count">4 个框架</div>
+      <div class="pat-tags">
+        <a href="framework/F19.html" class="pat-tag">F19</a>
+        <a href="framework/F21.html" class="pat-tag">F21</a>
+        <a href="framework/F27.html" class="pat-tag">F27</a>
+        <a href="framework/F33.html" class="pat-tag">F33</a>
+      </div>
     </div>
-    <div class="p-4 border border-line rounded">
-      <div class="kicker mb-2"><span class="accent">P6</span> 闭环</div>
-      <div class="text-sm text-fg">F20 · F24 · G02 (3 个)</div>
+
+    <div class="pattern-card" style="--pat-c:#FFD45B">
+      <div class="pat-id">P6</div>
+      <div class="pat-name">闭环</div>
+      <div class="pat-count">3 个框架</div>
+      <div class="pat-tags">
+        <a href="framework/F20.html" class="pat-tag">F20</a>
+        <a href="framework/F24.html" class="pat-tag">F24</a>
+        <a href="framework/G02.html" class="pat-tag">G02</a>
+      </div>
     </div>
-    <div class="p-4 border border-line rounded">
-      <div class="kicker mb-2"><span class="accent">P7</span> 链路流</div>
-      <div class="text-sm text-fg">F12 · F22 · F25 (3 个)</div>
+
+    <div class="pattern-card" style="--pat-c:#D45BFF">
+      <div class="pat-id">P7</div>
+      <div class="pat-name">链路流</div>
+      <div class="pat-count">3 个框架</div>
+      <div class="pat-tags">
+        <a href="framework/F12.html" class="pat-tag">F12</a>
+        <a href="framework/F22.html" class="pat-tag">F22</a>
+        <a href="framework/F25.html" class="pat-tag">F25</a>
+      </div>
     </div>
-    <div class="p-4 border border-line rounded">
-      <div class="kicker mb-2"><span class="accent">P8</span> 同心圆</div>
-      <div class="text-sm text-fg">F11 · F32 (2 个)</div>
+
+    <div class="pattern-card" style="--pat-c:#5BE5FF">
+      <div class="pat-id">P8</div>
+      <div class="pat-name">同心圆</div>
+      <div class="pat-count">2 个框架</div>
+      <div class="pat-tags">
+        <a href="framework/F11.html" class="pat-tag">F11</a>
+        <a href="framework/F32.html" class="pat-tag">F32</a>
+      </div>
     </div>
-    <div class="p-4 border border-line rounded lg:col-span-4" style="border-style:dashed">
-      <div class="kicker mb-2"><span class="accent">Custom</span> 轻定制</div>
-      <div class="text-sm text-fg">F00 破立合一图 · F04 三元决策 · F05 DKEP 四维 · F06 三阶演进 · F16 D-PMF 对比 · F26 三支柱替换 · F30 六类成本 · F31 盈亏曲线 (8 个)</div>
+
+    <div class="pattern-card full" style="--pat-c:var(--accent);border-style:dashed">
+      <div class="pat-id">CUSTOM</div>
+      <div class="pat-name">轻定制 · 独立可视化方案</div>
+      <div class="pat-count">8 个框架</div>
+      <div class="pat-tags">
+        <a href="framework/F00.html" class="pat-tag">F00 破立合一图</a>
+        <a href="framework/F04.html" class="pat-tag">F04 三元决策</a>
+        <a href="framework/F05.html" class="pat-tag">F05 DKEP 四维</a>
+        <a href="framework/F06.html" class="pat-tag">F06 三阶演进</a>
+        <a href="framework/F16.html" class="pat-tag">F16 D-PMF 对比</a>
+        <a href="framework/F26.html" class="pat-tag">F26 三支柱替换</a>
+        <a href="framework/F30.html" class="pat-tag">F30 六类成本</a>
+        <a href="framework/F31.html" class="pat-tag">F31 盈亏曲线</a>
+      </div>
     </div>
+
   </div>
 </section>
 

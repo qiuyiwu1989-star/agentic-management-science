@@ -177,4 +177,77 @@
     }
     activate(initial);
   }
+
+  // ----- TTS Audio Tour (Web Speech API) -----
+  if ('speechSynthesis' in window) {
+    let activeTtsBtn = null;
+
+    function stopTts() {
+      window.speechSynthesis.cancel();
+      if (activeTtsBtn) {
+        activeTtsBtn.classList.remove('is-speaking');
+        activeTtsBtn.setAttribute('aria-label', activeTtsBtn.getAttribute('data-tts-label') || '播放导览');
+        activeTtsBtn = null;
+      }
+    }
+
+    document.querySelectorAll('.tts-btn').forEach(btn => {
+      // Store original label
+      if (!btn.getAttribute('data-tts-label')) {
+        btn.setAttribute('data-tts-label', btn.textContent.trim());
+      }
+
+      btn.addEventListener('click', () => {
+        // If this button is already speaking, stop
+        if (btn === activeTtsBtn && window.speechSynthesis.speaking) {
+          stopTts();
+          return;
+        }
+        // Stop any current speech
+        stopTts();
+
+        const text = btn.getAttribute('data-tts') || '';
+        if (!text) return;
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'zh-CN';
+        utterance.rate = 0.88;
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+
+        // Try to pick a Chinese voice if available
+        const voices = window.speechSynthesis.getVoices();
+        const zhVoice = voices.find(v => v.lang.startsWith('zh') && !v.name.includes('Google')) ||
+                        voices.find(v => v.lang.startsWith('zh'));
+        if (zhVoice) utterance.voice = zhVoice;
+
+        activeTtsBtn = btn;
+        btn.classList.add('is-speaking');
+
+        utterance.onend = () => {
+          btn.classList.remove('is-speaking');
+          if (activeTtsBtn === btn) activeTtsBtn = null;
+        };
+        utterance.onerror = () => {
+          btn.classList.remove('is-speaking');
+          if (activeTtsBtn === btn) activeTtsBtn = null;
+        };
+
+        // Chrome workaround: voices may load async
+        if (window.speechSynthesis.getVoices().length === 0) {
+          window.speechSynthesis.onvoiceschanged = () => {
+            const v2 = window.speechSynthesis.getVoices();
+            const zh2 = v2.find(v => v.lang.startsWith('zh'));
+            if (zh2) utterance.voice = zh2;
+          };
+        }
+
+        window.speechSynthesis.speak(utterance);
+      });
+    });
+
+    // Stop TTS when user navigates away
+    window.addEventListener('beforeunload', stopTts);
+    window.addEventListener('pagehide', stopTts);
+  }
 })();
