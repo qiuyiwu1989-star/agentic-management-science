@@ -158,10 +158,33 @@
 
       <div class="tab-panel" data-panel="article" role="tabpanel" aria-labelledby="tab-article" hidden>
 
-      <div class="theory-note">
-        <strong>叙事版本</strong>：本框架叙事版（含实际案例和决策场景）正在撰写中，敬请期待。
-      </div>
-      <p class="text-fg-dim text-[16px] leading-[1.8] mt-6">请切换至「方法论」标签查看完整的方法论内容与执行步骤。</p>
+      <h2><span class="num">01</span>高 DAU 的假象</h2>
+      <p>一个 AI 写作助手上线六个月，日活用户稳定在三万，NPS 分数 47，三个月留存率 62%。按照传统 SaaS 的标准，这些数字看起来不错。</p>
+      <p>但当产品经理深挖用户行为数据，她发现了一个令人不安的模式：用户每次打开 Agent，生成一段文字，然后花十到二十分钟修改，最后使用的内容和原始输出的重叠率不到 30%。换句话说，<em>用户不是在使用这个 Agent 完成任务，而是在用它生成一个"需要大量修改的草稿"</em>，这个草稿只是他们自己写作的辅助材料，而不是可信赖的输出。</p>
+      <p>这就是"假 PMF"——产品有留存，有参与度，有良好的传统指标，但用户从来不让它做真正重要的任务，因为他们不信任它的输出质量到可以"托付"的程度。</p>
+      <p>F16 可靠性 PMF 诊断框架的出发点正是这个洞见：<strong>Agent 产品的真正 PMF 信号，不是用户活跃度，而是可托付性——用户愿不愿意把重要任务真正交给它，交出去之后还需不需要大量修改，修改之后下次还愿不愿意再托付。</strong></p>
+
+      <h2><span class="num">02</span>核心问题：三个新指标，替代传统 PMF 评估</h2>
+      <div class="theory-note"><strong>理论来源</strong>：Paul Graham "Product-Market Fit"概念 + Sean Ellis PMF 测试。<br/><strong>本框架创新</strong>：F16 提出 Reliability-PMF 三指标体系，专为 Agent 产品设计：任务完成率（TCR）≥90%、Override 率（OCR）≤20%、Re-delegation 率（RDR）≥60%。这三个指标比传统的 DAU/NPS/留存率更能反映 Agent 产品是否达到真正的可托付状态。</div>
+      <p>三个指标的定义和意义：</p>
+      <p><strong>任务完成率（TCR，Task Completion Rate）≥90%</strong>：Agent 独立完成任务的比例——不需要人工干预、没有错误停止、输出质量符合预定标准。这个指标反映的是技术层面的可靠性，是其他两个指标的前提。如果 TCR 不达标，其他指标没有意义。</p>
+      <p><strong>Override 率（OCR）≤20%</strong>：用户修改 Agent 输出的比例，以及修改幅度。这个指标反映的是输出质量是否达到可信赖水平。OCR 高意味着用户不信任 Agent 的输出，需要大量手动纠正。<em>一个 OCR 超过 40% 的 Agent，用户实际上是在把它当做一个"需要持续监督的实习生"，而不是可以托付任务的系统。</em></p>
+      <p><strong>Re-delegation 率（RDR）≥60%</strong>：用户在经历一次（可能包含修改的）任务之后，下次再遇到同类任务仍然选择交给 Agent 的比例。这个指标反映的是信任积累——用户是否在持续的使用中建立了对 Agent 能力的信任，以至于愿意持续托付。RDR 低意味着用户虽然用了，但没有"上瘾"，随时可能切换到其他方案。</p>
+
+      <h2><span class="num">03</span>假 PMF 的四个识别信号</h2>
+      <p>F16 框架总结了四种最常见的假 PMF 状态：</p>
+      <p><strong>新奇驱动型留存</strong>：用户因为新鲜感留存，但 RDR 持续下降——六个月的留存掩盖了用户"试过了就不再托付"的真实状态。</p>
+      <p><strong>辅助工具型使用</strong>：高 DAU，但 TCR 和 OCR 数据显示用户把 Agent 当成辅助工具而不是结果交付者。这个模式在 AI 写作工具里极为常见。</p>
+      <p><strong>低风险任务托付型</strong>：用户只把无关紧要的任务交给 Agent，重要任务仍然自己做。三指标看起来不错，但任务的实际业务价值极低。</p>
+      <p><strong>惯性使用型</strong>：用户已经把 Agent 嵌入工作流，不用会觉得"麻烦"，但他们其实并不信任输出质量，只是切换成本太高。这个状态看起来像真 PMF，但一旦出现更好的替代品，流失会很快。</p>
+
+      <h2><span class="num">04</span>PMF 路径设计</h2>
+      <p>当三指标低于目标时，F16 框架提供了基于指标组合的诊断路径：TCR 低 → 优先解决技术可靠性（F15 上下文优化、F17 VERITAS 评估）；OCR 高但 TCR 可以 → 输出质量方向问题（提示词优化、JTBO 结果重新定义）；RDR 低但 TCR 和 OCR 都达标 → 信任建立机制问题（可能需要 F18 CATER 的可逆性设计来降低托付门槛）。</p>
+
+      <h2><span class="num">05</span>在体系中的位置</h2>
+      <p>F16 是模块三"产品重写"的质量诊断框架，承接 F13-F15 的产品定位、任务定义和上下文设计，提供验证这些设计是否真正达到了"可托付"状态的评估体系。它是从"建产品"到"验产品"的关键节点。</p>
+      <p>上承 F14（JTBO，结果定义决定了 PMF 的评估标准）和 F15（上下文设计，质量是否达标依赖上下文是否到位）→ <strong>本框架</strong>（Reliability-PMF，三指标可托付性评估）→ 下启 F17（VERITAS 七维评估，对可靠性维度的更深入诊断）→ F18（CATER 治理信任评估，为高风险场景提供额外的治理维度）。</p>
+
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">

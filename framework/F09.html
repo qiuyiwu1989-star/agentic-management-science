@@ -165,18 +165,44 @@
 
       <div class="tab-panel" data-panel="article" role="tabpanel" aria-labelledby="tab-article" hidden>
 
-      <div class="theory-note mb-8">
-        <strong>叙事版本说明</strong>：本框架的叙事长文（场景案例版）正在撰写中。以下为 Skill 文件的框架定位说明，用于展示该框架的核心价值主张。
-      </div>
+      <h2><span class="num">01</span>那封没有人签名的错误通知</h2>
+      <p>一家保险公司的理赔系统在某个周末发出了三百封错误的理赔拒绝通知。通知是自动发送的，由一个理赔分类 Agent 触发。客户愤怒了，监管机构开始询问。</p>
+      <p>公司内部的紧急处理会议上，第一个问题是：<em>这个 Agent 是谁负责的？</em>答案沉默了五分钟。最后找到了一个工程师，他说这个系统是他半年前建的，但他现在已经换了团队。技术总监说这不在他管辖范围，业务总监说他不知道有这个系统在自动运行。</p>
+      <p>这就是"孤儿 Agent"的代价——一个高自主化运行的智能体，没有任何人对它的行为承担明确的责任。它在系统里运行，没人在监督，直到出了问题，才发现根本说不清楚谁应该负责。</p>
+      <p>F09 人机协同治理框架（RACI-A × DAL）要解决的核心问题是：<strong>自动化程度越高，责任归属越需要被显式化。两者不可脱钩。</strong></p>
 
-      <h2><span class="num">01</span>框架定位</h2>
-<p class="text-fg-dim text-[16px] leading-[1.8]"><strong>做什么</strong>：为每个Agent参与的任务标注RACI-A五维责任结构和DAL决策等级，在治理矩阵中定位风险状态，设计Agent行为边界和异常升级机制。</p>
-<p class="text-fg-dim text-[16px] leading-[1.8]"><strong>不做什么</strong>：不替代框架11（升级机制的系统性设计），不做Agent技术开发，不替代法律合规审查。</p>
-<p class="text-fg-dim text-[16px] leading-[1.8]"><strong>核心判断</strong>：自动化程度越高，责任归属越需要被显式化——两者不可脱钩。RACI-A × DAL治理矩阵里最危险的区域是「高自动化 × 无责任归属」，大多数企业已经在这里积累了大量孤儿Agent。</p>
+      <h2><span class="num">02</span>核心问题：谁对 Agent 的行为负责？</h2>
+      <div class="theory-note"><strong>理论来源</strong>：经典 RACI 责任矩阵（1950s）+ 决策自动化分层理论。<br/><strong>本框架创新</strong>：F09 在传统 RACI 基础上增加 "Ag"（Agent 执行主体）维度，构建 RACI-A 五维责任结构；同时引入 DAL（决策自主化等级，L0-L5）作为第二维度，通过 RACI-A × DAL 治理矩阵识别和修正最高风险的"禁止区"。核心创新：Agent 可以是执行主体（Ag），但永远不能是最终责任人（A）——A 必须是具名人类。</div>
+      <p>RACI-A 治理框架的出发点是对传统 RACI 矩阵的扩展。传统 RACI 把任务责任分为四类：A（最终负责）、R（执行负责）、C（被咨询）、I（被告知）。在 Agent 参与执行的场景里，需要增加第五类：<strong>Ag（Agent 执行主体）</strong>——标注哪个 Agent 在执行，以及它的决策自主化等级（DAL）。</p>
+      <p>最关键的规则是：<em>Ag ≠ A</em>。Agent 可以执行，但永远不能是最终责任人。A 必须是一个具名的人类——不是部门，不是系统，而是有姓名的人。当出现问题时，必须有人站出来说"这是我的责任"。这个人的存在，是 AI 治理的底线。</p>
 
-      <div class="theory-note mt-8">
-        <strong>完整叙事</strong>：本框架叙事版本（含真实案例与决策场景）将在近期更新。欢迎访问 <a href="https://qiuyiwu.com/management/" target="_blank" rel="noopener noreferrer" class="text-accent">造物云博客</a> 查看相关内容。
-      </div>
+      <h2><span class="num">03</span>DAL 六级：自主化程度的精确标注</h2>
+      <p>DAL（Decision Autonomy Level）六级体系，提供了一套精确描述 Agent 决策自主化程度的语言：</p>
+      <p><strong>L0（完全人工）</strong>：AI 工具仅辅助，所有决策和执行由人完成。L0 是基线，是最低风险状态。</p>
+      <p><strong>L1（AI 辅助建议）</strong>：Agent 给出建议或草稿，人类做最终决策和执行。营销文案生成、报告摘要是典型的 L1 场景。</p>
+      <p><strong>L2（人工逐步审批）</strong>：Agent 执行，但每个关键步骤都需要人工确认才能继续。适合中等风险、不可逆操作的场景。</p>
+      <p><strong>L3（异常时人工介入）</strong>：Agent 自动运行，仅在触发异常或置信度低于阈值时人工介入。大量客服路由、数据分类场景在 L3 运行。</p>
+      <p><strong>L4（边界自治）</strong>：Agent 在明确规则边界内完全自主，人工只设定边界参数。财务对账、库存补货等规则清晰的场景可以达到 L4。</p>
+      <p><strong>L5（完全自治）</strong>：理论完全自主，当前无生产环境部署。这是研究边界，不是实践选择。</p>
+
+      <h2><span class="num">04</span>治理矩阵：健康区与禁止区</h2>
+      <p>把 RACI-A（责任归属状态）和 DAL（自主化等级）组合成治理矩阵，就可以快速识别每个 Agent 任务的风险状态：</p>
+      <p><strong>健康区</strong>：责任归属明确（A 具名）+ 任意 DAL 等级 = 可接受。即便是 L4 的高自主化 Agent，只要有明确的责任人，就处于可管理状态。</p>
+      <p><strong>需关注区</strong>：责任归属模糊（A 存在但不够明确）+ L3 及以上 = 需要尽快明确责任人。</p>
+      <p><strong>禁止区</strong>：无责任归属（A 缺位）+ L3 及以上 = 必须立即修正。这个组合是最危险的状态——高自主化运行，但没有人负责。开头那个保险公司的案例，就是典型的禁止区状态。</p>
+      <p><em>大多数企业在做完第一次 RACI-A × DAL 治理矩阵盘点时，都会发现自己在禁止区积累了大量孤儿 Agent。</em>这不是企业不负责，而是 Agent 的治理语言还没有被系统化地引入。</p>
+
+      <h2><span class="num">05</span>三类边界：Agent 的行为约束必须被显式化</h2>
+      <p>每个处于 L3 及以上的 Agent，必须有明确的行为边界文档——三类边界缺一不可：</p>
+      <p><strong>可做清单（授权边界）</strong>：明确这个 Agent 被授权执行什么类型的任务、可访问什么数据、可输出什么内容。授权要具体，不能笼统。</p>
+      <p><strong>不可做清单（禁止边界）</strong>：明确这个 Agent 在任何情况下都不能做什么。例如：不可直接修改客户账户信息，不可独立做出超过一万元的费用承诺。这些禁止事项不能通过提示词绕过，需要在系统层面强制实施。</p>
+      <p><strong>必须升级清单（升级触发边界）</strong>：明确什么情况下 Agent 必须停止执行并转交人类介入。任务类型超出授权范围、置信度低于阈值、涉及特定高风险场景——这些触发条件必须被精确定义，模糊的升级规则等于没有升级规则。</p>
+
+      <h2><span class="num">06</span>在体系中的位置</h2>
+      <p>F09 是模块二"组织重写"的第三框架，也是整个 AI 治理体系的权责设计核心。F07 设计了组织网络的节点结构，F08 建立了技术架构，F09 解决的是最基础也最容易被忽视的问题：<em>在这个网络里，谁对谁的行为负责？</em></p>
+      <p>上承 F07（五节点网络）和 F08（中台架构）→ <strong>本框架</strong>（RACI-A × DAL 治理矩阵，责任归属显式化）→ 下启 F10（智能体岗位体系，在责任归属框架下重新定义岗位职责）和 F11（边界与升级机制，对 L3+ Agent 的系统性升级机制设计）。</p>
+
+      </div><!-- /.tab-panel[article] -->
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">

@@ -270,10 +270,30 @@
 
       <div class="tab-panel" data-panel="article" role="tabpanel" aria-labelledby="tab-article" hidden>
 
-      <div class="theory-note">
-        <strong>叙事版本</strong>：本框架叙事版（含实际案例和决策场景）正在撰写中，敬请期待。
-      </div>
-      <p class="text-fg-dim text-[16px] leading-[1.8] mt-6">请切换至「方法论」标签查看完整的方法论内容与执行步骤。</p>
+      <h2><span class="num">01</span>99% 准确率的 Agent 为什么不能上线</h2>
+      <p>一个医疗辅助诊断 Agent 在测试阶段的准确率达到了 99.2%——在一万个测试案例中，只有 79 个输出有误。产品团队很兴奋，认为这已经超过了很多医学生的水平。他们准备上线。</p>
+      <p>但上线审查时，一位医疗合规专家看了那 79 个错误案例，发现其中有 12 个属于"高置信度错误"——Agent 不但给出了错误结论，而且给出的置信度在 95% 以上，没有任何不确定性提示。在医疗场景里，一个"很确定地说错了"比"说错了但表示不确定"要危险得多，因为医生更可能直接采信高置信度的输出。</p>
+      <p>这个产品最终没有按计划上线。原因不是准确率，而是安全性——具体来说，是在安全评估维度的"高置信度错误"问题。</p>
+      <p>这就是 F17 VERITAS 七维评估框架的核心命题：<strong>准确率思维有根本局限。一个安全性有漏洞的 Agent，即使准确率 99% 也会造成灾难。Agent 评估必须是多维的，任何单维低于阈值都构成上线风险。</strong></p>
+
+      <h2><span class="num">02</span>七维评估：VERITAS</h2>
+      <div class="theory-note"><strong>理论来源</strong>：软件质量评估体系（ISO 25010）+ AI 安全性研究。<br/><strong>本框架创新</strong>：F17 提出 VERITAS 七维评估模型，针对 Agent 产品的特性设计七个评估维度，并设置"安全性一票否决"规则——安全维度不接受任何妥协，低于满分不允许在高风险场景上线。</div>
+      <p>VERITAS 七个维度及其含义：</p>
+      <p><strong>V（Validity，有效性）</strong>：输出是否正确解决了用户问题。这是最基础的维度，但不是唯一的维度。阈值：≥4/5。</p>
+      <p><strong>E（Efficiency，效率）</strong>：完成任务的资源消耗是否合理——Token 使用量、响应时间、计算成本。效率维度影响产品的可规模化能力。阈值：≥3/5。</p>
+      <p><strong>R（Reliability，可靠性）</strong>：相同或相似输入是否稳定产出相同质量的输出。可靠性是可托付性的基础——一个"好的时候很好，差的时候很差"的 Agent，无法建立用户信任。阈值：≥4/5。</p>
+      <p><strong>I（Interpretability，可解释性）</strong>：用户能否理解 Agent 为什么做出这个输出？在高风险场景里，黑盒输出是不可接受的。阈值：≥3/5。</p>
+      <p><strong>T（Timeliness，及时性）</strong>：响应速度是否在用户可接受范围内。在实时性要求高的场景，延迟会直接影响产品可用性。阈值：≥3/5。</p>
+      <p><strong>A（Auditability，可审计性）</strong>：决策过程是否可追溯——是否有完整的行为日志，是否可以事后复现。这是合规要求的基础。阈值：≥3/5。</p>
+      <p><strong>S（Safety，安全性）</strong>：是否存在安全漏洞或越权风险——输出是否可能造成伤害，是否有提示注入漏洞，是否能够被恶意利用。<em>安全性维度不接受任何妥协。S&lt;5分=不许上线，无论其他维度多优秀。</em></p>
+
+      <h2><span class="num">03</span>评估时机：上线前、定期、事件触发</h2>
+      <p>VERITAS 不只是上线前的一次性评估，而是贯穿 Agent 生命周期的持续评估机制。上线前评估是门槛——所有维度达标才能进入生产环境；定期评估（建议每季度）是维护——模型版本更新、数据分布变化、使用场景扩展都可能影响各维度评分；事件触发评估是应急——当发生严重输出错误或安全事件时，立即启动 VERITAS 全维度复查。</p>
+
+      <h2><span class="num">04</span>在体系中的位置</h2>
+      <p>F17 是模块三"产品重写"的能力评估框架，与 F18（CATER 治理信任）共同构成 Agent 产品的双维信任评估体系：VERITAS 评估能力信任（它做得好不好），CATER 评估治理信任（出了问题能不能管住）。</p>
+      <p>上承 F15（上下文设计，影响有效性和可靠性维度）和 F16（PMF 诊断，发现质量问题后用 VERITAS 定位根因）→ <strong>本框架</strong>（VERITAS 七维评估，全面能力质量诊断）→ 下启 F18（CATER 治理信任，在能力信任基础上评估治理信任）→ F19（MAS 架构选型，VERITAS 评估结果影响多 Agent 协作的架构复杂度决策）。</p>
+
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
