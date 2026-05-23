@@ -22,7 +22,6 @@
 <body class="bg-bg text-fg" data-module="5">
 <a href="#main-content" class="skip-link">跳至主内容</a>
 
-
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
@@ -74,126 +73,20 @@
       "3 个月看不到 ROI 就放弃"——这个决策，往往发生在恰好跨越盈亏平衡点之前。
       <br/><span class="text-fg-dim2">AI 投资的 ROI 不是一个算不算得出来的问题，而是一个价值被分散在哪里、用什么时间维度来看的问题。</span>
     </p>
-    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
-      <a href="#article" class="pill-btn pill-accent">阅读长文 <span class="arr">↓</span></a>
-      <a href="#resources" class="link-arrow">下载 Skill 与提示词 <span class="arr">↓</span></a>
+
+    <p class="mt-5 text-[14px] leading-relaxed max-w-2xl" data-reveal>
+      <span class="mono text-accent text-[11px] tracking-widest mr-2 opacity-70">DEF ·</span><span class="text-fg-dim">整合<strong>直接效率价值、间接业务价值、能力积累价值、战略防御价值</strong>四类价值来源，以<strong>盈亏平衡点时间线</strong>替代"当前 ROI 是否为正"作为 AI 投资评估标准——避免在跨越盈亏平衡前过早放弃。</span>
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="pill-btn pill-accent">进入方法论 <span class="arr">↓</span></a>
+      <a href="#article" class="link-arrow" onclick="var t=document.querySelector('[data-tab=article]');if(t){t.click();}">阅读叙事长文 →</a>
+      <a href="#resources" class="link-arrow" style="opacity:0.55">下载 Skill ↓</a>
     </div>
   </div>
 </section>
 
-<section class="container">
-  <div class="core-def-block" data-reveal>
-    <span class="label">核心定义 · Core Definition</span>
-    <div class="text">
-      整合<strong>直接效率价值、间接业务价值、能力积累价值、战略防御价值</strong>四类价值来源，以<strong>盈亏平衡点时间线</strong>替代"当前 ROI 是否为正"作为 AI 投资评估标准——避免在跨越盈亏平衡前过早放弃。
-    </div>
-  </div>
-</section>
 
-<!-- ============ VISUALIZATION: 四类价值 + 盈亏平衡时间线 ============ -->
-<section class="container">
-  <div class="fw-viz" data-reveal>
-    <div class="viz-header">
-      <div class="left"><span class="viz-label">F31 · 四类价值 + 盈亏平衡曲线</span></div>
-      <span class="viz-pattern">Custom</span>
-    </div>
-
-    <div class="viz-canvas">
-      <svg viewBox="0 0 720 480" class="viz-svg" style="max-width:760px" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="grad-cost" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#FF6B8A" stop-opacity="0.4"/>
-            <stop offset="100%" stop-color="#FF6B8A" stop-opacity="0.05"/>
-          </linearGradient>
-          <linearGradient id="grad-value" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="var(--mod-c)" stop-opacity="0.1"/>
-            <stop offset="100%" stop-color="var(--mod-c)" stop-opacity="0.6"/>
-          </linearGradient>
-        </defs>
-
-        <!-- LEFT: 四类价值堆叠图 -->
-        <text class="v-ring-label" x="180" y="32" text-anchor="middle">四类价值来源</text>
-
-        <g>
-          <rect x="60" y="60" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1"/>
-          <rect x="60" y="60" width="4" height="60" rx="2" fill="var(--mod-c)"/>
-          <text class="v-node-mono" x="75" y="78" style="font-size:9.5px;fill:var(--mod-c);">类 1 · 最易量化</text>
-          <text class="v-axis-name" x="75" y="95" style="font-size:13px;font-weight:500;">直接效率价值</text>
-          <text class="v-axis-name" x="75" y="110" style="font-size:10.5px;fill:var(--fg-dim);">人力时间节省 · 错误减少 · 处理加速</text>
-        </g>
-
-        <g>
-          <rect x="60" y="130" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1" stroke-dasharray="0"/>
-          <rect x="60" y="130" width="4" height="60" rx="2" fill="var(--mod-c)" opacity=".75"/>
-          <text class="v-node-mono" x="75" y="148" style="font-size:9.5px;fill:var(--mod-c);">类 2 · 代理指标可估</text>
-          <text class="v-axis-name" x="75" y="165" style="font-size:13px;font-weight:500;">间接业务价值</text>
-          <text class="v-axis-name" x="75" y="180" style="font-size:10.5px;fill:var(--fg-dim);">决策加速 · 客户体验 · 业务机会捕获</text>
-        </g>
-
-        <g>
-          <rect x="60" y="200" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1"/>
-          <rect x="60" y="200" width="4" height="60" rx="2" fill="var(--mod-c)" opacity=".5"/>
-          <text class="v-node-mono" x="75" y="218" style="font-size:9.5px;fill:var(--mod-c);">类 3 · 资产性增值</text>
-          <text class="v-axis-name" x="75" y="235" style="font-size:13px;font-weight:500;">能力积累价值</text>
-          <text class="v-axis-name" x="75" y="250" style="font-size:10.5px;fill:var(--fg-dim);">数据飞轮 · 组织 AI 成熟度 · Skill 资产</text>
-        </g>
-
-        <g>
-          <rect x="60" y="270" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1"/>
-          <rect x="60" y="270" width="4" height="60" rx="2" fill="var(--mod-c)" opacity=".3"/>
-          <text class="v-node-mono" x="75" y="288" style="font-size:9.5px;fill:var(--mod-c);">类 4 · 机会成本</text>
-          <text class="v-axis-name" x="75" y="305" style="font-size:13px;font-weight:500;">战略防御价值</text>
-          <text class="v-axis-name" x="75" y="320" style="font-size:10.5px;fill:var(--fg-dim);">不建设的竞争劣势 · 时间窗口被关</text>
-        </g>
-
-        <text class="v-axis-name" x="180" y="365" text-anchor="middle" style="font-size:11px;fill:var(--fg-dim2);">大多数 ROI 计算只算第 1 类，至多第 2 类</text>
-
-        <!-- RIGHT: 盈亏平衡曲线 -->
-        <text class="v-ring-label" x="540" y="32" text-anchor="middle">盈亏平衡点时间线</text>
-
-        <!-- 坐标轴 -->
-        <line x1="380" y1="320" x2="690" y2="320" stroke="var(--line-2)" stroke-width="1"/>
-        <line x1="380" y1="60" x2="380" y2="320" stroke="var(--line-2)" stroke-width="1"/>
-        <text class="v-axis-name" x="535" y="345" text-anchor="middle" style="font-size:10px;fill:var(--fg-dim2);">时间 →</text>
-        <text class="v-axis-name" x="370" y="190" text-anchor="end" style="font-size:10px;fill:var(--fg-dim2);transform-origin:370px 190px;transform:rotate(-90deg);">累计金额</text>
-
-        <!-- 累计成本曲线（前期陡峭后平缓）-->
-        <path d="M 380 320 L 410 240 L 460 200 L 530 180 L 600 170 L 680 165"
-              fill="none" stroke="#FF6B8A" stroke-width="2.2" opacity=".85"/>
-        <path d="M 380 320 L 410 240 L 460 200 L 530 180 L 600 170 L 680 165 L 680 320 Z"
-              fill="url(#grad-cost)"/>
-        <text class="v-axis-name" x="430" y="225" style="font-size:10px;fill:#FF6B8A;">累计成本</text>
-
-        <!-- 累计价值曲线（前期慢后期加速）-->
-        <path d="M 380 320 L 420 305 L 470 280 L 520 240 L 570 180 L 620 120 L 680 80"
-              fill="none" stroke="var(--mod-c)" stroke-width="2.5"/>
-        <path d="M 380 320 L 420 305 L 470 280 L 520 240 L 570 180 L 620 120 L 680 80 L 680 320 L 380 320 Z"
-              fill="url(#grad-value)" opacity=".5"/>
-        <text class="v-axis-name" x="640" y="100" style="font-size:10px;fill:var(--mod-c);">累计价值</text>
-
-        <!-- 盈亏平衡点 -->
-        <circle cx="569" cy="180" r="6" fill="var(--bg)" stroke="var(--mod-c)" stroke-width="2.5"/>
-        <line x1="569" y1="180" x2="569" y2="320" stroke="var(--mod-c)" stroke-width="1" stroke-dasharray="3 4" opacity=".6"/>
-        <text class="v-node-mono" x="569" y="170" text-anchor="middle" style="font-size:10px;fill:var(--mod-c);">盈亏平衡点</text>
-        <text class="v-axis-name" x="569" y="338" text-anchor="middle" style="font-size:10px;fill:var(--fg-dim2);">第 12-18 月</text>
-
-        <!-- 危险区标注：3个月放弃 -->
-        <line x1="430" y1="60" x2="430" y2="320" stroke="#FF6B8A" stroke-width="1.2" stroke-dasharray="4 4" opacity=".7"/>
-        <rect x="395" y="55" width="70" height="20" fill="rgba(255,107,138,0.15)" stroke="#FF6B8A" stroke-width="0.5" rx="2"/>
-        <text class="v-node-mono" x="430" y="69" text-anchor="middle" style="font-size:9.5px;fill:#FF6B8A;">⚠ 3 月放弃区</text>
-
-        <text class="v-axis-name" x="535" y="420" text-anchor="middle" style="font-size:11px;fill:var(--fg);">前 0-6 月 ROI 为负是<tspan style="fill:var(--mod-c);font-weight:500"> 正常积累期</tspan></text>
-        <text class="v-axis-name" x="535" y="438" text-anchor="middle" style="font-size:10.5px;fill:var(--fg-dim2);">在转折点前放弃 = 把全部投入变成沉没成本</text>
-      </svg>
-    </div>
-
-    <div class="viz-legend">
-      <span><i class="dot" style="background:#FF6B8A;"></i>累计成本曲线（前置 · 建设期集中）</span>
-      <span><i class="dot hub"></i>累计价值曲线（后置 · 能力积累驱动加速）</span>
-      <span><i class="dot ring"></i>盈亏平衡点 — 通常在 6–18 个月之间</span>
-    </div>
-  </div>
-</section>
 
 <section class="container">
   <div class="glance" data-reveal>
@@ -206,7 +99,7 @@
       <div class="glance-value">价值重写第五层 · 负责回答<span class="text-fg">「AI 投资的回报应该用什么时间维度评估」</span>，是 CPST（F30）的上游决策框架。</div>
     </div>
     <div class="glance-cell">
-      <div class="glance-label">理论来源</div>
+      <div class="glance-label">使用时机</div>
       <div class="glance-value">传统 ROI 分析 + 净现值（NPV）+ 学习曲线理论（Wright，1936）<span class="text-fg-dim2">→</span> 创新：四类价值拆解 + 盈亏平衡点时间线 + 战略防御价值作为机会成本。</div>
     </div>
   </div>
@@ -304,6 +197,109 @@
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+
+      <!-- 可视化模型（方法论语境中展示）-->
+<div class="fw-viz" data-reveal>
+        <div class="viz-header">
+          <div class="left"><span class="viz-label">F31 · 四类价值 + 盈亏平衡曲线</span></div>
+          <span class="viz-pattern">Custom</span>
+        </div>
+
+        <div class="viz-canvas">
+          <svg viewBox="0 0 720 480" class="viz-svg" style="max-width:760px" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="grad-cost" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#FF6B8A" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#FF6B8A" stop-opacity="0.05"/>
+              </linearGradient>
+              <linearGradient id="grad-value" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="var(--mod-c)" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="var(--mod-c)" stop-opacity="0.6"/>
+              </linearGradient>
+            </defs>
+
+            <!-- LEFT: 四类价值堆叠图 -->
+            <text class="v-ring-label" x="180" y="32" text-anchor="middle">四类价值来源</text>
+
+            <g>
+              <rect x="60" y="60" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1"/>
+              <rect x="60" y="60" width="4" height="60" rx="2" fill="var(--mod-c)"/>
+              <text class="v-node-mono" x="75" y="78" style="font-size:9.5px;fill:var(--mod-c);">类 1 · 最易量化</text>
+              <text class="v-axis-name" x="75" y="95" style="font-size:13px;font-weight:500;">直接效率价值</text>
+              <text class="v-axis-name" x="75" y="110" style="font-size:10.5px;fill:var(--fg-dim);">人力时间节省 · 错误减少 · 处理加速</text>
+            </g>
+
+            <g>
+              <rect x="60" y="130" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1" stroke-dasharray="0"/>
+              <rect x="60" y="130" width="4" height="60" rx="2" fill="var(--mod-c)" opacity=".75"/>
+              <text class="v-node-mono" x="75" y="148" style="font-size:9.5px;fill:var(--mod-c);">类 2 · 代理指标可估</text>
+              <text class="v-axis-name" x="75" y="165" style="font-size:13px;font-weight:500;">间接业务价值</text>
+              <text class="v-axis-name" x="75" y="180" style="font-size:10.5px;fill:var(--fg-dim);">决策加速 · 客户体验 · 业务机会捕获</text>
+            </g>
+
+            <g>
+              <rect x="60" y="200" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1"/>
+              <rect x="60" y="200" width="4" height="60" rx="2" fill="var(--mod-c)" opacity=".5"/>
+              <text class="v-node-mono" x="75" y="218" style="font-size:9.5px;fill:var(--mod-c);">类 3 · 资产性增值</text>
+              <text class="v-axis-name" x="75" y="235" style="font-size:13px;font-weight:500;">能力积累价值</text>
+              <text class="v-axis-name" x="75" y="250" style="font-size:10.5px;fill:var(--fg-dim);">数据飞轮 · 组织 AI 成熟度 · Skill 资产</text>
+            </g>
+
+            <g>
+              <rect x="60" y="270" width="240" height="60" rx="3" fill="rgba(var(--surface-rgb), 0.04)" stroke="var(--mod-c)" stroke-width="1"/>
+              <rect x="60" y="270" width="4" height="60" rx="2" fill="var(--mod-c)" opacity=".3"/>
+              <text class="v-node-mono" x="75" y="288" style="font-size:9.5px;fill:var(--mod-c);">类 4 · 机会成本</text>
+              <text class="v-axis-name" x="75" y="305" style="font-size:13px;font-weight:500;">战略防御价值</text>
+              <text class="v-axis-name" x="75" y="320" style="font-size:10.5px;fill:var(--fg-dim);">不建设的竞争劣势 · 时间窗口被关</text>
+            </g>
+
+            <text class="v-axis-name" x="180" y="365" text-anchor="middle" style="font-size:11px;fill:var(--fg-dim2);">大多数 ROI 计算只算第 1 类，至多第 2 类</text>
+
+            <!-- RIGHT: 盈亏平衡曲线 -->
+            <text class="v-ring-label" x="540" y="32" text-anchor="middle">盈亏平衡点时间线</text>
+
+            <!-- 坐标轴 -->
+            <line x1="380" y1="320" x2="690" y2="320" stroke="var(--line-2)" stroke-width="1"/>
+            <line x1="380" y1="60" x2="380" y2="320" stroke="var(--line-2)" stroke-width="1"/>
+            <text class="v-axis-name" x="535" y="345" text-anchor="middle" style="font-size:10px;fill:var(--fg-dim2);">时间 →</text>
+            <text class="v-axis-name" x="370" y="190" text-anchor="end" style="font-size:10px;fill:var(--fg-dim2);transform-origin:370px 190px;transform:rotate(-90deg);">累计金额</text>
+
+            <!-- 累计成本曲线（前期陡峭后平缓）-->
+            <path d="M 380 320 L 410 240 L 460 200 L 530 180 L 600 170 L 680 165"
+                  fill="none" stroke="#FF6B8A" stroke-width="2.2" opacity=".85"/>
+            <path d="M 380 320 L 410 240 L 460 200 L 530 180 L 600 170 L 680 165 L 680 320 Z"
+                  fill="url(#grad-cost)"/>
+            <text class="v-axis-name" x="430" y="225" style="font-size:10px;fill:#FF6B8A;">累计成本</text>
+
+            <!-- 累计价值曲线（前期慢后期加速）-->
+            <path d="M 380 320 L 420 305 L 470 280 L 520 240 L 570 180 L 620 120 L 680 80"
+                  fill="none" stroke="var(--mod-c)" stroke-width="2.5"/>
+            <path d="M 380 320 L 420 305 L 470 280 L 520 240 L 570 180 L 620 120 L 680 80 L 680 320 L 380 320 Z"
+                  fill="url(#grad-value)" opacity=".5"/>
+            <text class="v-axis-name" x="640" y="100" style="font-size:10px;fill:var(--mod-c);">累计价值</text>
+
+            <!-- 盈亏平衡点 -->
+            <circle cx="569" cy="180" r="6" fill="var(--bg)" stroke="var(--mod-c)" stroke-width="2.5"/>
+            <line x1="569" y1="180" x2="569" y2="320" stroke="var(--mod-c)" stroke-width="1" stroke-dasharray="3 4" opacity=".6"/>
+            <text class="v-node-mono" x="569" y="170" text-anchor="middle" style="font-size:10px;fill:var(--mod-c);">盈亏平衡点</text>
+            <text class="v-axis-name" x="569" y="338" text-anchor="middle" style="font-size:10px;fill:var(--fg-dim2);">第 12-18 月</text>
+
+            <!-- 危险区标注：3个月放弃 -->
+            <line x1="430" y1="60" x2="430" y2="320" stroke="#FF6B8A" stroke-width="1.2" stroke-dasharray="4 4" opacity=".7"/>
+            <rect x="395" y="55" width="70" height="20" fill="rgba(255,107,138,0.15)" stroke="#FF6B8A" stroke-width="0.5" rx="2"/>
+            <text class="v-node-mono" x="430" y="69" text-anchor="middle" style="font-size:9.5px;fill:#FF6B8A;">⚠ 3 月放弃区</text>
+
+            <text class="v-axis-name" x="535" y="420" text-anchor="middle" style="font-size:11px;fill:var(--fg);">前 0-6 月 ROI 为负是<tspan style="fill:var(--mod-c);font-weight:500"> 正常积累期</tspan></text>
+            <text class="v-axis-name" x="535" y="438" text-anchor="middle" style="font-size:10.5px;fill:var(--fg-dim2);">在转折点前放弃 = 把全部投入变成沉没成本</text>
+          </svg>
+        </div>
+
+        <div class="viz-legend">
+          <span><i class="dot" style="background:#FF6B8A;"></i>累计成本曲线（前置 · 建设期集中）</span>
+          <span><i class="dot hub"></i>累计价值曲线（后置 · 能力积累驱动加速）</span>
+          <span><i class="dot ring"></i>盈亏平衡点 — 通常在 6–18 个月之间</span>
+        </div>
+      </div>
 
 
       <h2><span class="num">01</span>"董事会开始追问，团队却给不出说服性的答案"</h2>
@@ -419,6 +415,11 @@
       <div class="theory-note mt-8">
         <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
       </div>
+
+      <h2><span class="num">T2</span>框架定位与适用边界</h2>
+      <p>本框架是管理实践工具，为高管和研究者提供结构化分析视角，不提供可直接验证的因果预测。其有效性依赖于：分析者对所在行业的深度认知、可获取的组织数据质量、以及将分析结论与具体决策场景相结合的能力。</p>
+      <p class="text-fg-dim text-[14px] leading-relaxed">智能体时代的框架有一个共同的时效性问题——AI 技术演化速度快于传统战略框架的更新周期。建议每 12–18 个月对本框架的核心假设进行一次复盘，检视其前提条件是否仍然成立。</p>
+
       </div><!-- /.tab-panel[theory] -->
 
     </article>

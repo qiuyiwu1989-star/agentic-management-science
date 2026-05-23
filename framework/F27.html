@@ -22,7 +22,6 @@
 <body class="bg-bg text-fg" data-module="5">
 <a href="#main-content" class="skip-link">跳至主内容</a>
 
-
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
@@ -74,71 +73,20 @@
       你的智能体运营，停在哪一级——大多数企业不知道，也不知道自己不知道。
       <br/><span class="text-fg-dim2">运营能力的差距，不会在第一天显现。它会在第一年的第六个月，以一场你完全没准备好的故障，突然让你看见。</span>
     </p>
-    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
-      <a href="#article" class="pill-btn pill-accent">阅读长文 <span class="arr">↓</span></a>
-      <a href="#resources" class="link-arrow">下载 Skill 与提示词 <span class="arr">↓</span></a>
+
+    <p class="mt-5 text-[14px] leading-relaxed max-w-2xl" data-reveal>
+      <span class="mono text-accent text-[11px] tracking-widest mr-2 opacity-70">DEF ·</span><span class="text-fg-dim">从<strong>实验级、监控级、量化级、自动化级到自治级</strong>，判断企业 Agent 运营能力阶段；<strong>M3 → M4 是规模化生产的真正门槛</strong>。</span>
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="pill-btn pill-accent">进入方法论 <span class="arr">↓</span></a>
+      <a href="#article" class="link-arrow" onclick="var t=document.querySelector('[data-tab=article]');if(t){t.click();}">阅读叙事长文 →</a>
+      <a href="#resources" class="link-arrow" style="opacity:0.55">下载 Skill ↓</a>
     </div>
   </div>
 </section>
 
-<section class="container">
-  <div class="core-def-block" data-reveal>
-    <span class="label">核心定义 · Core Definition</span>
-    <div class="text">
-      从<strong>实验级、监控级、量化级、自动化级到自治级</strong>，判断企业 Agent 运营能力阶段；<strong>M3 → M4 是规模化生产的真正门槛</strong>。
-    </div>
-  </div>
-</section>
 
-<!-- ============ VISUALIZATION ============ -->
-<section class="container">
-  <div class="fw-viz" data-reveal>
-    <div class="viz-header">
-      <div class="left">
-        <span class="viz-label">F27 · AgentOps 五级成熟度阶梯</span>
-      </div>
-      <span class="viz-pattern">P5</span>
-    </div>
-
-    <div class="viz-ladder">
-      <div class="step">
-        <div class="step-num">M1</div>
-        <div class="step-name">实验级</div>
-        <div class="step-desc">运营靠感觉，没有系统监控，问题靠用户投诉发现。系统是黑盒。</div>
-        <div class="step-flag">Experimental</div>
-      </div>
-      <div class="step">
-        <div class="step-num">M2</div>
-        <div class="step-name">可监控级</div>
-        <div class="step-desc">基础日志和告警，但只覆盖技术指标，无质量基准。</div>
-        <div class="step-flag">Observable</div>
-      </div>
-      <div class="step is-critical">
-        <div class="step-num">M3 · 分水岭</div>
-        <div class="step-name">可量化级</div>
-        <div class="step-desc">SLI/SLO 体系，业务级质量基准。从"实验性"进入"生产级"。</div>
-        <div class="step-flag">Measurable ★</div>
-      </div>
-      <div class="step">
-        <div class="step-num">M4</div>
-        <div class="step-name">可优化级</div>
-        <div class="step-desc">自动化质量门禁 + Error Budget——M3→M4 是规模化真正门槛。</div>
-        <div class="step-flag">Optimizable</div>
-      </div>
-      <div class="step">
-        <div class="step-num">M5</div>
-        <div class="step-name">自治级</div>
-        <div class="step-desc">系统可自我监控、评估、优化——人类成为系统设计者。</div>
-        <div class="step-flag">Autonomous</div>
-      </div>
-    </div>
-
-    <div class="viz-legend">
-      <span><i class="dot"></i>五级递进（高度反映成熟度）</span>
-      <span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 50%, transparent)"></i>M3 = 实验 / 生产分水岭</span>
-    </div>
-  </div>
-</section>
 
 <section class="container">
   <div class="glance" data-reveal>
@@ -151,7 +99,7 @@
       <div class="glance-value">价值重写第一层 · 负责回答<span class="text-fg">「智能体系统能否稳定持续地交付价值」</span>。</div>
     </div>
     <div class="glance-cell">
-      <div class="glance-label">理论来源</div>
+      <div class="glance-label">使用时机</div>
       <div class="glance-value">CMMI 软件能力成熟度模型（1991）+ Google SRE 实践（2016）<span class="text-fg-dim2">→</span> 创新：M3→M4 跃迁条件 + Error Budget 引入。</div>
     </div>
   </div>
@@ -243,6 +191,54 @@
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+
+      <!-- 可视化模型（方法论语境中展示）-->
+<div class="fw-viz" data-reveal>
+        <div class="viz-header">
+          <div class="left">
+            <span class="viz-label">F27 · AgentOps 五级成熟度阶梯</span>
+          </div>
+          <span class="viz-pattern">P5</span>
+        </div>
+
+        <div class="viz-ladder">
+          <div class="step">
+            <div class="step-num">M1</div>
+            <div class="step-name">实验级</div>
+            <div class="step-desc">运营靠感觉，没有系统监控，问题靠用户投诉发现。系统是黑盒。</div>
+            <div class="step-flag">Experimental</div>
+          </div>
+          <div class="step">
+            <div class="step-num">M2</div>
+            <div class="step-name">可监控级</div>
+            <div class="step-desc">基础日志和告警，但只覆盖技术指标，无质量基准。</div>
+            <div class="step-flag">Observable</div>
+          </div>
+          <div class="step is-critical">
+            <div class="step-num">M3 · 分水岭</div>
+            <div class="step-name">可量化级</div>
+            <div class="step-desc">SLI/SLO 体系，业务级质量基准。从"实验性"进入"生产级"。</div>
+            <div class="step-flag">Measurable ★</div>
+          </div>
+          <div class="step">
+            <div class="step-num">M4</div>
+            <div class="step-name">可优化级</div>
+            <div class="step-desc">自动化质量门禁 + Error Budget——M3→M4 是规模化真正门槛。</div>
+            <div class="step-flag">Optimizable</div>
+          </div>
+          <div class="step">
+            <div class="step-num">M5</div>
+            <div class="step-name">自治级</div>
+            <div class="step-desc">系统可自我监控、评估、优化——人类成为系统设计者。</div>
+            <div class="step-flag">Autonomous</div>
+          </div>
+        </div>
+
+        <div class="viz-legend">
+          <span><i class="dot"></i>五级递进（高度反映成熟度）</span>
+          <span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 50%, transparent)"></i>M3 = 实验 / 生产分水岭</span>
+        </div>
+      </div>
 
 
       <h2><span class="num">01</span>一个普遍存在的现象</h2>
@@ -349,6 +345,11 @@
       <div class="theory-note mt-8">
         <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
       </div>
+
+      <h2><span class="num">T2</span>框架定位与适用边界</h2>
+      <p>本框架是管理实践工具，为高管和研究者提供结构化分析视角，不提供可直接验证的因果预测。其有效性依赖于：分析者对所在行业的深度认知、可获取的组织数据质量、以及将分析结论与具体决策场景相结合的能力。</p>
+      <p class="text-fg-dim text-[14px] leading-relaxed">智能体时代的框架有一个共同的时效性问题——AI 技术演化速度快于传统战略框架的更新周期。建议每 12–18 个月对本框架的核心假设进行一次复盘，检视其前提条件是否仍然成立。</p>
+
       </div><!-- /.tab-panel[theory] -->
 
     </article>

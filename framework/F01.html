@@ -81,113 +81,19 @@
       <br/><span class="text-fg-dim2">分析框架是有前提的。当前提改变，再精密的框架也会给出错误的答案。</span>
     </p>
 
-    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
-      <a href="#article" class="pill-btn pill-accent">阅读长文 <span class="arr">↓</span></a>
-      <a href="#resources" class="link-arrow">下载 Skill 与提示词 <span class="arr">↓</span></a>
+    <p class="mt-5 text-[14px] leading-relaxed max-w-2xl" data-reveal>
+      <span class="mono text-accent text-[11px] tracking-widest mr-2 opacity-70">DEF ·</span><span class="text-fg-dim">重新推导智能体时代<strong class="text-fg">进入威胁、供应商力量、买方力量、替代品和同业竞争</strong>的来源与强度，并增加<strong class="text-fg">主权力</strong>作为第六维度。</span>
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="pill-btn pill-accent">进入方法论 <span class="arr">↓</span></a>
+      <a href="#article" class="link-arrow" onclick="var t=document.querySelector('[data-tab=article]');if(t){t.click();}">阅读叙事长文 →</a>
+      <a href="#resources" class="link-arrow" style="opacity:0.55">下载 Skill ↓</a>
     </div>
   </div>
 </section>
 
-<!-- ============ CORE DEFINITION ============ -->
-<section class="container">
-  <div class="core-def-block" data-reveal>
-    <span class="label">核心定义 · Core Definition</span>
-    <div class="text">
-      重新推导智能体时代<strong>进入威胁、供应商力量、买方力量、替代品和同业竞争</strong>的来源与强度，并增加<strong>主权力</strong>作为第六维度。
-    </div>
-  </div>
-</section>
 
-<!-- ============ VISUALIZATION MODEL ============ -->
-<section class="container">
-  <div class="fw-viz" data-reveal>
-    <div class="viz-header">
-      <div class="left">
-        <span class="viz-label">可视化模型 · Visual Model</span>
-        <h3>五力重构 + 主权力第六维</h3>
-      </div>
-      <span class="viz-pattern">P1 · 五力放射图</span>
-    </div>
-
-    <div class="viz-canvas">
-      <svg viewBox="0 0 720 600" class="viz-svg"
-           xmlns="http://www.w3.org/2000/svg"
-           role="img" aria-labelledby="viz-title viz-desc">
-        <title id="viz-title">智能体五力重构法 (AFFR) 可视化模型</title>
-        <desc id="viz-desc">中心为同业竞争，四个方向是另外四力（进入、供应商、买方、替代品），外圈虚线环为新增第六维度主权力</desc>
-
-        <defs>
-          <marker id="arrow-aff" viewBox="0 0 10 10" refX="9" refY="5"
-                  markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" class="v-arrow-head"/>
-          </marker>
-        </defs>
-
-        <!-- Outer Sovereignty Ring -->
-        <circle class="v-ring" cx="360" cy="305" r="275"/>
-        <text class="v-ring-label" x="360" y="28" text-anchor="middle">
-          主权力 · SOVEREIGNTY POWER
-        </text>
-        <text class="v-ring-sub" x="360" y="48" text-anchor="middle">
-          数据 · 模型 · 执行 · 治理 · 经济
-        </text>
-
-        <!-- Connectors (forces → rivalry) -->
-        <line class="v-connector" x1="360" y1="165" x2="360" y2="232" marker-end="url(#arrow-aff)"/>
-        <line class="v-connector" x1="450" y1="305" x2="437" y2="305" marker-end="url(#arrow-aff)"/>
-        <line class="v-connector" x1="360" y1="445" x2="360" y2="378" marker-end="url(#arrow-aff)"/>
-        <line class="v-connector" x1="270" y1="305" x2="283" y2="305" marker-end="url(#arrow-aff)"/>
-
-        <!-- Center: 同业竞争 -->
-        <g class="v-node center">
-          <circle class="v-center" cx="360" cy="305" r="72"/>
-          <text class="v-node-mono" x="360" y="280" text-anchor="middle">F01 · AFFR</text>
-          <text class="v-node-title" x="360" y="305" text-anchor="middle">同业竞争</text>
-          <text class="v-node-sub" x="360" y="325" text-anchor="middle">编排能力的竞争</text>
-        </g>
-
-        <!-- Top: 进入威胁 -->
-        <g class="v-node">
-          <rect class="v-node-rect" x="270" y="100" width="180" height="65" rx="4"/>
-          <text class="v-node-mono" x="285" y="118">FORCE 1</text>
-          <text class="v-node-title" x="360" y="135" text-anchor="middle">进入威胁</text>
-          <text class="v-node-sub" x="360" y="155" text-anchor="middle">能力门槛 → 系统门槛</text>
-        </g>
-
-        <!-- Right: 买方力量 -->
-        <g class="v-node">
-          <rect class="v-node-rect" x="450" y="272" width="180" height="65" rx="4"/>
-          <text class="v-node-mono" x="465" y="290">FORCE 2</text>
-          <text class="v-node-title" x="540" y="307" text-anchor="middle">买方力量</text>
-          <text class="v-node-sub" x="540" y="327" text-anchor="middle">采购 Agent 进场</text>
-        </g>
-
-        <!-- Bottom: 替代品威胁 -->
-        <g class="v-node">
-          <rect class="v-node-rect" x="270" y="445" width="180" height="65" rx="4"/>
-          <text class="v-node-mono" x="285" y="463">FORCE 3</text>
-          <text class="v-node-title" x="360" y="480" text-anchor="middle">替代品威胁</text>
-          <text class="v-node-sub" x="360" y="500" text-anchor="middle">能力替代 · 跨行业发生</text>
-        </g>
-
-        <!-- Left: 供应商力量 -->
-        <g class="v-node">
-          <rect class="v-node-rect" x="90" y="272" width="180" height="65" rx="4"/>
-          <text class="v-node-mono" x="105" y="290">FORCE 4</text>
-          <text class="v-node-title" x="180" y="307" text-anchor="middle">供应商力量</text>
-          <text class="v-node-sub" x="180" y="327" text-anchor="middle">模型平台依赖</text>
-        </g>
-
-      </svg>
-    </div>
-
-    <div class="viz-legend">
-      <span><i class="dot hub"></i>同业竞争（中心，rivalry hub）</span>
-      <span><i class="dot"></i>四力（来源被重构）</span>
-      <span><i class="dot ring"></i>主权力（第六维度，外圈包裹）</span>
-    </div>
-  </div>
-</section>
 
 <!-- ============ AT-A-GLANCE ============ -->
 <section class="container">
@@ -201,8 +107,8 @@
       <div class="glance-value">第一层 · 负责回答<span class="text-fg">「外部世界变了什么」</span>，是后续五个框架的分析起点。</div>
     </div>
     <div class="glance-cell">
-      <div class="glance-label">理论来源</div>
-      <div class="glance-value">波特《竞争战略》（1980）<span class="text-fg-dim2">→</span> 创新点：回到五力成立的前提（"人是执行主体、价值链是线性的"）重新推导，并增加第六维度。</div>
+      <div class="glance-label">使用时机</div>
+      <div class="glance-value">进入新市场前战略尽调 · 评估现有护城河是否仍有效 · 制定 3–5 年竞争战略 · 投资机构行业结构评估</div>
     </div>
   </div>
 </section>
@@ -318,6 +224,73 @@
         当执行主体开始包含智能体，当价值链开始可以被实时编排，五种竞争力量的来源和强度都在发生变化——不是变强或变弱那么简单，而是<strong>来源本身在改变</strong>。
       </p>
 
+      <!-- 可视化模型：有上下文后出现，认知锚定效果更好 -->
+      <div class="fw-viz my-8" data-reveal>
+        <div class="viz-header">
+          <div class="left">
+            <span class="viz-label">可视化模型 · Visual Model</span>
+            <h3>五力重构 + 主权力第六维</h3>
+          </div>
+          <span class="viz-pattern">P1 · 五力放射图</span>
+        </div>
+        <div class="viz-canvas">
+          <svg viewBox="0 0 720 600" class="viz-svg"
+               xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-labelledby="viz-title-m viz-desc-m">
+            <title id="viz-title-m">智能体五力重构法 (AFFR) 可视化模型</title>
+            <desc id="viz-desc-m">中心为同业竞争，四个方向是另外四力（进入、供应商、买方、替代品），外圈虚线环为新增第六维度主权力</desc>
+            <defs>
+              <marker id="arrow-aff-m" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" class="v-arrow-head"/>
+              </marker>
+            </defs>
+            <circle class="v-ring" cx="360" cy="305" r="275"/>
+            <text class="v-ring-label" x="360" y="28" text-anchor="middle">主权力 · SOVEREIGNTY POWER</text>
+            <text class="v-ring-sub" x="360" y="48" text-anchor="middle">数据 · 模型 · 执行 · 治理 · 经济</text>
+            <line class="v-connector" x1="360" y1="165" x2="360" y2="232" marker-end="url(#arrow-aff-m)"/>
+            <line class="v-connector" x1="450" y1="305" x2="437" y2="305" marker-end="url(#arrow-aff-m)"/>
+            <line class="v-connector" x1="360" y1="445" x2="360" y2="378" marker-end="url(#arrow-aff-m)"/>
+            <line class="v-connector" x1="270" y1="305" x2="283" y2="305" marker-end="url(#arrow-aff-m)"/>
+            <g class="v-node center">
+              <circle class="v-center" cx="360" cy="305" r="72"/>
+              <text class="v-node-mono" x="360" y="280" text-anchor="middle">F01 · AFFR</text>
+              <text class="v-node-title" x="360" y="305" text-anchor="middle">同业竞争</text>
+              <text class="v-node-sub" x="360" y="325" text-anchor="middle">编排能力的竞争</text>
+            </g>
+            <g class="v-node">
+              <rect class="v-node-rect" x="270" y="100" width="180" height="65" rx="4"/>
+              <text class="v-node-mono" x="285" y="118">FORCE 1</text>
+              <text class="v-node-title" x="360" y="135" text-anchor="middle">进入威胁</text>
+              <text class="v-node-sub" x="360" y="155" text-anchor="middle">能力门槛 → 系统门槛</text>
+            </g>
+            <g class="v-node">
+              <rect class="v-node-rect" x="450" y="272" width="180" height="65" rx="4"/>
+              <text class="v-node-mono" x="465" y="290">FORCE 2</text>
+              <text class="v-node-title" x="540" y="307" text-anchor="middle">买方力量</text>
+              <text class="v-node-sub" x="540" y="327" text-anchor="middle">采购 Agent 进场</text>
+            </g>
+            <g class="v-node">
+              <rect class="v-node-rect" x="270" y="445" width="180" height="65" rx="4"/>
+              <text class="v-node-mono" x="285" y="463">FORCE 3</text>
+              <text class="v-node-title" x="360" y="480" text-anchor="middle">替代品威胁</text>
+              <text class="v-node-sub" x="360" y="500" text-anchor="middle">能力替代 · 跨行业发生</text>
+            </g>
+            <g class="v-node">
+              <rect class="v-node-rect" x="90" y="272" width="180" height="65" rx="4"/>
+              <text class="v-node-mono" x="105" y="290">FORCE 4</text>
+              <text class="v-node-title" x="180" y="307" text-anchor="middle">供应商力量</text>
+              <text class="v-node-sub" x="180" y="327" text-anchor="middle">模型平台依赖</text>
+            </g>
+          </svg>
+        </div>
+        <div class="viz-legend">
+          <span><i class="dot hub"></i>同业竞争（中心，rivalry hub）</span>
+          <span><i class="dot"></i>四力（来源被重构）</span>
+          <span><i class="dot ring"></i>主权力（第六维度，外圈包裹）</span>
+        </div>
+      </div>
+
       <h3>进入威胁：壁垒的厚度在某些维度上正在变薄</h3>
       <p>
         在波特的框架里，由资本需求、规模经济、品牌忠诚度、渠道控制权等因素决定。这些因素构成壁垒，本质上是因为它们都需要时间和人力来积累。智能体压缩了所有这些积累过程需要的人力成本和时间成本——选品、定价、用户获取、内容生成、客服响应这些过去需要大型团队同时推进的工作，现在可以用极小的人力驱动大量智能体并行完成。
@@ -381,15 +354,53 @@
 
       <div class="tab-panel" data-panel="theory" role="tabpanel" aria-labelledby="tab-theory" hidden>
 
-      <h2><span class="num">T1</span>理论来源与学术引证</h2>
-      <p class="text-fg-dim text-[16px] leading-[1.8] mb-6">以下为本框架的理论基础说明，提炼自正文中的理论注释块。</p>
-<div class="theory-note">
-        <strong>理论来源</strong>：波特《竞争战略》（<em>Competitive Strategy</em>，1980）、《竞争优势》（<em>Competitive Advantage</em>，1985）。
-        <br/><strong>本框架创新</strong>：不在五力基础上做"AI 补丁"，而是回到五力成立的前提条件——"人是执行主体、价值链是线性的"——重新推导每一力在前提改变后的新表现形式，并增加第六维度"主权力"。
+      <h2><span class="num">T1</span>理论根基：波特五力的知识谱系</h2>
+      <p>AFFR 建立在工业组织经济学（Industrial Organization Economics）的结构–行为–绩效（SCP）范式之上。理解这一谱系，才能准确定位 AFFR 的创新贡献在哪里。</p>
+
+      <div class="theory-note">
+        <strong>核心来源</strong>：迈克尔·波特《竞争战略》（<em>Competitive Strategy</em>，1980）、《竞争优势》（<em>Competitive Advantage</em>，1985）。波特的框架脱胎于哈佛商学院 IO 经济学传统，直接继承自 Mason（1939）和 Bain（1956）的 SCP 范式：产业结构（Structure）→ 企业行为（Conduct）→ 经营绩效（Performance）。
       </div>
-      <div class="theory-note mt-8">
-        <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
+
+      <h3>从 SCP 到五力：一次管理学转化</h3>
+      <p>IO 经济学的 SCP 范式最初是产业经济学的分析工具，波特将其转化为管理者视角的战略工具：给定一个行业的结构（五力分布），管理者应如何选择自己的战略位置，从而获得超额利润。</p>
+      <p>这个转化有一个隐含的假设体系：<strong>行业结构是相对稳定的，五力的来源是可以被分析者"看清楚"的，而管理者可以在给定结构约束下选择最优位置。</strong>这套假设在 1980 年代的工业经济中高度适用——人是执行主体，价值链是线性的，竞争的时间尺度以年计。</p>
+
+      <h2><span class="num">T2</span>AFFR 的学术贡献：前提批判，而非框架修补</h2>
+
+      <div class="theory-note">
+        <strong>创新核心</strong>：AFFR 不是在五力框架上做"AI 补丁"（例如简单地增加"第六力：AI 威胁"），而是回到五力框架成立的元前提——"人是执行主体、价值链是线性的"——在前提改变后重新推导每一力的新来源与新表现形式。同时，主权力作为修正变量（而非独立的第六力）被引入，用以校正五力强度判断中的系统性盲区。
       </div>
+
+      <p>从知识论角度看，这是一种<strong>前提批判（premises critique）</strong>方法，而非框架修补（framework patching）。前提批判的优势在于：</p>
+      <ul class="list-disc list-inside text-fg-dim space-y-2 my-4 text-[15px] leading-relaxed">
+        <li>揭示原框架的适用边界，而不是简单宣称它"失效"</li>
+        <li>为每一力的变化提供内生解释，而非外加 AI 因素作为独立变量</li>
+        <li>保留原框架的结构完整性，减少分析者的认知切换成本</li>
+        <li>使框架具有跨行业的普适性——分析结论的差异来自行业的智能体渗透程度，而非框架本身的局限</li>
+      </ul>
+
+      <h3>与相关学术研究的对话</h3>
+      <p>在战略管理学术界，对波特五力的修订与批判已有较长历史。AFFR 与以下研究方向存在对话关系：</p>
+      <ul class="list-disc list-inside text-fg-dim space-y-2 my-4 text-[15px] leading-relaxed">
+        <li><strong>动态能力视角</strong>（Teece, Pisano &amp; Shuen, 1997）：认为竞争优势来自企业动态调整能力，而非静态结构位置。AFFR 在某种意义上是将动态能力视角嫁接到五力结构分析中——分析的不是静态的行业吸引力，而是竞争规则的动态重写。</li>
+        <li><strong>平台与网络效应研究</strong>（Rochet &amp; Tirole, 2003；Parker &amp; Van Alstyne, 2016）：多边市场结构挑战了线性价值链假设。AFFR 的"替代品威胁重写"部分吸收了这一批判——当整个环节可以被消除而非被替代，传统替代品分析单元已不够用。</li>
+        <li><strong>数据驱动竞争优势研究</strong>（Varian, 2014；Zuboff, 2019）：数据作为生产要素的独特性（非竞争性、可复制性）使传统的资源稀缺逻辑失效。AFFR 的"主权力"维度部分响应了这一研究方向。</li>
+      </ul>
+
+      <h2><span class="num">T3</span>理论定位与适用边界</h2>
+      <p>AFFR 是战略分析工具，而非严格意义上的实证理论。它的功能是帮助管理者构建更完整的竞争认知框架，不提供可直接验证的因果预测。</p>
+      <p><strong>适用边界</strong>：AFFR 的分析增量价值与行业的智能体渗透深度正相关。在渗透程度较低的行业（如部分重资产制造业），传统五力的可靠性可能仍高于 AFFR；在渗透程度高且变化迅速的行业（企业软件、专业服务、内容媒体、法律科技），AFFR 的增量价值最为明显。</p>
+
+      <div class="theory-note mt-6">
+        <strong>参考文献（精选）</strong><br/>
+        Porter, M.E. (1979). How competitive forces shape strategy. <em>Harvard Business Review</em>.<br/>
+        Porter, M.E. (1980). <em>Competitive Strategy</em>. Free Press.<br/>
+        Teece, D., Pisano, G., &amp; Shuen, A. (1997). Dynamic capabilities and strategic management. <em>Strategic Management Journal</em>, 18(7).<br/>
+        Rochet, J.C., &amp; Tirole, J. (2003). Platform competition in two-sided markets. <em>Journal of the European Economic Association</em>.<br/>
+        Parker, G., Van Alstyne, M., &amp; Choudary, S.P. (2016). <em>Platform Revolution</em>. W.W. Norton.<br/>
+        Varian, H. (2014). Beyond big data. <em>Business Economics</em>, 49(1).
+      </div>
+
       </div><!-- /.tab-panel[theory] -->
 
     </article>

@@ -22,7 +22,6 @@
 <body class="bg-bg text-fg" data-module="5">
 <a href="#main-content" class="skip-link">跳至主内容</a>
 
-
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
@@ -74,40 +73,16 @@
       传统运维指标正常，但智能体的核心价值正在悄悄流失——你没有察觉。
       <br/><span class="text-fg-dim2">一个系统的可用性是 99.9%，但它完成的任务里有 40% 没有产生实际价值。这是成功还是失败？传统指标体系告诉你是成功，用户体验告诉你是失败。</span>
     </p>
-  </div>
-</section>
 
-<section class="container">
-  <div class="core-def-block" data-reveal>
-    <span class="label">核心定义 · Core Definition</span>
-    <div class="text">从<strong>可用性（底层）→ 效能（中层）→ 质量稳定性（顶层）</strong>三层金字塔建立 Agent 服务指标与 SLO——揭示三层之间存在<strong>"成本×质量×性能"的本质性制约</strong>。</div>
-  </div>
-</section>
+    <p class="mt-5 text-[14px] leading-relaxed max-w-2xl" data-reveal>
+      <span class="mono text-accent text-[11px] tracking-widest mr-2 opacity-70">DEF ·</span><span class="text-fg-dim">从<strong>可用性（底层）→ 效能（中层）→ 质量稳定性（顶层）</strong>三层金字塔建立 Agent 服务指标与 SLO——揭示三层之间存在<strong>"成本×质量×性能"的本质性制约</strong>。</span>
+    </p>
 
-<section class="container">
-  <div class="fw-viz" data-reveal>
-    <div class="viz-header">
-      <div class="left"><span class="viz-label">F28 · 三层指标金字塔</span></div>
-      <span class="viz-pattern">P4</span>
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="pill-btn pill-accent">进入方法论 <span class="arr">↓</span></a>
+      <a href="#article" class="link-arrow" onclick="var t=document.querySelector('[data-tab=article]');if(t){t.click();}">阅读叙事长文 →</a>
+      <a href="#resources" class="link-arrow" style="opacity:0.55">下载 Skill ↓</a>
     </div>
-    <div class="viz-stack">
-      <div class="layer">
-        <div class="layer-num">顶层</div>
-        <div class="layer-name">质量稳定性指标<span class="en">Quality Stability</span></div>
-        <div class="layer-desc">P50/P90/P99 输出质量分位数 · 退化预警 · 跨场景一致性。</div>
-      </div>
-      <div class="layer is-key">
-        <div class="layer-num">中层</div>
-        <div class="layer-name">效能指标 ★<span class="en">Efficiency · 新增</span></div>
-        <div class="layer-desc">任务真实完成率（结果层）· CPTA · Override 率。传统 SRE 无法覆盖的三个新维度。</div>
-      </div>
-      <div class="layer">
-        <div class="layer-num">底层</div>
-        <div class="layer-name">可用性指标<span class="en">Availability · 继承自 SRE</span></div>
-        <div class="layer-desc">延迟 · 错误率 · 吞吐量——必要条件但不充分。只看这层会产生"指标全绿但价值流失"管理盲点。</div>
-      </div>
-    </div>
-    <div class="viz-legend"><span><i class="dot"></i>三层递进，效能层是 Agent 时代新增</span><span><i class="dot"></i>三层间制约：成本×质量×性能不可同优</span></div>
   </div>
 </section>
 
@@ -122,7 +97,7 @@
       <div class="glance-value">第二层 · 负责回答<span class="text-fg">「Agent 服务的指标体系如何分层」</span>。</div>
     </div>
     <div class="glance-cell">
-      <div class="glance-label">理论来源</div>
+      <div class="glance-label">使用时机</div>
       <div class="glance-value">Google SRE 黄金指标理论（2016）+ SLI/SLO 体系<span class="text-fg-dim2">→</span> 创新：增加效能层（任务真实完成率/CPTA/Override 率）+ 揭示三层制约关系。</div>
     </div>
   </div>
@@ -222,6 +197,32 @@
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+      <!-- 可视化模型（方法论语境中展示）-->
+<div class="fw-viz" data-reveal>
+        <div class="viz-header">
+          <div class="left"><span class="viz-label">F28 · 三层指标金字塔</span></div>
+          <span class="viz-pattern">P4</span>
+        </div>
+        <div class="viz-stack">
+          <div class="layer">
+            <div class="layer-num">顶层</div>
+            <div class="layer-name">质量稳定性指标<span class="en">Quality Stability</span></div>
+            <div class="layer-desc">P50/P90/P99 输出质量分位数 · 退化预警 · 跨场景一致性。</div>
+          </div>
+          <div class="layer is-key">
+            <div class="layer-num">中层</div>
+            <div class="layer-name">效能指标 ★<span class="en">Efficiency · 新增</span></div>
+            <div class="layer-desc">任务真实完成率（结果层）· CPTA · Override 率。传统 SRE 无法覆盖的三个新维度。</div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">底层</div>
+            <div class="layer-name">可用性指标<span class="en">Availability · 继承自 SRE</span></div>
+            <div class="layer-desc">延迟 · 错误率 · 吞吐量——必要条件但不充分。只看这层会产生"指标全绿但价值流失"管理盲点。</div>
+          </div>
+        </div>
+        <div class="viz-legend"><span><i class="dot"></i>三层递进，效能层是 Agent 时代新增</span><span><i class="dot"></i>三层间制约：成本×质量×性能不可同优</span></div>
+      </div>
+
 
       
       <h2><span class="num">01</span>"指标全绿但价值流失"——技术与业务的盲点</h2>
@@ -264,6 +265,11 @@
       <div class="theory-note mt-8">
         <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
       </div>
+
+      <h2><span class="num">T2</span>框架定位与适用边界</h2>
+      <p>本框架是管理实践工具，为高管和研究者提供结构化分析视角，不提供可直接验证的因果预测。其有效性依赖于：分析者对所在行业的深度认知、可获取的组织数据质量、以及将分析结论与具体决策场景相结合的能力。</p>
+      <p class="text-fg-dim text-[14px] leading-relaxed">智能体时代的框架有一个共同的时效性问题——AI 技术演化速度快于传统战略框架的更新周期。建议每 12–18 个月对本框架的核心假设进行一次复盘，检视其前提条件是否仍然成立。</p>
+
       </div><!-- /.tab-panel[theory] -->
 
     </article>

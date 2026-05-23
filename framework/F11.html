@@ -22,7 +22,6 @@
 <body class="bg-bg text-fg" data-module="2">
 <a href="#main-content" class="skip-link">跳至主内容</a>
 
-
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
@@ -74,59 +73,20 @@
       最危险的智能体，不是那个明显越界的，而是那个你以为还在边界内但其实早已漂移的。
       <br/><span class="text-fg-dim2">边界设计完成的那一刻，是系统最安全的时刻——之后只会越来越不安全，如果没有持续治理的话。</span>
     </p>
-    <div class="mt-10 flex flex-wrap gap-3" data-reveal>
-      <a href="#article" class="pill-btn pill-accent">阅读长文 <span class="arr">↓</span></a>
-      <a href="#resources" class="link-arrow">下载 Skill 与提示词 <span class="arr">↓</span></a>
+
+    <p class="mt-5 text-[14px] leading-relaxed max-w-2xl" data-reveal>
+      <span class="mono text-accent text-[11px] tracking-widest mr-2 opacity-70">DEF ·</span><span class="text-fg-dim">用<strong>边界、升级、恢复</strong>三套系统保障 Agent 规模化运行时<strong>不越权、不失控、可恢复</strong>——并引入<strong>"边界腐烂"</strong>概念与<strong>根因回流闭环</strong>。</span>
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="pill-btn pill-accent">进入方法论 <span class="arr">↓</span></a>
+      <a href="#article" class="link-arrow" onclick="var t=document.querySelector('[data-tab=article]');if(t){t.click();}">阅读叙事长文 →</a>
+      <a href="#resources" class="link-arrow" style="opacity:0.55">下载 Skill ↓</a>
     </div>
   </div>
 </section>
 
-<section class="container">
-  <div class="core-def-block" data-reveal>
-    <span class="label">核心定义 · Core Definition</span>
-    <div class="text">
-      用<strong>边界、升级、恢复</strong>三套系统保障 Agent 规模化运行时<strong>不越权、不失控、可恢复</strong>——并引入<strong>"边界腐烂"</strong>概念与<strong>根因回流闭环</strong>。
-    </div>
-  </div>
-</section>
 
-<!-- ============ VISUALIZATION ============ -->
-<section class="container">
-  <div class="fw-viz" data-reveal>
-    <div class="viz-header">
-      <div class="left">
-        <span class="viz-label">F11 · 三系统纵深防御</span>
-      </div>
-      <span class="viz-pattern">P8</span>
-    </div>
-    <div class="viz-canvas">
-      <svg viewBox="0 0 540 480" class="viz-svg" style="max-width:540px" xmlns="http://www.w3.org/2000/svg">
-        <circle class="v-concentric" cx="270" cy="240" r="220"/>
-        <text class="v-ring-label" x="270" y="38" text-anchor="middle">恢复系统 · RECOVERY</text>
-        <text class="v-ring-sub" x="270" y="58" text-anchor="middle">即时遏制 · 影响评估 · 根因闭环</text>
-
-        <circle class="v-concentric" cx="270" cy="240" r="150"/>
-        <text class="v-ring-label" x="270" y="115" text-anchor="middle">升级系统 · ESCALATION</text>
-        <text class="v-ring-sub" x="270" y="132" text-anchor="middle">5 类触发条件 · 具名升级 · 时效要求</text>
-
-        <circle class="v-concentric v-concentric-inner" cx="270" cy="240" r="78"/>
-        <text class="v-node-mono" x="270" y="225" text-anchor="middle">F11 · ABERS</text>
-        <text class="v-node-title" x="270" y="248" text-anchor="middle" style="font-size:14px">边界系统</text>
-        <text class="v-axis-name" x="270" y="266" text-anchor="middle">任务 / 资源 / 决策</text>
-
-        <line class="v-connector" x1="362" y1="240" x2="430" y2="240" stroke-dasharray="3 3"/>
-        <text class="v-axis-name" x="438" y="232" style="font-size:10.5px">B → 定义</text>
-        <text class="v-axis-name" x="438" y="247" style="font-size:10.5px">E → 检测</text>
-        <text class="v-axis-name" x="438" y="262" style="font-size:10.5px">R → 复原</text>
-      </svg>
-    </div>
-    <div class="viz-legend">
-      <span><i class="dot hub"></i>内：边界系统（第一道防线）</span>
-      <span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 60%, transparent)"></i>中：升级系统（发现越界）</span>
-      <span><i class="dot ring"></i>外：恢复系统（限制损害 + 根因闭环）</span>
-    </div>
-  </div>
-</section>
 
 <section class="container">
   <div class="glance" data-reveal>
@@ -139,7 +99,7 @@
       <div class="glance-value">组织重写第五层 · 负责回答<span class="text-fg">「智能体的安全护栏怎么搭建并持续维护」</span>。</div>
     </div>
     <div class="glance-cell">
-      <div class="glance-label">理论来源</div>
+      <div class="glance-label">使用时机</div>
       <div class="glance-value">信息安全纵深防御原则 + ITIL 事件升级机制<span class="text-fg-dim2">→</span> 创新：边界腐烂概念 + 意图歧义触发 + 根因回流闭环。</div>
     </div>
   </div>
@@ -204,6 +164,42 @@
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+
+      <!-- 可视化模型（方法论语境中展示）-->
+<div class="fw-viz" data-reveal>
+        <div class="viz-header">
+          <div class="left">
+            <span class="viz-label">F11 · 三系统纵深防御</span>
+          </div>
+          <span class="viz-pattern">P8</span>
+        </div>
+        <div class="viz-canvas">
+          <svg viewBox="0 0 540 480" class="viz-svg" style="max-width:540px" xmlns="http://www.w3.org/2000/svg">
+            <circle class="v-concentric" cx="270" cy="240" r="220"/>
+            <text class="v-ring-label" x="270" y="38" text-anchor="middle">恢复系统 · RECOVERY</text>
+            <text class="v-ring-sub" x="270" y="58" text-anchor="middle">即时遏制 · 影响评估 · 根因闭环</text>
+
+            <circle class="v-concentric" cx="270" cy="240" r="150"/>
+            <text class="v-ring-label" x="270" y="115" text-anchor="middle">升级系统 · ESCALATION</text>
+            <text class="v-ring-sub" x="270" y="132" text-anchor="middle">5 类触发条件 · 具名升级 · 时效要求</text>
+
+            <circle class="v-concentric v-concentric-inner" cx="270" cy="240" r="78"/>
+            <text class="v-node-mono" x="270" y="225" text-anchor="middle">F11 · ABERS</text>
+            <text class="v-node-title" x="270" y="248" text-anchor="middle" style="font-size:14px">边界系统</text>
+            <text class="v-axis-name" x="270" y="266" text-anchor="middle">任务 / 资源 / 决策</text>
+
+            <line class="v-connector" x1="362" y1="240" x2="430" y2="240" stroke-dasharray="3 3"/>
+            <text class="v-axis-name" x="438" y="232" style="font-size:10.5px">B → 定义</text>
+            <text class="v-axis-name" x="438" y="247" style="font-size:10.5px">E → 检测</text>
+            <text class="v-axis-name" x="438" y="262" style="font-size:10.5px">R → 复原</text>
+          </svg>
+        </div>
+        <div class="viz-legend">
+          <span><i class="dot hub"></i>内：边界系统（第一道防线）</span>
+          <span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 60%, transparent)"></i>中：升级系统（发现越界）</span>
+          <span><i class="dot ring"></i>外：恢复系统（限制损害 + 根因闭环）</span>
+        </div>
+      </div>
 
 
       <h2><span class="num">01</span>一个普遍存在的现象</h2>
@@ -322,6 +318,11 @@
       <div class="theory-note mt-8">
         <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
       </div>
+
+      <h2><span class="num">T2</span>框架定位与适用边界</h2>
+      <p>本框架是管理实践工具，为高管和研究者提供结构化分析视角，不提供可直接验证的因果预测。其有效性依赖于：分析者对所在行业的深度认知、可获取的组织数据质量、以及将分析结论与具体决策场景相结合的能力。</p>
+      <p class="text-fg-dim text-[14px] leading-relaxed">智能体时代的框架有一个共同的时效性问题——AI 技术演化速度快于传统战略框架的更新周期。建议每 12–18 个月对本框架的核心假设进行一次复盘，检视其前提条件是否仍然成立。</p>
+
       </div><!-- /.tab-panel[theory] -->
 
     </article>

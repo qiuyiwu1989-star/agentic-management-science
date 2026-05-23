@@ -22,7 +22,6 @@
 <body class="bg-bg text-fg" data-module="3">
 <a href="#main-content" class="skip-link">跳至主内容</a>
 
-
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
@@ -74,55 +73,16 @@
       你的智能体系统是什么级别——大多数企业的最优解，比你想象的简单。
       <br/><span class="text-fg-dim2">越复杂不等于越成熟。在智能体架构的选择上，盲目追求高级别，是一种代价高昂的工程浪漫主义。</span>
     </p>
-  </div>
-</section>
 
-<section class="container">
-  <div class="core-def-block" data-reveal>
-    <span class="label">核心定义 · Core Definition</span>
-    <div class="text">从<strong>L1 单 Agent → L2 流水线 → L3 监督者编排 → L4 并行协作 → L5 自组织群体</strong>五级阶梯——其中 <strong>L3 是当前最佳实践中心点</strong>，<strong>L3→L4 工程成本增加 8-15 倍</strong>。</div>
-  </div>
-</section>
+    <p class="mt-5 text-[14px] leading-relaxed max-w-2xl" data-reveal>
+      <span class="mono text-accent text-[11px] tracking-widest mr-2 opacity-70">DEF ·</span><span class="text-fg-dim">从<strong>L1 单 Agent → L2 流水线 → L3 监督者编排 → L4 并行协作 → L5 自组织群体</strong>五级阶梯——其中 <strong>L3 是当前最佳实践中心点</strong>，<strong>L3→L4 工程成本增加 8-15 倍</strong>。</span>
+    </p>
 
-<section class="container">
-  <div class="fw-viz" data-reveal>
-    <div class="viz-header">
-      <div class="left"><span class="viz-label">F19 · MAAML 五级架构阶梯</span></div>
-      <span class="viz-pattern">P5</span>
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="pill-btn pill-accent">进入方法论 <span class="arr">↓</span></a>
+      <a href="#article" class="link-arrow" onclick="var t=document.querySelector('[data-tab=article]');if(t){t.click();}">阅读叙事长文 →</a>
+      <a href="#resources" class="link-arrow" style="opacity:0.55">下载 Skill ↓</a>
     </div>
-    <div class="viz-ladder">
-      <div class="step">
-        <div class="step-num">L1</div>
-        <div class="step-name">单智能体</div>
-        <div class="step-desc">独立执行单一任务。工程复杂度最低 · 调试最简单。</div>
-        <div class="step-flag">Single Agent · 合理起点</div>
-      </div>
-      <div class="step">
-        <div class="step-num">L2</div>
-        <div class="step-name">流水线</div>
-        <div class="step-desc">固定顺序依次执行。当前生产环境最广泛应用。</div>
-        <div class="step-flag">Sequential · 应用最广</div>
-      </div>
-      <div class="step is-critical">
-        <div class="step-num">L3 ★</div>
-        <div class="step-name">监督者编排</div>
-        <div class="step-desc">主 Agent 动态调度子 Agent。最佳实践中心点——动态规划 + 可控性最佳平衡。</div>
-        <div class="step-flag">Supervised ★ 最佳实践</div>
-      </div>
-      <div class="step">
-        <div class="step-num">L4</div>
-        <div class="step-name">并行协作</div>
-        <div class="step-desc">并行执行 + 相互感知协调。⚠ vs L3 成本 ×8-15 倍。</div>
-        <div class="step-flag">Parallel · 慎重评估</div>
-      </div>
-      <div class="step">
-        <div class="step-num">L5</div>
-        <div class="step-name">自组织群体</div>
-        <div class="step-desc">Swarm 涌现协同。行为不可预测，调试极端困难。研究领域。</div>
-        <div class="step-flag">Swarm · 不适合生产</div>
-      </div>
-    </div>
-    <div class="viz-legend"><span><i class="dot"></i>越复杂 ≠ 越成熟</span><span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 50%, transparent)"></i>L3 = 大多数企业最优解 · L5 是研究</span></div>
   </div>
 </section>
 
@@ -137,7 +97,7 @@
       <div class="glance-value">第七层 · 负责回答<span class="text-fg">「架构应该选哪个级别」</span>，是产品工程的技术架构决策依据。</div>
     </div>
     <div class="glance-cell">
-      <div class="glance-label">理论来源</div>
+      <div class="glance-label">使用时机</div>
       <div class="glance-value">多智能体系统理论（MAS，1980s）+ 软件架构成熟度模型（CMMI，1991）<span class="text-fg-dim2">→</span> 创新：五级实践化阶梯 + L3 最佳实践判断 + L3→L4 成本估算（8-15 倍）。</div>
     </div>
   </div>
@@ -287,6 +247,47 @@
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+      <!-- 可视化模型（方法论语境中展示）-->
+<div class="fw-viz" data-reveal>
+        <div class="viz-header">
+          <div class="left"><span class="viz-label">F19 · MAAML 五级架构阶梯</span></div>
+          <span class="viz-pattern">P5</span>
+        </div>
+        <div class="viz-ladder">
+          <div class="step">
+            <div class="step-num">L1</div>
+            <div class="step-name">单智能体</div>
+            <div class="step-desc">独立执行单一任务。工程复杂度最低 · 调试最简单。</div>
+            <div class="step-flag">Single Agent · 合理起点</div>
+          </div>
+          <div class="step">
+            <div class="step-num">L2</div>
+            <div class="step-name">流水线</div>
+            <div class="step-desc">固定顺序依次执行。当前生产环境最广泛应用。</div>
+            <div class="step-flag">Sequential · 应用最广</div>
+          </div>
+          <div class="step is-critical">
+            <div class="step-num">L3 ★</div>
+            <div class="step-name">监督者编排</div>
+            <div class="step-desc">主 Agent 动态调度子 Agent。最佳实践中心点——动态规划 + 可控性最佳平衡。</div>
+            <div class="step-flag">Supervised ★ 最佳实践</div>
+          </div>
+          <div class="step">
+            <div class="step-num">L4</div>
+            <div class="step-name">并行协作</div>
+            <div class="step-desc">并行执行 + 相互感知协调。⚠ vs L3 成本 ×8-15 倍。</div>
+            <div class="step-flag">Parallel · 慎重评估</div>
+          </div>
+          <div class="step">
+            <div class="step-num">L5</div>
+            <div class="step-name">自组织群体</div>
+            <div class="step-desc">Swarm 涌现协同。行为不可预测，调试极端困难。研究领域。</div>
+            <div class="step-flag">Swarm · 不适合生产</div>
+          </div>
+        </div>
+        <div class="viz-legend"><span><i class="dot"></i>越复杂 ≠ 越成熟</span><span><i class="dot" style="background:color-mix(in srgb, var(--mod-c) 50%, transparent)"></i>L3 = 大多数企业最优解 · L5 是研究</span></div>
+      </div>
+
 
       
       <h2><span class="num">01</span>"Agentic AI"叙事的副作用</h2>
@@ -333,6 +334,11 @@
       <div class="theory-note mt-8">
         <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
       </div>
+
+      <h2><span class="num">T2</span>框架定位与适用边界</h2>
+      <p>本框架是管理实践工具，为高管和研究者提供结构化分析视角，不提供可直接验证的因果预测。其有效性依赖于：分析者对所在行业的深度认知、可获取的组织数据质量、以及将分析结论与具体决策场景相结合的能力。</p>
+      <p class="text-fg-dim text-[14px] leading-relaxed">智能体时代的框架有一个共同的时效性问题——AI 技术演化速度快于传统战略框架的更新周期。建议每 12–18 个月对本框架的核心假设进行一次复盘，检视其前提条件是否仍然成立。</p>
+
       </div><!-- /.tab-panel[theory] -->
 
     </article>

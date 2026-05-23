@@ -22,7 +22,6 @@
 <body class="bg-bg text-fg" data-module="3">
 <a href="#main-content" class="skip-link">跳至主内容</a>
 
-
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
@@ -74,45 +73,16 @@
       高留存、高好评，但用户从不把重要的事交给它——这是成功还是失败？
       <br/><span class="text-fg-dim2">传统 PMF 问的是：用户喜欢它吗？托付型 PMF 问的是：用户敢托付它吗？</span>
     </p>
-  </div>
-</section>
 
-<section class="container">
-  <div class="core-def-block" data-reveal>
-    <span class="label">核心定义 · Core Definition</span>
-    <div class="text">判断用户是否敢把核心任务交给 Agent（而不只是是否喜欢或愿意试用）——通过<strong>任务完成率、Override 率、再委托率</strong>三个托付型指标量化信任委托程度。</div>
-  </div>
-</section>
+    <p class="mt-5 text-[14px] leading-relaxed max-w-2xl" data-reveal>
+      <span class="mono text-accent text-[11px] tracking-widest mr-2 opacity-70">DEF ·</span><span class="text-fg-dim">判断用户是否敢把核心任务交给 Agent（而不只是是否喜欢或愿意试用）——通过<strong>任务完成率、Override 率、再委托率</strong>三个托付型指标量化信任委托程度。</span>
+    </p>
 
-<section class="container">
-  <div class="fw-viz" data-reveal>
-    <div class="viz-header">
-      <div class="left"><span class="viz-label">F16 · 传统 PMF vs 托付型 PMF</span></div>
-      <span class="viz-pattern">custom</span>
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="pill-btn pill-accent">进入方法论 <span class="arr">↓</span></a>
+      <a href="#article" class="link-arrow" onclick="var t=document.querySelector('[data-tab=article]');if(t){t.click();}">阅读叙事长文 →</a>
+      <a href="#resources" class="link-arrow" style="opacity:0.55">下载 Skill ↓</a>
     </div>
-    <div class="viz-matrix" style="grid-template-columns: 1fr 1fr; grid-template-rows: auto; min-height:auto;">
-      <div class="quad">
-        <span class="quad-tag">传统 PMF 指标</span>
-        <h4 class="quad-title">😊 情感依恋程度</h4>
-        <p class="quad-desc">DAU / MAU / NPS / 留存率 — 制造"假 PMF"的风险：用户喜欢但只用在无足轻重的事情上。</p>
-      </div>
-      <div class="quad">
-        <span class="quad-tag">Task Completion</span>
-        <h4 class="quad-title">✓ 任务完成率</h4>
-        <p class="quad-desc">成功完成到用户满意的任务比例——定义来自 JTBO 结果层。能力信任的基础指标。</p>
-      </div>
-      <div class="quad">
-        <span class="quad-tag">Override Rate ★</span>
-        <h4 class="quad-title">👤 用户推翻率</h4>
-        <p class="quad-desc">用户推翻 AI 判断的频率。高 = 不信任信号。传统指标完全缺失——托付意愿最强的预测因子。</p>
-      </div>
-      <div class="quad">
-        <span class="quad-tag">Re-delegation</span>
-        <h4 class="quad-title">🔁 再委托率</h4>
-        <p class="quad-desc">失败后是否再次委托而非自己处理。区分"偶然失败"与"系统性问题"——托付关系韧性的指标。</p>
-      </div>
-    </div>
-    <div class="viz-legend"><span><i class="dot"></i>情感依恋 ≠ 信任委托</span><span><i class="dot"></i>三个托付型指标同时健康才是真 PMF</span></div>
   </div>
 </section>
 
@@ -127,7 +97,7 @@
       <div class="glance-value">第四层 · 负责回答<span class="text-fg">「PMF 是真的还是假的」</span>，是 Agent 产品独有的 PMF 判断标准。</div>
     </div>
     <div class="glance-cell">
-      <div class="glance-label">理论来源</div>
+      <div class="glance-label">使用时机</div>
       <div class="glance-value">Sean Ellis PMF 测试（2007）+ 用户留存增长指标理论<span class="text-fg-dim2">→</span> 创新：托付型 PMF 概念 + 三个托付型指标（Override 率为新增维度）。</div>
     </div>
   </div>
@@ -188,6 +158,37 @@
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+      <!-- 可视化模型（方法论语境中展示）-->
+<div class="fw-viz" data-reveal>
+        <div class="viz-header">
+          <div class="left"><span class="viz-label">F16 · 传统 PMF vs 托付型 PMF</span></div>
+          <span class="viz-pattern">custom</span>
+        </div>
+        <div class="viz-matrix" style="grid-template-columns: 1fr 1fr; grid-template-rows: auto; min-height:auto;">
+          <div class="quad">
+            <span class="quad-tag">传统 PMF 指标</span>
+            <h4 class="quad-title">😊 情感依恋程度</h4>
+            <p class="quad-desc">DAU / MAU / NPS / 留存率 — 制造"假 PMF"的风险：用户喜欢但只用在无足轻重的事情上。</p>
+          </div>
+          <div class="quad">
+            <span class="quad-tag">Task Completion</span>
+            <h4 class="quad-title">✓ 任务完成率</h4>
+            <p class="quad-desc">成功完成到用户满意的任务比例——定义来自 JTBO 结果层。能力信任的基础指标。</p>
+          </div>
+          <div class="quad">
+            <span class="quad-tag">Override Rate ★</span>
+            <h4 class="quad-title">👤 用户推翻率</h4>
+            <p class="quad-desc">用户推翻 AI 判断的频率。高 = 不信任信号。传统指标完全缺失——托付意愿最强的预测因子。</p>
+          </div>
+          <div class="quad">
+            <span class="quad-tag">Re-delegation</span>
+            <h4 class="quad-title">🔁 再委托率</h4>
+            <p class="quad-desc">失败后是否再次委托而非自己处理。区分"偶然失败"与"系统性问题"——托付关系韧性的指标。</p>
+          </div>
+        </div>
+        <div class="viz-legend"><span><i class="dot"></i>情感依恋 ≠ 信任委托</span><span><i class="dot"></i>三个托付型指标同时健康才是真 PMF</span></div>
+      </div>
+
 
       
       <h2><span class="num">01</span>"假 PMF"——智能体产品特有的增长陷阱</h2>
@@ -231,6 +232,11 @@
       <div class="theory-note mt-8">
         <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
       </div>
+
+      <h2><span class="num">T2</span>框架定位与适用边界</h2>
+      <p>本框架是管理实践工具，为高管和研究者提供结构化分析视角，不提供可直接验证的因果预测。其有效性依赖于：分析者对所在行业的深度认知、可获取的组织数据质量、以及将分析结论与具体决策场景相结合的能力。</p>
+      <p class="text-fg-dim text-[14px] leading-relaxed">智能体时代的框架有一个共同的时效性问题——AI 技术演化速度快于传统战略框架的更新周期。建议每 12–18 个月对本框架的核心假设进行一次复盘，检视其前提条件是否仍然成立。</p>
+
       </div><!-- /.tab-panel[theory] -->
 
     </article>

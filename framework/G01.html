@@ -22,7 +22,6 @@
 <body class="bg-bg text-fg" data-module="g">
 <a href="#main-content" class="skip-link">跳至主内容</a>
 
-
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
@@ -74,45 +73,16 @@
       不是写好提示词，是管理好意图——这是人机协作最根本的能力。
       <br/><span class="text-fg-dim2">意图是人机协作的起点，也是它最脆弱的地方。一个模糊的意图，会让后续所有的执行都建立在错误的前提上。</span>
     </p>
-  </div>
-</section>
 
-<section class="container">
-  <div class="core-def-block" data-reveal>
-    <span class="label">核心定义 · Core Definition</span>
-    <div class="text">把人类下达指令时同时传递的四层信息——<strong>表层指令 / 目标意图 / 约束意图 / 价值意图</strong>——显式化、对齐、持续校准，确保 Agent 理解的任务始终对齐人的真实目标。</div>
-  </div>
-</section>
+    <p class="mt-5 text-[14px] leading-relaxed max-w-2xl" data-reveal>
+      <span class="mono text-accent text-[11px] tracking-widest mr-2 opacity-70">DEF ·</span><span class="text-fg-dim">把人类下达指令时同时传递的四层信息——<strong>表层指令 / 目标意图 / 约束意图 / 价值意图</strong>——显式化、对齐、持续校准，确保 Agent 理解的任务始终对齐人的真实目标。</span>
+    </p>
 
-<section class="container">
-  <div class="fw-viz" data-reveal>
-    <div class="viz-header">
-      <div class="left"><span class="viz-label">G01 · 意图四层结构</span></div>
-      <span class="viz-pattern">P4</span>
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="pill-btn pill-accent">进入方法论 <span class="arr">↓</span></a>
+      <a href="#article" class="link-arrow" onclick="var t=document.querySelector('[data-tab=article]');if(t){t.click();}">阅读叙事长文 →</a>
+      <a href="#resources" class="link-arrow" style="opacity:0.55">下载 Skill ↓</a>
     </div>
-    <div class="viz-stack">
-      <div class="layer">
-        <div class="layer-num">L1 表层</div>
-        <div class="layer-name">表层指令<span class="en">Surface Instruction</span></div>
-        <div class="layer-desc">具体要做什么——唯一被显式传递的层次。例："帮我写一份市场分析报告"。</div>
-      </div>
-      <div class="layer">
-        <div class="layer-num">L2 目标</div>
-        <div class="layer-name">目标意图<span class="en">Goal Intent</span></div>
-        <div class="layer-desc">背后的真实目的——融资？退出？竞争响应？目的不同好报告完全不同。⚠ 通常隐含未表达。</div>
-      </div>
-      <div class="layer">
-        <div class="layer-num">L3 约束</div>
-        <div class="layer-name">约束意图<span class="en">Constraint Intent</span></div>
-        <div class="layer-desc">不能做什么——合规边界、法律风险约束、战略禁区。通常出问题才被提起。</div>
-      </div>
-      <div class="layer is-key">
-        <div class="layer-num">L4 价值 ★</div>
-        <div class="layer-name">价值意图<span class="en">Value Intent</span></div>
-        <div class="layer-desc">最终服务于什么原则——以客户为中心 · 让非专业读者理解。<strong>最隐性 · 缺失时"差了点什么"</strong>。</div>
-      </div>
-    </div>
-    <div class="viz-legend"><span><i class="dot"></i>四层意图同时传递，但通常只有 L1 被显式表达</span><span><i class="dot"></i>横切 F10 / F14 / F15</span></div>
   </div>
 </section>
 
@@ -127,7 +97,7 @@
       <div class="glance-value">治理神经① · 横切模块二（F10）+ 模块三（F14、F15）· 人机协作的认知锚点。</div>
     </div>
     <div class="glance-cell">
-      <div class="glance-label">理论来源</div>
+      <div class="glance-label">使用时机</div>
       <div class="glance-value">自然语言处理领域意图识别研究 + 目标树分析<span class="text-fg-dim2">→</span> 创新：从技术层"意图识别"升级为管理层"意图管理" + 四层架构。</div>
     </div>
   </div>
@@ -199,6 +169,37 @@
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+      <!-- 可视化模型（方法论语境中展示）-->
+<div class="fw-viz" data-reveal>
+        <div class="viz-header">
+          <div class="left"><span class="viz-label">G01 · 意图四层结构</span></div>
+          <span class="viz-pattern">P4</span>
+        </div>
+        <div class="viz-stack">
+          <div class="layer">
+            <div class="layer-num">L1 表层</div>
+            <div class="layer-name">表层指令<span class="en">Surface Instruction</span></div>
+            <div class="layer-desc">具体要做什么——唯一被显式传递的层次。例："帮我写一份市场分析报告"。</div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">L2 目标</div>
+            <div class="layer-name">目标意图<span class="en">Goal Intent</span></div>
+            <div class="layer-desc">背后的真实目的——融资？退出？竞争响应？目的不同好报告完全不同。⚠ 通常隐含未表达。</div>
+          </div>
+          <div class="layer">
+            <div class="layer-num">L3 约束</div>
+            <div class="layer-name">约束意图<span class="en">Constraint Intent</span></div>
+            <div class="layer-desc">不能做什么——合规边界、法律风险约束、战略禁区。通常出问题才被提起。</div>
+          </div>
+          <div class="layer is-key">
+            <div class="layer-num">L4 价值 ★</div>
+            <div class="layer-name">价值意图<span class="en">Value Intent</span></div>
+            <div class="layer-desc">最终服务于什么原则——以客户为中心 · 让非专业读者理解。<strong>最隐性 · 缺失时"差了点什么"</strong>。</div>
+          </div>
+        </div>
+        <div class="viz-legend"><span><i class="dot"></i>四层意图同时传递，但通常只有 L1 被显式表达</span><span><i class="dot"></i>横切 F10 / F14 / F15</span></div>
+      </div>
+
 
       
       <h2><span class="num">01</span>一个横跨所有模块的现象</h2>
@@ -248,6 +249,11 @@
       <div class="theory-note mt-8">
         <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
       </div>
+
+      <h2><span class="num">T2</span>框架定位与适用边界</h2>
+      <p>本框架是管理实践工具，为高管和研究者提供结构化分析视角，不提供可直接验证的因果预测。其有效性依赖于：分析者对所在行业的深度认知、可获取的组织数据质量、以及将分析结论与具体决策场景相结合的能力。</p>
+      <p class="text-fg-dim text-[14px] leading-relaxed">智能体时代的框架有一个共同的时效性问题——AI 技术演化速度快于传统战略框架的更新周期。建议每 12–18 个月对本框架的核心假设进行一次复盘，检视其前提条件是否仍然成立。</p>
+
       </div><!-- /.tab-panel[theory] -->
 
     </article>

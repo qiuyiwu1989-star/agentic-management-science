@@ -22,7 +22,6 @@
 <body class="bg-bg text-fg" data-module="5">
 <a href="#main-content" class="skip-link">跳至主内容</a>
 
-
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
@@ -74,55 +73,16 @@
       只算 Token 成本，你严重低估了智能体的真实成本——但这个误判，也可能让你错过未来。
       <br/><span class="text-fg-dim2">成本计算错了，所有投资决策就都建立在错误的数字上。更糟糕的是，如果成本计算的方向对了，却用了静态而非动态的视角，好的机会可能被提前放弃。</span>
     </p>
-  </div>
-</section>
 
-<section class="container">
-  <div class="core-def-block" data-reveal>
-    <span class="label">核心定义 · Core Definition</span>
-    <div class="text">计算 Agent 完成<strong>一次有效任务</strong>的真实成本，包括 <strong>Token / 工具调用 / 人工审校 / 运维 / 构建摊销 / 失败</strong> 六类——并引入<strong>动态视角</strong>（每年成本约降 10 倍）。</div>
-  </div>
-</section>
+    <p class="mt-5 text-[14px] leading-relaxed max-w-2xl" data-reveal>
+      <span class="mono text-accent text-[11px] tracking-widest mr-2 opacity-70">DEF ·</span><span class="text-fg-dim">计算 Agent 完成<strong>一次有效任务</strong>的真实成本，包括 <strong>Token / 工具调用 / 人工审校 / 运维 / 构建摊销 / 失败</strong> 六类——并引入<strong>动态视角</strong>（每年成本约降 10 倍）。</span>
+    </p>
 
-<section class="container">
-  <div class="fw-viz" data-reveal>
-    <div class="viz-header">
-      <div class="left"><span class="viz-label">F30 · CPST 六类成本 + 动态视角</span></div>
-      <span class="viz-pattern">custom</span>
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="pill-btn pill-accent">进入方法论 <span class="arr">↓</span></a>
+      <a href="#article" class="link-arrow" onclick="var t=document.querySelector('[data-tab=article]');if(t){t.click();}">阅读叙事长文 →</a>
+      <a href="#resources" class="link-arrow" style="opacity:0.55">下载 Skill ↓</a>
     </div>
-    <div class="viz-matrix" style="grid-template-columns: 1fr 1fr; grid-template-rows: auto; min-height:auto;">
-      <div class="quad">
-        <span class="quad-tag">类 1</span>
-        <h4 class="quad-title">API 调用</h4>
-        <p class="quad-desc">Token 费用——最可见的部分，但通常只占 30-50%。</p>
-      </div>
-      <div class="quad">
-        <span class="quad-tag">类 2</span>
-        <h4 class="quad-title">工具调用</h4>
-        <p class="quad-desc">搜索/数据库/API——高频时是主要成本。</p>
-      </div>
-      <div class="quad">
-        <span class="quad-tag">类 3</span>
-        <h4 class="quad-title">人工审校</h4>
-        <p class="quad-desc">L0-L2 场景的真实人力成本，严重被低估。</p>
-      </div>
-      <div class="quad">
-        <span class="quad-tag">类 4</span>
-        <h4 class="quad-title">运维监控</h4>
-        <p class="quad-desc">系统持续运维 + 监控 + 模型再校准——长期持续成本。</p>
-      </div>
-      <div class="quad">
-        <span class="quad-tag">类 5</span>
-        <h4 class="quad-title">构建摊销</h4>
-        <p class="quad-desc">系统开发的初始投入，按周期摊分到任务量。</p>
-      </div>
-      <div class="quad">
-        <span class="quad-tag">类 6 ★</span>
-        <h4 class="quad-title">失败成本</h4>
-        <p class="quad-desc">失败任务消耗的资源没有产生有效输出——纯粹浪费。失败率越高，单位有效任务成本越高。</p>
-      </div>
-    </div>
-    <div class="viz-legend"><span><i class="dot"></i>CPST = (六类成本) ÷ 成功任务数</span><span><i class="dot"></i>动态视角：今天不经济 → 18-24 月后可能经济</span></div>
   </div>
 </section>
 
@@ -137,7 +97,7 @@
       <div class="glance-value">第四层 · 负责回答<span class="text-fg">「Agent 成本应该怎么算才不被误导」</span>。</div>
     </div>
     <div class="glance-cell">
-      <div class="glance-label">理论来源</div>
+      <div class="glance-label">使用时机</div>
       <div class="glance-value">单位经济模型理论 + 作业成本法（Kaplan，1980s）<span class="text-fg-dim2">→</span> 创新：以"成功任务"替代"系统运行"作为计量单位 + 六类完整成本 + 动态视角。</div>
     </div>
   </div>
@@ -231,6 +191,47 @@
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+      <!-- 可视化模型（方法论语境中展示）-->
+<div class="fw-viz" data-reveal>
+        <div class="viz-header">
+          <div class="left"><span class="viz-label">F30 · CPST 六类成本 + 动态视角</span></div>
+          <span class="viz-pattern">custom</span>
+        </div>
+        <div class="viz-matrix" style="grid-template-columns: 1fr 1fr; grid-template-rows: auto; min-height:auto;">
+          <div class="quad">
+            <span class="quad-tag">类 1</span>
+            <h4 class="quad-title">API 调用</h4>
+            <p class="quad-desc">Token 费用——最可见的部分，但通常只占 30-50%。</p>
+          </div>
+          <div class="quad">
+            <span class="quad-tag">类 2</span>
+            <h4 class="quad-title">工具调用</h4>
+            <p class="quad-desc">搜索/数据库/API——高频时是主要成本。</p>
+          </div>
+          <div class="quad">
+            <span class="quad-tag">类 3</span>
+            <h4 class="quad-title">人工审校</h4>
+            <p class="quad-desc">L0-L2 场景的真实人力成本，严重被低估。</p>
+          </div>
+          <div class="quad">
+            <span class="quad-tag">类 4</span>
+            <h4 class="quad-title">运维监控</h4>
+            <p class="quad-desc">系统持续运维 + 监控 + 模型再校准——长期持续成本。</p>
+          </div>
+          <div class="quad">
+            <span class="quad-tag">类 5</span>
+            <h4 class="quad-title">构建摊销</h4>
+            <p class="quad-desc">系统开发的初始投入，按周期摊分到任务量。</p>
+          </div>
+          <div class="quad">
+            <span class="quad-tag">类 6 ★</span>
+            <h4 class="quad-title">失败成本</h4>
+            <p class="quad-desc">失败任务消耗的资源没有产生有效输出——纯粹浪费。失败率越高，单位有效任务成本越高。</p>
+          </div>
+        </div>
+        <div class="viz-legend"><span><i class="dot"></i>CPST = (六类成本) ÷ 成功任务数</span><span><i class="dot"></i>动态视角：今天不经济 → 18-24 月后可能经济</span></div>
+      </div>
+
 
       
       <h2><span class="num">01</span>"AI 成本低于人力成本就值得投入"——这个逻辑哪里错了</h2>
@@ -280,6 +281,11 @@
       <div class="theory-note mt-8">
         <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
       </div>
+
+      <h2><span class="num">T2</span>框架定位与适用边界</h2>
+      <p>本框架是管理实践工具，为高管和研究者提供结构化分析视角，不提供可直接验证的因果预测。其有效性依赖于：分析者对所在行业的深度认知、可获取的组织数据质量、以及将分析结论与具体决策场景相结合的能力。</p>
+      <p class="text-fg-dim text-[14px] leading-relaxed">智能体时代的框架有一个共同的时效性问题——AI 技术演化速度快于传统战略框架的更新周期。建议每 12–18 个月对本框架的核心假设进行一次复盘，检视其前提条件是否仍然成立。</p>
+
       </div><!-- /.tab-panel[theory] -->
 
     </article>

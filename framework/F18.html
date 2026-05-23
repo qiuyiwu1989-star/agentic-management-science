@@ -22,7 +22,6 @@
 <body class="bg-bg text-fg" data-module="3">
 <a href="#main-content" class="skip-link">跳至主内容</a>
 
-
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl border-b border-line nav-bar">
   <div class="container h-16 flex items-center justify-between">
     <a href="../index.html" class="flex items-center gap-2"><span class="mono text-sm"><span class="text-fg">agentic.mgmt</span><span class="text-accent">_</span></span><span class="hidden sm:inline-block mx-3 w-px h-3.5 bg-line"></span><span class="hidden sm:inline text-fg-dim text-[13px] tracking-wide">智能体管理学</span></a>
@@ -74,54 +73,16 @@
       用户相信这个 AI 很聪明——但他们不知道出了问题有没有人管。
       <br/><span class="text-fg-dim2">能力信任说的是"它能做到"，治理信任说的是"做错了有人负责"。高风险场景里，后者才是决定性的。</span>
     </p>
-  </div>
-</section>
 
-<section class="container">
-  <div class="core-def-block" data-reveal>
-    <span class="label">核心定义 · Core Definition</span>
-    <div class="text">区分<strong>能力信任与治理信任</strong>，从<strong>可控（C）/ 可审计（A）/ 透明（T）/ 可解释（E）/ 可逆（R）</strong>五维度判断 Agent 是否值得托付——其中<strong>"可逆性必须在流程设计阶段考虑"</strong>是核心操作原则。</div>
-  </div>
-</section>
+    <p class="mt-5 text-[14px] leading-relaxed max-w-2xl" data-reveal>
+      <span class="mono text-accent text-[11px] tracking-widest mr-2 opacity-70">DEF ·</span><span class="text-fg-dim">区分<strong>能力信任与治理信任</strong>，从<strong>可控（C）/ 可审计（A）/ 透明（T）/ 可解释（E）/ 可逆（R）</strong>五维度判断 Agent 是否值得托付——其中<strong>"可逆性必须在流程设计阶段考虑"</strong>是核心操作原则。</span>
+    </p>
 
-<section class="container">
-  <div class="fw-viz" data-reveal>
-    <div class="viz-header">
-      <div class="left"><span class="viz-label">F18 · CATER 五维治理信任</span></div>
-      <span class="viz-pattern">P2</span>
+    <div class="mt-8 flex flex-wrap gap-3" data-reveal>
+      <a href="#article" class="pill-btn pill-accent">进入方法论 <span class="arr">↓</span></a>
+      <a href="#article" class="link-arrow" onclick="var t=document.querySelector('[data-tab=article]');if(t){t.click();}">阅读叙事长文 →</a>
+      <a href="#resources" class="link-arrow" style="opacity:0.55">下载 Skill ↓</a>
     </div>
-    <div class="viz-canvas">
-      <svg viewBox="0 0 480 480" class="viz-svg" style="max-width:480px" xmlns="http://www.w3.org/2000/svg">
-        <circle class="v-axis-grid" cx="240" cy="240" r="40"/>
-<circle class="v-axis-grid" cx="240" cy="240" r="80"/>
-<circle class="v-axis-grid" cx="240" cy="240" r="120"/>
-<circle class="v-axis-grid" cx="240" cy="240" r="160"/>
-<line class="v-axis" x1="240" y1="240" x2="240.0" y2="80.0"/>
-<line class="v-axis" x1="240" y1="240" x2="392.2" y2="190.6"/>
-<line class="v-axis" x1="240" y1="240" x2="334.0" y2="369.4"/>
-<line class="v-axis" x1="240" y1="240" x2="146.0" y2="369.4"/>
-<line class="v-axis" x1="240" y1="240" x2="87.8" y2="190.6"/>
-<polygon class="v-polygon" points="240.0,104.0 346.5,205.4 310.5,337.1 178.9,324.1 171.5,217.8"/>
-        <circle class="v-dot" cx="240.0" cy="104.0" r="4"/>
-<circle class="v-dot" cx="346.5" cy="205.4" r="4"/>
-<circle class="v-dot" cx="310.5" cy="337.1" r="4"/>
-<circle class="v-dot" cx="178.9" cy="324.1" r="4"/>
-<circle class="v-dot special" cx="171.5" cy="217.8" r="6"/>
-<text class="v-axis-label" x="240.0" y="43.0" text-anchor="middle">C</text>
-<text class="v-axis-name" x="240.0" y="57.0" text-anchor="middle">可控性</text>
-<text class="v-axis-label" x="420.7" y="174.3" text-anchor="middle">A</text>
-<text class="v-axis-name" x="420.7" y="188.3" text-anchor="middle">可审计</text>
-<text class="v-axis-label" x="351.7" y="386.7" text-anchor="middle">T</text>
-<text class="v-axis-name" x="351.7" y="400.7" text-anchor="middle">透明性</text>
-<text class="v-axis-label" x="128.3" y="386.7" text-anchor="middle">E</text>
-<text class="v-axis-name" x="128.3" y="400.7" text-anchor="middle">可解释</text>
-<text class="v-axis-label" x="59.3" y="174.3" text-anchor="middle">R</text>
-<text class="v-axis-name" x="59.3" y="188.3" text-anchor="middle">可逆性 ★</text>
-
-        <text class="v-node-mono" x="240" y="237" text-anchor="middle">CATER · trust</text>
-      </svg>
-    </div>
-    <div class="viz-legend"><span><i class="dot"></i>五维治理信任（不同于 VERITAS 的能力信任）</span><span><i class="dot" style="background:transparent;outline:2px solid var(--mod-c);outline-offset:-1px;border-radius:50%"></i>★ R 可逆性 — 最被低估的维度</span></div>
   </div>
 </section>
 
@@ -136,7 +97,7 @@
       <div class="glance-value">第六层 · 负责回答<span class="text-fg">「智能体值不值得信任地有用」</span>，是高价值场景的产品准入门票。</div>
     </div>
     <div class="glance-cell">
-      <div class="glance-label">理论来源</div>
+      <div class="glance-label">使用时机</div>
       <div class="glance-value">社会信任理论（卢曼，1979）+ XAI 可解释性研究（2016 起）<span class="text-fg-dim2">→</span> 创新：将"能力信任 / 治理信任"二元结构引入 Agent 设计 + 可逆性前置原则。</div>
     </div>
   </div>
@@ -192,6 +153,46 @@
       </div><!-- /.tab-panel[article] -->
 
       <div class="tab-panel is-active" data-panel="method" role="tabpanel" aria-labelledby="tab-method">
+      <!-- 可视化模型（方法论语境中展示）-->
+<div class="fw-viz" data-reveal>
+        <div class="viz-header">
+          <div class="left"><span class="viz-label">F18 · CATER 五维治理信任</span></div>
+          <span class="viz-pattern">P2</span>
+        </div>
+        <div class="viz-canvas">
+          <svg viewBox="0 0 480 480" class="viz-svg" style="max-width:480px" xmlns="http://www.w3.org/2000/svg">
+            <circle class="v-axis-grid" cx="240" cy="240" r="40"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="80"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="120"/>
+<circle class="v-axis-grid" cx="240" cy="240" r="160"/>
+<line class="v-axis" x1="240" y1="240" x2="240.0" y2="80.0"/>
+<line class="v-axis" x1="240" y1="240" x2="392.2" y2="190.6"/>
+<line class="v-axis" x1="240" y1="240" x2="334.0" y2="369.4"/>
+<line class="v-axis" x1="240" y1="240" x2="146.0" y2="369.4"/>
+<line class="v-axis" x1="240" y1="240" x2="87.8" y2="190.6"/>
+<polygon class="v-polygon" points="240.0,104.0 346.5,205.4 310.5,337.1 178.9,324.1 171.5,217.8"/>
+            <circle class="v-dot" cx="240.0" cy="104.0" r="4"/>
+<circle class="v-dot" cx="346.5" cy="205.4" r="4"/>
+<circle class="v-dot" cx="310.5" cy="337.1" r="4"/>
+<circle class="v-dot" cx="178.9" cy="324.1" r="4"/>
+<circle class="v-dot special" cx="171.5" cy="217.8" r="6"/>
+<text class="v-axis-label" x="240.0" y="43.0" text-anchor="middle">C</text>
+<text class="v-axis-name" x="240.0" y="57.0" text-anchor="middle">可控性</text>
+<text class="v-axis-label" x="420.7" y="174.3" text-anchor="middle">A</text>
+<text class="v-axis-name" x="420.7" y="188.3" text-anchor="middle">可审计</text>
+<text class="v-axis-label" x="351.7" y="386.7" text-anchor="middle">T</text>
+<text class="v-axis-name" x="351.7" y="400.7" text-anchor="middle">透明性</text>
+<text class="v-axis-label" x="128.3" y="386.7" text-anchor="middle">E</text>
+<text class="v-axis-name" x="128.3" y="400.7" text-anchor="middle">可解释</text>
+<text class="v-axis-label" x="59.3" y="174.3" text-anchor="middle">R</text>
+<text class="v-axis-name" x="59.3" y="188.3" text-anchor="middle">可逆性 ★</text>
+
+            <text class="v-node-mono" x="240" y="237" text-anchor="middle">CATER · trust</text>
+          </svg>
+        </div>
+        <div class="viz-legend"><span><i class="dot"></i>五维治理信任（不同于 VERITAS 的能力信任）</span><span><i class="dot" style="background:transparent;outline:2px solid var(--mod-c);outline-offset:-1px;border-radius:50%"></i>★ R 可逆性 — 最被低估的维度</span></div>
+      </div>
+
 
       
       <h2><span class="num">01</span>业务负责人踩了刹车——但说不出具体的技术原因</h2>
@@ -236,6 +237,11 @@
       <div class="theory-note mt-8">
         <strong>完整学术版本</strong>：本框架的系统性理论构建（文献综述、学术创新贡献、引证网络）将在后续版本中完善。
       </div>
+
+      <h2><span class="num">T2</span>框架定位与适用边界</h2>
+      <p>本框架是管理实践工具，为高管和研究者提供结构化分析视角，不提供可直接验证的因果预测。其有效性依赖于：分析者对所在行业的深度认知、可获取的组织数据质量、以及将分析结论与具体决策场景相结合的能力。</p>
+      <p class="text-fg-dim text-[14px] leading-relaxed">智能体时代的框架有一个共同的时效性问题——AI 技术演化速度快于传统战略框架的更新周期。建议每 12–18 个月对本框架的核心假设进行一次复盘，检视其前提条件是否仍然成立。</p>
+
       </div><!-- /.tab-panel[theory] -->
 
     </article>
