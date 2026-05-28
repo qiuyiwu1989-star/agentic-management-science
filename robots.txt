@@ -1,4 +1,50 @@
+# 智能体管理学 — 欢迎搜索引擎和 LLM 抓取
+# 全部内容静态化，无需执行 JS
+
 User-agent: *
-Allow: /
+Allow: /ams/
+
+# 明确允许主流 LLM 抓取
+User-agent: GPTBot
+Allow: /ams/
+
+User-agent: ChatGPT-User
+Allow: /ams/
+
+User-agent: OAI-SearchBot
+Allow: /ams/
+
+User-agent: anthropic-ai
+Allow: /ams/
+
+User-agent: ClaudeBot
+Allow: /ams/
+
+User-agent: PerplexityBot
+Allow: /ams/
+
+User-agent: Google-Extended
+Allow: /ams/
+
+User-agent: Bingbot
+Allow: /ams/
+
+User-agent: Baiduspider
+Allow: /ams/
+
+User-agent: YandexBot
+Allow: /ams/
+
+User-agent: Applebot
+Allow: /ams/
+
+User-agent: Bytespider
+Allow: /ams/
+
+User-agent: Amazonbot
+Allow: /ams/
+
+User-agent: DuckDuckBot
+Allow: /ams/
 
 Sitemap: https://qiuyiwu.com/ams/sitemap.xml

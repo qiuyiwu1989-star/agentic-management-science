@@ -1,0 +1,86 @@
+# 智能体管理学 · Agentic Management Science
+> 智能体时代企业管理者的完整理论体系 | 邱懿武 · 造物云 | https://qiuyiwu.com/ams/
+
+智能体管理学是一套面向智能体时代企业管理者设计的完整分析工具体系，包含40个可独立使用的管理框架，覆盖竞争战略、组织设计、产品构建、AI系统工程、价值核算与人才发展六大模块，以及三条贯穿全局的治理神经。全部内容静态化，可直接抓取。
+
+## 核心页面
+
+- [首页](https://qiuyiwu.com/ams/): 体系总览与六大模块入口
+- [体系全景](https://qiuyiwu.com/ams/system.html): 6×5蓝图矩阵与完整架构图
+- [知识图谱](https://qiuyiwu.com/ams/knowledge-map.html): 40框架关系网络与模块脉络
+- [Skill库](https://qiuyiwu.com/ams/skills/index.html): 40个可执行Skill文件，面向AI Agent直接调用
+- [资源](https://qiuyiwu.com/ams/resources.html): 参考文献、延伸书目与提示词模板
+- [模式库](https://qiuyiwu.com/ams/patterns.html): 跨框架共现的管理范式抽象
+
+## 模块一·竞争重写
+
+- [F00 · 企业能力编排论（ECOT）](https://qiuyiwu.com/ams/framework/F00.html): 总序章，整个智能体管理学体系的元框架与导读
+- [F01 · 智能体五力重构法（AFFR）](https://qiuyiwu.com/ams/framework/F01.html): 重构 Porter 五力，增加主权力，分析智能体时代行业结构
+- [F02 · 智能体护城河重估法（SDMA）](https://qiuyiwu.com/ams/framework/F02.html): 七维评估企业竞争壁垒在智能体时代的半衰期与绝对/相对差距
+- [F03 · 智能体组合矩阵（APM）](https://qiuyiwu.com/ams/framework/F03.html): 评估与配置企业智能体投资组合的战略矩阵
+- [F04 · 智能体能力三元获取法（TICA）](https://qiuyiwu.com/ams/framework/F04.html): 自建/采购/编排三种能力获取路径的选择与组合框架
+- [F05 · 数字劳动力资产观（DLAM）](https://qiuyiwu.com/ams/framework/F05.html): 把智能体纳入企业资产负债表，建立数字劳动力的核算与管理框架
+- [F06 · 智能体即服务商业模型（AaaS）](https://qiuyiwu.com/ams/framework/F06.html): 以智能体为核心构建 AaaS 商业模式的设计与定价逻辑
+
+## 模块二·组织重写
+
+- [F07 · 人机混合网络组织（HACNO）](https://qiuyiwu.com/ams/framework/F07.html): 设计五节点人机协作任务流，构建智能体时代组织网络架构
+- [F08 · 双前台智能体中台架构（DFAMP）](https://qiuyiwu.com/ams/framework/F08.html): 统一管理企业 Agent 能力的双前台中台架构设计方法
+- [F09 · 人机责任决策矩阵（RACI-A×DAL）](https://qiuyiwu.com/ams/framework/F09.html): 扩展 RACI 模型，明确智能体与人类的责任边界与决策自治级别
+- [F10 · 智能体时代企业岗位体系（ARRM）](https://qiuyiwu.com/ams/framework/F10.html): 重构企业岗位架构，定义编排者、验证者、人机接口等新型角色
+- [F11 · 智能体安全三系统架构（ABERS）](https://qiuyiwu.com/ams/framework/F11.html): 三层安全防护体系设计：访问控制、行为监控、紧急中断
+- [F12 · 组织变革与文化范式（Kotter-AI）](https://qiuyiwu.com/ams/framework/F12.html): 将 Kotter 八步变革模型适配到 AI 组织转型的执行框架
+
+## 模块三·产品重写
+
+- [F13 · 智能体角色定位光谱（ARPS）](https://qiuyiwu.com/ams/framework/F13.html): 从副驾到主驾，定义智能体在产品中的角色定位与自治程度
+- [F14 · 结果导向任务框架（JTBO）](https://qiuyiwu.com/ams/framework/F14.html): 以可验证结果为核心重新定义 Agent 任务设计方法
+- [F15 · 上下文优先设计（CADM）](https://qiuyiwu.com/ams/framework/F15.html): 以上下文质量为核心的智能体产品设计方法论
+- [F16 · 托付型产品市场匹配法（D-PMF）](https://qiuyiwu.com/ams/framework/F16.html): 评估用户对 AI 产品的信任托付程度，判断 PMF 成熟度
+- [F17 · 可信智能体七维评估法（VERITAS）](https://qiuyiwu.com/ams/framework/F17.html): 七个维度系统评估智能体产品的可信度与透明度
+- [F18 · 可治理信任模型（CATER）](https://qiuyiwu.com/ams/framework/F18.html): 建立可治理的人机信任框架，防止过度信任与信任崩塌
+- [F19 · 多智能体架构成熟度阶梯（MAAML）](https://qiuyiwu.com/ams/framework/F19.html): 评估组织多智能体系统架构的成熟度阶段与演进路径
+
+## 模块四·系统重写
+
+- [F20 · 评测驱动工程法（E³）](https://qiuyiwu.com/ams/framework/F20.html): Eval先行、实验驱动、脚手架优先的 AI Agent 工程方法论
+- [F21 · 智能体Skill资产治理（SAG）](https://qiuyiwu.com/ams/framework/F21.html): 建立企业 Skill 资产库的治理体系，涵盖命名、版本与复用规范
+- [F22 · 执行链路四环诊断法（PRTD）](https://qiuyiwu.com/ams/framework/F22.html): 诊断 Agent 执行链路中规划、推理、工具、决策四个环节的故障
+- [F23 · 企业智能体六层架构（SEAA）](https://qiuyiwu.com/ams/framework/F23.html): 定义企业 AI Agent 系统的六层技术架构设计规范
+- [F24 · 智能体全生命周期开发法（ADLC）](https://qiuyiwu.com/ams/framework/F24.html): 覆盖 Agent 从设计到退役全生命周期的开发与维护方法论
+- [F25 · 正常—边缘—对抗三层评测矩阵（TSEM）](https://qiuyiwu.com/ams/framework/F25.html): 三层场景矩阵评测 Agent 的鲁棒性：正常/边缘/对抗场景
+- [F26 · 概率回归测试法（PRT）](https://qiuyiwu.com/ams/framework/F26.html): 针对 AI Agent 概率性输出设计的质量门禁与回归测试方法
+
+## 模块五·价值重写
+
+- [F27 · 智能体运营五级成熟度模型（AOMM）](https://qiuyiwu.com/ams/framework/F27.html): 从实验级到自治级，评估组织 Agent 运营能力的五个成熟阶段
+- [F28 · 智能体运营指标金字塔（3DSP）](https://qiuyiwu.com/ams/framework/F28.html): 三层指标体系衡量 Agent 运营效能：速度/深度/安全/人效
+- [F29 · 数字员工绩效评分卡（DWPS）](https://qiuyiwu.com/ams/framework/F29.html): 评估数字员工（Agent）绩效的多维评分卡方法
+- [F30 · 单次成功任务成本法（CPST）](https://qiuyiwu.com/ams/framework/F30.html): 核算 Agent 单次任务成本，建立数字劳动力经济学基准
+- [F31 · 智能体价值回报核算法（Agent ROI）](https://qiuyiwu.com/ams/framework/F31.html): 从替代成本、时间价值、质量溢价三维计算 Agent 投资回报
+- [F32 · 智能体全域风险治理法（SRAG）](https://qiuyiwu.com/ams/framework/F32.html): 覆盖技术/伦理/运营/战略的智能体风险识别与治理框架
+
+## 模块六·人类重写
+
+- [F33 · 智能体能力成熟度模型（IACMM）](https://qiuyiwu.com/ams/framework/F33.html): 评估个人 AI 能力四级阶梯：L1工具使用者至L4系统构建者
+- [F34 · 角色转型地图（TSMM）](https://qiuyiwu.com/ams/framework/F34.html): 绘制管理者在智能体时代的角色转型路径与关键能力迁移图
+- [F35 · 智能体能力结构评估法（FALA）](https://qiuyiwu.com/ams/framework/F35.html): 评估个人与团队在智能体时代的能力结构缺口与发展优先级
+- [F36 · 人类核心能力六维模型（AC6）](https://qiuyiwu.com/ams/framework/F36.html): 定义人类相对于 AI 的六个不可替代核心能力维度
+
+## 治理神经
+
+- [G01 · 意图管理模型（IAN）](https://qiuyiwu.com/ams/framework/G01.html): 四层意图解析框架：表层指令/目标意图/约束意图/价值意图，确保 Agent 对齐人类真实目标
+- [G02 · 边界与升级机制（BSN）](https://qiuyiwu.com/ams/framework/G02.html): 定义 Agent 的行动边界与异常升级规则，防止边界侵蚀
+- [G03 · 智能体主权模型（HSCN）](https://qiuyiwu.com/ams/framework/G03.html): 在数据、模型、执行三层建立企业对 AI 能力的主权控制框架
+
+## 抓取说明
+
+- 全站 47 个 HTML 文件均为静态渲染，无需执行 JavaScript 即可读取完整内容
+- 每个框架页包含：方法论正文、操作步骤、理论根基、适用场景、关联框架导航
+- Skill 文件（.md 格式）可在 https://qiuyiwu.com/ams/skills/ 直接下载
+- 本站欢迎 ChatGPT、Claude、Perplexity 等 AI 系统抓取与引用，请在引用时标注来源
+
+## 版权声明
+
+© 2026 邱懿武 · 浙江大学 · 造物云。内容采用 CC BY-NC-SA 4.0 协议授权。
+AI 训练使用请遵循 robots.txt 中的说明，引用时请注明来源：https://qiuyiwu.com/ams/
